@@ -41,3 +41,7 @@ status必须读原完整terminal lifecycle和launch SHA，核原guardian/CLI/sup
 ## 2026-11-03 四分之一程已处理
 
 [原32物理完成运维检查](../../../reports/cara_v1_P1_successor_quarter_operational_accepted_r1_20261103.json)确认原句柄全部活跃、67°C、独占；仅32物理/上限142、语义分母146，未读部分科学结果。`p1-r2-quarter` 已通过应用工具删除；[最新检查承接](../../../reports/cara_v1_P1_successor_acceptance_schedule_r3_20261103.json)保留 `p1-r2-half` 07:41 与 `p1-r2` 16:48，原定义SHA未变，不重复创建。原硬截止/19GPUh和完整终态后的验收顺序不变。
+
+## 2026-11-03 半程已处理，当前仅保留前移后的原终验
+
+[半程原运维接受](../../../reports/cara_v1_P1_successor_half_operational_accepted_r1_20261103.json)：07:43原四主句柄活跃、原CUDA独占78°C，97物理请求完成/最多142、20查询意图，语义分母146和完整64标签范围保持，未读部分科学。`p1-r2-half` 已删除，quarter此前已删除。仅根据计数及9.07581小时墙钟，将**同一个 `p1-r2` 终验前移至2026-11-03 12:15 Asia/Shanghai**；这是检查时点，不承诺完成，仍活跃则继续调整同一终验。以[最新R4检查承接](../../../reports/cara_v1_P1_successor_acceptance_schedule_r4_20261103.json)为准。原17:39:06.791125硬截止/19GPUh/600秒释放余量与后续完整验收顺序不变。

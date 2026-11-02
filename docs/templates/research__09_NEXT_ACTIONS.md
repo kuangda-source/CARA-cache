@@ -6,7 +6,7 @@
 
 [865原实际启动](repo:research/865_CARA_P1_REPAIRED_SUCCESSOR_ACTUAL_START_AND_THREE_CHECKS_20261102.md)：修复后的新P1 R2已于11月2日22:39:06.791125在原A6000启动，完整146语义/最多142物理/64标签、19D22D保持。用户新单次19GPUh和原账本事务已批准，完整资产/资源门通过，一次19预约、cap250未增额；原R1失败4.933201964费用独立保留。
 
-仅按[原R2交接](repo:plans/cara_next_stage_20261101/source_lifecycle/P1_SUCCESSOR_R2_POST_LAUNCH_HANDOFF_20261102.md)恢复，禁止重派/改源或部分指标。[866运维检查](repo:research/866_CARA_P1_R2_QUARTER_OPERATIONAL_CHECK_20261103.md)已完成并删除单次1/4检查；原句柄活跃、32物理请求完成，科学语义分母146保持。11月3日07:41半程、16:48终验保持，硬截止17:39:06.791125，600秒释放余量。完整成功退出、释放和唯一结算后才一次CPU完整52接受、一次原FIT冻结、完整原字节导出/本机绘图。原CPU活跃只恢复；失败保存全分母与实际费用，不冻结/不自动下一卡。旧CAL/曝光CHECK及最终16/备用16和所有旧冻结保持。
+仅按[原R2交接](repo:plans/cara_next_stage_20261101/source_lifecycle/P1_SUCCESSOR_R2_POST_LAUNCH_HANDOFF_20261102.md)恢复，禁止重派/改源或部分指标。[866运维检查](repo:research/866_CARA_P1_R2_QUARTER_OPERATIONAL_CHECK_20261103.md)已完成并删除单次1/4检查；原句柄活跃、32物理请求完成，科学语义分母146保持。[867半程检查](repo:research/867_CARA_P1_R2_HALF_OPERATIONAL_AND_TERMINAL_ADVANCE_20261103.md)已处理并删除；97个物理请求完成/最多142、20查询意图未读科学。仅按计数及墙钟将同一个p1-r2终验前移至11月3日12:15，若仍活跃继续同一检查；硬截止17:39:06.791125，600秒释放余量。完整成功退出、释放和唯一结算后才一次CPU完整52接受、一次原FIT冻结、完整原字节导出/本机绘图。原CPU活跃只恢复；失败保存全分母与实际费用，不冻结/不自动下一卡。旧CAL/曝光CHECK及最终16/备用16和所有旧冻结保持。
 
 {{queue}}
 
