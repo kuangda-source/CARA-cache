@@ -36,11 +36,23 @@ def main():
         '7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02',
         str(project/'envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/lpips/weights/v0.1/alex.pth'):
         'df73285e35b22355a2df87cdb6b70b343713b667eddbda73e1977e0c860835c0'}
+    # Recover the large identical source maps from the SHA-bound CPU parent;
+    # sending them again can stall the original intermittent SSH hop.
+    wire_proof=proof.copy();wire_proof['payload_sha256']=None;wire_proof['runtime_source_sha256']=None
     payload=dict(action=args.action,stage=str(project/'.sync/cara-source-lifecycle-V1-P1-GPU-a6000-full146-r2-20261102'),
         source_revision=proof['source_revision'],base_stage=cap['launch']['stage'],base_registration_sha256=cap['registration_sha256'],
-        proof=proof,quote=read('plans/cara_next_stage_20261101/source_lifecycle/V1_P1_WHOLE_QUOTE_R2.json'),
+        proof=wire_proof,quote=read('plans/cara_next_stage_20261101/source_lifecycle/V1_P1_WHOLE_QUOTE_R2.json'),
         storage=read('reports/cara_v1_P1_successor_storage_accepted_r2_20261102.json'),score_environment=environment)
-    packet=dict(code=wrapped_rpc_code(REMOTE),arguments=payload)
+    reconstruct="""import hashlib,json,pathlib
+_wire=packet['arguments'];_registration=pathlib.Path(_wire['base_stage'])/'registration.json'
+assert hashlib.sha256(_registration.read_bytes()).hexdigest()==_wire['base_registration_sha256']
+_base=json.loads(_registration.read_bytes())
+assert _wire['proof']['payload_sha256'] is None and _wire['proof']['runtime_source_sha256'] is None
+_wire['proof']['payload_sha256']=_base['payload_sha256']
+_wire['proof']['runtime_source_sha256']=_base['runtime_source_sha256']
+"""
+    remote_code=reconstruct+REMOTE
+    packet=dict(code=wrapped_rpc_code(remote_code),arguments=payload)
     body=base64.b64encode(gzip.compress(json.dumps(packet).encode())).decode();secret=password()
     cmd="sudo -S -p '' -u gaokuangda -g docker /home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python -c "+shlex.quote(
         "import sys,json,gzip,base64;packet=json.loads(gzip.decompress(base64.b64decode(sys.stdin.read())));exec(packet['code'])")
@@ -59,7 +71,7 @@ def main():
     receipt=dict(action=args.action,exit_code=child.returncode,result=result,started_unix=started,observed_unix=time.time(),
         stderr=err.decode(errors='replace').replace(secret,'[REDACTED]'),
         transport_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
-        remote_code_sha256=hashlib.sha256(REMOTE.encode()).hexdigest(),GPU_submissions=0,ledger_written=False,
+        remote_code_sha256=hashlib.sha256(remote_code.encode()).hexdigest(),GPU_submissions=0,ledger_written=False,
         unknown_requires_original_capture=True)
     with args.output.open('x') as stream:json.dump(receipt,stream,indent=2);stream.write('\n')
     print(json.dumps(dict(exit_code=child.returncode,status=(result or {}).get('status'),

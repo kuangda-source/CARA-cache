@@ -2,11 +2,11 @@
 
 {{next_stage_notice}}
 
-## 当前主线：先修复 P1 请求发布，CPU 回归通过后重做整卡评审
+## 当前主线：修复已通过，新单次完整准备等待批准
 
-[863原失败收尾](repo:research/863_CARA_P1_QUERY_PUBLICATION_RACE_FAILURE_AND_UNIQUE_SETTLEMENT_20261102.md)：原P1在第三个内部FIT查询的目录发布窗口失败，38物理请求完成、完整146语义未接受。原GPU/服务/锁释放、Default恢复，4.933201964GPUh唯一结算，原19预约解除；cap250/旧16.5保持。所有三个检查已删除，未后评分或冻结。
+[864新准备](repo:research/864_CARA_P1_PUBLICATION_RPC_REPAIRED_CPU_AND_SUCCESSOR_READY_20261102.md)：发布竞态与RPC输出包装修复已通过本地28/Linux33；独立R2身份本地57/Linux56、1473源和新64GiB/48MiB存储已接受，原准备进程结束。原R1失败与4.933201964GPUh唯一结算保留，禁止重派/重评其部分结果。
 
-先以CPU确定性暂停覆盖目录可见到request发布的窗口，设计完整请求原子发布，并验证完整发布只派一次、既有响应复用及真正残缺/未知原查询继续拒绝；同时修复central-recover的saved/stdout变量碰撞。原源码和失败工件保留，不恢复已结束GPU、不重评已接受内部FIT。新的GPU卡待完整准备、范围与预算评审后单独批准；本次单次19GPUh不复用。最终16/备用16及所有旧冻结保持，V2不阻塞V1。
+[新完整审批卡](repo:plans/cara_next_stage_20261101/source_lifecycle/V1_P1_REPAIRED_SUCCESSOR_SINGLE19_REVIEW_R2.md)：完整146语义/最多142物理/64标签、19D22D及原选择规则保持；预计18.05067GPUh、建议硬19。新GPU及本卡原中央事务未授权，未预约/启动或访问四卡。批准后按[新交接](repo:plans/cara_next_stage_20261101/source_lifecycle/P1_REPAIRED_SUCCESSOR_PRELAUNCH_HANDOFF_R2_20261102.md)完整fresh资源/资产/预算准入，唯一启动并按实际开始设1/4、半程和终验。源/CPU/存储不再prepare，UNKNOWN只恢复原句柄；本次不请求新cap增额。完整成功释放/唯一结算后才一次CPU/一次FIT冻结。最终16/备用16和旧冻结保持。
 
 {{queue}}
 

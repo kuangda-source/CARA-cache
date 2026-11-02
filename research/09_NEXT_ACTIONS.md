@@ -2,7 +2,7 @@
 
 # CARA-Cache 后续实验顺序
 
-[863 — P1请求发布竞态失败，已释放和唯一结算](863_CARA_P1_QUERY_PUBLICATION_RACE_FAILURE_AND_UNIQUE_SETTLEMENT_20261102.md)：原P1于11月2日20:40退出，38物理请求完成/142上界、语义分母146未完整；第三个内部FIT请求目录在request.json发布前被消费者读到并按torn保护停止。原进程/服务/锁释放、Default恢复，原guardian实耗4.933201964GPUh唯一结算；cap250、旧16.5保持，available31.544962。原临时账本operator缓存缺失后仅恢复同115份验证字节，原预约回读未变。1/4、半程和终验三检查全部删除；未重派、后评分或冻结。下一步仅准备CPU发布时序回归与RPC stdout包装修复，新GPU另行完整评审；旧科学结果和保护输入保持。
+[864 — P1两处修复通过，独立新单次准备完成](864_CARA_P1_PUBLICATION_RPC_REPAIRED_CPU_AND_SUCCESSOR_READY_20261102.md)：FIT目录原子发布与RPC命名空间已修复，确定性旧故障复现后，本地28/Linux33全部通过；新R2身份本地57/Linux56、完整1473源包与独立64GiB/48MiB存储已接受，原CPU/准备进程均结束。原R1失败4.933201964GPUh结算和所有旧冻结保持，新卡完整146/64/19D22D不复用失败部分结果。预计18.05067GPUh/建议硬19；宿主50GiB/每查询12、40/8/no swap及90C保持，准备快照50.106GiB/原GPU空闲45C。新GPU与原中央事务尚未授权或启动；完整审批卡已准备，批准后仍fresh准入并按实际开始设1/4/半程/终验。
 
 [826 — E1完整验收：CFG有机制增量，当前S不晋级](826_CARA_ENDPOINT7_COMPLETE_ACCEPTANCE_RESULTS_AND_REGISTERED_DECISION_20261101.md)：接口修复后46/46、13RGB和28评分完整接受（16新+12原行）；原GPU3.055673007GPUh已结算。S-CFG较DIAG LPIPS低1.53%且4/4同向，但比F19-A1高102.83%；按预注册仅保留机制增量，当前S不晋级。全93帧与双时钟图表完成，检查已删。
 
@@ -18,11 +18,11 @@
 
 [756 B36完整验收、结果与正式图表](756_CARA_B36_COMPLETE_ACCEPTANCE_RESULTS_AND_FIGURES_20261029.md)：B36完整36/36、0失败，原GPU/CPU/导图CPU均正常退出；原费用2.384553982338661GPUh已中央唯一结算，5.5GPUh硬限、cap226及旧16.5保持。26新评分＋六原A指标组成完整32接受；原规则汇总及四组PNG/PDF、四CSV均完成，两个自动检查已删除。4旧CAL输入等权结果：F19_C为1.703×T_DD、1.486×完整请求，Alex0.24936，较同19D的Uniform19_C降低46.82%；F19_A1为1.691×/1.479×、Alex0.23150，较F19_C再降7.16%，T_DD开销0.70%。WC/RA保持FIT UNMATCHED，原A32评分与冻结未重做；CHECK仍为旧CAL内部留出。10月30日原Tailscale入口恢复后已只读复核中央原结算；原费用和完整接受保持，新GPU仍需fresh准入。 [B36唯一启动回执](../reports/cara_fast_B36_GPU_actual_launch_r1_20261029.json) · [原句柄与验收交接](../plans/cara_next_stage_20261028/mainline/r2/B36_POST_LAUNCH_HANDOFF.md)
 
-## 当前主线：先修复 P1 请求发布，CPU 回归通过后重做整卡评审
+## 当前主线：修复已通过，新单次完整准备等待批准
 
-[863原失败收尾](863_CARA_P1_QUERY_PUBLICATION_RACE_FAILURE_AND_UNIQUE_SETTLEMENT_20261102.md)：原P1在第三个内部FIT查询的目录发布窗口失败，38物理请求完成、完整146语义未接受。原GPU/服务/锁释放、Default恢复，4.933201964GPUh唯一结算，原19预约解除；cap250/旧16.5保持。所有三个检查已删除，未后评分或冻结。
+[864新准备](864_CARA_P1_PUBLICATION_RPC_REPAIRED_CPU_AND_SUCCESSOR_READY_20261102.md)：发布竞态与RPC输出包装修复已通过本地28/Linux33；独立R2身份本地57/Linux56、1473源和新64GiB/48MiB存储已接受，原准备进程结束。原R1失败与4.933201964GPUh唯一结算保留，禁止重派/重评其部分结果。
 
-先以CPU确定性暂停覆盖目录可见到request发布的窗口，设计完整请求原子发布，并验证完整发布只派一次、既有响应复用及真正残缺/未知原查询继续拒绝；同时修复central-recover的saved/stdout变量碰撞。原源码和失败工件保留，不恢复已结束GPU、不重评已接受内部FIT。新的GPU卡待完整准备、范围与预算评审后单独批准；本次单次19GPUh不复用。最终16/备用16及所有旧冻结保持，V2不阻塞V1。
+[新完整审批卡](../plans/cara_next_stage_20261101/source_lifecycle/V1_P1_REPAIRED_SUCCESSOR_SINGLE19_REVIEW_R2.md)：完整146语义/最多142物理/64标签、19D22D及原选择规则保持；预计18.05067GPUh、建议硬19。新GPU及本卡原中央事务未授权，未预约/启动或访问四卡。批准后按[新交接](../plans/cara_next_stage_20261101/source_lifecycle/P1_REPAIRED_SUCCESSOR_PRELAUNCH_HANDOFF_R2_20261102.md)完整fresh资源/资产/预算准入，唯一启动并按实际开始设1/4、半程和终验。源/CPU/存储不再prepare，UNKNOWN只恢复原句柄；本次不请求新cap增额。完整成功释放/唯一结算后才一次CPU/一次FIT冻结。最终16/备用16和旧冻结保持。
 
 [最新计划与对话分工](../plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md)；A32 GPU阶段已接受，其余按各卡条件推进，评分/科学解释分开验收。
 
