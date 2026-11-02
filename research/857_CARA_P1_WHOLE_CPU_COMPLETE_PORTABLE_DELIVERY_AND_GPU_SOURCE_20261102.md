@@ -1,6 +1,6 @@
 # P1整卡CPU组合接受、便携交付与GPU源包准备
 
-P1整卡CPU准备已按原源与原回执组合接受，Linux原导出包到本机绘图的交付链已通过。新64GiB输出/48MiB日志、完整工程报价和拟议19GPUh配置均就绪；GPU源包尚待实际绑定，GPU及本卡中央权限仍为空。
+P1整卡CPU准备已按原源与原回执组合接受，Linux原导出包到本机绘图的交付链已通过。新64GiB输出/48MiB日志、完整工程报价和拟议19GPUh配置均就绪；唯一GPU源包也已实际绑定并经独立capture接受，GPU及本卡中央权限仍为空。
 
 ## 原最终CPU与交付
 
@@ -26,4 +26,6 @@ P1整卡CPU准备已按原源与原回执组合接受，Linux原导出包到本�
 
 [源包操作器](../scripts/cara_source_lifecycle_p1_source_r1.py)只从上述已结束、完整接受的最终CPU复制原字节到唯一新P1 GPU stage，绑定原存储、完整CPU/报价与离线评分权重。已有意图、授权、容器或部分stage均只恢复；资源/权重检查先于新stage创建，不创建授权或GPU进程。
 
-源包实际接受后，提交[完整单卡审阅](../plans/cara_next_stage_20261101/source_lifecycle/V1_P1_SINGLE_CARD_REVIEW_DRAFT_R1.md)。审批为完整19GPUh及本卡原中央读取/唯一预约/实耗结算；实时资源与余额核验通过才启动。250秒/标签仍是预算假设，旧16.5责任、cap226与24增量规则、四卡维护限制和全部旧冻结/保护输入保持。
+[原源包接受](../reports/cara_v1_P1_source_accepted_r1_20261102.json)已完成：全1462份源码及四sidecar逐字节一致，GPU source registration为`bded3f7a6cdbfe12f0993720e910a489230ae43b7975a48a7745259a5f96069b`，没有GPU意图、授权或容器。既有stage只capture，禁止再prepare。现提交[完整单卡审批卡](../plans/cara_next_stage_20261101/source_lifecycle/V1_P1_SINGLE_CARD_REVIEW_R1.md)及[待审批请求](../plans/cara_next_stage_20261101/source_lifecycle/V1_P1_REVIEW_REQUEST_R1_20261102.json)。审批为完整19GPUh及本卡原中央读取/唯一预约/实耗结算；实时资源与余额核验通过才启动。250秒/标签仍是预算假设，旧16.5责任、cap226与24增量规则、四卡维护限制和全部旧冻结/保护输入保持。
+
+[实际连接/资源只读快照](../reports/cara_v1_P1_review_resources_readonly_r1_20261102.json)确认SSH通路可用、原A6000空闲44°C；宿主MemAvailable49.8218GiB低于52GiB，尚未准入。批准不替代资源门，不降低门槛或动用其他用户资源。本次未访问四卡、未读写中央账本、未启动GPU。

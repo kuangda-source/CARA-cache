@@ -18,6 +18,10 @@
 
 [756 B36完整验收、结果与正式图表](756_CARA_B36_COMPLETE_ACCEPTANCE_RESULTS_AND_FIGURES_20261029.md)：B36完整36/36、0失败，原GPU/CPU/导图CPU均正常退出；原费用2.384553982338661GPUh已中央唯一结算，5.5GPUh硬限、cap226及旧16.5保持。26新评分＋六原A指标组成完整32接受；原规则汇总及四组PNG/PDF、四CSV均完成，两个自动检查已删除。4旧CAL输入等权结果：F19_C为1.703×T_DD、1.486×完整请求，Alex0.24936，较同19D的Uniform19_C降低46.82%；F19_A1为1.691×/1.479×、Alex0.23150，较F19_C再降7.16%，T_DD开销0.70%。WC/RA保持FIT UNMATCHED，原A32评分与冻结未重做；CHECK仍为旧CAL内部留出。10月30日原Tailscale入口恢复后已只读复核中央原结算；原费用和完整接受保持，新GPU仍需fresh准入。 [B36唯一启动回执](../reports/cara_fast_B36_GPU_actual_launch_r1_20261029.json) · [原句柄与验收交接](../plans/cara_next_stage_20261028/mainline/r2/B36_POST_LAUNCH_HANDOFF.md)
 
+## 当前主线：V1 P1整卡审批
+
+[完整审批卡](../plans/cara_next_stage_20261101/source_lifecycle/V1_P1_SINGLE_CARD_REVIEW_R1.md)已就绪：完整146语义／最多142物理、64同状态标签，自动19D/22D双来源规划、嵌套消融与同实际费用LPIPS搜索；预计18.02734GPUh、硬19GPUh。整卡CPU、唯一源包、64GiB存储和原字节便携导出已接受，尚无GPU或本卡中央事务授权。原SSH通路实际成功；最近49.82GiB主机内存快照低于52GiB门，获批后仍等待实时准入，不降低门槛。见[857原证据](857_CARA_P1_WHOLE_CPU_COMPLETE_PORTABLE_DELIVERY_AND_GPU_SOURCE_20261102.md)。P0已完整接受；V2不阻塞V1，最终16/备用16继续保留。
+
 [最新计划与对话分工](../plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md)；A32 GPU阶段已接受，其余按各卡条件推进，评分/科学解释分开验收。
 
 | 顺序 / 负责人 | 当前阶段 | 下一项验收 / 动作 |
