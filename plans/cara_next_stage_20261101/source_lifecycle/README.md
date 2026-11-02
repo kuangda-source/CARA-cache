@@ -4,6 +4,8 @@
 
 ## 方法与证据
 
+[完整方法与证据对应](V1_METHOD_AND_EVIDENCE_MAP_R1.md)已对齐当前固定实现；[无标签设计几何审计](../../../reports/cara_v1_P1_label_free_design_geometry_r1_20261102.json)确认22种来源三元组、四折训练特征满列秩和三个来源跨度对照。实际标签预测与视频效果由完整P1检验。
+
 固定Cosmos、实际36更新的UniPC、CFG7和纯C读出。候选自身当前状态支付shadow Dense，取实际CFG输出误差；不借Native另一轨迹作同状态真值，shadow不写回父轨迹。按噪声位置、当前真实D的sigma年龄、前两个D的sigma间距拟合固定低阶非负风险。首版三种嵌套特征为phase、phase+age、phase+age+gap，使用同一程序和候选额度。
 
 连续真实D为a,b,c时，代理区间代价为`sum_{b<t<c} w[t]*q(t,a,b)`；`w`取固定原UniPC单步在冻结历史下对当前velocity的响应系数平方，包含本步corrector/predictor。它是数值尺度，不是终点敏感度。双来源DP在每次改变来源后重算受影响区间，精确优化这个代理；latent、UniPC历史和C工作状态被压缩后的影响，交由自由运行的完整视频检验。
@@ -25,6 +27,8 @@
 报告W_C、W_D、读出、总收益和交互，不从部分结果挑条件。按有消费者位置的重复可辨写入作用及可信状态拆分决定是否继续，不设机械5%线。原35步附近“无未来C消费者”的写缓存交换已在原算子小权重CPU上得到剩余latent逐值相同控制。完整缓存仍保存三个物理槽和全部工作状态，不能把“两来源代理”误用成只保存两个张量。
 
 ## P1：完整V1与公平搜索
+
+**当前P1完整CPU、唯一GPU源包和独立64GiB存储已接受，正在等待单次GPU/账本审批。** [857完整准备](../../../research/857_CARA_P1_WHOLE_CPU_COMPLETE_PORTABLE_DELIVERY_AND_GPU_SOURCE_20261102.md)与[审批卡](V1_P1_SINGLE_CARD_REVIEW_R1.md)为当前入口：146语义／最多142物理，保守预计18.02734GPUh、硬19GPUh。最近49.82GiB内存快照低于52GiB，批准后仍须实时准入。下列845–849为保留的阶段性准备记录；已结束原件不重跑，旧13.0989GPUh草案不用于启动。
 
 [849监督服务共同收尾](../../../research/849_CARA_P1_GUARDIAN_FIT_LINUX_CPU_AND_SNAPSHOT_COST_AUDIT_20261102.md)新增原Linux34控制无skip接受，五原进程场景验证同一guardian时钟、服务/GPU替身失败关闭与未知保留，原CPU结束。完整生产总入口和释放后146接受仍待；快照费用经旧P0完整元数据复核须重新论证，13.0989GPUh草案尚不可冻结，P1 GPU与中央许可仍无。
 
