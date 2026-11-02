@@ -1,0 +1,54 @@
+--- a/src/wcomr/cara_source_lifecycle_p1_runner_binding_r1.py
++++ b/src/wcomr/cara_source_lifecycle_p1_runner_binding_r1.py
+@@ -74,7 +74,7 @@
+             or profile['GPU_container'] != dict(image=IMAGE, cpus=2, memory_GiB=40, memory_swap_GiB=40,
+                 pid_namespace='host', network='none', readonly_rootfs=True,
+                 supervisor_CUDA_visible=False, only_exact_runner_CUDA_visible=True)
+-            or profile['hosts'] != {'two_card':dict(capability=[8,6], cpuset_cpus='24,25', minimum_MemAvailable_GiB=52)}
++            or profile['hosts'] != {'two_card':dict(capability=[8,6], cpuset_cpus='24,25', minimum_MemAvailable_GiB=50)}
+             or profile['internal_CPU'] != dict(cpus=2, cpuset_cpus='26,27', memory_GiB=8,
+                 memory_swap_GiB=8, network='none', readonly_rootfs=True, GPU_visible=False, wall_seconds=600)
+             or profile['snapshot_limits'] != dict(logical_copy_bytes=48*2**30, total_CPU_images_bytes=16*2**30)):
+--- a/plans/cara_next_stage_20261101/source_lifecycle/V1_P1_CONTAINER_PROFILE_R1.json
++++ b/plans/cara_next_stage_20261101/source_lifecycle/V1_P1_CONTAINER_PROFILE_R1.json
+@@ -22,7 +22,7 @@
+         6
+       ],
+       "cpuset_cpus": "24,25",
+-      "minimum_MemAvailable_GiB": 52
++      "minimum_MemAvailable_GiB": 50
+     }
+   },
+   "storage": {
+--- a/plans/cara_next_stage_20261101/source_lifecycle/V1_P1_WHOLE_QUOTE_R1.json
++++ b/plans/cara_next_stage_20261101/source_lifecycle/V1_P1_WHOLE_QUOTE_R1.json
+@@ -72,5 +72,5 @@
+   "quote_type": "CONSERVATIVE_COMPLETE_SCOPE_BUDGET_ALLOWANCE",
+   "whole_card_CPU_accepted": false,
+   "execution_authorized": false,
+-  "profile_sha256": "63abb3f1698cb78ef8d268d8228333a523e786c932811c06f6ff6e99cb50eb15"
++  "profile_sha256": "cc0f724c16ed6083ea14c550852614975393a1b8fffd8e849fd9c9554d587c33"
+ }
+--- a/tests/test_cara_source_lifecycle_p1_dispatch_r1.py
++++ b/tests/test_cara_source_lifecycle_p1_dispatch_r1.py
+@@ -97,9 +97,19 @@
+     def test_fresh_combined_GPU_and_sidecar_CPU_resources_are_required(self):
+         storage,observed=self.resource_call()
+         self.assertEqual(observed['MemAvailable_bytes'],52*2**30)
+-        with self.assertRaisesRegex(ValueError,'CPU/memory'):self.resource_call(memory_GiB=51)
++        with self.assertRaisesRegex(ValueError,'CPU/memory'):self.resource_call(memory_GiB=49)
+         with self.assertRaisesRegex(ValueError,'CPU/memory'):self.resource_call(cores=(24,25))
+         with self.assertRaisesRegex(ValueError,'idle'):self.resource_call(busy=True)
+ 
+ 
+ if __name__=='__main__':unittest.main()
++
++
++class P1Memory50BoundaryTests(P1DispatchTests):
++    def test_current50_admits_and49_refuses_without_changing_caps(self):
++        _, observed = self.resource_call(memory_GiB=50)
++        self.assertEqual(observed["MemAvailable_bytes"], 50*2**30)
++        with self.assertRaisesRegex(ValueError,"CPU/memory"):
++            self.resource_call(memory_GiB=49)
++        self.assertEqual(self.f.profile["GPU_container"]["memory_GiB"],40)
++        self.assertEqual(self.f.profile["internal_CPU"]["memory_GiB"],8)

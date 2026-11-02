@@ -1,0 +1,103 @@
+{
+  "exit_code": 0,
+  "result": {
+    "status": "P1_MEMORY50_CPU_PROPOSAL_TERMINAL",
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-P1-memory50-CPU-proposal-r1-20261102",
+    "source": {
+      "schema": "P1_MEMORY50_CPU_CANDIDATE_SOURCE_R1",
+      "base_GPU_registration_sha256": "bded3f7a6cdbfe12f0993720e910a489230ae43b7975a48a7745259a5f96069b",
+      "base_source_revision": "dd2a73060f4097ceb91dd66c8a5f98a33fe65092",
+      "base_stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-source-lifecycle-V1-P1-GPU-a6000-full146-r1-20261102",
+      "candidate_stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-P1-memory50-CPU-proposal-r1-20261102",
+      "overlay_sha256": {
+        "src/wcomr/cara_source_lifecycle_p1_runner_binding_r1.py": "7e322bff3a027c87d08d21aacf7c8319fd35cc2322c6c76ec65e74e13c24b6ec",
+        "plans/cara_next_stage_20261101/source_lifecycle/V1_P1_CONTAINER_PROFILE_R1.json": "cc0f724c16ed6083ea14c550852614975393a1b8fffd8e849fd9c9554d587c33",
+        "plans/cara_next_stage_20261101/source_lifecycle/V1_P1_WHOLE_QUOTE_R1.json": "e479f4ae4febe79c5ee6546acc298f91c7cf5dbc61189bc7e6925098baca2df4",
+        "tests/test_cara_source_lifecycle_p1_dispatch_r1.py": "c90e977ab011a97534d50d4eda137d7e7ad3d6f307ee4d640f76a52bbc78653d",
+        "scripts/check_cara_p1_memory50_CPU_r1.py": "ce611041b6188e0ad70215f391c40ff7881cbd699484d922baf4c121cf845d67"
+      },
+      "GPU_submissions": 0,
+      "ledger_written": false
+    },
+    "terminal": {
+      "identity": {
+        "pid": 3335867,
+        "start_ticks": 689798677,
+        "host_view": {
+          "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+          "pid_namespace_inode": 4026531836
+        },
+        "original_command_sha256": "2e2de7ae506e4e3e056fb9ae5b59b259011e97ddb58d93241537ac77427836c1"
+      },
+      "ended_unix": 1793603114.9726465,
+      "exit_code": 0,
+      "error": null,
+      "observation": {
+        "observed_unix": 1793603114.9726975,
+        "original_pid": 3335867,
+        "original_start_ticks": 689798677,
+        "original_live": false,
+        "status": "ORIGINAL_NOT_LIVE",
+        "reason": "ORIGINAL_PROC_ABSENT",
+        "dispatch_allowed": false,
+        "financial_settlement_allowed": false,
+        "scientific_read_allowed": false,
+        "observed_host_view": {
+          "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+          "pid_namespace_inode": 4026531836
+        },
+        "observed_process": {
+          "pid": 3335867,
+          "state": null,
+          "start_ticks": null
+        }
+      }
+    },
+    "proof": {
+      "schema": "CARA_P1_MEMORY50_LINUX_CPU_DELTA_R1",
+      "status": "CPU_DELTA_ACCEPTED",
+      "pid": 3335867,
+      "started_unix": 1793603090.8760614,
+      "ended_unix": 1793603114.173958,
+      "tests_run": 9,
+      "errors": 0,
+      "failures": 0,
+      "import_peak_RSS_bytes": 41291776,
+      "whole_control_test_peak_RSS_bytes": 45117440,
+      "peak_is_not_a_production_video_peak": true,
+      "CPU_affinity": [
+        26,
+        27
+      ],
+      "RLIMIT_AS_bytes": 4294967296,
+      "CUDA_visible": "",
+      "NVIDIA_visible": "void",
+      "source_sha256": {
+        "src/wcomr/cara_source_lifecycle_p1_runner_binding_r1.py": "7e322bff3a027c87d08d21aacf7c8319fd35cc2322c6c76ec65e74e13c24b6ec",
+        "plans/cara_next_stage_20261101/source_lifecycle/V1_P1_CONTAINER_PROFILE_R1.json": "cc0f724c16ed6083ea14c550852614975393a1b8fffd8e849fd9c9554d587c33",
+        "plans/cara_next_stage_20261101/source_lifecycle/V1_P1_WHOLE_QUOTE_R1.json": "e479f4ae4febe79c5ee6546acc298f91c7cf5dbc61189bc7e6925098baca2df4",
+        "tests/test_cara_source_lifecycle_p1_dispatch_r1.py": "c90e977ab011a97534d50d4eda137d7e7ad3d6f307ee4d640f76a52bbc78653d",
+        "src/wcomr/cara_source_lifecycle_fit_broker_r1.py": "f7a0d63062ae77afe2d89182ef1d82ce4e8c9f5fee94ae6c74a5625189ffe1df",
+        "src/wcomr/cara_source_lifecycle_p1_service_r1.py": "19b16115c12d3cc0bd9570bd569264c5088e3f8079051650dc464fe9897e95b8"
+      },
+      "production_40_8_container_limits_changed": false,
+      "original12GiB_query_gate_changed": false,
+      "real_GPU_or_Docker_dispatch": false,
+      "real_metrics_computed": 0,
+      "ledger_written": false,
+      "original_GPU_stage_or_authority_modified": false
+    },
+    "proof_sha256": "139150c998b5b9eba1f93c0efab2652e09a5dc720583e8161f8df27b0b514b31",
+    "log_tail": ".........\n----------------------------------------------------------------------\nRan 9 tests in 3.319s\n\nOK\n{\"schema\": \"CARA_P1_MEMORY50_LINUX_CPU_DELTA_R1\", \"status\": \"CPU_DELTA_ACCEPTED\", \"pid\": 3335867, \"started_unix\": 1793603090.8760614, \"ended_unix\": 1793603114.173958, \"tests_run\": 9, \"errors\": 0, \"failures\": 0, \"import_peak_RSS_bytes\": 41291776, \"whole_control_test_peak_RSS_bytes\": 45117440, \"peak_is_not_a_production_video_peak\": true, \"CPU_affinity\": [26, 27], \"RLIMIT_AS_bytes\": 4294967296, \"CUDA_visible\": \"\", \"NVIDIA_visible\": \"void\", \"source_sha256\": {\"src/wcomr/cara_source_lifecycle_p1_runner_binding_r1.py\": \"7e322bff3a027c87d08d21aacf7c8319fd35cc2322c6c76ec65e74e13c24b6ec\", \"plans/cara_next_stage_20261101/source_lifecycle/V1_P1_CONTAINER_PROFILE_R1.json\": \"cc0f724c16ed6083ea14c550852614975393a1b8fffd8e849fd9c9554d587c33\", \"plans/cara_next_stage_20261101/source_lifecycle/V1_P1_WHOLE_QUOTE_R1.json\": \"e479f4ae4febe79c5ee6546acc298f91c7cf5dbc61189bc7e6925098baca2df4\", \"tests/test_cara_source_lifecycle_p1_dispatch_r1.py\": \"c90e977ab011a97534d50d4eda137d7e7ad3d6f307ee4d640f76a52bbc78653d\", \"src/wcomr/cara_source_lifecycle_fit_broker_r1.py\": \"f7a0d63062ae77afe2d89182ef1d82ce4e8c9f5fee94ae6c74a5625189ffe1df\", \"src/wcomr/cara_source_lifecycle_p1_service_r1.py\": \"19b16115c12d3cc0bd9570bd569264c5088e3f8079051650dc464fe9897e95b8\"}, \"production_40_8_container_limits_changed\": false, \"original12GiB_query_gate_changed\": false, \"real_GPU_or_Docker_dispatch\": false, \"real_metrics_computed\": 0, \"ledger_written\": false, \"original_GPU_stage_or_authority_modified\": false}\n",
+    "original_GPU_source_unchanged": true,
+    "GPU_submissions": 0,
+    "ledger_written": false
+  },
+  "stderr": "** WARNING: connection is not using a post-quantum key exchange algorithm.\n** This session may be vulnerable to \"store now, decrypt later\" attacks.\n** The server may need to be upgraded. See https://openssh.com/pq.html\n** WARNING: connection is not using a post-quantum key exchange algorithm.\n** This session may be vulnerable to \"store now, decrypt later\" attacks.\n** The server may need to be upgraded. See https://openssh.com/pq.html\n",
+  "schema": "CARA_P1_MEMORY50_LINUX_CPU_DELTA_RECEIPT_R1",
+  "started_unix": 1793603022.5180202,
+  "observed_unix": 1793603114.857246,
+  "remote_code_sha256": "f2e339007b75980a1d4db10ced9e1896a23e3cc7d417291ab58e3a72395508f3",
+  "GPU_submissions": 0,
+  "ledger_written": false
+}

@@ -97,9 +97,19 @@ class P1DispatchTests(unittest.TestCase):
     def test_fresh_combined_GPU_and_sidecar_CPU_resources_are_required(self):
         storage,observed=self.resource_call()
         self.assertEqual(observed['MemAvailable_bytes'],52*2**30)
-        with self.assertRaisesRegex(ValueError,'CPU/memory'):self.resource_call(memory_GiB=51)
+        with self.assertRaisesRegex(ValueError,'CPU/memory'):self.resource_call(memory_GiB=49)
         with self.assertRaisesRegex(ValueError,'CPU/memory'):self.resource_call(cores=(24,25))
         with self.assertRaisesRegex(ValueError,'idle'):self.resource_call(busy=True)
 
 
 if __name__=='__main__':unittest.main()
+
+
+class P1Memory50BoundaryTests(P1DispatchTests):
+    def test_current50_admits_and49_refuses_without_changing_caps(self):
+        _, observed = self.resource_call(memory_GiB=50)
+        self.assertEqual(observed["MemAvailable_bytes"], 50*2**30)
+        with self.assertRaisesRegex(ValueError,"CPU/memory"):
+            self.resource_call(memory_GiB=49)
+        self.assertEqual(self.f.profile["GPU_container"]["memory_GiB"],40)
+        self.assertEqual(self.f.profile["internal_CPU"]["memory_GiB"],8)

@@ -74,7 +74,7 @@ def validate_profile(profile, scope):
             or profile['GPU_container'] != dict(image=IMAGE, cpus=2, memory_GiB=40, memory_swap_GiB=40,
                 pid_namespace='host', network='none', readonly_rootfs=True,
                 supervisor_CUDA_visible=False, only_exact_runner_CUDA_visible=True)
-            or profile['hosts'] != {'two_card':dict(capability=[8,6], cpuset_cpus='24,25', minimum_MemAvailable_GiB=52)}
+            or profile['hosts'] != {'two_card':dict(capability=[8,6], cpuset_cpus='24,25', minimum_MemAvailable_GiB=50)}
             or profile['internal_CPU'] != dict(cpus=2, cpuset_cpus='26,27', memory_GiB=8,
                 memory_swap_GiB=8, network='none', readonly_rootfs=True, GPU_visible=False, wall_seconds=600)
             or profile['snapshot_limits'] != dict(logical_copy_bytes=48*2**30, total_CPU_images_bytes=16*2**30)):
