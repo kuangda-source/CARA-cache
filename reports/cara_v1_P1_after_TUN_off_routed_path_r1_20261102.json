@@ -1,0 +1,62 @@
+{
+  "schema": "CARA_P1_AFTER_TUN_OFF_ROUTED_PATH_READONLY_R1",
+  "observed_unix": 1793599991.55791,
+  "results": [
+    {
+      "command": [
+        "route",
+        "-n",
+        "get",
+        "100.103.229.16"
+      ],
+      "exit_code": 0,
+      "stdout": "   route to: 100.103.229.16\ndestination: 100.103.229.16\n  interface: utun7\n      flags: <UP,HOST,DONE,WASCLONED,IFSCOPE,IFREF>\n recvpipe  sendpipe  ssthresh  rtt,msec    rttvar  hopcount      mtu     expire\n       0         0         0         0         0         0      1280         0 \n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "ping",
+        "-c",
+        "1",
+        "-W",
+        "1000",
+        "10.130.2.254"
+      ],
+      "exit_code": 0,
+      "stdout": "PING 10.130.2.254 (10.130.2.254): 56 data bytes\n64 bytes from 10.130.2.254: icmp_seq=0 ttl=255 time=6.333 ms\n\n--- 10.130.2.254 ping statistics ---\n1 packets transmitted, 1 packets received, 0.0% packet loss\nround-trip min/avg/max/stddev = 6.333/6.333/6.333/0.000 ms\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "ping",
+        "-c",
+        "1",
+        "-W",
+        "1000",
+        "10.128.160.181"
+      ],
+      "exit_code": 2,
+      "stdout": "PING 10.128.160.181 (10.128.160.181): 56 data bytes\n\n--- 10.128.160.181 ping statistics ---\n1 packets transmitted, 0 packets received, 100.0% packet loss\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "traceroute",
+        "-n",
+        "-m",
+        "4",
+        "-w",
+        "1",
+        "-q",
+        "1",
+        "10.128.160.181"
+      ],
+      "exit_code": 0,
+      "stdout": " 1  *\n 2  *\n 3  *\n 4  *\n",
+      "stderr": "traceroute to 10.128.160.181 (10.128.160.181), 4 hops max, 40 byte packets\n"
+    }
+  ],
+  "system_network_routes_changed_by_agent": false,
+  "GPU_submissions": 0,
+  "ledger_written": false
+}

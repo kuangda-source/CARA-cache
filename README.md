@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[844 — P0两状态完整验收与来源生命周期V1承接](research/844_CARA_P0_TWO_POSITION_COMPLETE_RESULTS_AND_V1_CONTINUATION_20261102.md)：P0两预登记状态完整16位置接受（旧8复用＋新8）；第8/20步只写缓存使输入等权LPIPS下降19.51%/0.64%。W_C在4/4输入状态为正，W_D为3/4且Human199第20步轻微负；写入价值依赖状态与读出条件。新14/512、四latent/93RGB和两Native桥、8评分、图表及唯一1.481354487GPUh结算完成，原GPU/CPU退出、两检查已删除。V1标量到DP的13控制/32完整tiny/128标签Linux组件接受；真实P1生产组合、视频与完整预算另审。
+[862 — P1完整来源规划卡已实际启动](research/862_CARA_P1_MEMORY50_CPU_AMENDMENT_AND_ACTUAL_START_20261102.md)：V1主线P1于11月2日15:44:28在原A6000唯一启动，完整146语义/最多142物理/64同状态标签及19D22D；科学结果待完整验收。用户要求复核后，初始52→50GiB资源修订在启动前经本地/Linux各9控制、原字节封存及正式重绑定；GPU40/CPU8/每查询新鲜12/no swap不变，现场51.276GiB通过。按既有批准唯一预约19GPUh、必要一次24增量至cap250，旧16.5保持。明日00:46半程/09:52终验已验证，原p1删除；硬截止10:44:28。P0完整机制结果和全部旧冻结保持，四卡仅本卡账本。
 
 [826 — E1完整验收：CFG有机制增量，当前S不晋级](research/826_CARA_ENDPOINT7_COMPLETE_ACCEPTANCE_RESULTS_AND_REGISTERED_DECISION_20261101.md)：接口修复后46/46、13RGB和28评分完整接受（16新+12原行）；原GPU3.055673007GPUh已结算。S-CFG较DIAG LPIPS低1.53%且4/4同向，但比F19-A1高102.83%；按预注册仅保留机制增量，当前S不晋级。全93帧与双时钟图表完成，检查已删。
 
