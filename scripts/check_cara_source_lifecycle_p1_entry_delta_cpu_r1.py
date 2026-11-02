@@ -2,7 +2,6 @@
 import argparse
 import os
 from pathlib import Path
-import shutil
 import sys
 import time
 import unittest
@@ -15,7 +14,7 @@ from wcomr.cara_budget_original_handles_r1 import bind_original_process
 from wcomr.cara_budget_search_journal_r1 import create_record,read_record
 from wcomr.cara_fast_fidelity_r1 import file_sha
 
-TESTS=('test_cara_source_lifecycle_p1_report_r1','test_cara_source_lifecycle_p1_figures_r1',
+TESTS=('test_cara_source_lifecycle_p1_report_r1',
     'test_cara_source_lifecycle_p1_settlement_r1','test_cara_source_lifecycle_p1_control_r1',
     'test_cara_source_lifecycle_p1_container_r1','test_cara_source_lifecycle_p1_supervisor_worker_r1')
 
@@ -28,30 +27,32 @@ def probe(stage,output,bounds):
     assert all(file_sha(project/'runtime'/n)==h for n,h in reg['runtime_source_sha256'].items())
     tested=unittest.TextTestRunner(verbosity=2).run(unittest.TestSuite(
         unittest.defaultTestLoader.loadTestsFromName(n) for n in TESTS))
-    assert tested.testsRun==26 and tested.wasSuccessful() and not tested.skipped
-    # A separate fresh metadata fixture supplies retained render previews; there
-    # is no metric, generative model, GPU container or remote ledger callback.
-    import test_cara_source_lifecycle_p1_figures_r1 as figures_fixture
-    figures_fixture.P1FiguresTests.setUpClass()
-    case=figures_fixture.P1FiguresTests('test_real_png_pdf_csv_and_idempotent_original_export')
-    case._testMethodName='retained_CPU_preview';case.setUp()
-    try:
-        rendered=case.render();preview=stage/'figure-preview';preview.mkdir()
-        for name in ('quality-latency.png','complete93-curves.png'):
-            shutil.copyfile(Path(rendered['directory'])/name,preview/name)
-        previews={p.name:file_sha(p) for p in preview.iterdir()}
-    finally:
-        case.doCleanups();figures_fixture.P1FiguresTests.tearDownClass()
-    proof=dict(status='ACTUAL_P1_ENTRY_REPORT_RPC_LINUX_CPU_DELTA26_PASS',CPU_fixture_only=True,
+    assert tested.testsRun==23 and tested.wasSuccessful() and not tested.skipped
+    # Plotting uses the existing local plotting runtime. Do not install or alter
+    # the production model/metric Python environment for a presentation backend.
+    local_ref='reports/cara_v1_P1_entry_delta_packaged_local_CPU_r2_20261102.json'
+    local=read_record(stage/local_ref)
+    assert local['status']=='EXACT_REGISTERED_P1_ENTRY_DELTA_PAYLOAD_ISOLATED_LOCAL26_PASS' and local['tests_run']==26
+    figure_sources=('src/wcomr/cara_source_lifecycle_p1_report_r1.py',
+        'scripts/analyze_cara_source_lifecycle_p1_complete_r1.py',
+        'src/wcomr/cara_source_lifecycle_p1_analysis_r1.py',
+        'src/wcomr/cara_source_lifecycle_p1_figures_r1.py',
+        'scripts/render_cara_source_lifecycle_p1_figures_r1.py',
+        'tests/test_cara_source_lifecycle_p1_figures_r1.py',
+        'tests/test_cara_source_lifecycle_p1_report_r1.py')
+    assert all(local['payload_sha256'][n]==reg['payload_sha256'][n]==file_sha(stage/n) for n in figure_sources)
+    proof=dict(status='ACTUAL_P1_ENTRY_REPORT_RPC_LINUX_CPU_DELTA23_PASS',CPU_fixture_only=True,
         source_revision=reg['parent_git_revision'],registration_sha256=file_sha(stage/'registration.json'),
         payload_sha256=reg['payload_sha256'],runtime_source_sha256=reg['runtime_source_sha256'],
         host='two_card',started_unix=started,ended_unix=time.time(),parent_bounds=bounds,
-        parent_identity=bind_original_process(os.getpid()),tests_run=26,test_modules=list(TESTS),
-        report52_analysis_once_freeze_controls=5,actual_figures_and_CSV_controls=3,
+        parent_identity=bind_original_process(os.getpid()),tests_run=23,test_modules=list(TESTS),
+        report52_analysis_once_freeze_controls=5,source_bound_local_figures_and_CSV_controls_reused=3,
+        local_figures_CPU_ref=local_ref,local_figures_CPU_sha256=file_sha(stage/local_ref),
+        local_figure_source_sha256={n:file_sha(stage/n) for n in figure_sources},
         simulated_central_settlement_controls=5,simulated_RPC_controls=5,
         simulated_container_supervisor_entry_controls=8,
         original_liveness_refresh_keeps_analysis_and_freeze_bytes=True,
-        actual_PNG_PDF_CSV_rendered=True,preview_sha256=previews,
+        actual_PNG_PDF_CSV_rendered_in_this_Linux_job=False,
         original_metric_pairs_recomputed=0,old_component_experiments_replayed=False,
         actual_Cosmos_weights=False,real_V1_video=False,actual_GPU_Docker_started=False,
         real_four_card_accessed=False,real_central_ledger_read=False,

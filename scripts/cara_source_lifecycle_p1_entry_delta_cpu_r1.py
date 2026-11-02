@@ -12,7 +12,7 @@ from cara_s_initialization_selector_cpu_r1 import main as capture,BASE_CAPTURE
 from cara_source_lifecycle_p1_post_host_cpu_r1 import OVERLAY as PREVIOUS,REMOTE as HOST_REMOTE,STAGE as OLD_STAGE
 
 ROOT=Path(__file__).resolve().parents[1]
-STAGE='cara-source-lifecycle-P1-entry-delta-CPU-host-r1-20261102'
+STAGE='cara-source-lifecycle-P1-entry-delta-CPU-host-r2-20261102'
 NEW=('src/wcomr/cara_source_lifecycle_p1_report_r1.py',
     'scripts/analyze_cara_source_lifecycle_p1_complete_r1.py',
     'src/wcomr/cara_source_lifecycle_p1_figures_r1.py',
@@ -22,15 +22,12 @@ NEW=('src/wcomr/cara_source_lifecycle_p1_report_r1.py',
     'tests/test_cara_source_lifecycle_p1_settlement_r1.py','tests/test_cara_source_lifecycle_p1_control_r1.py',
     'tests/test_cara_source_lifecycle_p1_container_r1.py','tests/test_cara_source_lifecycle_p1_supervisor_worker_r1.py',
     'scripts/check_cara_source_lifecycle_p1_entry_delta_cpu_r1.py',
-    'scripts/cara_source_lifecycle_p1_entry_delta_cpu_r1.py')
+    'scripts/cara_source_lifecycle_p1_entry_delta_cpu_r1.py',
+    'reports/cara_v1_P1_entry_delta_packaged_local_CPU_r2_20261102.json')
 OVERLAY=tuple(dict.fromkeys(PREVIOUS+NEW))
 REMOTE=HOST_REMOTE.replace(OLD_STAGE,STAGE).replace('check_cara_source_lifecycle_p1_post_host_cpu_r1.py',
     'check_cara_source_lifecycle_p1_entry_delta_cpu_r1.py').replace('P1_POST_SCORE','P1_ENTRY_DELTA')
-REMOTE=REMOTE.replace(" stage.mkdir(mode=0o700)"," import importlib.util\n assert importlib.util.find_spec('matplotlib') is not None,'Matplotlib CPU dependency absent before launch'\n stage.mkdir(mode=0o700)",1)
-REMOTE=REMOTE.replace(" terminal=json.loads((stage/'host-terminal.json').read_bytes())",
-    " previews={n:dict(sha256=sha(stage/'figure-preview'/n),base64=base64.b64encode((stage/'figure-preview'/n).read_bytes()).decode()) for n in ('quality-latency.png','complete93-curves.png')} if raw else {}\n terminal=json.loads((stage/'host-terminal.json').read_bytes())")
-REMOTE=REMOTE.replace("CPU_proof=json.loads(raw) if raw else None,", "figure_preview=previews,CPU_proof=json.loads(raw) if raw else None,")
-PREFLIGHT='reports/cara_v1_P1_entry_delta_packaged_local_CPU_r2_20261102.json'
+PREFLIGHT='reports/cara_v1_P1_entry_delta_packaged_local_CPU_r3_20261102.json'
 INHERITED_CAPTURE='reports/cara_v1_P1_release_Linux_CPU_capture_r7_20261102.json'
 
 
@@ -56,15 +53,15 @@ def packaged_local_check():
 root=pathlib.Path.cwd();sys.path[:0]=[str(root/'src'),str(root/'scripts'),str(root/'tests')]
 driver=importlib.import_module('check_cara_source_lifecycle_p1_entry_delta_cpu_r1')
 result=unittest.TextTestRunner(verbosity=1).run(unittest.TestSuite(unittest.defaultTestLoader.loadTestsFromName(n) for n in driver.TESTS))
-assert result.testsRun==26 and result.wasSuccessful() and not result.skipped
-print('P1_ENTRY_DELTA_ISOLATED26_PASS')
+assert result.testsRun==23 and result.wasSuccessful() and not result.skipped
+print('P1_ENTRY_DELTA_ISOLATED23_PASS')
 """
         run=subprocess.run([str(ROOT/'.sync/cara-p0-plot-python/bin/python'),'-I','-c',code],cwd=root,
             capture_output=True,text=True,timeout=90,env=dict(os.environ,PYTHONDONTWRITEBYTECODE='1',CUDA_VISIBLE_DEVICES='',NVIDIA_VISIBLE_DEVICES='void'))
         assert run.returncode==0,run.stderr[-7000:]
-        assert run.stdout.strip()=='P1_ENTRY_DELTA_ISOLATED26_PASS'
-    return dict(status='EXACT_REGISTERED_P1_ENTRY_DELTA_PAYLOAD_ISOLATED_LOCAL26_PASS',
-        payload_sha256=files,tests_run=26,checkout_on_import_path=False,interpreter_isolated=True,stderr=run.stderr,
+        assert run.stdout.strip()=='P1_ENTRY_DELTA_ISOLATED23_PASS'
+    return dict(status='EXACT_REGISTERED_P1_ENTRY_DELTA_PAYLOAD_ISOLATED_LOCAL23_PASS',
+        payload_sha256=files,tests_run=23,checkout_on_import_path=False,interpreter_isolated=True,stderr=run.stderr,
         source_bound_Linux_CPU_accepted=False,old_component_experiments_replayed=False,
         P1_GPU_authorized=False,GPU_submissions=0,real_four_card_accessed=False,ledger_written=False)
 
@@ -72,9 +69,9 @@ print('P1_ENTRY_DELTA_ISOLATED26_PASS')
 if __name__=='__main__':
     if len(sys.argv)>1 and sys.argv[1]=='prepare':
         sys.argv.pop(1);proof=json.loads((ROOT/PREFLIGHT).read_bytes())
-        assert proof['status']=='EXACT_REGISTERED_P1_ENTRY_DELTA_PAYLOAD_ISOLATED_LOCAL26_PASS' and proof['payload_sha256']==mapping()
+        assert proof['status']=='EXACT_REGISTERED_P1_ENTRY_DELTA_PAYLOAD_ISOLATED_LOCAL23_PASS' and proof['payload_sha256']==mapping()
         transfer.main(stage=STAGE,overlay=OVERLAY,remote_code=REMOTE,
-            transfer_label='cara-V1-P1-entry-delta-R1-CPU-transfer',connect_timeout=60,probe_peer=True,
+            transfer_label='cara-V1-P1-entry-delta-R2-CPU-transfer',connect_timeout=60,probe_peer=True,
             inherited_capture_ref=INHERITED_CAPTURE,work_seconds=1200,exit_seconds=60)
     else:
         subprocess.run(['/Applications/Tailscale.app/Contents/MacOS/Tailscale','ping','--until-direct=false','--c','1',

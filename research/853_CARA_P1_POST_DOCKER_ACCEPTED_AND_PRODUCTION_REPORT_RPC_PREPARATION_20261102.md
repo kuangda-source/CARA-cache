@@ -32,3 +32,5 @@
 完整146语义/最多142物理、64标签、两预算各top3及公平LPIPS搜索保持。18.0273GPUh/建议硬19仍是保守草案，250秒/标签是未实测预算假设。旧冻结、保护最终16/备用16、四卡维护限制、cap226和旧16.5责任保持。
 
 来源准备曾在本地拒绝一次：宿主回执不符合原容器源码传输器字段，尚未读取凭证或发送SSH。已改绑原释放R3已结束容器的源码回执，精确包26控制重新通过；原拒绝[保留](../reports/cara_v1_P1_entry_delta_source_context_local_refusal_r1_20261102.json)。未创建或重派远端实验。
+
+Linux新增入口随后因生产Python缺少Matplotlib，在创建stage/启动CPU之前拒绝；[原两卡只读确认](../reports/cara_v1_P1_entry_delta_CPU_prelaunch_absence_r1_20261102.json)显示原R1 stage不存在、仅保留传输意图，禁止重试该准备。新独立R2仅执行23项Linux分析/结算/RPC/容器入口控制，并以原源码复用本机3项真实图表控制；[R3精确1449文件包](../reports/cara_v1_P1_entry_delta_packaged_local_CPU_r3_20261102.json)已通过23项本地检查。模型与评分Python未修改，正式图表交付所需后端仍须在整卡准备中解决。
