@@ -9,7 +9,7 @@ from wcomr import cara_source_lifecycle_p1_runner_binding_r1 as binding
 from wcomr.cara_fast_fidelity_r1 import file_sha
 
 ROOT=Path(__file__).resolve().parents[1]
-QUOTE='plans/cara_next_stage_20261101/source_lifecycle/V1_P1_WHOLE_QUOTE_R1.json'
+QUOTE=binding.QUOTE
 
 
 class P1ProfileQuoteTests(unittest.TestCase):

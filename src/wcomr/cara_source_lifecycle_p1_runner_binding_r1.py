@@ -11,10 +11,12 @@ from .cara_source_lifecycle_p1_plan_r1 import validate as validate_card, build
 from .cara_source_lifecycle_p1_service_r1 import CARD, PRECISION, KIND
 from .cara_source_lifecycle_fit_broker_r1 import verify_source as verify_broker_source, paths
 from .cara_s_endpoint_lifecycle_r1 import IDENTITY, JOB_IDENTITY
+from .cara_source_lifecycle_p1_identity_r1 import RUN_ID, STAGE_NAME
 
 SOURCE = 'src/wcomr/cara_source_lifecycle_p1_runner_binding_r1.py'
 RUNNER = 'scripts/run_cara_source_lifecycle_p1_r1.py'
-PROFILE = 'plans/cara_next_stage_20261101/source_lifecycle/V1_P1_CONTAINER_PROFILE_R1.json'
+PROFILE = 'plans/cara_next_stage_20261101/source_lifecycle/V1_P1_CONTAINER_PROFILE_R2.json'
+QUOTE = 'plans/cara_next_stage_20261101/source_lifecycle/V1_P1_WHOLE_QUOTE_R2.json'
 PARENT = 'plans/cara_next_stage_20261101/e1/ENDPOINT7_46_MANIFEST_R1.json'
 DESIGN = 'plans/cara_next_stage_20261101/source_lifecycle/V1_CALIBRATION64_DESIGN_R1.json'
 WEIGHTS = 'reports/cara_v1_frozen_UniPC_current_input_scale_r1_20261102.json'
@@ -24,8 +26,6 @@ GEOMETRY = 'configs/wc_ra_comparison_production_r2_20261010.json'
 RUNTIME_ENTRY = 'plans/cara_next_stage_20261101/source_lifecycle/V1_P1_RUNTIME_ENTRY_R1.json'
 IMAGE = 'sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d'
 GPU = 'GPU-cebf7119-cf03-23b9-e192-cd196332b704'
-RUN_ID = 'cara-source-lifecycle-V1-P1-full146-r1-20261102'
-STAGE_NAME = 'cara-source-lifecycle-V1-P1-GPU-a6000-full146-r1-20261102'
 REQUIRED = (SOURCE, RUNNER, PROFILE, CARD, PARENT, DESIGN, WEIGHTS, MODE, SETUP, GEOMETRY, PRECISION, POLICY,RUNTIME_ENTRY,
     'src/wcomr/cara_source_lifecycle_p1_artifacts_r1.py',
     'src/wcomr/cara_source_lifecycle_p1_inventory_r1.py',

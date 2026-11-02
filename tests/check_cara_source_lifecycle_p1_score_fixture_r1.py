@@ -56,7 +56,8 @@ def packet():
             if key not in internal and key not in new:
                 new[key]=dict(id='P1_NEW_'+key,**{k:position[k] for k in ('member','candidate','reference')},
                     expected_decoded_RGB_sha256=[decoded[position[s]['proof_sha256']]['RGB_sha256'] for s in ('candidate','reference')])
-        manifest=dict(schema='CARA_V1_P1_RELEASED_SCORE_MANIFEST_R1',run_id='cara-source-lifecycle-V1-P1-full146-r1-20261102',
+        from wcomr.cara_source_lifecycle_p1_identity_r1 import RUN_ID
+        manifest=dict(schema='CARA_V1_P1_RELEASED_SCORE_MANIFEST_R1',run_id=RUN_ID,
             launch_id=fixture.context['launch_id'],scope_sha256=fixture.card['scope_sha256'],FIT=fixture.card['FIT'],CHECK=fixture.card['CHECK'],
             CPU_fixture_only=True,semantic_denominator=146,physical_paths=index['physical_paths'],physical_model_pairs=index['physical_model_pairs'],
             source_label_count=64,identity_controls=[dict(id=str(i),passed=True) for i in range(12)],identity_controls_passed=12,
