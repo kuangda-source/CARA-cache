@@ -20,22 +20,11 @@ import time
 from cara_two_card_transport_r1 import password
 from cara_source_lifecycle_p0_entry_linux_cpu_r1 import STAGE,OVERLAY,REMOTE
 from cara_s_initialization_selector_cpu_r1 import BASE_CAPTURE,BASE_ACCEPTED,LIMITS
+from wcomr.cara_cpu_source_parent_r1 import require_ended_source_parent
 
 ROOT=Path(__file__).resolve().parents[1]
 REMOTE_ROOT='/data20t/gaokuangda/worldcache_workspace'
 BLOCK_BYTES=8192
-
-
-def require_ended_source_parent(entry,*,host_parent=False):
-    """Source inheritance may use a saved ended container or bounded host CPU."""
-    if host_parent:
-        launch,terminal=entry['launch'],entry['host_terminal']
-        assert launch['parent_Docker_container'] is False and launch['CPU_fixture_only'] is True
-        assert entry['original_host_observation']['original_live'] is False
-        assert terminal['identity']==launch['identity'] and terminal['error'] is None
-        assert entry['CPU_proof'] is not None and entry['CPU_proof']['CPU_fixture_only'] is True
-    else:
-        assert entry['container_state']['Pid']==0 and not entry['container_state']['Running']
 
 
 def main(*, stage=STAGE, overlay=OVERLAY, remote_code=REMOTE,

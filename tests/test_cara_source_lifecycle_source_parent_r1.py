@@ -1,8 +1,7 @@
 """Saved source-parent kinds, without network, dispatch or filesystem mutation."""
-import copy
 import unittest
 
-from cara_source_lifecycle_p0_cpu_chunk_transport_r1 import require_ended_source_parent
+from wcomr.cara_cpu_source_parent_r1 import require_ended_source_parent
 
 
 class SourceParentTests(unittest.TestCase):

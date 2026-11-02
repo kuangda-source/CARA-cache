@@ -45,3 +45,5 @@ P1真实完整视频决定方法是否成立；工程筛选目标仍为同批19D
 [854](../../../research/854_CARA_P1_ENTRY_LINUX_CPU_COMPLETE_AND_LOCAL_FIGURES_20261102.md)已完整接受新增Linux23（分析/临时结算/RPC/容器worker），原CPU退出、无新指标、两检查删除。原本机3图表源复用，随后当前布局另通过本机3项与视觉QA；35处选定原组件源码一致。整卡CPU仍未组合，正式profile/报价、生产绘图后端、新64GiB源存储仍待；[完整单卡审阅草案](V1_P1_SINGLE_CARD_REVIEW_DRAFT_R1.md)仅准备，不授予GPU或中央权限。
 
 [855](../../../research/855_CARA_P1_PORTABLE_COMPLETE_REPORT_AND_FORMAL_QUOTE_20261102.md)已实现完整结果便携导出与本机出图，5项控制通过，不给模型/评分环境装绘图库。拟议19GPUh profile和完整18.0273工程报价已冻结，3项绑定控制通过；CPU源码继承显式支持已结束宿主，5项控制通过。新64GiB/48MiB存储操作器已准备、尚未启动；GPU和中央许可仍为空。
+
+[856](../../../research/856_CARA_P1_PRIVATE64_STORAGE_ACCEPTED_AND_FINAL_EXPORT_CPU_PREPARATION_20261102.md)原64GiB/48MiB新存储实际接受，原准备进程退出，旧卷保持。最终新增Linux13的精确1462文件包通过14项隔离本地控制，首次包缺源码依赖的本地拒绝保留；原件将只验新导出/profile/来源/空硬限，并保留一个新元数据导出包供本机出图，不重算旧视频。整卡组合/新GPU源包和本卡审批仍待。
