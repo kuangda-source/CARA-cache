@@ -1,6 +1,6 @@
 # P1 原运行与完整验收交接
 
-唯一 P1 已于 **2026-11-02 15:44:28.784080 Asia/Shanghai** 实际开始。先读 [实际启动原件](../../../reports/cara_v1_P1_actual_start_accepted_r2_20261102.json) 和 [半程/终验](../../../reports/cara_v1_P1_acceptance_schedule_r2_20261102.json)。禁止再 dispatch、重启、改源或改资源配置；UNKNOWN 仅恢复原句柄。
+唯一 P1 已于 **2026-11-02 15:44:28.784080 Asia/Shanghai** 实际开始。先读 [实际启动原件](../../../reports/cara_v1_P1_actual_start_accepted_r2_20261102.json) 和 [1/4、半程与终验](../../../reports/cara_v1_P1_acceptance_schedule_r3_20261102.json)。禁止再 dispatch、重启、改源或改资源配置；UNKNOWN 仅恢复原句柄。
 
 ## 已冻结的执行身份
 
@@ -21,7 +21,7 @@
 
 本机仅调用 `scripts/cara_source_lifecycle_p1_memory50_control_r2.py status/central-status`，每次输出新的唯一reports路径。用户切手机热点并明确要求原Tailscale，使用 `.sync/cara-fast-mainline-tailscale-20261030/ssh_config.p0_qos_none.private`；不要自动切LAN、修改Clash/路由或泄露stdin凭据。原GPU/CPU/存储均已启动或结束，只恢复原件，禁止 prepare。
 
-`p1-2` 半程为11月3日00:46；`p1-3` 终验为09:52。无变化或不可行动保持安静；半程只查原句柄、完整146分母的运维计数、温度、资源、独占和账本。可用计数/墙钟前移同一终验，禁止部分科学结果和重复检查。原准入p1在两个新检查验证后删除。
+用户另要求1/4程检查：`p1-quarter` 为11月2日20:15（实际开始＋预计18.02734小时的四分之一，向上取整到分钟）；`p1-2` 半程仍为11月3日00:46；`p1-3` 终验仍为09:52。1/4程同样只检查运维信息，处理一次后自行删除；完整接受或真实失败收尾时删除所有剩余检查。无变化或不可行动保持安静；半程只查原句柄、完整146分母的运维计数、温度、资源、独占和账本。可用计数/墙钟前移同一终验，禁止部分科学结果和重复检查。原准入p1在两个新检查验证后删除。
 
 中央已唯一预约19，按用户批准必要的一次24GPUh增量使cap226→250；used197.02183603468436、旧16.5责任保持，预约后available17.478163965315645。见 [预约原件](../../../reports/cara_v1_P1_memory50_central_reservation_r1_20261102.json)。四卡仅本卡原中央事务，不做实验、不迁账本。原operator115文件缓存不变，禁止 central-prepare。所有A32/B36/S/Q/旧RGB-MSE搜索冻结、WC/RA FIT UNMATCHED、四旧CAL/曝光CHECK范围及最终/备用16保护输入保持。
 
