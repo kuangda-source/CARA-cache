@@ -449,7 +449,7 @@
     "original_reservation_released": true,
     "recovery_preparation_acceptance_ref": "reports/cara_history104_recovery_prelaunch_acceptance_20261024.json"
   },
-  "current_active_experiment_id": null,
+  "current_active_experiment_id": "PG-SOURCE-LIFECYCLE-V1-P1-R2-GPU",
   "cost112_GPU": {
     "status": "COST112_COMPLETE_ACCEPTED_TIMING_GATE_FAILED",
     "launch_ref": "reports/cara_cost112_GPU_actual_launch_r1_20261025.json",
@@ -1846,7 +1846,7 @@
     "independent_new_inputs": false,
     "complete_QA_ref": "reports/cara_fast_A6000_complete_frozen_QA_20261029_0115.json"
   },
-  "current_evidence_observed_at": "2026-11-02T22:11:25.453311+08:00",
+  "current_evidence_observed_at": "2026-11-02T22:48:02.160620+08:00",
   "fast_B36_CPU_preparation_20261029": {
     "status": "ACCEPTED_DUAL_HOST_COMPLETE_B36_CPU_CONTINUATION_ONLY",
     "accepted_receipt_ref": "reports/cara_fast_B36_CPU_acceptance_r1_20261029.json",
@@ -3228,14 +3228,14 @@
     "original_score_CPU_ended": true,
     "original_score_wall_seconds": 504.61017298698425
   },
-  "current_preparation_id": "PG-SOURCE-LIFECYCLE-V1-P1-SUCCESSOR-R2-READY",
+  "current_preparation_id": null,
   "read_write_mainline_preparation_20261101": {
     "status": "P0_TWO_POSITION_COMPLETE_ACCEPTED_V1_P1_PREPARATION",
-    "research_ref": "research/864_CARA_P1_PUBLICATION_RPC_REPAIRED_CPU_AND_SUCCESSOR_READY_20261102.md",
+    "research_ref": "research/865_CARA_P1_REPAIRED_SUCCESSOR_ACTUAL_START_AND_THREE_CHECKS_20261102.md",
     "receipt_ref": "reports/cara_v1_P0_two_position_complete_acceptance_r1_20261102.json",
     "receipt_sha256": "28490e2b0387254b3812d7c527e724d2e342ffd4d92b4222a1a1e438fc578ca4",
-    "notice_title": "864 — P1两处修复通过，独立新单次准备完成",
-    "summary": "FIT目录原子发布与RPC命名空间已修复，确定性旧故障复现后，本地28/Linux33全部通过；新R2身份本地57/Linux56、完整1473源包与独立64GiB/48MiB存储已接受，原CPU/准备进程均结束。原R1失败4.933201964GPUh结算和所有旧冻结保持，新卡完整146/64/19D22D不复用失败部分结果。预计18.05067GPUh/建议硬19；宿主50GiB/每查询12、40/8/no swap及90C保持，准备快照50.106GiB/原GPU空闲45C。新GPU与原中央事务尚未授权或启动；完整审批卡已准备，批准后仍fresh准入并按实际开始设1/4/半程/终验。",
+    "notice_title": "865 — 修复后P1 R2已实际启动，三个检查已核验",
+    "summary": "用户新单次19GPUh及本卡原账本事务批准后，完整资产/现场门通过并唯一预约19，cap250未增额、旧16.5保持。首个dispatch在意图前被内存门拒绝，恢复同一预约后通过现场门，原R2于11月2日22:39:06.791125在原A6000唯一启动，完整146语义/最多142物理/64标签和19D22D保持。明日03:10的1/4、07:41半程、16:48终验已核验；硬截止17:39:06，600秒停止释放余量/90C/40/8/no swap/每查询12保持。最新GPU100%/84C、1物理请求完成；未读部分科学指标。修复33和新身份56 Linux控制已接受，原R1失败4.933201964费用独立保留。后续只恢复原句柄，完整成功释放/唯一结算后才一次CPU和一次FIT冻结，不自动下一卡。",
     "plan_ref": "plans/cara_next_stage_20261101/read_write/README.md",
     "protocol_ref": "plans/cara_next_stage_20261101/read_write/EXPERIMENT_PROTOCOL_R1.json",
     "M0_CPU_ref": "reports/cara_read_write_M0_CPU_component_r2_20261101.json",
@@ -3419,7 +3419,7 @@
     "main_method_established": false
   },
   "source_lifecycle_V1_20261101": {
-    "status": "P1_REPAIRS_ACCEPTED_SUCCESSOR_R2_READY_PENDING_NEW_APPROVAL",
+    "status": "P1_SUCCESSOR_R2_ORIGINAL_GPU_RUNNING",
     "research_ref": "research/844_CARA_P0_TWO_POSITION_COMPLETE_RESULTS_AND_V1_CONTINUATION_20261102.md",
     "receipt_ref": "reports/cara_v1_P0_two_position_complete_acceptance_r1_20261102.json",
     "plan_ref": "plans/cara_next_stage_20261101/source_lifecycle/README.md",
@@ -3562,7 +3562,7 @@
     "P1_guardian_FIT_CPU_capture_ref": "reports/cara_v1_P1_guardian_FIT_Linux_CPU_capture_r4_20261102.json",
     "P1_guardian_FIT_CPU_accepted_ref": "reports/cara_v1_P1_guardian_FIT_Linux_CPU_accepted_r3_20261102.json",
     "P1_guardian_FIT_CPU_proof_ref": "reports/cara_v1_P1_guardian_FIT_Linux_CPU_original_proof_r3_20261102.json",
-    "P1_latest_research_ref": "research/864_CARA_P1_PUBLICATION_RPC_REPAIRED_CPU_AND_SUCCESSOR_READY_20261102.md",
+    "P1_latest_research_ref": "research/865_CARA_P1_REPAIRED_SUCCESSOR_ACTUAL_START_AND_THREE_CHECKS_20261102.md",
     "P1_production_total_entry_implemented": true,
     "P1_released_science_reader_implemented": true,
     "P1_postrelease_new_metric_pairs_upper": 32,
@@ -3790,7 +3790,7 @@
     "P1_original_central_cache_restored_ref": "reports/cara_v1_P1_original_central_cache_restored_r1_20261102.json",
     "P1_repair33_accepted_ref": "reports/cara_v1_P1_publication_RPC_Linux_CPU_accepted_r2_20261102.json",
     "P1_successor_R2": {
-      "status": "FULL_PREPARATION_ACCEPTED_WAITING_NEW_SINGLE19_AND_CARD_LEDGER_APPROVAL",
+      "status": "ORIGINAL_SUCCESSOR_GPU_RUNNING_AFTER_COMPLETE_ADMISSION",
       "run_id": "cara-source-lifecycle-V1-P1-full146-r2-20261102",
       "launch_id": "498503f9cfd249f1aab929da18f04e10",
       "source_revision": "8cc9b30a2b08b25c23fa7c38ef63a7b64d456f99",
@@ -3813,20 +3813,87 @@
       "review_ref": "plans/cara_next_stage_20261101/source_lifecycle/V1_P1_REPAIRED_SUCCESSOR_SINGLE19_REVIEW_R2.md",
       "handoff_ref": "plans/cara_next_stage_20261101/source_lifecycle/P1_REPAIRED_SUCCESSOR_PRELAUNCH_HANDOFF_R2_20261102.md",
       "authority_ref": "plans/cara_next_stage_20261101/source_lifecycle/V1_P1_SUCCESSOR_SINGLE19_AUTHORIZATION_R2.json",
-      "research_ref": "research/864_CARA_P1_PUBLICATION_RPC_REPAIRED_CPU_AND_SUCCESSOR_READY_20261102.md",
-      "GPU_authorized": false,
-      "central_transaction_authorized": false,
-      "central_operator_prepared": false,
-      "four_card_accessed": false,
-      "actual_GPU_started": false,
-      "active_checks": [],
-      "GPU_submissions": 0,
-      "ledger_written": false,
+      "research_ref": "research/865_CARA_P1_REPAIRED_SUCCESSOR_ACTUAL_START_AND_THREE_CHECKS_20261102.md",
+      "GPU_authorized": true,
+      "central_transaction_authorized": true,
+      "central_operator_prepared": true,
+      "four_card_accessed": true,
+      "actual_GPU_started": true,
+      "active_checks": [
+        "p1-r2-quarter",
+        "p1-r2-half",
+        "p1-r2"
+      ],
+      "GPU_submissions": 1,
+      "ledger_written": true,
       "source_preparation_complete": true,
       "source_CPU_and_storage_originals_ended": true,
       "actual_original_failed_R1_GPUh": 4.933201963873063,
       "failed_predecessor_data_reused": false,
-      "original_R1_flat_fields_are_history": true
+      "original_R1_flat_fields_are_history": true,
+      "direct_approval_ref": "reports/cara_v1_P1_successor_direct_approval_r2_20261102.json",
+      "authority_bound_ref": "reports/cara_v1_P1_successor_authority_bound_r2_20261102.json",
+      "central_operator_ready_ref": "reports/cara_v1_P1_successor_central_operator_ready_r2_20261102.json",
+      "central_cap_increment_authorized": false,
+      "actual_start_ref": "reports/cara_v1_P1_successor_actual_start_accepted_r2_20261102.json",
+      "actual_start_local": "2026-11-02T22:39:06.791125+08:00",
+      "actual_start_sha256": "d13e8fb733bd410a240a0184bc802178f4f1a86e2c8ff1801ef4204ba622f1e7",
+      "original_handles": {
+        "guardian": {
+          "pid": 3600207,
+          "start_ticks": 692524957,
+          "host_view": {
+            "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+            "pid_namespace_inode": 4026531836
+          },
+          "original_command_sha256": "7744be9a844b2b827ef9c2cd0d3882b82f0b60c47127bfeece94d11644e47bd0"
+        },
+        "container_cli": {
+          "pid": 3600299,
+          "start_ticks": 692525281,
+          "host_view": {
+            "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+            "pid_namespace_inode": 4026531836
+          },
+          "original_command_sha256": "534c636c9fa834c732d1289247c3d508f2fccdd61b5065228a93f0de581e752f"
+        },
+        "supervisor": {
+          "host_view": {
+            "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+            "pid_namespace_inode": 4026531836
+          },
+          "original_command_sha256": "7a36a1aab40b44f1af45ee85176b043dcda254268640f43b9aa377361e337610",
+          "pid": 3600355,
+          "start_ticks": 692525330
+        },
+        "runner": {
+          "host_view": {
+            "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+            "pid_namespace_inode": 4026531836
+          },
+          "original_command_sha256": "bc6375bc1e0a689319fbbdee0255d6ea6de8a9b865d779eda13cdfc225a6a161",
+          "pid": 3600402,
+          "start_ticks": 692525518
+        }
+      },
+      "container_id": "629379b320ee11ce938534aa7528a237cd9bee9bb923affb2e47df3a0ed867cf",
+      "hard_deadline_local": "2026-11-03T17:39:06.791125+08:00",
+      "stop_release_deadline_local": "2026-11-03T17:29:06.791125+08:00",
+      "post_launch_handoff_ref": "plans/cara_next_stage_20261101/source_lifecycle/P1_SUCCESSOR_R2_POST_LAUNCH_HANDOFF_20261102.md",
+      "acceptance_schedule_ref": "reports/cara_v1_P1_successor_acceptance_schedule_r2_20261102.json",
+      "latest_operational_ref": "reports/cara_v1_P1_successor_original_running_status_r4_20261102.json",
+      "complete_asset_admission_ref": "reports/cara_v1_P1_successor_fresh_admission_r2_20261102.json",
+      "central_reservation_ref": "reports/cara_v1_P1_successor_central_reservation_r2_20261102.json",
+      "central_reservation_active": true,
+      "central_cap_GPUh": 250,
+      "central_cap_increments24": 0,
+      "old_liability_GPUh": 16.5,
+      "central_available_after_reservation_GPUh": 12.54496200144257,
+      "actual_dispatch_ref": "reports/cara_v1_P1_successor_original_dispatch_r3_20261102.json",
+      "pre_intent_resource_refusal_ref": "reports/cara_v1_P1_successor_original_dispatch_r2_20261102.json",
+      "source_frozen_after_actual_start": true,
+      "scientific_accepted": false,
+      "FIT_frozen": false
     }
   },
   "source_lifecycle_P0_execution_20261102": {
