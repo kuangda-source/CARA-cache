@@ -32,6 +32,8 @@
 
 若等待资源仍不可行动，只保留同一15分钟准入检查，不创建新的重复检查或GPU实例。用户授权持续有效。
 
+最新入口恢复状态和是否已询问用户，以docs/project_status.json的P1_latest_prelaunch_operational_ref/P1_network_restore_question_pending为准。原status入口UNKNOWN时不得假设未运行或仍为旧内存值；只恢复原状态，不refresh/预约/派发。已有连接恢复问题待回复时不重复提问，仍保留同一检查；原19GPUh批准保持。
+
 ## 原终态、释放与唯一费用
 
 成功失败都先status取原完整terminal lifecycle与launch SHA，检查原guardian容器终态、CLI/runner退出、锁释放与Default恢复。settle --input 原terminal status回执，唯一结算原guardian全段实耗。网络UNKNOWN先恢复原中央事务；不得再次收费。四卡只做本卡原中央事务，不跑实验、不迁账本。失败保留全分母和实际费用，不冻结、不评分、不自动下一卡；收尾后删除剩余检查。
