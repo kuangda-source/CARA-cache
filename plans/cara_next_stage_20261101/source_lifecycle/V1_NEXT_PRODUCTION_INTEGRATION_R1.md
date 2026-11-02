@@ -39,3 +39,5 @@ P0两状态已完整接受，见[844](../../../research/844_CARA_P0_TWO_POSITION
 P1真实完整视频决定方法是否成立；工程筛选目标仍为同批19D距F19-A1的LPIPS不超过10%、T_DD不高于5%，不是论文成立线。P2的新DEV/第二网格和最终保护16/备用16另行登记，V2不阻塞V1。
 
 [852外层启动与后置Docker承接](../../../research/852_CARA_P1_OUTER_DISPATCH_AND_POST_DOCKER_PREPARATION_20261102.md)已实现原GPU派发/捕获、单次中央事务与24增量、后置Docker一次派发/恢复，精确1435文件包31本地控制通过。新实际CPU仅两个新合成评分对与当前serve分支，不重放851原32；其原终态仍待。继续补生产分析/图表/冻结和中央/两卡RPC，再组合整卡CPU及正式报价。
+
+[853](../../../research/853_CARA_P1_POST_DOCKER_ACCEPTED_AND_PRODUCTION_REPORT_RPC_PREPARATION_20261102.md)已接受原post Docker/serve CPU，源49fad194，31控制、仅2新真实合成评分对＋50模拟行、失败2/1，所有原进程退出。分析CLI/首次完整输入封存/原FIT一次冻结、13角色双时钟与93帧CSV/图表、权限前置的P1 RPC已实现；新1448文件包26本地控制通过，Linux delta待接受。已完成的原32对和本次2对不再计算；继续来源/存储及整卡CPU/正式报价，P1和四卡账本未授权。
