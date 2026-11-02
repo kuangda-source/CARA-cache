@@ -150,4 +150,4 @@ B_K=\tfrac12C_{\rm shared}+\tfrac12C_{\rm main\ estimate}+C_{\rm FIT\ selection,
 
 P0的两状态四格已支持研究写入价值的条件性；P1检验自动规划和来源信息的增量。P1完成后，再依据完整证据决定是否进入约八个新DEV与第二网格。新输入和51次更新网格的规则/数值重校准单独登记，最终16及备用16继续保护。机制成立但规划不强时，按原规则最多一次有明确原因的修订；V2不阻塞V1。
 
-最终验收使用[complete_analysis与一次原FIT冻结](../../../src/wcomr/cara_source_lifecycle_p1_analysis_r1.py)，原GPU终态、释放、唯一实耗结算先完成，之后接受全部52位置。P1 GPU及本卡中央事务待[完整审批卡](V1_P1_SINGLE_CARD_REVIEW_R1.md)批准，本说明不增加执行权限。
+最终验收使用[complete_analysis与一次原FIT冻结](../../../src/wcomr/cara_source_lifecycle_p1_analysis_r1.py)，原GPU终态、释放、唯一实耗结算先完成，之后接受全部52位置。P1已依据[完整审批卡](V1_P1_SINGLE_CARD_REVIEW_R1.md)获得[独立单次19GPUh及本卡中央事务授权](V1_P1_SINGLE_CARD_AUTHORIZATION_R1.json)，执行仍需实时资源、原句柄与预算准入；本说明不增加或改变该权限。

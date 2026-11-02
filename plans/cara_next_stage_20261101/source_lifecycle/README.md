@@ -28,7 +28,7 @@
 
 ## P1：完整V1与公平搜索
 
-**当前P1完整CPU、唯一GPU源包和独立64GiB存储已接受，正在等待单次GPU/账本审批。** [857完整准备](../../../research/857_CARA_P1_WHOLE_CPU_COMPLETE_PORTABLE_DELIVERY_AND_GPU_SOURCE_20261102.md)与[审批卡](V1_P1_SINGLE_CARD_REVIEW_R1.md)为当前入口：146语义／最多142物理，保守预计18.02734GPUh、硬19GPUh。最近49.82GiB内存快照低于52GiB，批准后仍须实时准入。下列845–849为保留的阶段性准备记录；已结束原件不重跑，旧13.0989GPUh草案不用于启动。
+**当前P1完整CPU、唯一GPU源包和独立64GiB存储已接受，已获单次硬19GPUh与本卡原账本事务批准，等待实时准入。** [857完整准备](../../../research/857_CARA_P1_WHOLE_CPU_COMPLETE_PORTABLE_DELIVERY_AND_GPU_SOURCE_20261102.md)与[审批卡](V1_P1_SINGLE_CARD_REVIEW_R1.md)为当前入口：146语义／最多142物理，保守预计18.02734GPUh、硬19GPUh。最近49.82GiB内存快照低于52GiB，批准后仍须实时准入。下列845–849为保留的阶段性准备记录；已结束原件不重跑，旧13.0989GPUh草案不用于启动。
 
 [849监督服务共同收尾](../../../research/849_CARA_P1_GUARDIAN_FIT_LINUX_CPU_AND_SNAPSHOT_COST_AUDIT_20261102.md)新增原Linux34控制无skip接受，五原进程场景验证同一guardian时钟、服务/GPU替身失败关闭与未知保留，原CPU结束。完整生产总入口和释放后146接受仍待；快照费用经旧P0完整元数据复核须重新论证，13.0989GPUh草案尚不可冻结，P1 GPU与中央许可仍无。
 

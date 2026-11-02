@@ -20,7 +20,7 @@
 
 ## 当前主线：V1 P1整卡审批
 
-[完整审批卡](../plans/cara_next_stage_20261101/source_lifecycle/V1_P1_SINGLE_CARD_REVIEW_R1.md)已就绪：完整146语义／最多142物理、64同状态标签，自动19D/22D双来源规划、嵌套消融与同实际费用LPIPS搜索；预计18.02734GPUh、硬19GPUh。整卡CPU、唯一源包、64GiB存储和原字节便携导出已接受，尚无GPU或本卡中央事务授权。原SSH通路实际成功；最近49.82GiB主机内存快照低于52GiB门，获批后仍等待实时准入，不降低门槛。见[857原证据](857_CARA_P1_WHOLE_CPU_COMPLETE_PORTABLE_DELIVERY_AND_GPU_SOURCE_20261102.md)。P0已完整接受；V2不阻塞V1，最终16/备用16继续保留。
+[完整审批卡](../plans/cara_next_stage_20261101/source_lifecycle/V1_P1_SINGLE_CARD_REVIEW_R1.md)已就绪：完整146语义／最多142物理、64同状态标签，自动19D/22D双来源规划、嵌套消融与同实际费用LPIPS搜索；预计18.02734GPUh、硬19GPUh。整卡CPU、唯一源包、64GiB存储和原字节便携导出已接受，用户已批准单次硬19GPUh及本卡原中央事务，见[独立授权](../plans/cara_next_stage_20261101/source_lifecycle/V1_P1_SINGLE_CARD_AUTHORIZATION_R1.json)。原SSH通路实际成功；最近49.82GiB主机内存快照低于52GiB门，现重新核验实时准入，不降低门槛。见[857原证据](857_CARA_P1_WHOLE_CPU_COMPLETE_PORTABLE_DELIVERY_AND_GPU_SOURCE_20261102.md)。P0已完整接受；V2不阻塞V1，最终16/备用16继续保留。
 
 [最新计划与对话分工](../plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md)；A32 GPU阶段已接受，其余按各卡条件推进，评分/科学解释分开验收。
 
