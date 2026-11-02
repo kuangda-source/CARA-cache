@@ -37,3 +37,7 @@ status必须读原完整terminal lifecycle和launch SHA，核原guardian/CLI/sup
 全部52接受后 `wcomr.cara_source_lifecycle_p1_report_r1.complete(stage)` 形成原双时钟/93帧/实际校准费用完整分析和一次原FIT冻结；已有seal只接受相同原字节，不因只读观测时间更改重跑读者。原 `scripts/cara_source_lifecycle_p1_result_bundle_r1.py export --stage 原stage` 导出原report/analysis/freeze字节与SHA，取回后在本机按独立SHA render，使用已有.sync/cara-p0-plot-python绘图环境，不在服务器安装绘图库。
 
 按13角色/52位置、输入等权主LPIPS和原工程筛选解释。四旧CAL/曝光CHECK不是新泛化证据；保留所有A32/B36/S/Q/旧RGB-MSE搜索冻结、WC/RA FIT UNMATCHED、最终/备用16保护输入。更新canonical/完整研究记录，精确提交推送，完成后删除全部剩余检查。禁止自动P2/V2或其它GPU卡。
+
+## 2026-11-03 四分之一程已处理
+
+[原32物理完成运维检查](../../../reports/cara_v1_P1_successor_quarter_operational_accepted_r1_20261103.json)确认原句柄全部活跃、67°C、独占；仅32物理/上限142、语义分母146，未读部分科学结果。`p1-r2-quarter` 已通过应用工具删除；[最新检查承接](../../../reports/cara_v1_P1_successor_acceptance_schedule_r3_20261103.json)保留 `p1-r2-half` 07:41 与 `p1-r2` 16:48，原定义SHA未变，不重复创建。原硬截止/19GPUh和完整终态后的验收顺序不变。
