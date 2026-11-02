@@ -1,6 +1,10 @@
-# P1 原运行与完整验收交接
+# P1 原单次失败收尾（已释放、唯一结算，禁止重派）
 
-唯一 P1 已于 **2026-11-02 15:44:28.784080 Asia/Shanghai** 实际开始。先读 [实际启动原件](../../../reports/cara_v1_P1_actual_start_accepted_r2_20261102.json) 和 [1/4、半程与终验](../../../reports/cara_v1_P1_acceptance_schedule_r3_20261102.json)。禁止再 dispatch、重启、改源或改资源配置；UNKNOWN 仅恢复原句柄。
+原单次P1已于 **2026-11-02 20:40:28.311146 Asia/Shanghai** 失败退出，原因是第三个内部FIT查询目录先于request.json发布被消费者视为残缺。完整146语义未完成，仅38物理请求完成；未查看部分科学分数、未后评分或冻结。原进程/服务/锁已结束，Default恢复，实耗 **4.933201963873063 GPUh** 已唯一结算。见 [863完整故障记录](../../../research/863_CARA_P1_QUERY_PUBLICATION_RACE_FAILURE_AND_UNIQUE_SETTLEMENT_20261102.md)、[收尾原件](../../../reports/cara_v1_P1_original_failure_complete_acceptance_r1_20261102.json) 和 [关闭的检查清单](../../../reports/cara_v1_P1_acceptance_schedule_closed_r4_20261102.json)。
+
+p1-quarter、p1-2、p1-3全部删除。不要继续轮询、prepare、dispatch、评分或再次收费；原单次批准已消耗，不授权重跑。下一步仅准备CPU发布原子性和RPC输出包装修复，新的GPU整卡另审。
+
+以下保留原执行身份与原合同；原19GPUh硬截止属于已结束卡。
 
 ## 已冻结的执行身份
 
@@ -17,19 +21,19 @@
 
 完整146语义／最多142物理／5176模型pair／64同状态标签、自动19D/22D、嵌套消融和同实际费用LPIPS搜索保持。硬限19GPUh，90°C，停止释放余量600秒。**硬截止2026-11-03 10:44:28.784080；停止释放截止10:34:28.784080。** GPU40GiB/CPU8GiB且不swap，每次内部查询仍须新鲜12GiB可用内存。初始50GiB仅在启动前工程修订，CPU增量和原字节封存见 [修订回执](../../../reports/cara_v1_P1_source_memory50_amended_r2_20261102.json)；现在不得再次修改。原dd2/bded及R1授权/CPU证明均保留。
 
-## 运维恢复与监控
+## 已完成的运维恢复与检查
 
-本机仅调用 `scripts/cara_source_lifecycle_p1_memory50_control_r2.py status/central-status`，每次输出新的唯一reports路径。用户切手机热点并明确要求原Tailscale，使用 `.sync/cara-fast-mainline-tailscale-20261030/ssh_config.p0_qos_none.private`；不要自动切LAN、修改Clash/路由或泄露stdin凭据。原GPU/CPU/存储均已启动或结束，只恢复原件，禁止 prepare。
+原quarter实际capture、释放接受、operator恢复与原唯一结算都在863及原回执中。原/tmp中央缓存缺失后仅精确恢复同115源码，central-status回读原账本/预约未变，再由原settle完成费用。四卡只做本卡原中央事务，没有实验或迁移账本。当前cap250、used201.95503799855743、旧reserved16.5、available31.54496200144257。
 
-用户另要求1/4程检查：`p1-quarter` 为11月2日20:15（实际开始＋预计18.02734小时的四分之一，向上取整到分钟）；`p1-2` 半程仍为11月3日00:46；`p1-3` 终验仍为09:52。1/4程同样只检查运维信息，处理一次后自行删除；完整接受或真实失败收尾时删除所有剩余检查。无变化或不可行动保持安静；半程只查原句柄、完整146分母的运维计数、温度、资源、独占和账本。可用计数/墙钟前移同一终验，禁止部分科学结果和重复检查。原准入p1在两个新检查验证后删除。
+原Tailscale入口按用户要求保持；没有改Clash、路由或服务。quarter/half/terminal均已删除，无自动下一卡。保留所有原失败、A32/B36/S/Q/旧搜索冻结、WC/RA FIT UNMATCHED、旧CAL/曝光CHECK及最终/备用16保护输入。
 
-中央已唯一预约19，按用户批准必要的一次24GPUh增量使cap226→250；used197.02183603468436、旧16.5责任保持，预约后available17.478163965315645。见 [预约原件](../../../reports/cara_v1_P1_memory50_central_reservation_r1_20261102.json)。四卡仅本卡原中央事务，不做实验、不迁账本。原operator115文件缓存不变，禁止 central-prepare。所有A32/B36/S/Q/旧RGB-MSE搜索冻结、WC/RA FIT UNMATCHED、四旧CAL/曝光CHECK范围及最终/备用16保护输入保持。
+## 原终态、释放与费用已接受
 
-## 原终态、释放与唯一费用
+`reports/cara_v1_P1_quarter_original_status_r1_20261102.json` 的原launch SHA和完整lifecycle由原financial_terminal核验，随后 `reports/cara_v1_P1_original_failure_central_settlement_r1_20261102.json` 的原settle/audit_settlement通过。不得再次收费或将未用19GPUh余额当重派许可。
 
-成功失败都先用memory50 control的status取原完整terminal lifecycle与launch SHA，检查原guardian容器终态、CLI/runner退出、锁释放与Default恢复。settle --input 原terminal status回执，唯一结算原guardian全段实耗。网络UNKNOWN先恢复原中央事务；不得再次收费。四卡只做本卡原中央事务，不跑实验、不迁账本。失败保留全分母和实际费用，不冻结、不评分、不自动下一卡；收尾后删除剩余检查。
+## 原成功分支存档（本次失败禁止进入）
 
-## 完整成功后的CPU接受与导出
+下列成功接受流程本次未执行；不得对本次失败工件调用released_artifacts、score dispatch或freeze。
 
 完整GPU成功释放且唯一结算后，在原stage固定source调用wcomr.cara_source_lifecycle_p1_artifacts_r1.released_artifacts(capture,expected_launch_sha256,settlement)。它先验证release，再完整读取146/最多142物理、64标签、所有等价/RGB与原封存FIT。不得在此前查看部分科学分数。
 

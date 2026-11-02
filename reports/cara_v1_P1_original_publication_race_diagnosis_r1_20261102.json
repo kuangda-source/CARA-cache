@@ -1,0 +1,29 @@
+{
+  "status": "ORIGINAL_FAILURE_QUERY_PUBLICATION_RACE_BOUND_TO_METADATA",
+  "run_id": "cara-source-lifecycle-V1-P1-full146-r1-20261102",
+  "launch_id": "a2b1dcf993774897902a5f0cc0858220",
+  "source_revision": "6bf82dd262c082a6786588d39d9ea23da74cc907",
+  "metadata_ref": "reports/cara_v1_P1_quarter_failure_operational_metadata_r1_20261102.json",
+  "service_terminal_error": {
+    "message": "Torn original query intent; no new scorer",
+    "type": "OriginalQueryUnknown"
+  },
+  "service_ended_unix": 1793623224.4925623,
+  "third_request_mtime_ns": 1793623224629284676,
+  "third_request_write_after_service_exit_seconds": 0.13672232627868652,
+  "third_request_sha256": "32a9b231dd9051e037251b0844dec30ab68716cc8832604e8698cab936428266",
+  "source_producer": "src/wcomr/cara_source_lifecycle_fit_broker_r1.py:Client.request",
+  "source_consumer": "src/wcomr/cara_source_lifecycle_fit_broker_r1.py:Host.serve",
+  "producer_order": [
+    "visible_score_directory_mkdir",
+    "sync_parent_directory",
+    "create_request_json"
+  ],
+  "consumer_rule": "Visible score directory without request.json raises OriginalQueryUnknown immediately",
+  "confirmed_request_publication_not_atomic": true,
+  "third_query_not_dispatched_by_failed_service": true,
+  "scientific_scores_decoded_or_returned": false,
+  "running_or_original_source_modified": false,
+  "followup_CPU_regression_pending": true,
+  "followup_GPU_not_authorized": true
+}

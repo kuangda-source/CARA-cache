@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[862 — P1完整来源规划卡已实际启动](research/862_CARA_P1_MEMORY50_CPU_AMENDMENT_AND_ACTUAL_START_20261102.md)：V1主线P1于11月2日15:44:28在原A6000唯一启动，完整146语义/最多142物理/64同状态标签及19D22D；科学结果待完整验收。用户要求复核后，初始52→50GiB资源修订在启动前经本地/Linux各9控制、原字节封存及正式重绑定；GPU40/CPU8/每查询新鲜12/no swap不变，现场51.276GiB通过。按既有批准唯一预约19GPUh、必要一次24增量至cap250，旧16.5保持。今日20:15的1/4程、明日00:46半程/09:52终验已验证，原p1删除；硬截止10:44:28。P0完整机制结果和全部旧冻结保持，四卡仅本卡账本。
+[863 — P1请求发布竞态失败，已释放和唯一结算](research/863_CARA_P1_QUERY_PUBLICATION_RACE_FAILURE_AND_UNIQUE_SETTLEMENT_20261102.md)：原P1于11月2日20:40退出，38物理请求完成/142上界、语义分母146未完整；第三个内部FIT请求目录在request.json发布前被消费者读到并按torn保护停止。原进程/服务/锁释放、Default恢复，原guardian实耗4.933201964GPUh唯一结算；cap250、旧16.5保持，available31.544962。原临时账本operator缓存缺失后仅恢复同115份验证字节，原预约回读未变。1/4、半程和终验三检查全部删除；未重派、后评分或冻结。下一步仅准备CPU发布时序回归与RPC stdout包装修复，新GPU另行完整评审；旧科学结果和保护输入保持。
 
 [826 — E1完整验收：CFG有机制增量，当前S不晋级](research/826_CARA_ENDPOINT7_COMPLETE_ACCEPTANCE_RESULTS_AND_REGISTERED_DECISION_20261101.md)：接口修复后46/46、13RGB和28评分完整接受（16新+12原行）；原GPU3.055673007GPUh已结算。S-CFG较DIAG LPIPS低1.53%且4/4同向，但比F19-A1高102.83%；按预注册仅保留机制增量，当前S不晋级。全93帧与双时钟图表完成，检查已删。
 
