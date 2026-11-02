@@ -61,19 +61,20 @@ def plots(analysis, directory):
     palette = plt.get_cmap('tab20')
     colors = {r:palette(i) for i,r in enumerate(roles)}
     prefix = 'CPU FIXTURE - synthetic evidence only' if analysis['CPU_fixture_only'] else 'P1 - four old CAL inputs'
-    fig, axes = plt.subplots(1,2,figsize=(13,7.5))
-    for ax, clock, title in zip(axes, ('T_DD','T_request'), ('Denoising + decoding', 'Complete request')):
-        for i, role in enumerate(roles,1):
-            value = table[role];main = 'stage_age_previous_gap' in role
-            ax.scatter(value[clock], value['LPIPS'], color=colors[role], marker='*' if main else 'o', s=140 if main else 50)
-            ax.annotate('R'+str(i), (value[clock],value['LPIPS']), xytext=(4,4), textcoords='offset points', fontsize=8)
-        ax.set(xlabel=title+' (seconds)',ylabel='LPIPS (lower is better)',title=title)
-        ax.grid(alpha=.2)
-    legend = ['R'+str(i)+': '+LABELS[r] for i,r in enumerate(roles,1)]
-    for i, line in enumerate(legend):
-        fig.text(.06+(i%3)*.32, .215-(i//3)*.033, line,fontsize=8.5,color=colors[roles[i]])
+    # Near-identical baseline times and aliases can put many points at the same
+    # coordinate. Aligned role rows preserve all13 values without label overlap.
+    fig, axes = plt.subplots(1,3,figsize=(16,7.5),sharey=True)
+    for ax, key, title in zip(axes, ('LPIPS','T_DD','T_request'),
+            ('LPIPS (lower is better)','Denoising + decoding (seconds)','Complete request (seconds)')):
+        values=[table[r][key] for r in roles]
+        bars=ax.barh(range(len(roles)),values,color=[colors[r] for r in roles],height=.65)
+        ax.bar_label(bars,labels=[format(v,'.4f' if key=='LPIPS' else '.3f') for v in values],padding=4,fontsize=8)
+        ax.set(xlabel=title,xlim=(0,max(values)*1.28 if any(values) else 1))
+        ax.grid(axis='x',alpha=.2);ax.set_axisbelow(True)
+    axes[0].set_yticks(range(len(roles)),[LABELS[r] for r in roles],fontsize=9)
+    axes[0].invert_yaxis()
     fig.suptitle(prefix+'\nInput-equal quality and both original clocks',fontsize=13)
-    fig.subplots_adjust(top=.83,bottom=.32,wspace=.25)
+    fig.subplots_adjust(top=.85,bottom=.12,left=.31,right=.97,wspace=.22)
     for ext in ('png','pdf'):fig.savefig(directory/('quality-latency.'+ext),dpi=170)
     plt.close(fig)
     fig, axes = plt.subplots(2,2,figsize=(13,8.5))
