@@ -26,9 +26,21 @@ REMOTE_ROOT='/data20t/gaokuangda/worldcache_workspace'
 BLOCK_BYTES=8192
 
 
+def require_ended_source_parent(entry,*,host_parent=False):
+    """Source inheritance may use a saved ended container or bounded host CPU."""
+    if host_parent:
+        launch,terminal=entry['launch'],entry['host_terminal']
+        assert launch['parent_Docker_container'] is False and launch['CPU_fixture_only'] is True
+        assert entry['original_host_observation']['original_live'] is False
+        assert terminal['identity']==launch['identity'] and terminal['error'] is None
+        assert entry['CPU_proof'] is not None and entry['CPU_proof']['CPU_fixture_only'] is True
+    else:
+        assert entry['container_state']['Pid']==0 and not entry['container_state']['Running']
+
+
 def main(*, stage=STAGE, overlay=OVERLAY, remote_code=REMOTE,
          transfer_label='cara-P0-point20-CPU-transfer', connect_timeout=25, probe_peer=False,
-         inherited_capture_ref=None, work_seconds=600, exit_seconds=60):
+         inherited_capture_ref=None, work_seconds=600, exit_seconds=60,inherited_host_parent=False):
     parser=argparse.ArgumentParser()
     parser.add_argument('--source-revision',required=True)
     parser.add_argument('--output',type=Path,required=True)
@@ -55,7 +67,7 @@ def main(*, stage=STAGE, overlay=OVERLAY, remote_code=REMOTE,
         assert captured['exit_code']==0
         entry=captured['result']
         assert entry['payload_intact'] and entry['runtime_intact'],'Only verified source bytes may be inherited'
-    assert entry['container_state']['Pid']==0 and not entry['container_state']['Running']
+    require_ended_source_parent(entry,host_parent=inherited_host_parent)
     inherited=entry['registration']['payload_sha256']
     assert entry['registration']['runtime_source_sha256']==base['registration']['runtime_source_sha256']
     changed={n:h for n,h in hashes.items() if inherited.get(n)!=h}

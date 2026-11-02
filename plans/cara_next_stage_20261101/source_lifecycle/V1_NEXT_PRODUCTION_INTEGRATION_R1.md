@@ -43,3 +43,5 @@ P1真实完整视频决定方法是否成立；工程筛选目标仍为同批19D
 [853](../../../research/853_CARA_P1_POST_DOCKER_ACCEPTED_AND_PRODUCTION_REPORT_RPC_PREPARATION_20261102.md)已接受原post Docker/serve CPU，源49fad194，31控制、仅2新真实合成评分对＋50模拟行、失败2/1，所有原进程退出。分析CLI/首次完整输入封存/原FIT一次冻结、13角色双时钟与93帧CSV/图表、权限前置的P1 RPC已实现；新1448文件包26本地控制通过，Linux delta待接受。已完成的原32对和本次2对不再计算；继续来源/存储及整卡CPU/正式报价，P1和四卡账本未授权。
 
 [854](../../../research/854_CARA_P1_ENTRY_LINUX_CPU_COMPLETE_AND_LOCAL_FIGURES_20261102.md)已完整接受新增Linux23（分析/临时结算/RPC/容器worker），原CPU退出、无新指标、两检查删除。原本机3图表源复用，随后当前布局另通过本机3项与视觉QA；35处选定原组件源码一致。整卡CPU仍未组合，正式profile/报价、生产绘图后端、新64GiB源存储仍待；[完整单卡审阅草案](V1_P1_SINGLE_CARD_REVIEW_DRAFT_R1.md)仅准备，不授予GPU或中央权限。
+
+[855](../../../research/855_CARA_P1_PORTABLE_COMPLETE_REPORT_AND_FORMAL_QUOTE_20261102.md)已实现完整结果便携导出与本机出图，5项控制通过，不给模型/评分环境装绘图库。拟议19GPUh profile和完整18.0273工程报价已冻结，3项绑定控制通过；CPU源码继承显式支持已结束宿主，5项控制通过。新64GiB/48MiB存储操作器已准备、尚未启动；GPU和中央许可仍为空。

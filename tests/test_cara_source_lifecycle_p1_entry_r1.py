@@ -116,7 +116,7 @@ class P1ProductionEntryTests(unittest.TestCase):
 
     def test_published_unset_hard_limit_cannot_pass_admission(self):
         draft=json.loads((ROOT/binding.PROFILE).read_bytes())
-        self.assertIsNone(draft['hard_GPUh'])
+        draft['hard_GPUh']=None
         with self.assertRaisesRegex(ValueError,'frozen hard limit'):binding.validate_profile(draft,self.f.card['scope_sha256'])
 
     def test_old_card_standing_small_card_or_replay_are_not_p1_authority(self):
