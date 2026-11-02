@@ -193,9 +193,19 @@ class Client:
         if not query.exists():
             if len(list(self.queue.glob('score-*'))) >= 42:
                 raise ValueError('Original maximum42 distinct complete FIT queries reached')
-            query.mkdir(mode=0o700)
+            # The original single client publishes a complete directory. A
+            # failed unpublished intent remains hidden and refuses a replay.
+            pending = query.with_name('.pending-'+query.name)
+            try:
+                pending.mkdir(mode=0o700)
+            except FileExistsError as error:
+                raise OriginalQueryUnknown('Original unpublished query intent; recover only') from error
+            sync_directory(pending.parent)
+            create_record(pending/'request.json', config)
+            if query.exists():
+                raise OriginalQueryUnknown('Original query appeared during publication; recover only')
+            pending.rename(query)
             sync_directory(query.parent)
-            create_record(query/'request.json', config)
         elif read_record(query/'request.json') != config:
             raise ValueError('Original query cannot be replaced or rescored with changed inputs')
         deadline = min(self.spec['work_stop_monotonic'], time.monotonic()+BOUND['wall_seconds']+30)

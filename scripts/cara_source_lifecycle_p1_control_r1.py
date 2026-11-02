@@ -149,6 +149,15 @@ def authorized(action, auth):
     return central
 
 
+def wrapped_rpc_code(remote):
+    return ("import contextlib,io,json,gzip,base64,hashlib\n"
+            "with contextlib.redirect_stdout(io.StringIO()) as rpc_output:\n"
+            " exec("+repr(remote)+", {'packet':packet})\n"
+            "rpc_bytes=rpc_output.getvalue().encode()\n"
+            "print(json.dumps(dict(gzip_base64=base64.b64encode(gzip.compress(rpc_bytes)).decode(),"
+            "sha256=hashlib.sha256(rpc_bytes).hexdigest())))\n")
+
+
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('action',choices=('bind','admit','refresh','dispatch','status','central-prepare','central-recover','central-status','reserve','settle'))
@@ -180,7 +189,7 @@ def main():
     secret=None if central else password()
     if args.action=='dispatch':payload['sudo_password']=secret
     remote=CENTRAL if central else TWO
-    code="import io,sys,json,gzip,base64,hashlib\nsaved=sys.stdout;sys.stdout=io.StringIO()\nexec("+repr(remote)+")\nraw=sys.stdout.getvalue().encode();sys.stdout=saved\nprint(json.dumps(dict(gzip_base64=base64.b64encode(gzip.compress(raw)).decode(),sha256=hashlib.sha256(raw).hexdigest())))\n"
+    code=wrapped_rpc_code(remote)
     encoded=base64.b64encode(gzip.compress(json.dumps(dict(code=code,arguments=payload)).encode())).decode()
     interpreter='python3' if central else '/home/gaokuangda/data/gkd/cosmos/cosmos-predict2.5/.venv/bin/python'
     command=shlex.quote(interpreter)+' -c '+shlex.quote("import sys,json,gzip,base64;packet=json.loads(gzip.decompress(base64.b64decode(sys.stdin.read())));exec(packet['code'])")
