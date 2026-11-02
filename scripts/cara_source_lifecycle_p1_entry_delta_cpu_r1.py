@@ -30,7 +30,8 @@ REMOTE=REMOTE.replace(" stage.mkdir(mode=0o700)"," import importlib.util\n asser
 REMOTE=REMOTE.replace(" terminal=json.loads((stage/'host-terminal.json').read_bytes())",
     " previews={n:dict(sha256=sha(stage/'figure-preview'/n),base64=base64.b64encode((stage/'figure-preview'/n).read_bytes()).decode()) for n in ('quality-latency.png','complete93-curves.png')} if raw else {}\n terminal=json.loads((stage/'host-terminal.json').read_bytes())")
 REMOTE=REMOTE.replace("CPU_proof=json.loads(raw) if raw else None,", "figure_preview=previews,CPU_proof=json.loads(raw) if raw else None,")
-PREFLIGHT='reports/cara_v1_P1_entry_delta_packaged_local_CPU_r1_20261102.json'
+PREFLIGHT='reports/cara_v1_P1_entry_delta_packaged_local_CPU_r2_20261102.json'
+INHERITED_CAPTURE='reports/cara_v1_P1_release_Linux_CPU_capture_r7_20261102.json'
 
 
 def mapping():
@@ -41,6 +42,11 @@ def mapping():
 
 
 def packaged_local_check():
+    inherited=json.loads((ROOT/INHERITED_CAPTURE).read_bytes())
+    original=inherited['result']
+    assert inherited['exit_code']==0 and original['payload_intact'] and original['runtime_intact']
+    assert original['container_state']['Pid']==0 and original['container_state']['Running'] is False
+    assert original['container_state']['ExitCode']==0
     files=mapping()
     with tempfile.TemporaryDirectory(prefix='cara-P1-entry-delta-package-') as temporary:
         root=Path(temporary)
@@ -69,7 +75,7 @@ if __name__=='__main__':
         assert proof['status']=='EXACT_REGISTERED_P1_ENTRY_DELTA_PAYLOAD_ISOLATED_LOCAL26_PASS' and proof['payload_sha256']==mapping()
         transfer.main(stage=STAGE,overlay=OVERLAY,remote_code=REMOTE,
             transfer_label='cara-V1-P1-entry-delta-R1-CPU-transfer',connect_timeout=60,probe_peer=True,
-            inherited_capture_ref='reports/cara_v1_P1_post_host_CPU_capture_r1_20261102.json',work_seconds=1200,exit_seconds=60)
+            inherited_capture_ref=INHERITED_CAPTURE,work_seconds=1200,exit_seconds=60)
     else:
         subprocess.run(['/Applications/Tailscale.app/Contents/MacOS/Tailscale','ping','--until-direct=false','--c','1',
             '--timeout','5s','100.103.229.16'],capture_output=True,text=True,timeout=12)
