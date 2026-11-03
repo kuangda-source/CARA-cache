@@ -2,7 +2,7 @@
 
 # CARA-Cache 后续实验顺序
 
-[871 C1 完整校准：范围、CPU流程与报价](871_CARA_SOURCE_COVERAGE_C1_SCOPE_QUOTE_AND_CPU_PREPARATION_20261103.md)：C1完整166语义／最多166物理／60正式质量位置；来源8对8、阶段3对3，搜索使用独立缓存与同实测费用上限。本地31项CPU通过，预计14.8224GPUh、建议硬15。正在恢复原Tailscale通路和Linux CPU接线；新宿主监督/60位置终态接受绑定仍待，不申请或启动GPU，不访问中央账本。
+[871 C1 完整校准：范围、CPU流程与报价](871_CARA_SOURCE_COVERAGE_C1_SCOPE_QUOTE_AND_CPU_PREPARATION_20261103.md)：C1完整166语义／最多166物理／60正式质量位置；来源8对8、阶段3对3，搜索独立缓存并采用main8实测校准费用上限。本地与两卡Linux各31项CPU通过；预计14.8224GPUh、建议硬15。下一步完成本卡guardian、56队列与60位置释放后接受的生产组合；当前未启动GPU、未访问中央账本。
 
 [869 - P1 R2 完整结果：自动规划链路成立，当前来源估值未提供终点增量](869_CARA_P1_R2_COMPLETE_RESULTS_SOURCE_INCREMENT_FAILED_20261103.md)：P1完整146/64/142/12等价门及52质量位置接受，原FIT一次冻结和全93帧/双时钟图表完成；12.270682712GPUh已唯一结算，全部原GPU/CPU结束，所有检查已删。四旧CAL上主V1-19D LPIPS0.479044，F19-A1为0.231499，时延148.027/149.368秒；前来源间距在19D/22D均比阶段＋年龄更差，原工程筛选失败。自动计划链路成立，当前来源估值未提供终点增量，不晋级P2、不自动下一卡；旧冻结、曝光范围和保护输入保持。
 
@@ -22,7 +22,7 @@
 
 ## 当前主线：来源覆盖与终点校准规划
 
-[C1范围与报价](../plans/cara_next_stage_20261103/source_coverage/c1/C1_REVIEW_R1.md)已落实为166语义、60质量位置，来源8对8与阶段3对3，隔离缓存的同费用搜索。本地31项CPU通过；预计14.8224GPUh、建议硬15。继续Linux CPU与新卡宿主监督/终态接受绑定，完成后再提交启动审阅；当前0GPU、无新账本权限。
+[C1范围与报价](../plans/cara_next_stage_20261103/source_coverage/c1/C1_REVIEW_R1.md)已落实为166语义、60质量位置，来源8对8与阶段3对3，隔离缓存的同费用搜索。本地与[两卡Linux](../reports/cara_source_coverage_C1_Linux_CPU_accepted_r3_20261103.json)各31项CPU通过；预计14.8224GPUh、建议硬15。按[生产接线承接](../plans/cara_next_stage_20261103/source_coverage/c1/C1_CPU_PRODUCTION_BINDING_HANDOFF_R1.md)继续新卡宿主监督、56队列与60位置终态接受组合，完成后再提交启动审阅；当前0GPU、无新账本权限。
 
 [870 CPU 原型](870_CARA_SOURCE_COVERAGE_ENDPOINT_PLANNER_CPU_20261103.md)已通过16项控制、180组穷举对照及8条完整36更新的小权重原缓存/UniPC路径。主方法19D/22D生成12/8条去重候选，单来源与无阶段消融、完整终点选择CLI可运行。接下来完成[方法入口与整卡范围报价](../plans/cara_next_stage_20261103/source_coverage/README.md)，以同实际校准费用的终点效率和规则迁移作为主要研究问题。
 

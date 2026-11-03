@@ -22,6 +22,8 @@ main8 与 single8 各评估八条，phase3 与 neutral3 各评估三条；后两
 
 三处旧入口改动是向 `Requests/Collection/collect_loaded` 传显式卡片校验器，以及给独立搜索评分命名空间。原P1默认参数及协议保持；原冻结stage不改、不重跑。新 C1 的宿主监督、broker和60位置终态接受器仍需单独绑定并通过对应CPU组合，不能把原146位置接受器用于C1。
 
-原Tailscale通路已间歇登录Windows及两卡，确认原镜像可用、可用内存约51.6GiB，新的C1 CPU容器尚未派发。源码大块传输和后续握手不稳定，继续用本次SSH参数与校验传输恢复；不改Clash/路由，不碰四卡或账本。正式状态以C1原CPU句柄回执为准。
+原 Tailscale 通路已登录并完成本次CPU取回。[原Linux完整接受](../reports/cara_source_coverage_C1_Linux_CPU_accepted_r3_20261103.json)证明117文件闭包、相同worker源码与31/31控制，容器`7bf442423ada`退出0；原proof字节和SHA已独立核验。保留原R1缺NumPy、R2到300秒超时的失败；R3使用已接受的只读Python环境与1200秒诊断边界，诊断显示合成测试journal的fsync/XFS等待，未改变持久化语义或网络配置。另有5项本地宿主元数据控制通过。
+
+下一项交付为[生产组合接线](../plans/cara_next_stage_20261103/source_coverage/c1/C1_CPU_PRODUCTION_BINDING_HANDOFF_R1.md)：C1独立运行身份、56内部查询队列、原guardian唯一计时与60位置释放后接受。当前31项证明采集与选择的CPU行为；完整166回调仍为合成媒体/分数，不是实模型视频评价。
 
 本轮 GPU 提交与支出0；报价可审阅，启动审批留到新卡生产绑定和Linux CPU验收完成后。
