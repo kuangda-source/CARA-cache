@@ -67,6 +67,17 @@ class CPUHost(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'runtime mounts'):
                 host.capture()
 
+    def test_r3_requires_the_original_r2_timeout_before_new_intent(self):
+        (self.stage/'CPU-intent.json').unlink()
+        active=dict(State=dict(Running=True,ExitCode=0))
+        def inspected(name=None):
+            return None if name is None else active
+        with patch.object(host,'GENERATION',3),patch.object(host,'inspect',side_effect=inspected),\
+                patch.object(host,'download') as download,self.assertRaisesRegex(ValueError,'prior C1 CPU failure'):
+            host.prepare('a'*40,'b'*64)
+        download.assert_not_called()
+        self.assertFalse((self.stage/'CPU-intent.json').exists())
+
 
 if __name__=='__main__':
     unittest.main()

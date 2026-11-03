@@ -76,7 +76,7 @@ def capture():
             or host['CpusetCpus'] != '26,27' or host['NetworkMode'] != 'none'
             or not host['ReadonlyRootfs']):
         raise ValueError('Original C1 CPU identity or resource isolation differs')
-    if GENERATION==2:
+    if GENERATION>=2:
         required={str(ROOT/p)+':'+str(ROOT/p)+':ro' for p in ('envs','system-libs-r1')}
         if (config['Cmd'][2]!=expected['runtime_python'] or not required<=set(host['Binds'])
                 or not {'CUDA_VISIBLE_DEVICES=','NVIDIA_VISIBLE_DEVICES=void'}<=set(config['Env'])):
@@ -101,10 +101,12 @@ def prepare(revision,template_sha):
         raise RuntimeError('C1 CPU container exists without this intent; inspect original, never launch')
     runtime_python='python'
     runtime_environment=[]
-    if GENERATION==2:
-        parent=inspect(R1_NAME)
-        if (parent is None or parent['State']['Running'] or parent['State']['ExitCode']!=1):
-            raise ValueError('Original C1 R1 environment failure must be ended before its distinct R2')
+    if GENERATION>=2:
+        parent_name=R1_NAME if GENERATION==2 else 'cara-source-coverage-C1-CPU-r2-20261103'
+        parent=inspect(parent_name)
+        expected_exit=1 if GENERATION==2 else 124
+        if (parent is None or parent['State']['Running'] or parent['State']['ExitCode']!=expected_exit):
+            raise ValueError('Original prior C1 CPU failure must be ended before its distinct successor')
         original=(BASE/'GPU-launch.json').read_bytes()
         if sha(original)!=P1_LAUNCH_SHA256:
             raise ValueError('Original accepted P1 runtime contract differs')
@@ -129,7 +131,7 @@ def prepare(revision,template_sha):
             if sha(target.read_bytes()) != expected:
                 raise ValueError('Existing C1 source changed: '+name)
             return
-        bases=([R1_STAGE/rel] if GENERATION==2 else [])+[BASE/rel]
+        bases=([R1_STAGE/rel] if GENERATION>=2 else [])+[BASE/rel]
         if name=='reports/cara_v1_P1_successor_original_algorithm_summary_r1_20261103.json':
             bases.append(ROOT/'outputs/cara-source-lifecycle-V1-P1-full146-r2-20261102/algorithm/algorithm-summary.json')
         content=next((p.read_bytes() for p in bases if p.is_file() and sha(p.read_bytes())==expected),None)
@@ -173,13 +175,22 @@ def prepare(revision,template_sha):
         '-e','OMP_NUM_THREADS=2','-e','OPENBLAS_NUM_THREADS=2','-e','TMPDIR=/workspace/scratch',
         '-e','CARA_READ_WRITE_RUNTIME=/runtime','-e','PYTHONPATH=/workspace/src:/workspace/tests:/workspace/scripts',
         '-v',str(STAGE)+':/workspace:rw','-v',str(ROOT/'runtime')+':/runtime:ro','-w','/workspace']
-    if GENERATION==2:
+    if GENERATION>=2:
         for folder in ('envs','system-libs-r1'):
             command.extend(['-v',str(ROOT/folder)+':'+str(ROOT/folder)+':ro'])
         for value in runtime_environment:
             command.extend(['-e',value])
-    command.extend([IMAGE,'timeout','300',runtime_python,'scripts/prepare_cara_source_coverage_c1_r1.py',
-        '--output-directory','/workspace/linux-results-r1'])
+    if GENERATION==3:
+        # Diagnostic output changes no test/source bytes; the prior CPU already ended.
+        diagnostic=('import faulthandler,runpy,sys;'
+            'faulthandler.dump_traceback_later(120,repeat=True);'
+            'sys.argv=["scripts/prepare_cara_source_coverage_c1_r1.py",'
+            '"--output-directory","/workspace/linux-results-r1"];'
+            'runpy.run_path(sys.argv[0],run_name="__main__")')
+        command.extend([IMAGE,'timeout','1200',runtime_python,'-c',diagnostic])
+    else:
+        command.extend([IMAGE,'timeout','300',runtime_python,'scripts/prepare_cara_source_coverage_c1_r1.py',
+            '--output-directory','/workspace/linux-results-r1'])
     run=subprocess.run(command,capture_output=True,text=True)
     write_new(STAGE/'CPU-launch.json',dict(exit_code=run.returncode,stdout=run.stdout,stderr=run.stderr))
     if run.returncode:
@@ -192,13 +203,13 @@ def main():
     parser.add_argument('action',choices=('prepare','capture'))
     parser.add_argument('--source-revision')
     parser.add_argument('--expected-template-sha256')
-    parser.add_argument('--generation',type=int,choices=(1,2),default=1)
+    parser.add_argument('--generation',type=int,choices=(1,2,3),default=1)
     args=parser.parse_args()
     global GENERATION,STAGE,NAME
     GENERATION=args.generation
-    if GENERATION==2:
-        STAGE=ROOT/'.sync/cara-source-coverage-C1-CPU-r2-20261103'
-        NAME='cara-source-coverage-C1-CPU-r2-20261103'
+    if GENERATION>=2:
+        NAME='cara-source-coverage-C1-CPU-r'+str(GENERATION)+'-20261103'
+        STAGE=ROOT/'.sync'/NAME
     if args.action=='prepare':
         if not re.fullmatch('[0-9a-f]{40}',args.source_revision or ''):
             raise ValueError('Published full source revision required')
