@@ -1,0 +1,138 @@
+"""Already-admitted loaded-model entry. No ledger, dispatch or monitoring service."""
+import argparse
+import copy
+import json
+import os
+from pathlib import Path
+import sys
+
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parents[2]
+sys.path[:0] = [str(HERE),str(ROOT/'src'),str(ROOT/'scripts')]
+
+
+def collect_loaded(inference,samples,card,common,output,storage,mode_types,*,cpu_validation=False):
+    import torch
+    from sampling import execute
+    from wcomr.cara_f19_speed190_requests_r1 import Requests
+    from wcomr.full_sampling import CompleteStateRoundtrip
+    from wcomr.h0_mode import establish_shared_eval,verify_shared_eval
+    from wcomr.gpu_budget_pool_v2 import atomic_json,sha
+    from wcomr.cara_s_endpoint_runner_r1 import observed_precision
+    model,net=inference.pipe.model,inference.pipe.model.net
+    caller_owned='forward' in vars(net);caller_forward=net.forward
+    precision=observed_precision(model)
+    if not cpu_validation and (precision['model_precision']!='torch.bfloat16'
+            or precision['use_wan_fp32_strategy'] is not True or precision['outer_autocast'] is not False):
+        raise ValueError('CAL35 shared production precision required')
+    mode=establish_shared_eval(net,mode_types)
+    common['wc'].apply_worldcache(net,**{k.removeprefix('worldcache_'):v for k,v in card['settings'].items()})
+    initial=CompleteStateRoundtrip(net,model.sample_scheduler,torch.zeros(1))
+    clean=Requests(inference,samples,card,common,cpu_validation=cpu_validation)
+    output=Path(output);target=output/'collection.json'
+    if target.exists():
+        raise ValueError('Existing original collection; recover it without replay')
+    state=dict(status='RUNNING',run_id=card['run_id'],scope_sha256=card['scope_sha256'],
+        rows=[dict(slot=copy.deepcopy(s),status='NOT_REACHED') for s in card['matrix']],
+        CPU_fixture_only=cpu_validation)
+    indexed={}
+    def save():atomic_json(target,state)
+    save()
+    try:
+        for row in state['rows']:
+            slot=row['slot'];storage.check();initial.restore();verify_shared_eval(net,mode)
+            row['status']='RUNNING';save()
+            member=slot['member'];states=output/'native_states'/member
+            path=output/'requests'/slot['id'];role=slot['role']
+            if role in card['roles']:
+                result=clean(slot,path)
+            else:
+                result=execute(inference,samples[member],card=card,common=common,output=path,
+                    record_root=states if role=='NATIVE_RECORD' else None,
+                    checkpoint=states/f"state_before_{slot['target_update']:02d}.pt" if role in ('SINGLE_C','RESUME_D') else None,
+                    target=slot['target_update'] if role in ('SINGLE_C','FULL_SINGLE_C') else None)
+            if result['status']!='COMPLETE':
+                raise ValueError('Rejected/incomplete request; retain denominator, no replacement')
+            latent=result.pop('final_latent');result.pop('guided',None)
+            tensor=output/(slot['id']+'.pt');torch.save(latent,tensor)
+            result['latent_artifact']=dict(path=str(tensor),sha256=sha(tensor))
+            video=Path(result['video_path'])
+            result['video_artifact']=dict(path=str(video),sha256=sha(video),bytes=video.stat().st_size)
+            indexed[(member,role,slot['target_update'])]=tensor
+            if role in ('RESUME_D','NATIVE35') and (member,'NATIVE_RECORD',None) in indexed:
+                ref=indexed[(member,'NATIVE_RECORD',None)]
+                if not torch.equal(latent,torch.load(ref,map_location='cpu',weights_only=True)):
+                    raise ValueError('Native/allD or unchanged suffix full-latent bridge failed')
+            if role=='FULL_SINGLE_C':
+                ref=indexed[(member,'SINGLE_C',slot['target_update'])]
+                if not torch.equal(latent,torch.load(ref,map_location='cpu',weights_only=True)):
+                    raise ValueError('Single-C complete-prefix/resumed suffix bridge failed')
+            row.update(status='COMPLETE',result=result);save()
+        state['status']='COMPLETE_PENDING_RELEASE_SCORING';save()
+        return state
+    except BaseException as error:
+        state.update(status='FAILED_NO_RETRY',error_type=type(error).__name__,error=str(error));save();raise
+    finally:
+        initial.restore();verify_shared_eval(net,mode)
+        if caller_owned:net.forward=caller_forward
+        else:vars(net).pop('forward',None)
+
+
+def main():
+    parser=argparse.ArgumentParser()
+    for name in ('project','stage'):parser.add_argument('--'+name,type=Path,required=True)
+    for name in ('source-revision','gpu-uuid'):parser.add_argument('--'+name,required=True)
+    args=parser.parse_args()
+    sys.path[:0]=[str(args.stage/'src'),str(args.stage/'scripts'),str(args.project/'runtime'),
+        str(args.project/'runtime/packages/cosmos-oss'),str(args.project/'runtime/packages/cosmos-cuda')]
+    from wcomr.gpu_budget_pool_v2 import sha
+    from wcomr.history104_storage_r2 import storage_for
+    from wcomr.wc73_exclusive_r1 import runner_context_gate
+    from run_cara_budget_calibration_r1 import validate_runner_handoff
+    read=lambda path:json.loads(Path(path).read_text())
+    launch=read(args.stage/'GPU-launch.json');reg=read(args.stage/'registration.json')
+    card=read(HERE/'manifest.json')
+    if (launch['run_id']!=card['run_id'] or launch['source_revision']!=args.source_revision
+            or launch['gpu_uuid']!=args.gpu_uuid or launch['billed_limit_GPUh']!=9.5
+            or launch['scope_sha256']!=card['scope_sha256']):
+        raise ValueError('Exact Phase2 admitted source/run/budget required')
+    if any(sha(args.stage/name)!=digest for name,digest in reg['payload_sha256'].items()):
+        raise ValueError('Admitted source differs')
+    if any(sha(args.project/'runtime'/name)!=digest for name,digest in reg['runtime_source_sha256'].items()):
+        raise ValueError('Admitted runtime source differs')
+    envelope=read(args.stage/'central-reservation.json')
+    if envelope['job']['job_id']!=card['run_id'] or envelope['job']['launch_id']!=launch['launch_id']:
+        raise ValueError('Exact single central reservation required')
+    command=[sys.executable,str(HERE/'runner.py'),'--project',str(args.project),'--stage',str(args.stage),
+        '--source-revision',args.source_revision,'--gpu-uuid',args.gpu_uuid]
+    validate_runner_handoff(args.stage,launch,sha(args.stage/'GPU-launch.json'),command)
+    runner_context_gate(args.project,args.stage,args.gpu_uuid)
+    import torch
+    torch.set_num_threads(2)
+    from cosmos_predict2.config import SetupArguments,InferenceArguments
+    import cosmos_predict2.inference as im
+    from cosmos_predict2._src.predict2.inference import worldcache_utils as wc
+    from cosmos_predict2._src.predict2.models import video2world_model_rectified_flow as rf
+    from cosmos_oss.init import init_environment,init_output_dir,cleanup_environment
+    from wcomr.runtime_config import install_core_inference_registration
+    storage=storage_for(args.stage);storage.check()
+    setup=SetupArguments(**{**read(args.stage/'configs/f1_setup.json'),
+        'keep_going':True,'worldcache_enabled':True,'output_dir':str(storage.output)})
+    if setup.disable_guardrails or setup.use_torch_compile or setup.offload_diffusion_model:
+        raise ValueError('Original guarded, uncompiled resident-model setup required')
+    samples={r['name']:InferenceArguments(**{k:v for k,v in r.items() if k!='partition'}) for r in card['inputs']}
+    init_environment();init_output_dir(storage.output,profile=False)
+    try:
+        install_core_inference_registration(setup.model,setup.experiment)
+        inference=im.Inference(setup)
+        if torch.__version__!='2.7.1+cu128' or len(inference.pipe.model.net.blocks)!=28:
+            raise ValueError('CAL35 production Torch and 28-block model required')
+        common=dict(runtime=args.project/'runtime',wc=wc,rf=rf,inference_module=im,
+            expected_shape=read(args.stage/'configs/wc_ra_comparison_production_r2_20261010.json')['expected_real_shape'])
+        collect_loaded(inference,samples,card,common,storage.output,storage,
+            read(args.stage/'manifests/wc_h0_eval_mode_contract_20261003.json')['module_types'])
+    finally:
+        cleanup_environment()
+
+
+if __name__=='__main__':main()
