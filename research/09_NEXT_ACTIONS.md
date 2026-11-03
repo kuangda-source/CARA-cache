@@ -2,7 +2,7 @@
 
 # CARA-Cache 后续实验顺序
 
-[867 — P1 R2半程正常，同一终验前移12:15](867_CARA_P1_R2_HALF_OPERATIONAL_AND_TERMINAL_ADVANCE_20261103.md)：11月3日07:43原四主句柄及容器活跃，完成97个物理请求/最多142，语义分母146与64标签完整验收范围保持；20内部查询意图仅为计数，未读部分科学指标。原A6000独占78C/27508MiB，未OOM；中央cap250/本卡19预约/旧16.5与已用费用均未变，无新派发或账本写入。单次半程已删除，仅依据计数及9.07581小时墙钟将同一个终验p1-r2前移至今日12:15；这是检查时点，不承诺完成。原19GPUh硬限、17:39:06硬截止及600秒释放余量保持。完整终态后唯一结算，成功后一次CPU与FIT冻结。
+[868 - P1 R2 GPU完整结束、唯一结算与原CPU读者启动](868_CARA_P1_R2_GPU_RELEASE_UNIQUE_SETTLEMENT_AND_ORIGINAL_CPU_READER_20261103.md)：GPU完整结束并唯一结算12.270682712GPUh；验收运行环境已修正，146语义/64标签/142工件与12等价控制已完整接受。32新对原CPU评分正在运行，将与20个封存原对组成完整52位置。同一个终验13:15继续，quarter/half已删除；未重跑GPU或旧评分，尚无方法效果结论。
 
 [826 — E1完整验收：CFG有机制增量，当前S不晋级](826_CARA_ENDPOINT7_COMPLETE_ACCEPTANCE_RESULTS_AND_REGISTERED_DECISION_20261101.md)：接口修复后46/46、13RGB和28评分完整接受（16新+12原行）；原GPU3.055673007GPUh已结算。S-CFG较DIAG LPIPS低1.53%且4/4同向，但比F19-A1高102.83%；按预注册仅保留机制增量，当前S不晋级。全93帧与双时钟图表完成，检查已删。
 
@@ -18,11 +18,9 @@
 
 [756 B36完整验收、结果与正式图表](756_CARA_B36_COMPLETE_ACCEPTANCE_RESULTS_AND_FIGURES_20261029.md)：B36完整36/36、0失败，原GPU/CPU/导图CPU均正常退出；原费用2.384553982338661GPUh已中央唯一结算，5.5GPUh硬限、cap226及旧16.5保持。26新评分＋六原A指标组成完整32接受；原规则汇总及四组PNG/PDF、四CSV均完成，两个自动检查已删除。4旧CAL输入等权结果：F19_C为1.703×T_DD、1.486×完整请求，Alex0.24936，较同19D的Uniform19_C降低46.82%；F19_A1为1.691×/1.479×、Alex0.23150，较F19_C再降7.16%，T_DD开销0.70%。WC/RA保持FIT UNMATCHED，原A32评分与冻结未重做；CHECK仍为旧CAL内部留出。10月30日原Tailscale入口恢复后已只读复核中央原结算；原费用和完整接受保持，新GPU仍需fresh准入。 [B36唯一启动回执](../reports/cara_fast_B36_GPU_actual_launch_r1_20261029.json) · [原句柄与验收交接](../plans/cara_next_stage_20261028/mainline/r2/B36_POST_LAUNCH_HANDOFF.md)
 
-## 当前主线：恢复已启动的 P1 R2，完整验收后再定方法结论
+## Current mainline: recover the original32-pair score CPU
 
-[865原实际启动](865_CARA_P1_REPAIRED_SUCCESSOR_ACTUAL_START_AND_THREE_CHECKS_20261102.md)：修复后的新P1 R2已于11月2日22:39:06.791125在原A6000启动，完整146语义/最多142物理/64标签、19D22D保持。用户新单次19GPUh和原账本事务已批准，完整资产/资源门通过，一次19预约、cap250未增额；原R1失败4.933201964费用独立保留。
-
-仅按[原R2交接](../plans/cara_next_stage_20261101/source_lifecycle/P1_SUCCESSOR_R2_POST_LAUNCH_HANDOFF_20261102.md)恢复，禁止重派/改源或部分指标。[866运维检查](866_CARA_P1_R2_QUARTER_OPERATIONAL_CHECK_20261103.md)已完成并删除单次1/4检查；原句柄活跃、32物理请求完成，科学语义分母146保持。[867半程检查](867_CARA_P1_R2_HALF_OPERATIONAL_AND_TERMINAL_ADVANCE_20261103.md)已处理并删除；97个物理请求完成/最多142、20查询意图未读科学。仅按计数及墙钟将同一个p1-r2终验前移至11月3日12:15，若仍活跃继续同一检查；硬截止17:39:06.791125，600秒释放余量。完整成功退出、释放和唯一结算后才一次CPU完整52接受、一次原FIT冻结、完整原字节导出/本机绘图。原CPU活跃只恢复；失败保存全分母与实际费用，不冻结/不自动下一卡。旧CAL/曝光CHECK及最终16/备用16和所有旧冻结保持。
+[868 full146 and score continuation](868_CARA_P1_R2_GPU_RELEASE_UNIQUE_SETTLEMENT_AND_ORIGINAL_CPU_READER_20261103.md): GPU12.270682712GPUh settled, full146/64/142/5176/12 controls accepted by the original fixed-source reader; the failed first reader environment and corrected inspection context are retained. Follow [CPU handoff](../plans/cara_next_stage_20261101/source_lifecycle/P1_SUCCESSOR_R2_POST_RELEASE_CPU_HANDOFF_20261103.md). Only recover-score with the R3 operator: supervisor56710/697511712 is active,32 new pairs plus20 sealed pairs will form52. No new reader, score dispatch, GPU or settlement. Full52 original CPU exit precedes complete-export/once FIT freeze/original bundle/local figures; no partial science or reselection. Same terminal13:15 continues; quarter/half deleted. Keep all frozen/exposed scopes and final/reserve16; no automatic next card.
 
 [最新计划与对话分工](../plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md)；A32 GPU阶段已接受，其余按各卡条件推进，评分/科学解释分开验收。
 

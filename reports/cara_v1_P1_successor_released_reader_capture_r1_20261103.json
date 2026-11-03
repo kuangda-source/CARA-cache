@@ -1,0 +1,167 @@
+{
+  "action": "capture-reader",
+  "started_unix": 1793679471.859794,
+  "observed_unix": 1793679494.388736,
+  "exit_code": 0,
+  "result": {
+    "status": "ORIGINAL_RELEASED_READER_RECOVERY",
+    "reader_stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-P1-successor-released-artifacts-CPU-r2-20261103",
+    "reader_exists": true,
+    "new_CPU_submission": false,
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "observed_unix": 1793679493.6414108,
+    "files": {
+      "plan.json": {
+        "sha256": "589465031abe40fde5a7d1314e439b0e0d4158f6c8f5f485c71bf8573a2bc3e4",
+        "value": {
+          "GPU_submissions": 0,
+          "capture_sha256": "400175eba63e4eab37a29996239c7218c3f3b335139bd1f561673075ba5c01c2",
+          "command": [
+            "docker",
+            "run",
+            "-d",
+            "--read-only",
+            "--network",
+            "none",
+            "--pid",
+            "host",
+            "--name",
+            "cara-P1-successor-released-artifacts-CPU-r2-20261103-cpu",
+            "--label",
+            "wcomr.original-launch=498503f9cfd249f1aab929da18f04e10",
+            "--user",
+            "1004:998",
+            "--cpus",
+            "2",
+            "--cpuset-cpus",
+            "26,27",
+            "--memory",
+            "8g",
+            "--memory-swap",
+            "8g",
+            "--pids-limit",
+            "128",
+            "--tmpfs",
+            "/tmp:rw,size=512m",
+            "-v",
+            "/data20t/gaokuangda/worldcache_workspace:/data20t/gaokuangda/worldcache_workspace:ro",
+            "-v",
+            "/data20t/gaokuangda/worldcache_workspace/.sync/cara-P1-successor-released-artifacts-CPU-r2-20261103:/data20t/gaokuangda/worldcache_workspace/.sync/cara-P1-successor-released-artifacts-CPU-r2-20261103:rw",
+            "-w",
+            "/data20t/gaokuangda/worldcache_workspace/runtime",
+            "-e",
+            "HF_HUB_OFFLINE=1",
+            "-e",
+            "LD_LIBRARY_PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/blas:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/lapack:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/pulseaudio:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_runtime/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cudnn/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/nvjitlink/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cublas/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/torch/lib",
+            "-e",
+            "PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
+            "-e",
+            "PYTHONPATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-source-lifecycle-V1-P1-GPU-a6000-full146-r2-20261102/scripts:/data20t/gaokuangda/worldcache_workspace/.sync/cara-source-lifecycle-V1-P1-GPU-a6000-full146-r2-20261102/src",
+            "-e",
+            "TRANSFORMERS_OFFLINE=1",
+            "-e",
+            "CUDA_VISIBLE_DEVICES=",
+            "-e",
+            "NVIDIA_VISIBLE_DEVICES=void",
+            "-e",
+            "PYTHONDONTWRITEBYTECODE=1",
+            "-e",
+            "OMP_NUM_THREADS=2",
+            "-e",
+            "OPENBLAS_NUM_THREADS=2",
+            "--entrypoint",
+            "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python",
+            "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+            "/data20t/gaokuangda/worldcache_workspace/.sync/cara-P1-successor-released-artifacts-CPU-r2-20261103/worker.py",
+            "/data20t/gaokuangda/worldcache_workspace/.sync/cara-P1-successor-released-artifacts-CPU-r2-20261103"
+          ],
+          "created_unix": 1793679401.7649617,
+          "launch_sha256": "86f01c9cebe0d45770c42855f3094baa428c6ef837c5371cb9d4b1afad652fcd",
+          "no_replay": true,
+          "settlement_sha256": "5d48def12bca21c4dcc19f874fca0f121c7e228635f3b07d9e783a97f31fda80",
+          "source_revision": "8cc9b30a2b08b25c23fa7c38ef63a7b64d456f99",
+          "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-source-lifecycle-V1-P1-GPU-a6000-full146-r2-20261102",
+          "worker_sha256": "c254cc3f7a90136693ae95e478d03969edea7ac8920437d37b205b64fb1c502e"
+        }
+      },
+      "dispatch.json": {
+        "sha256": "bd76834263c55334cddfe95d0d29ab622f5bf8aef03dcbd2857566845c64ca91",
+        "value": {
+          "observed_unix": 1793679402.1194215,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "90a1fba73c8583059d793e4b7a37d14233334c991081806bdd2240a77ee81509\n"
+        }
+      },
+      "reader-start.json": {
+        "sha256": "1e5ae7c24f173b910585831c507a181b03cc934fa876c544043f56cbb0638d75",
+        "value": {
+          "identity": {
+            "host_view": {
+              "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+              "pid_namespace_inode": 4026531836
+            },
+            "original_command_sha256": "e93ad3bfbf140b994f5e310341cabbe9d1192f8eee287ce1d76a4b030ff5516b",
+            "pid": 4191648,
+            "start_ticks": 697430552
+          },
+          "started_unix": 1793679402.6639242
+        }
+      }
+    },
+    "container": {
+      "id": "90a1fba73c8583059d793e4b7a37d14233334c991081806bdd2240a77ee81509",
+      "state": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 4191648,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-11-03T04:16:41.950179721Z",
+        "FinishedAt": "0001-01-01T00:00:00Z"
+      },
+      "host": {
+        "Memory": 8589934592,
+        "MemorySwap": 8589934592,
+        "NanoCpus": 2000000000,
+        "CpusetCpus": "26,27",
+        "DeviceRequests": null,
+        "NetworkMode": "none",
+        "ReadonlyRootfs": true
+      }
+    },
+    "reader_observation": {
+      "observed_unix": 1793679493.6429183,
+      "original_pid": 4191648,
+      "original_start_ticks": 697430552,
+      "original_live": true,
+      "status": "ORIGINAL_LIVE",
+      "reason": "ORIGINAL_PID_START_TICKS_LIVE",
+      "dispatch_allowed": false,
+      "financial_settlement_allowed": false,
+      "scientific_read_allowed": false,
+      "observed_host_view": {
+        "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+        "pid_namespace_inode": 4026531836
+      },
+      "observed_process": {
+        "pid": 4191648,
+        "state": "R",
+        "start_ticks": 697430552
+      }
+    }
+  },
+  "stderr": "** WARNING: connection is not using a post-quantum key exchange algorithm.\r\n** This session may be vulnerable to \"store now, decrypt later\" attacks.\r\n** The server may need to be upgraded. See https://openssh.com/pq.html\r\n** WARNING: connection is not using a post-quantum key exchange algorithm.\r\n** This session may be vulnerable to \"store now, decrypt later\" attacks.\r\n** The server may need to be upgraded. See https://openssh.com/pq.html\r\n",
+  "transport_sha256": "950dd8b581d415b17f99860c6e1f4641adee49419fd4928b2d3a2ad351d982f6",
+  "remote_sha256": "e7d3ba683f392825c5d0c02c8fc48e1435e2c07de59024dfb283b204473a1393",
+  "worker_sha256": "c254cc3f7a90136693ae95e478d03969edea7ac8920437d37b205b64fb1c502e",
+  "launch_id": "498503f9cfd249f1aab929da18f04e10",
+  "source_revision": "8cc9b30a2b08b25c23fa7c38ef63a7b64d456f99",
+  "GPU_submissions": 0,
+  "unknown_requires_original_recovery": true
+}

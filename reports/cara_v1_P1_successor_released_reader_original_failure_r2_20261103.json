@@ -1,0 +1,40 @@
+{
+  "status": "ORIGINAL_RELEASED_READER_ENVIRONMENT_FAILURE_RETAINED_NOT_GPU_FAILURE",
+  "original_capture_ref": "reports/cara_v1_P1_successor_released_reader_capture_r2_20261103.json",
+  "original_capture_sha256": "badec34dd91255fbbbef9d4142f17f1de0b335a2049518ef2e62876b4e2b035b",
+  "container_id": "90a1fba73c8583059d793e4b7a37d14233334c991081806bdd2240a77ee81509",
+  "original_identity": {
+    "host_view": {
+      "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+      "pid_namespace_inode": 4026531836
+    },
+    "original_command_sha256": "e93ad3bfbf140b994f5e310341cabbe9d1192f8eee287ce1d76a4b030ff5516b",
+    "pid": 4191648,
+    "start_ticks": 697430552
+  },
+  "terminal": {
+    "ended_unix": 1793679528.6531596,
+    "error": {
+      "message": "Original held FIT query remains failed/live/unknown",
+      "type": "ValueError"
+    },
+    "exit_code": 1
+  },
+  "ended_local": "2026-11-03T12:18:48.653160+08:00",
+  "original_container_ended": true,
+  "restarted": false,
+  "original_log_tail": "Traceback (most recent call last):\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-P1-successor-released-artifacts-CPU-r2-20261103/worker.py\", line 19, in <module>\n    packet=released_artifacts(capture,plan['launch_sha256'],settlement)\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-source-lifecycle-V1-P1-GPU-a6000-full146-r2-20261102/src/wcomr/cara_source_lifecycle_p1_artifacts_r1.py\", line 232, in released_artifacts\n    raise ValueError('Original held FIT query remains failed/live/unknown')\nValueError: Original held FIT query remains failed/live/unknown\n",
+  "cause": "The artifact reader invoked Host.reader.recover_query inside a container without the host Docker CLI/socket. The fixed original reader also updates only query status metadata, which requires the original output mount writable.",
+  "failed_operator_ref": "scripts/cara_p1_successor_acceptance_transport_r2.py",
+  "corrected_operator_ref": "scripts/cara_p1_successor_artifact_recovery_r3.py",
+  "correction": "Same byte-identical scientific worker in a distinct bounded validation context, read-only host Docker CLI/socket mounts for original-container inspection and writable original output for status metadata. No numerical source change, score dispatch or recomputation.",
+  "scientific_worker_sha256": "c254cc3f7a90136693ae95e478d03969edea7ac8920437d37b205b64fb1c502e",
+  "new_metric_pairs_computed": 0,
+  "postrelease_score_CPU_submissions": 0,
+  "GPU_submissions": 0,
+  "additional_GPUh": 0,
+  "original_GPU_actual_GPUh": 12.270682711747423,
+  "original_GPU_settlement_repeated": false,
+  "scientific_accepted": false,
+  "FIT_frozen": false
+}
