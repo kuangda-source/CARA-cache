@@ -2,9 +2,11 @@
 
 {{next_stage_notice}}
 
-## Current mainline: recover the original32-pair score CPU
+## 当前主线：P1 R2已关闭，当前版本不晋级P2
 
-[868 full146 and score continuation](repo:research/868_CARA_P1_R2_GPU_RELEASE_UNIQUE_SETTLEMENT_AND_ORIGINAL_CPU_READER_20261103.md): GPU12.270682712GPUh settled, full146/64/142/5176/12 controls accepted by the original fixed-source reader; the failed first reader environment and corrected inspection context are retained. Follow [CPU handoff](repo:plans/cara_next_stage_20261101/source_lifecycle/P1_SUCCESSOR_R2_POST_RELEASE_CPU_HANDOFF_20261103.md). Only recover-score with the R3 operator: supervisor56710/697511712 is active,32 new pairs plus20 sealed pairs will form52. No new reader, score dispatch, GPU or settlement. Full52 original CPU exit precedes complete-export/once FIT freeze/original bundle/local figures; no partial science or reselection. Same terminal13:15 continues; quarter/half deleted. Keep all frozen/exposed scopes and final/reserve16; no automatic next card.
+[869完整结果](repo:research/869_CARA_P1_R2_COMPLETE_RESULTS_SOURCE_INCREMENT_FAILED_20261103.md)和[完整接受](repo:reports/cara_v1_P1_successor_complete_acceptance_r1_20261103.json)保存了146/64/142/12控制、52质量、原FIT一次冻结、完整93帧与双时钟图表。GPU12.270682712GPUh已唯一结算，原GPU/CPU全结束，三个检查全删除。当前来源增量在19D/22D均未支持，原工程筛选失败；不重选原FIT赢家，不重评旧冻结。
+
+保留P0机制和已验证的自动生成器。下一步先明确已有标签/来源组合支持或估值目标的缺口，再单独提出一次有界诊断/修订方案；本卡不自动派发新GPU、V2或保护输入。只引用保存原件，不为刷新文档重跑读者、评分、冻结、结算或监控。四旧CAL/曝光CHECK、WC/RA FIT UNMATCHED、全部旧冻结及最终16/备用16保持。
 
 {{queue}}
 

@@ -1,5 +1,7 @@
 # 已启动的唯一 P1 修复后 R2：原句柄与验收
 
+**本卡现已完整关闭。** GPU释放与12.270682711747423GPUh唯一结算、146/64完整工件、52质量位置、原FIT一次冻结及完整图表均完成；所有P1 R2检查已删除。当前V1工程筛选失败，未启动下一卡。只读 [869完整结果](../../../research/869_CARA_P1_R2_COMPLETE_RESULTS_SOURCE_INCREMENT_FAILED_20261103.md) 和 [完整接受](../../../reports/cara_v1_P1_successor_complete_acceptance_r1_20261103.json)，不要依据以下历史交接重跑GPU/CPU或重复结算。
+
 先读 [实际启动](../../../reports/cara_v1_P1_successor_actual_start_accepted_r2_20261102.json)、[三个检查](../../../reports/cara_v1_P1_successor_acceptance_schedule_r2_20261102.json)、[新授权](V1_P1_SUCCESSOR_SINGLE19_AUTHORIZATION_R2.json) 和 [CPU/source/storage准备](../../../research/864_CARA_P1_PUBLICATION_RPC_REPAIRED_CPU_AND_SUCCESSOR_READY_20261102.md)。本卡已实际开始，禁止再prepare、bind、admit、refresh、reserve、dispatch、重启、换卡或改源/配置。UNKNOWN只恢复原句柄。
 
 ## 固定身份和原预算

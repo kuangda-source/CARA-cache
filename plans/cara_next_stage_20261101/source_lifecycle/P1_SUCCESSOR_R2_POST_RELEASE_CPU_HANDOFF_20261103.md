@@ -1,4 +1,8 @@
-# P1 R2完整工件已验收：只恢复原32对评分CPU
+# P1 R2已完整关闭：引用原接受、冻结与结果记录
+
+**当前全链已结束：146语义/64标签/142物理/5176模型pair/12完整等价门，以及32新对＋20封存对组成的52质量位置全部接受。原评分CPU于12:44:56退出，完整分析、原FIT一次冻结、原bundle及本机图表已保存。当前V1未通过19D工程筛选，来源间距特征在19D/22D均未产生质量增量；不晋级P2。所有P1 R2检查已删除，不再调用现场读者、派发、评分、结算或冻结来刷新文档。**
+
+当前只读 [完整结果869](../../../research/869_CARA_P1_R2_COMPLETE_RESULTS_SOURCE_INCREMENT_FAILED_20261103.md)、[完整接受](../../../reports/cara_v1_P1_successor_complete_acceptance_r1_20261103.json)、[原分析](../../../reports/cara_v1_P1_successor_original_complete_analysis_r1_20261103.json)、[原FIT冻结](../../../reports/cara_v1_P1_successor_original_complete_freeze_r1_20261103.json) 和 [已删除检查R7](../../../reports/cara_v1_P1_successor_acceptance_schedule_r7_20261103.json)。以下内容均为历史承接，不授权重跑。
 
 **最新阶段：R3工件读者已12:28:35正常退出，146语义/64标签/142物理/5176模型pair/12完整等价门通过，未重算旧分数。32新对评分意图已唯一启动，原supervisor56710/start_ticks697511712活跃（boot13495735-f30b-47a2-af0a-2496f5206a0b）。只用R3控制器recover-score，不再launch-reader、dispatch-score或重跑任何读者。当前同一个p1-r2在13:15继续，R6检查承接为准。**
 

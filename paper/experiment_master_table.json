@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_local_date": "2026-11-02",
+  "updated_local_date": "2026-11-03",
   "snapshot_basis": "Evidence snapshot at 2026-10-22 22:19:22 Asia/Shanghai; current operation data lives in docs/project_status.json. Historical narrative snapshot is archived byte-for-byte.",
   "git_snapshot_before_inventory": "4cb9fa2640b838dab0d1f913f4bb57e230b9edbd",
   "mapping_ref": "paper/internal_to_paper_mapping.json",
@@ -44,6 +44,7 @@
     "LOCAL_CPU_PROTOTYPE24_WITH_PROTECTED_PRICE_BRIDGE_NOT_PRODUCTION": 1,
     "M1_COMPLETE14_RGB4_SCORE8_WRITE_MECHANISM_ACCEPTED_NOT_SCHEDULING_METHOD": 1,
     "P0_TWO_POSITION_COMPLETE16_WITH_ORIGINAL8_REUSED_NOT_PLANNER_METHOD": 1,
+    "P1_R2_COMPLETE146_52_FROZEN_ENGINEERING_SCREEN_FAILED_SOURCE_INCREMENT_NOT_SUPPORTED": 1,
     "P1_REPAIR102_ENTRY_CPU_PRESERVED_BLOCKED_BY_COST112_TIMING_FAILURE": 1,
     "PARTIAL_LOCAL_STRUCTURAL_AND_DOCUMENTS_READY": 1,
     "PG_P1_COMPLETE_NO_FEASIBLE_POLICY": 1,
@@ -6411,6 +6412,86 @@
           "reports/cara_read_write_complete_acceptance_r1_20261101.json"
         ]
       }
+    },
+    {
+      "id": "PG-SOURCE-LIFECYCLE-V1-P1-R2",
+      "state": "P1_R2_COMPLETE146_52_FROZEN_ENGINEERING_SCREEN_FAILED_SOURCE_INCREMENT_NOT_SUPPORTED",
+      "paper_experiment_name": "Source-conditioned proxy planning at19D/22D with matched-calibration-cost LPIPS search",
+      "internal_ids": [
+        "cara-source-lifecycle-V1-P1-full146-r2-20261102"
+      ],
+      "contribution_relation": "C2 mechanism-to-planning evaluation; no positive source-feature increment",
+      "evidence_or_planned_scope": "**P1已完整验收并保存原FIT计划冻结，但当前V1未通过预登记的继续投入工程筛选，暂不晋级P2。** 四旧CAL上，主V1的19D LPIPS为0.479044，F19-A1为0.231499；两者T_DD分别148.027秒和149.368秒。主V1的22D相对Uniform22改善3.69%，但增加“前来源间距”特征在19D、22D均比仅阶段＋年龄更差。本轮尚未支持来源条件化估值的可验证增量。",
+      "gap_and_next_action": "Retain this complete development evaluation; no P2 promotion. Propose one bounded diagnosis/revision only after a concrete support or estimator gap is identified; new execution requires its own preparation and authorization.",
+      "priority": "R",
+      "evidence_refs": [
+        "research/869_CARA_P1_R2_COMPLETE_RESULTS_SOURCE_INCREMENT_FAILED_20261103.md",
+        "reports/cara_v1_P1_successor_complete_acceptance_r1_20261103.json",
+        "reports/cara_v1_P1_successor_original_complete_analysis_r1_20261103.json",
+        "reports/cara_v1_P1_successor_original_complete_report_r1_20261103.json",
+        "reports/cara_v1_P1_successor_original_complete_freeze_r1_20261103.json",
+        "reports/cara_v1_P1_successor_original_complete_result_bundle_r1_20261103.json",
+        "figures/cara_source_lifecycle_V1_P1_R2_20261103/figure-report.json",
+        "reports/cara_v1_P1_successor_complete_visual_QA_r1_20261103.json",
+        "reports/cara_v1_P1_successor_post_score_original_capture_r2_20261103.json",
+        "reports/cara_v1_P1_successor_final_release_accepted_r1_20261103.json",
+        "reports/cara_v1_P1_successor_final_settlement_r1_20261103.json"
+      ],
+      "method_mapping_ids": [],
+      "contribution_ids": [
+        "C2"
+      ],
+      "claim_relation": "COMPLETE_OLD_CAL_DEVELOPMENT_EVALUATION_NO_SOURCE_INCREMENT_NO_METHOD_PROMOTION",
+      "paper_placement": "来源估值与自动规划的完整开发评价、关键消融及失败分析",
+      "dependencies": [
+        "PG-SOURCE-LIFECYCLE-P0-TWO-POSITIONS"
+      ],
+      "production_CPU_accepted": true,
+      "full_protocol_accepted": true,
+      "new_GPU_submissions": 1,
+      "GPU_dispatch_ready": false,
+      "actual_GPUh": 12.270682711747423,
+      "failed_predecessor_GPUh": 4.933201963873063,
+      "input_count": 4,
+      "independent_new_input_count": 0,
+      "complete_semantic_positions": 146,
+      "complete_physical_paths": 142,
+      "source_labels": 64,
+      "identity_controls": 12,
+      "complete_quality_positions": 52,
+      "new_scoring_pairs": 32,
+      "reused_original_scoring_pairs": 20,
+      "engineering_screen": {
+        "LPIPS_ratio_vs_F19_A1": 2.069309733499789,
+        "T_DD_ratio_vs_F19_A1": 0.9910219532800075,
+        "max_LPIPS_ratio": 1.1,
+        "max_T_DD_ratio": 1.05,
+        "paper_validity_threshold": false,
+        "passes": false,
+        "scope": "FOUR_OLD_CAL_ENGINEERING_CONTINUATION_ONLY",
+        "selects_a_different_plan": false
+      },
+      "P2_promoted": false,
+      "scientific_method_established": false,
+      "reader": {
+        "title": "P1 R2完整评价：自动计划跑通，当前来源估值未带来终点增量",
+        "status": "完整146/52已接受和冻结；原工程筛选未通过",
+        "result": "**P1已完整验收并保存原FIT计划冻结，但当前V1未通过预登记的继续投入工程筛选，暂不晋级P2。** 四旧CAL上，主V1的19D LPIPS为0.479044，F19-A1为0.231499；两者T_DD分别148.027秒和149.368秒。主V1的22D相对Uniform22改善3.69%，但增加“前来源间距”特征在19D、22D均比仅阶段＋年龄更差。本轮尚未支持来源条件化估值的可验证增量。",
+        "next_action": "Retain this complete development evaluation; no P2 promotion. Propose one bounded diagnosis/revision only after a concrete support or estimator gap is identified; new execution requires its own preparation and authorization.",
+        "evidence_refs": [
+          "research/869_CARA_P1_R2_COMPLETE_RESULTS_SOURCE_INCREMENT_FAILED_20261103.md",
+          "reports/cara_v1_P1_successor_complete_acceptance_r1_20261103.json",
+          "reports/cara_v1_P1_successor_original_complete_analysis_r1_20261103.json",
+          "reports/cara_v1_P1_successor_original_complete_report_r1_20261103.json",
+          "reports/cara_v1_P1_successor_original_complete_freeze_r1_20261103.json",
+          "reports/cara_v1_P1_successor_original_complete_result_bundle_r1_20261103.json",
+          "figures/cara_source_lifecycle_V1_P1_R2_20261103/figure-report.json",
+          "reports/cara_v1_P1_successor_complete_visual_QA_r1_20261103.json",
+          "reports/cara_v1_P1_successor_post_score_original_capture_r2_20261103.json",
+          "reports/cara_v1_P1_successor_final_release_accepted_r1_20261103.json",
+          "reports/cara_v1_P1_successor_final_settlement_r1_20261103.json"
+        ]
+      }
     }
   ],
   "source_refs": {
@@ -12334,33 +12415,33 @@
     },
     "AGENTS.md": {
       "path": "AGENTS.md",
-      "sha256": "a2c7f2e56dbe9cb6abbc4c833d2d77d8dec6c274c1ea3458972c5f04166a0e34",
-      "bytes": 32814
+      "sha256": "5ffffa12a013fbb72de6ecc0f22908ebc19de21b30f84af82eaad8f033978d5f",
+      "bytes": 32657
     },
     "EXPERIMENT_REPORT.md": {
       "path": "EXPERIMENT_REPORT.md",
-      "sha256": "f43dec20c5e4826ae51fdfb111796930bc5c914f72af58c7356540824330d3ec",
-      "bytes": 20284
+      "sha256": "a146dbafdd6f89118f9d0b9eedef836c174df20b2578c95c13b4710949f84be6",
+      "bytes": 20378
     },
     "memory/handoffs/LATEST.md": {
       "path": "memory/handoffs/LATEST.md",
-      "sha256": "1abf446370be607d9deb1ce405e200fadb414941e96e1cdb7754b91342edbd18",
-      "bytes": 20713
+      "sha256": "26913c5922b45d8d1c7d948da99625facfbad2550c5e27c40c98d186d1cab441",
+      "bytes": 20807
     },
     "research/02_CURRENT_STATE.md": {
       "path": "research/02_CURRENT_STATE.md",
-      "sha256": "f686d27f9cd3890705bcbaf13ac069680f7a2d3bbc00e97303440cc412192a91",
-      "bytes": 24003
+      "sha256": "37d1dd7e5153cc8e8cb30ca599995f387f2a330cbcbd3e9c25238b7d7350abfc",
+      "bytes": 24097
     },
     "research/09_NEXT_ACTIONS.md": {
       "path": "research/09_NEXT_ACTIONS.md",
-      "sha256": "1e55c2c41bbaf6f72dc6185da35311f03fb07461b8f8868d61afcb85b29493de",
-      "bytes": 18806
+      "sha256": "0f24828f016982b3bdedb6b14746d6733cceb55e41ebfca4e065003ebbc21745",
+      "bytes": 18901
     },
     "paper/EXPERIMENT_MASTER_TABLE.md": {
       "path": "paper/EXPERIMENT_MASTER_TABLE.md",
-      "sha256": "0b59b62f8094f3a628de056d3b42d9c8e1698e5bd7004613db6e5b7a2b777f2d",
-      "bytes": 50060
+      "sha256": "4c302a26e816b1584782e02c8449f2f16e025c879c58d113b71e03168f4814cf",
+      "bytes": 51892
     },
     "paper/INTERNAL_TO_PAPER_MAPPING.md": {
       "path": "paper/INTERNAL_TO_PAPER_MAPPING.md",
@@ -14619,7 +14700,7 @@
     "completed_A32_launch_ref": "reports/cara_fast_A6000_GPU_actual_launch_r1_20261028.json"
   },
   "mapping_sha256_at_inventory": "88b3d760a0c94c20b6c802e21f30c7286d6e596cc9b3f3100e7ee6feaa3938f3",
-  "latest_mapping_sha256": "6db2e2eb42f4608b4df7fd8142a545b0250d192830c4b0411bb26d0413b9a4da",
+  "latest_mapping_sha256": "e5ebe7dc23647f2d9f2ea4cdae24b01e5d1775b469ebc16a5a5aa9e3ce2ba1e9",
   "revision_plan": {
     "registry_ref": "plans/cara_v6_20261020/TASK_REGISTRY_V6.yaml",
     "report_ref": "research/610_WC_CARA_V6_REVIEW_CLOSURE_PLAN_INTERVAL_SPEC_AND_FIRST_DEV_SCOPE_20261020.md",

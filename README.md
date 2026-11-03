@@ -2,7 +2,7 @@
 
 # CARA-Cache
 
-[868 - P1 R2 GPU完整结束、唯一结算与原CPU读者启动](research/868_CARA_P1_R2_GPU_RELEASE_UNIQUE_SETTLEMENT_AND_ORIGINAL_CPU_READER_20261103.md)：GPU完整结束并唯一结算12.270682712GPUh；验收运行环境已修正，146语义/64标签/142工件与12等价控制已完整接受。32新对原CPU评分正在运行，将与20个封存原对组成完整52位置。同一个终验13:15继续，quarter/half已删除；未重跑GPU或旧评分，尚无方法效果结论。
+[869 - P1 R2 完整结果：自动规划链路成立，当前来源估值未提供终点增量](research/869_CARA_P1_R2_COMPLETE_RESULTS_SOURCE_INCREMENT_FAILED_20261103.md)：P1完整146/64/142/12等价门及52质量位置接受，原FIT一次冻结和全93帧/双时钟图表完成；12.270682712GPUh已唯一结算，全部原GPU/CPU结束，所有检查已删。四旧CAL上主V1-19D LPIPS0.479044，F19-A1为0.231499，时延148.027/149.368秒；前来源间距在19D/22D均比阶段＋年龄更差，原工程筛选失败。自动计划链路成立，当前来源估值未提供终点增量，不晋级P2、不自动下一卡；旧冻结、曝光范围和保护输入保持。
 
 [826 — E1完整验收：CFG有机制增量，当前S不晋级](research/826_CARA_ENDPOINT7_COMPLETE_ACCEPTANCE_RESULTS_AND_REGISTERED_DECISION_20261101.md)：接口修复后46/46、13RGB和28评分完整接受（16新+12原行）；原GPU3.055673007GPUh已结算。S-CFG较DIAG LPIPS低1.53%且4/4同向，但比F19-A1高102.83%；按预注册仅保留机制增量，当前S不晋级。全93帧与双时钟图表完成，检查已删。
 
@@ -28,7 +28,7 @@ CARA-Cache（CFG-Aligned Readout and Cost-Aware Allocation for Video Diffusion�
 |---|---|
 | 做了什么、主要结果怎样 | [研究与结果概览](EXPERIMENT_REPORT.md) |
 | 现在在跑什么、下一次何时验收 | [当前状态](research/02_CURRENT_STATE.md) |
-| 每项实验是否完成、支持什么结论 | [63项实验总表](paper/EXPERIMENT_MASTER_TABLE.md) |
+| 每项实验是否完成、支持什么结论 | [64项实验总表](paper/EXPERIMENT_MASTER_TABLE.md) |
 | 下一步解决什么问题 | [后续实验顺序](research/09_NEXT_ACTIONS.md) |
 | 如何复核代码、原件和统计 | [复现与证据指南](docs/REPRODUCIBILITY.md) |
 | 从项目开始到现在的完整记录 | [历史入口](docs/archive/README.md) |
