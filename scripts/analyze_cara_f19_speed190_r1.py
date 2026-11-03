@@ -30,6 +30,13 @@ def analyze(card,collection,scores,release):
     for r in collection['rows']:
         slot,res=r['slot'],r['result']
         assert res['guided_pairs']==res['solver_steps']==36 and res['scope_sha256']==card['scope_sha256']
+        role_spec=card['roles'][slot['role']]
+        if role_spec['kind'] in ('policy','speed_policy','profile_policy'):
+            history=res['semantic_history'];assert len(history)==36
+            expected=list(role_spec['policy']['actions'])
+            for step in role_spec.get('partial_updates',[]):expected[step-1]='CONDITIONAL_D_DELTA_HOLD'
+            assert [r['actual'] for r in history]==expected
+            assert all(r.get('fallback_reason') is None for r in history)
         if slot['eligible_clean_time']:
             assert all(res[k]==0 for k in ('in_timing_guided_copies','in_timing_hashes','research_checkpoints'))
             assert all(math.isfinite(res[k]) and res[k]>0 for k in ('T_DD','T_request'))

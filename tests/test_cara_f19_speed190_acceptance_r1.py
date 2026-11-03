@@ -16,6 +16,11 @@ class Acceptance(unittest.TestCase):
         scores=dict(scope_sha256=card['scope_sha256'],status='COMPLETE35_RGB_24_LPIPS_84_QUALITY_PENDING_ACCEPTANCE',CUDA_initialized=False,RGB_controls_passed=True,RGB=[{}]*35,LPIPS=[],quality_rows=[])
         for slot in card['matrix']:
             role=slot['role'];result=dict(CPU_fixture=False,guided_pairs=36,solver_steps=36,scope_sha256=card['scope_sha256'],T_DD=times.get(role,149.),T_request=times.get(role,149.)+60,in_timing_guided_copies=0,in_timing_hashes=0,research_checkpoints=0)
+            rs=card['roles'][role]
+            if rs['kind'] in ('policy','speed_policy','profile_policy'):
+                actions=list(rs['policy']['actions'])
+                for step in rs.get('partial_updates',[]):actions[step-1]='CONDITIONAL_D_DELTA_HOLD'
+                result['semantic_history']=[dict(actual=a,fallback_reason=None) for a in actions]
             collection['rows'].append(dict(slot=copy.deepcopy(slot),status='COMPLETE',result=result))
             if slot['section']!='FORMAL':continue
             if role!='NATIVE35':scores['LPIPS'].append(dict(member=slot['member'],role=role,result=dict(status='COMPLETE',frames=93,Alex_frames=[lpips[role]]*93,Alex=lpips[role])))

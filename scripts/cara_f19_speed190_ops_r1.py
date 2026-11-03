@@ -43,7 +43,7 @@ attempt=p.get('CPU_attempt',1);assert attempt in (1,2,3,4,5,6,7,8,9)
 name=stage.name+'-cpu'+('' if attempt==1 else '-r'+str(attempt))
 intent_name='CPU-intent.json' if attempt==1 else 'CPU-r'+str(attempt)+'-intent.json'
 launch_name='CPU-launch.json' if attempt==1 else 'CPU-r'+str(attempt)+'-launch.json'
-if attempt>1:
+if attempt>1 and not (stage/'CPU-proof.json').exists():
  old_cpu=json.loads(subprocess.check_output(['docker','inspect',stage.name+'-cpu'+('' if attempt==2 else '-r'+str(attempt-1))],text=True))[0]
  assert not old_cpu['State']['Running'] and old_cpu['State']['ExitCode']==1 and not (stage/'CPU-proof.json').exists()
 q=subprocess.run(['docker','inspect',name],capture_output=True,text=True)
@@ -53,7 +53,7 @@ if q.returncode==0:
   logs=subprocess.run(['docker','logs','--tail','35',name],capture_output=True,text=True);result['logs']=(logs.stdout+logs.stderr)[-6500:]
  if (stage/'CPU-proof.json').exists():result['proof']=read(stage/'CPU-proof.json')
  print(json.dumps(result));raise SystemExit
-assert 'No such object' in q.stderr and not (stage/intent_name).exists(),'Unknown original CPU; recover only'
+assert 'No such object' in q.stderr and not (stage/intent_name).exists() and not (stage/'CPU-proof.json').exists(),'Unknown original CPU; recover only'
 launch=read(base/'GPU-launch.json');old=launch['commands']['container_cli'];env=[]
 for i,v in enumerate(old[:-1]):
  if v=='-e' and old[i+1].split('=',1)[0] in ('PATH','LD_LIBRARY_PATH','CUDA_HOME','CUDA_PATH','NLTK_DATA'):env.extend(['-e',old[i+1]])
