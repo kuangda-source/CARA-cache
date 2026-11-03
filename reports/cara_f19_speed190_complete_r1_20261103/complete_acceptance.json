@@ -1,0 +1,804 @@
+{
+  "schema": "CARA_F19_CAL35_COMPLETE_ACCEPTANCE_R1",
+  "status": "FULL35_24_LPIPS_84_QUALITY_ACCEPTED_F17_CAL_TARGET_PASSED",
+  "run_id": "cara-F19-speed190-CAL35-r1-20261103",
+  "launch_id": "f17bfbf0d188491a8821bb65604cb679",
+  "launch_sha256": "97a45afee85c974e258317c53ca13928932909e42d3c4041f2083f740e7f5ed1",
+  "source_revision": "ee105ecb3f3ab8a7e7e348ef275f5d4bf3cd34c9",
+  "registration_sha256": "7a0abfd0d268c007f1a58db78c8670f29f9f8a0e6111360286b270ca708d6475",
+  "scope_sha256": "8bd653646deb3d22a4c5b32824c2991fde70a129f0a050ce03c59b8406baa367",
+  "counts": {
+    "physical_paths": 35,
+    "formal_positions": 28,
+    "clean_paths_including_repeats": 30,
+    "actual_guided_pairs": 1260,
+    "full36_guided_and_latent_controls": 2,
+    "RGB_positions": 35,
+    "decoded_RGB_equivalence_pairs": 6,
+    "LPIPS_pairs": 24,
+    "LPIPS_frame_pairs": 2232,
+    "quality_scalar_positions": 84,
+    "full93_MUSIQ_videos": 28
+  },
+  "frozen_target": {
+    "group_speedup_T_DD_min": 1.9,
+    "LPIPS_Alex_max": 0.27,
+    "absolute_T_DD_target_seconds": 133.0,
+    "independent_quality_min_differences": {
+      "MUSIQ_LONGER512": -1.0,
+      "subject_consistency": -0.01,
+      "motion_smoothness": -0.01
+    },
+    "quality_references": [
+      "NATIVE35",
+      "F19_A1"
+    ],
+    "quality_gate": "PROMPT_EQUAL_POINT_DIFFERENCES_ALL_THREE; bootstrap_CIs_descriptive_on_four_exposed_CAL",
+    "selection": "Report every arm; passing CAL is not independent confirmation"
+  },
+  "winner": {
+    "role": "F17_A2_LIGHT_C",
+    "T_DD": 131.65259999174998,
+    "T_request": 195.80283302557655,
+    "speedup_T_DD": 1.919116176405424,
+    "LPIPS_Alex": 0.2383678987301806,
+    "quality": {
+      "MUSIQ_LONGER512": 65.04459553380167,
+      "subject_consistency": 0.9404972474212232,
+      "motion_smoothness": 0.9829974338532471
+    },
+    "quality_gates": [
+      {
+        "reference": "NATIVE35",
+        "dimension": "MUSIQ_LONGER512",
+        "mean_difference": -0.46625079903551203,
+        "exact_four_prompt_bootstrap95": [
+          -1.2152387967673661,
+          0.28273719869634206
+        ],
+        "minimum_difference": -1.0,
+        "passed": true
+      },
+      {
+        "reference": "NATIVE35",
+        "dimension": "subject_consistency",
+        "mean_difference": -0.00450458887802524,
+        "exact_four_prompt_bootstrap95": [
+          -0.014929118039815392,
+          0.005919940283764913
+        ],
+        "minimum_difference": -0.01,
+        "passed": true
+      },
+      {
+        "reference": "NATIVE35",
+        "dimension": "motion_smoothness",
+        "mean_difference": -0.0011362597778903083,
+        "exact_four_prompt_bootstrap95": [
+          -0.003086474762862751,
+          0.00043394118395312375
+        ],
+        "minimum_difference": -0.01,
+        "passed": true
+      },
+      {
+        "reference": "F19_A1",
+        "dimension": "MUSIQ_LONGER512",
+        "mean_difference": 0.6309001676497896,
+        "exact_four_prompt_bootstrap95": [
+          0.07318924319359255,
+          1.1334609575169061
+        ],
+        "minimum_difference": -1.0,
+        "passed": true
+      },
+      {
+        "reference": "F19_A1",
+        "dimension": "subject_consistency",
+        "mean_difference": -0.0008931166451910666,
+        "exact_four_prompt_bootstrap95": [
+          -0.005613442348397307,
+          0.004464657734269628
+        ],
+        "minimum_difference": -0.01,
+        "passed": true
+      },
+      {
+        "reference": "F19_A1",
+        "dimension": "motion_smoothness",
+        "mean_difference": 0.0007786216932705037,
+        "exact_four_prompt_bootstrap95": [
+          0.0004694002202673686,
+          0.00100000482304477
+        ],
+        "minimum_difference": -0.01,
+        "passed": true
+      }
+    ],
+    "meets_frozen_CAL_target": true
+  },
+  "all_seven_results": [
+    {
+      "role": "NATIVE35",
+      "T_DD": 252.65663431,
+      "T_request": 314.5362213039771,
+      "speedup_T_DD": 1.0,
+      "LPIPS_Alex": 0.0,
+      "quality": {
+        "MUSIQ_LONGER512": 65.51084633283718,
+        "subject_consistency": 0.9450018362992484,
+        "motion_smoothness": 0.9841336936311375
+      },
+      "quality_gates": [
+        {
+          "reference": "NATIVE35",
+          "dimension": "MUSIQ_LONGER512",
+          "mean_difference": 0.0,
+          "exact_four_prompt_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "minimum_difference": -1.0,
+          "passed": true
+        },
+        {
+          "reference": "NATIVE35",
+          "dimension": "subject_consistency",
+          "mean_difference": 0.0,
+          "exact_four_prompt_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "minimum_difference": -0.01,
+          "passed": true
+        },
+        {
+          "reference": "NATIVE35",
+          "dimension": "motion_smoothness",
+          "mean_difference": 0.0,
+          "exact_four_prompt_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "minimum_difference": -0.01,
+          "passed": true
+        },
+        {
+          "reference": "F19_A1",
+          "dimension": "MUSIQ_LONGER512",
+          "mean_difference": 1.0971509666853017,
+          "exact_four_prompt_bootstrap95": [
+            0.38037477513795004,
+            2.163309825363976
+          ],
+          "minimum_difference": -1.0,
+          "passed": true
+        },
+        {
+          "reference": "F19_A1",
+          "dimension": "subject_consistency",
+          "mean_difference": 0.003611472232834173,
+          "exact_four_prompt_bootstrap95": [
+            -0.0074505056052104335,
+            0.019350793050683074
+          ],
+          "minimum_difference": -0.01,
+          "passed": true
+        },
+        {
+          "reference": "F19_A1",
+          "dimension": "motion_smoothness",
+          "mean_difference": 0.001914881471160812,
+          "exact_four_prompt_bootstrap95": [
+            0.00014348318378420988,
+            0.004086479585907521
+          ],
+          "minimum_difference": -0.01,
+          "passed": true
+        }
+      ],
+      "meets_frozen_CAL_target": false
+    },
+    {
+      "role": "WC_T006",
+      "T_DD": 129.94512567425,
+      "T_request": 192.54624819220044,
+      "speedup_T_DD": 1.9443332945274652,
+      "LPIPS_Alex": 0.4643425401500476,
+      "quality": {
+        "MUSIQ_LONGER512": 52.47299095892137,
+        "subject_consistency": 0.9219004556374706,
+        "motion_smoothness": 0.9773742023758015
+      },
+      "quality_gates": [
+        {
+          "reference": "NATIVE35",
+          "dimension": "MUSIQ_LONGER512",
+          "mean_difference": -13.037855373915804,
+          "exact_four_prompt_bootstrap95": [
+            -17.576161702473954,
+            -8.499549045357654
+          ],
+          "minimum_difference": -1.0,
+          "passed": false
+        },
+        {
+          "reference": "NATIVE35",
+          "dimension": "subject_consistency",
+          "mean_difference": -0.02310138066177786,
+          "exact_four_prompt_bootstrap95": [
+            -0.037881123306958614,
+            -0.010817860941524093
+          ],
+          "minimum_difference": -0.01,
+          "passed": false
+        },
+        {
+          "reference": "NATIVE35",
+          "dimension": "motion_smoothness",
+          "mean_difference": -0.006759491255335898,
+          "exact_four_prompt_bootstrap95": [
+            -0.013034161009443296,
+            -0.002039375832602608
+          ],
+          "minimum_difference": -0.01,
+          "passed": true
+        },
+        {
+          "reference": "F19_A1",
+          "dimension": "MUSIQ_LONGER512",
+          "mean_difference": -11.940704407230502,
+          "exact_four_prompt_bootstrap95": [
+            -16.837753572771625,
+            -6.8457626322264336
+          ],
+          "minimum_difference": -1.0,
+          "passed": false
+        },
+        {
+          "reference": "F19_A1",
+          "dimension": "subject_consistency",
+          "mean_difference": -0.019489908428943686,
+          "exact_four_prompt_bootstrap95": [
+            -0.022141511592528085,
+            -0.016910361530988183
+          ],
+          "minimum_difference": -0.01,
+          "passed": false
+        },
+        {
+          "reference": "F19_A1",
+          "dimension": "motion_smoothness",
+          "mean_difference": -0.004844609784175086,
+          "exact_four_prompt_bootstrap95": [
+            -0.013078563877374522,
+            0.00013060535017384023
+          ],
+          "minimum_difference": -0.01,
+          "passed": true
+        }
+      ],
+      "meets_frozen_CAL_target": false
+    },
+    {
+      "role": "F19_A1",
+      "T_DD": 149.36111579574998,
+      "T_request": 212.3889537935611,
+      "speedup_T_DD": 1.6915823972251636,
+      "LPIPS_Alex": 0.2314994322756926,
+      "quality": {
+        "MUSIQ_LONGER512": 64.41369536615187,
+        "subject_consistency": 0.9413903640664142,
+        "motion_smoothness": 0.9822188121599766
+      },
+      "quality_gates": [
+        {
+          "reference": "NATIVE35",
+          "dimension": "MUSIQ_LONGER512",
+          "mean_difference": -1.0971509666853017,
+          "exact_four_prompt_bootstrap95": [
+            -2.163309825363976,
+            -0.38037477513795004
+          ],
+          "minimum_difference": -1.0,
+          "passed": false
+        },
+        {
+          "reference": "NATIVE35",
+          "dimension": "subject_consistency",
+          "mean_difference": -0.003611472232834173,
+          "exact_four_prompt_bootstrap95": [
+            -0.019350793050683074,
+            0.0074505056052104335
+          ],
+          "minimum_difference": -0.01,
+          "passed": true
+        },
+        {
+          "reference": "NATIVE35",
+          "dimension": "motion_smoothness",
+          "mean_difference": -0.001914881471160812,
+          "exact_four_prompt_bootstrap95": [
+            -0.004086479585907521,
+            -0.00014348318378420988
+          ],
+          "minimum_difference": -0.01,
+          "passed": true
+        },
+        {
+          "reference": "F19_A1",
+          "dimension": "MUSIQ_LONGER512",
+          "mean_difference": 0.0,
+          "exact_four_prompt_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "minimum_difference": -1.0,
+          "passed": true
+        },
+        {
+          "reference": "F19_A1",
+          "dimension": "subject_consistency",
+          "mean_difference": 0.0,
+          "exact_four_prompt_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "minimum_difference": -0.01,
+          "passed": true
+        },
+        {
+          "reference": "F19_A1",
+          "dimension": "motion_smoothness",
+          "mean_difference": 0.0,
+          "exact_four_prompt_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "minimum_difference": -0.01,
+          "passed": true
+        }
+      ],
+      "meets_frozen_CAL_target": false
+    },
+    {
+      "role": "F19_A1_LIGHT_C",
+      "T_DD": 142.07916879625,
+      "T_request": 205.37153091654181,
+      "speedup_T_DD": 1.7782806336115653,
+      "LPIPS_Alex": 0.22739486828927072,
+      "quality": {
+        "MUSIQ_LONGER512": 64.88084200377105,
+        "subject_consistency": 0.9474135527954153,
+        "motion_smoothness": 0.983558687316726
+      },
+      "quality_gates": [
+        {
+          "reference": "NATIVE35",
+          "dimension": "MUSIQ_LONGER512",
+          "mean_difference": -0.630004329066125,
+          "exact_four_prompt_bootstrap95": [
+            -1.6102060400029679,
+            0.2591159164264596
+          ],
+          "minimum_difference": -1.0,
+          "passed": true
+        },
+        {
+          "reference": "NATIVE35",
+          "dimension": "subject_consistency",
+          "mean_difference": 0.0024117164961669213,
+          "exact_four_prompt_bootstrap95": [
+            -0.012295865818210322,
+            0.011821571737527792
+          ],
+          "minimum_difference": -0.01,
+          "passed": true
+        },
+        {
+          "reference": "NATIVE35",
+          "dimension": "motion_smoothness",
+          "mean_difference": -0.0005750063144113748,
+          "exact_four_prompt_bootstrap95": [
+            -0.001978222220111736,
+            0.0008282095912889864
+          ],
+          "minimum_difference": -0.01,
+          "passed": true
+        },
+        {
+          "reference": "F19_A1",
+          "dimension": "MUSIQ_LONGER512",
+          "mean_difference": 0.46714663761917663,
+          "exact_four_prompt_bootstrap95": [
+            0.0068840929256897,
+            1.0232954948179138
+          ],
+          "minimum_difference": -1.0,
+          "passed": true
+        },
+        {
+          "reference": "F19_A1",
+          "dimension": "subject_consistency",
+          "mean_difference": 0.006023188729001094,
+          "exact_four_prompt_bootstrap95": [
+            0.0014963671565055292,
+            0.010855661138244294
+          ],
+          "minimum_difference": -0.01,
+          "passed": true
+        },
+        {
+          "reference": "F19_A1",
+          "dimension": "motion_smoothness",
+          "mean_difference": 0.0013398751567494371,
+          "exact_four_prompt_bootstrap95": [
+            0.0008163560015992943,
+            0.0021111911491580038
+          ],
+          "minimum_difference": -0.01,
+          "passed": true
+        }
+      ],
+      "meets_frozen_CAL_target": false
+    },
+    {
+      "role": "F17_A2_LIGHT_C",
+      "T_DD": 131.65259999174998,
+      "T_request": 195.80283302557655,
+      "speedup_T_DD": 1.919116176405424,
+      "LPIPS_Alex": 0.2383678987301806,
+      "quality": {
+        "MUSIQ_LONGER512": 65.04459553380167,
+        "subject_consistency": 0.9404972474212232,
+        "motion_smoothness": 0.9829974338532471
+      },
+      "quality_gates": [
+        {
+          "reference": "NATIVE35",
+          "dimension": "MUSIQ_LONGER512",
+          "mean_difference": -0.46625079903551203,
+          "exact_four_prompt_bootstrap95": [
+            -1.2152387967673661,
+            0.28273719869634206
+          ],
+          "minimum_difference": -1.0,
+          "passed": true
+        },
+        {
+          "reference": "NATIVE35",
+          "dimension": "subject_consistency",
+          "mean_difference": -0.00450458887802524,
+          "exact_four_prompt_bootstrap95": [
+            -0.014929118039815392,
+            0.005919940283764913
+          ],
+          "minimum_difference": -0.01,
+          "passed": true
+        },
+        {
+          "reference": "NATIVE35",
+          "dimension": "motion_smoothness",
+          "mean_difference": -0.0011362597778903083,
+          "exact_four_prompt_bootstrap95": [
+            -0.003086474762862751,
+            0.00043394118395312375
+          ],
+          "minimum_difference": -0.01,
+          "passed": true
+        },
+        {
+          "reference": "F19_A1",
+          "dimension": "MUSIQ_LONGER512",
+          "mean_difference": 0.6309001676497896,
+          "exact_four_prompt_bootstrap95": [
+            0.07318924319359255,
+            1.1334609575169061
+          ],
+          "minimum_difference": -1.0,
+          "passed": true
+        },
+        {
+          "reference": "F19_A1",
+          "dimension": "subject_consistency",
+          "mean_difference": -0.0008931166451910666,
+          "exact_four_prompt_bootstrap95": [
+            -0.005613442348397307,
+            0.004464657734269628
+          ],
+          "minimum_difference": -0.01,
+          "passed": true
+        },
+        {
+          "reference": "F19_A1",
+          "dimension": "motion_smoothness",
+          "mean_difference": 0.0007786216932705037,
+          "exact_four_prompt_bootstrap95": [
+            0.0004694002202673686,
+            0.00100000482304477
+          ],
+          "minimum_difference": -0.01,
+          "passed": true
+        }
+      ],
+      "meets_frozen_CAL_target": true
+    },
+    {
+      "role": "F19_DELTA4_LIGHT_C",
+      "T_DD": 128.33322428425,
+      "T_request": 191.31087587634102,
+      "speedup_T_DD": 1.9687546675394165,
+      "LPIPS_Alex": 0.41501912001961017,
+      "quality": {
+        "MUSIQ_LONGER512": 62.68631760792066,
+        "subject_consistency": 0.9314892153539087,
+        "motion_smoothness": 0.9814808315138865
+      },
+      "quality_gates": [
+        {
+          "reference": "NATIVE35",
+          "dimension": "MUSIQ_LONGER512",
+          "mean_difference": -2.8245287249165187,
+          "exact_four_prompt_bootstrap95": [
+            -4.6640701396490964,
+            -0.23351385260140667
+          ],
+          "minimum_difference": -1.0,
+          "passed": false
+        },
+        {
+          "reference": "NATIVE35",
+          "dimension": "subject_consistency",
+          "mean_difference": -0.013512620945339643,
+          "exact_four_prompt_bootstrap95": [
+            -0.03650974125965789,
+            0.0005063113311062628
+          ],
+          "minimum_difference": -0.01,
+          "passed": false
+        },
+        {
+          "reference": "NATIVE35",
+          "dimension": "motion_smoothness",
+          "mean_difference": -0.0026528621172508537,
+          "exact_four_prompt_bootstrap95": [
+            -0.009823269442713611,
+            0.0028333277377106114
+          ],
+          "minimum_difference": -0.01,
+          "passed": true
+        },
+        {
+          "reference": "F19_A1",
+          "dimension": "MUSIQ_LONGER512",
+          "mean_difference": -1.727377758231217,
+          "exact_four_prompt_bootstrap95": [
+            -4.03000431676065,
+            1.9276478470012677
+          ],
+          "minimum_difference": -1.0,
+          "passed": false
+        },
+        {
+          "reference": "F19_A1",
+          "dimension": "subject_consistency",
+          "mean_difference": -0.00990114871250547,
+          "exact_four_prompt_bootstrap95": [
+            -0.017158948208974817,
+            -0.0005595594158638584
+          ],
+          "minimum_difference": -0.01,
+          "passed": true
+        },
+        {
+          "reference": "F19_A1",
+          "dimension": "motion_smoothness",
+          "mean_difference": -0.0007379806460900418,
+          "exact_four_prompt_bootstrap95": [
+            -0.005839587368896809,
+            0.004450806893592035
+          ],
+          "minimum_difference": -0.01,
+          "passed": true
+        }
+      ],
+      "meets_frozen_CAL_target": false
+    },
+    {
+      "role": "F16_C",
+      "T_DD": 129.6556953375,
+      "T_request": 192.25439105578698,
+      "speedup_T_DD": 1.948673628661839,
+      "LPIPS_Alex": 0.28851162429939037,
+      "quality": {
+        "MUSIQ_LONGER512": 61.22737879394203,
+        "subject_consistency": 0.9204158325396155,
+        "motion_smoothness": 0.9769832199300263
+      },
+      "quality_gates": [
+        {
+          "reference": "NATIVE35",
+          "dimension": "MUSIQ_LONGER512",
+          "mean_difference": -4.283467538895145,
+          "exact_four_prompt_bootstrap95": [
+            -5.859526931598623,
+            -2.7074081461916677
+          ],
+          "minimum_difference": -1.0,
+          "passed": false
+        },
+        {
+          "reference": "NATIVE35",
+          "dimension": "subject_consistency",
+          "mean_difference": -0.024586003759632963,
+          "exact_four_prompt_bootstrap95": [
+            -0.0370420364905959,
+            -0.01148253630684773
+          ],
+          "minimum_difference": -0.01,
+          "passed": false
+        },
+        {
+          "reference": "NATIVE35",
+          "dimension": "motion_smoothness",
+          "mean_difference": -0.007150473701111132,
+          "exact_four_prompt_bootstrap95": [
+            -0.013257449139121386,
+            -0.002801544270929268
+          ],
+          "minimum_difference": -0.01,
+          "passed": true
+        },
+        {
+          "reference": "F19_A1",
+          "dimension": "MUSIQ_LONGER512",
+          "mean_difference": -3.1863165722098437,
+          "exact_four_prompt_bootstrap95": [
+            -4.674627847568965,
+            -2.0868808377173718
+          ],
+          "minimum_difference": -1.0,
+          "passed": false
+        },
+        {
+          "reference": "F19_A1",
+          "dimension": "subject_consistency",
+          "mean_difference": -0.02097453152679879,
+          "exact_four_prompt_bootstrap95": [
+            -0.03150900129390799,
+            -0.01044006175968959
+          ],
+          "minimum_difference": -0.01,
+          "passed": false
+        },
+        {
+          "reference": "F19_A1",
+          "dimension": "motion_smoothness",
+          "mean_difference": -0.00523559222995032,
+          "exact_four_prompt_bootstrap95": [
+            -0.009479851053379701,
+            -0.002549820240984324
+          ],
+          "minimum_difference": -0.01,
+          "passed": true
+        }
+      ],
+      "meets_frozen_CAL_target": false
+    }
+  ],
+  "GPU_release": {
+    "status": "ORIGINAL_LIFECYCLE_AUDITED_NOT_SCIENTIFIC_ACCEPTANCE",
+    "launch_id": "f17bfbf0d188491a8821bb65604cb679",
+    "actual_GPUh": 2.2402643552031885,
+    "cost_settled": true,
+    "original_processes_ended": true,
+    "GPU_released": true,
+    "mode_restored": true,
+    "container_exit_success": true,
+    "hard_limit_exceeded": false,
+    "complete_search_accepted": false,
+    "scientific_read_allowed": false,
+    "dispatch_allowed": false,
+    "authorizes_replay": false,
+    "CPU_fixture_only": false,
+    "GPU_submissions": 0,
+    "ledger_written": false
+  },
+  "CPU_container_id": "e31fd02b07670b6839c0844aeb96f360e4fc2ad6295a46738e273507582a16dc",
+  "CPU_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-03T15:19:22.294580454Z",
+    "FinishedAt": "2026-11-03T16:40:46.339905931Z"
+  },
+  "CPU_resources": {
+    "cpus": 2.0,
+    "cpuset": "4,5",
+    "memory_bytes": 8589934592,
+    "swap_bound_bytes": 8589934592,
+    "network": "none",
+    "readonly": true,
+    "device_requests": null
+  },
+  "CPU_wall_seconds": 4861.348698616028,
+  "CUDA_initialized": false,
+  "original_metric_constructor_identity_sha256": "aff5f484d7441b3754ee7e8e28d46612135f7797899ec79bf1ff080a9346350c",
+  "all84_source_sampling_decoder_results_independently_validated": true,
+  "all35_video_and4_tensor_artifacts_SHA_verified": true,
+  "original84_raw_results_SHA_and_content_verified": true,
+  "scope": {
+    "old_exposed_CAL_inputs": 4,
+    "FIT": 2,
+    "old_exposed_CHECK": 2,
+    "independent_new_inputs": false,
+    "protected_input_access": false,
+    "point_mean_quality_gates": true,
+    "descriptive_bootstrap95_not_independent_noninferiority_proof": true
+  },
+  "thermal": {
+    "samples": 3710,
+    "min_C": 45.0,
+    "max_C": 88.0,
+    "modes": [
+      "Exclusive_Process"
+    ],
+    "sole_context_runner_pids": [
+      166609
+    ]
+  },
+  "timing_repeats": [
+    {
+      "role": "F19_A1",
+      "member": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "initial_T_DD": 149.357167773,
+      "repeat_T_DD": 149.332174604,
+      "repeat_over_initial": 0.9998326617371456
+    },
+    {
+      "role": "NATIVE35",
+      "member": "av_51b45829-502e-4143-9c32-c026bd6ab191",
+      "initial_T_DD": 252.556649175,
+      "repeat_T_DD": 252.755152694,
+      "repeat_over_initial": 1.0007859762142413
+    }
+  ],
+  "budget": {
+    "actual_GPUh": 2.2402643552031885,
+    "hard_GPUh": 3.0,
+    "settlement_after": {
+      "cap_gpu_hours": 250,
+      "used_gpu_hours": 216.46598506550802,
+      "reserved_gpu_hours": 16.5,
+      "available_gpu_hours": 17.034014934491978
+    },
+    "old_financial_liabilities_GPUh": 16.5,
+    "planning_Shared25_GPUh": 10.0,
+    "planning_only_not_reservation": true,
+    "unallocated_after_Shared25_planning_GPUh": 7.034014934491978,
+    "C1_merged9p25_plus_Shared25_10_funding_gap_GPUh": 2.215985065508022
+  },
+  "source_artifacts_sha256": {
+    "plans/cara_next_stage_20261103/f19_speed190_cal/CAL35_MANIFEST_R1.json": "bcdb54f4eb3c7687e263d34b3eb33cbcbfe5437e4786e2102cace55c7902337f",
+    "reports/cara_f19_speed190_complete_r1_20261103/original_collection.json": "04f84573ab54010db3241cba43dc2e9ef0086ed3b9b8260934d71c59da477007",
+    "reports/cara_f19_speed190_complete_r1_20261103/original_scores.json": "3e57de8606478906b1ebd3d071527e8a315bf3abc2218daa40be48b64f2fe048",
+    "reports/cara_f19_speed190_complete_r1_20261103/complete_analysis.json": "b2dd84cf6f8d14244f370474460587cc54501f75bbf8e75348901dc922cc4c66",
+    "reports/cara_f19_speed190_monitor_20261103T151512Z.json": "ca3ee442890294fbb4941853c7cda581736fe4495e49b4c6b21307b5d423038b",
+    "reports/cara_f19_speed190_original_settlement_r1_20261103.json": "b6ee42e3071eba4f9b6c046e939ebf829166471944de787019a89f54a409d442",
+    "reports/cara_f19_speed190_released_lifecycle_r1_20261103.json": "a01497da576b72ab1b1c8512ba57e498ec1e8806ebb3f6c0967e9fbc92c4d289",
+    "reports/cara_f19_speed190_score_monitor_20261103T164612Z.json": "560ca6c273d9a1980f88099f494dd36df3d825a6fe2a38d41ed6f13d596ed4ed",
+    "reports/cara_f19_speed190_post_score_original_audit_r1_20261104.json": "57def415f977d09eb1f2f0f70747422c4d53f3dbd1c1cd0aa8217b811f7727d8",
+    "scripts/analyze_cara_f19_speed190_r1.py": "192f4673cb019d219d2c74b7468b942c7f90a9ba68e55c6b25c6c5b03e943d64",
+    "scripts/score_cara_f19_speed190_r1.py": "657209e400c1a7c8aade25678778d6ae8feb895161225a99ae7738556a10546d",
+    "reports/cara_CAL66_quality_binding_20261025.json": "7e5731286c74d2f725f374a11d873856aabf420996bea3e45d3c47ff71c57d57"
+  },
+  "GPU_replayed": false,
+  "old_metrics_recomputed": 0,
+  "new_dispatch_authorized": false
+}

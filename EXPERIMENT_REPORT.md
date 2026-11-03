@@ -2,6 +2,8 @@
 
 # CARA-Cache：研究与结果概览
 
+[874 F19快速工作点完整接受](research/874_CARA_F19_SPEED190_CAL35_COMPLETE_RESULTS_20261104.md)：F19小卡完整35/24LPIPS/84质量已接受；F17-A2＋轻量C在四旧CAL达到T_DD131.6526秒、1.9191倍、LPIPS0.238368，预登记均值质量门相对Native/F19均过。与同批WC耗时慢1.31%、LPIPS低48.67%；单支刷新LPIPS0.415未过。原GPU/CPU均已结束，释放/Default恢复和唯一2.240264355GPUh结算完成。四旧CAL不是独立确认，不自动派后续卡。
+
 [873 单来源阶段覆盖复核与合并准备](research/873_CARA_SINGLE_SOURCE_PHASE_ROBUSTNESS_AND_MERGED_PLAN_20261103.md)：单来源阶段覆盖零GPU复核通过：lambda2/4下F19-C与旧RGB-MSE赢家为44布局第1/2，剔除近Uniform后排序保持。新7候选用全局峰值/平方和前三名，原第一名不变；120组穷举及4项CPU控制通过。R3合并19D七条＋16/17D各两条，全部C/A1，完整106请求预计9.2406GPUh／建议硬9.25；与Shared25规划10合计19.25，余额仅是19.2743历史快照。旧结果保持，完整生产组合尚待，当前0新GPU、0账本操作。
 
 [869 - P1 R2 完整结果：自动规划链路成立，当前来源估值未提供终点增量](research/869_CARA_P1_R2_COMPLETE_RESULTS_SOURCE_INCREMENT_FAILED_20261103.md)：P1完整146/64/142/12等价门及52质量位置接受，原FIT一次冻结和全93帧/双时钟图表完成；12.270682712GPUh已唯一结算，全部原GPU/CPU结束，所有检查已删。四旧CAL上主V1-19D LPIPS0.479044，F19-A1为0.231499，时延148.027/149.368秒；前来源间距在19D/22D均比阶段＋年龄更差，原工程筛选失败。自动计划链路成立，当前来源估值未提供终点增量，不晋级P2、不自动下一卡；旧冻结、曝光范围和保护输入保持。
@@ -36,55 +38,61 @@ WorldCache 是原始缓存基线；RA-CFGCache 是本项目固定协议下的本
 
 ## 主要科学结果
 
-### 1. 写入价值随状态和当前读出条件变化
+### 1. F17-A2＋轻量C达到1.919倍T_DD、LPIPS0.2384
+
+T_DD131.6526秒，1.9191倍；平均LPIPS0.238368，原F19-A1为0.231499。与同批WC相比耗时慢1.31%、LPIPS低48.67%，六项预登记均值质量差值门均过。
+
+28正式位置、seed0，2FIT＋2曝光旧CHECK；非独立新输入。35RGB及所有控制/重复通过，GPU2.240264355GPUh唯一结算、原GPU/CPU结束；Shared25规划10保持。 [证据1](research/874_CARA_F19_SPEED190_CAL35_COMPLETE_RESULTS_20261104.md) · [证据2](reports/cara_f19_speed190_complete_r1_20261103/complete_acceptance.json) · [证据3](reports/cara_f19_speed190_complete_r1_20261103/complete_analysis.json) · [证据4](figures/cara_f19_speed190_CAL35_r1_20261104/figure_manifest.json)
+
+### 2. 写入价值随状态和当前读出条件变化
 
 保持当前C读出、只写缓存时，第8步平均LPIPS下降19.51%，第20步下降0.64%；W_C在4/4输入状态为正，W_D在3/4为正，Human199第20步轻微负。
 
 同一Uniform19父计划、seed0，全93帧、四格完整接受。新14路径/8评分与旧8复用，Native桥及释放/唯一1.481354487GPUh结算完成；自动来源规划与独立输入仍待。 [证据1](research/844_CARA_P0_TWO_POSITION_COMPLETE_RESULTS_AND_V1_CONTINUATION_20261102.md) · [证据2](reports/cara_v1_P0_two_position_complete_acceptance_r1_20261102.json) · [证据3](reports/cara_v1_P0_two_position_complete_analysis_r1_20261102.json) · [证据4](reports/cara_v1_P0_two_position_figures_r1_20261102/figure-report.json)
 
-### 2. F19布局在4旧CAL的同19D比较中降低参考误差
+### 3. F19布局在4旧CAL的同19D比较中降低参考误差
 
 F19_C为1.703倍T_DD、1.486倍完整请求速度，Alex0.24936，较Uniform19_C降低46.82%；F19_A1为1.691倍T_DD、Alex0.23150，较F19_C再降低7.16%，4/4同向。
 
 4个原CAL、seed0，2FIT与2内部CHECK，非独立新输入。六份A指标原样复用，WC/RA保留FIT UNMATCHED；Shared25-C的Alex0.06227仍更低。GPU费用2.384554GPUh，原件、释放、评分与图表已接受。 [证据1](research/756_CARA_B36_COMPLETE_ACCEPTANCE_RESULTS_AND_FIGURES_20261029.md) · [证据2](reports/cara_fast_B36_complete_analysis_r1_20261029.json) · [证据3](reports/cara_fast_B36_figures_actual_r1_20261029/report.json)
 
-### 3. Shared25-C通过16新DEV冻结验证
+### 4. Shared25-C通过16新DEV冻结验证
 
 相对冻结S25-A的LPIPS降低14.82%，16/16改善；相对S25-C降低26.16%。246.675秒、约1.269倍，V单侧95%上界0.9863；三项质量非劣门均通过。
 
 完整128路径、80组LPIPS、288质量；16新DEV、seed0，原主候选和阈值冻结。属于DEV继续证据，最终16组和迁移仍待独立确认。 [证据1](research/716_CARA_DEV128_COMPLETE_ACCEPTANCE_AND_FROZEN_DECISION_20261027.md) · [证据2](reports/cara_DEV128_A6000_complete_analysis_20261027.json)
 
-### 4. Shared25-C通过完整CAL筛查
+### 5. Shared25-C通过完整CAL筛查
 
 同批A6000四个CAL上，Shared25-C相对较强S25-A的LPIPS下降15.34%，4/4改善；246.852秒，原双预算和三项独立质量筛查通过。
 
 完整66/48LPIPS/156质量；4个已曝光CAL、seed0，非新DEV或最终部署结论。四个含A候选未过相对Native的MUSIQ界。 [证据1](research/702_CARA_CAL66_A6000_COMPLETE_RESULTS_AND_FROZEN_SHARED25_C_20261026.md) · [证据2](reports/cara_CAL66_A6000_complete_analysis_20261026.json)
 
-### 5. 修正读出有跨输入机制收益
+### 6. 修正读出有跨输入机制收益
 
 BANK24六个新DEV中，A相对C的同状态扩散速度预测MSE全部降低43.53%–63.00%，等权场景均值降低52.53%。
 
 6DEV；18正式+6warm；24视频、12组LPIPS全部接受。这里的52.53%是局部MSE，不是视频质量提升。 [证据1](research/644_CARA_BANK24_COMPLETE_DEV6_RESULTS_20261022.md)
 
-### 6. 连续修正改善最终视频保真
+### 7. 连续修正改善最终视频保真
 
 Window24同25D布局下，A3较C的平均LPIPS低26.6335%，较A1低19.7690%；CAL12四格补齐了后两次A的独立增量。
 
 4个旧CAL、seed0；A3仍比26D前密C高5.7235%失真。 [证据1](research/604_WC_WINDOW24_FULL24_ACCEPTED_CONTINUOUS_CORRECTION_RESULTS_AND_CAL12_NEXT_20261019.md) · [证据2](research/609_WC_CAL12_FULL_FACTORIAL_A_AND_SHARED_PLAN_INDEPENDENT_EFFECTS_20261019.md)
 
-### 7. 固定预算下刷新位置影响保真
+### 8. 固定预算下刷新位置影响保真
 
 CAL12同26D、同纯C的共享计划较前密C的LPIPS低15.36%，四场景均改善。
 
 由既有轨迹变化量导出的一个冻结布局；属于CAL证据，独立输入和净时间待验证。 [证据1](research/609_WC_CAL12_FULL_FACTORIAL_A_AND_SHARED_PLAN_INDEPENDENT_EFFECTS_20261019.md)
 
-### 8. 已有质量—时间工作点
+### 9. 已有质量—时间工作点
 
 D14同批比较中，Efficient比WorldCache耗时少13.72%、LPIPS低11.1600%；同26D的A较plain低3.5196%，增加0.8762秒。
 
 历史4CAL工作点；同卡40正式+20warm。N07/N08/N10已补充共同评价、重复计时和自动质量。 [证据1](research/420_WC_FULL60_COST_CURVE_COMPLETE_RESULTS_AND_CONVERGENCE_20261014.md) · [证据2](research/552_WC_N08_FULL40_ACCEPTED_REPEATED_TIMING_AND_PENDING_TASK_CLOSURE_20261017.md) · [证据3](research/599_WC_N10_FULL960_ACCEPTED_DIMENSIONWISE_RESULTS_AND_WINDOW24_RESOURCE_QUEUE_20261018.md)
 
-### 9. 冻结单点门控未优于随机配额分配
+### 10. 冻结单点门控未优于随机配额分配
 
 BANK24冻结z门控在同3D配额的20种分配中排12/20；LPIPS 0.0778937，高于随机分配期望0.0768148。
 

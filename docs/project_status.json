@@ -16,6 +16,18 @@
   "next_checks": [],
   "headline_results": [
     {
+      "title": "F17-A2＋轻量C达到1.919倍T_DD、LPIPS0.2384",
+      "short_scope": "四旧CAL，完整35路径、24LPIPS、84质量",
+      "result": "T_DD131.6526秒，1.9191倍；平均LPIPS0.238368，原F19-A1为0.231499。与同批WC相比耗时慢1.31%、LPIPS低48.67%，六项预登记均值质量差值门均过。",
+      "scope": "28正式位置、seed0，2FIT＋2曝光旧CHECK；非独立新输入。35RGB及所有控制/重复通过，GPU2.240264355GPUh唯一结算、原GPU/CPU结束；Shared25规划10保持。",
+      "refs": [
+        "research/874_CARA_F19_SPEED190_CAL35_COMPLETE_RESULTS_20261104.md",
+        "reports/cara_f19_speed190_complete_r1_20261103/complete_acceptance.json",
+        "reports/cara_f19_speed190_complete_r1_20261103/complete_analysis.json",
+        "figures/cara_f19_speed190_CAL35_r1_20261104/figure_manifest.json"
+      ]
+    },
+    {
       "title": "写入价值随状态和当前读出条件变化",
       "short_scope": "两旧FIT、两预登记状态、完整16位置（复用8）",
       "result": "保持当前C读出、只写缓存时，第8步平均LPIPS下降19.51%，第20步下降0.64%；W_C在4/4输入状态为正，W_D在3/4为正，Human199第20步轻微负。",
@@ -1846,7 +1858,7 @@
     "independent_new_inputs": false,
     "complete_QA_ref": "reports/cara_fast_A6000_complete_frozen_QA_20261029_0115.json"
   },
-  "current_evidence_observed_at": "2026-11-03T14:07:29.960293+08:00",
+  "current_evidence_observed_at": "2026-11-04T00:55:00+08:00",
   "fast_B36_CPU_preparation_20261029": {
     "status": "ACCEPTED_DUAL_HOST_COMPLETE_B36_CPU_CONTINUATION_ONLY",
     "accepted_receipt_ref": "reports/cara_fast_B36_CPU_acceptance_r1_20261029.json",
@@ -4274,6 +4286,47 @@
     "current_method_independent_paper_evidence": false,
     "planning_merged_and_Shared25_upper_GPUh": 19.25,
     "planning_snapshot_headroom_GPUh": 0.024279289695158468,
-    "single_source_strong_reference_and_far_uniform_checks_passed": true
+    "single_source_strong_reference_and_far_uniform_checks_passed": true,
+    "budget_reconciliation_after_F19": {
+      "source_ref": "reports/cara_f19_speed190_released_lifecycle_r1_20261103.json",
+      "available_GPUh_after_F19": 17.034014934491978,
+      "Shared25_planning_GPUh": 10.0,
+      "C1_merged_hard_GPUh": 9.25,
+      "combined_planning_GPUh": 19.25,
+      "gap_GPUh": 2.215985065508022,
+      "currently_jointly_funded": false,
+      "old_19p2743_snapshot_preserved": true,
+      "no_new_authority": true
+    }
+  },
+  "fast_F19_speed190_complete_20261104": {
+    "status": "FULL35_24_LPIPS_84_QUALITY_ACCEPTED_F17_CAL_TARGET_PASSED",
+    "research_ref": "research/874_CARA_F19_SPEED190_CAL35_COMPLETE_RESULTS_20261104.md",
+    "notice_title": "874 F19快速工作点完整接受",
+    "summary": "F19小卡完整35/24LPIPS/84质量已接受；F17-A2＋轻量C在四旧CAL达到T_DD131.6526秒、1.9191倍、LPIPS0.238368，预登记均值质量门相对Native/F19均过。与同批WC耗时慢1.31%、LPIPS低48.67%；单支刷新LPIPS0.415未过。原GPU/CPU均已结束，释放/Default恢复和唯一2.240264355GPUh结算完成。四旧CAL不是独立确认，不自动派后续卡。",
+    "acceptance_ref": "reports/cara_f19_speed190_complete_r1_20261103/complete_acceptance.json",
+    "acceptance_sha256": "81dc7a0f1d46cd3aa113bcc0309ffe699298fc06886fa2c38720e2c4a4f81e1b",
+    "analysis_ref": "reports/cara_f19_speed190_complete_r1_20261103/complete_analysis.json",
+    "scope_sha256": "8bd653646deb3d22a4c5b32824c2991fde70a129f0a050ce03c59b8406baa367",
+    "actual_original_GPUh": 2.2402643552031885,
+    "source_revision": "ee105ecb3f3ab8a7e7e348ef275f5d4bf3cd34c9",
+    "launch_id": "f17bfbf0d188491a8821bb65604cb679",
+    "new_GPU_authorized": false,
+    "independent_new_input_confirmation": false,
+    "budget_snapshot": {
+      "actual_GPUh": 2.2402643552031885,
+      "hard_GPUh": 3.0,
+      "settlement_after": {
+        "cap_gpu_hours": 250,
+        "used_gpu_hours": 216.46598506550802,
+        "reserved_gpu_hours": 16.5,
+        "available_gpu_hours": 17.034014934491978
+      },
+      "old_financial_liabilities_GPUh": 16.5,
+      "planning_Shared25_GPUh": 10.0,
+      "planning_only_not_reservation": true,
+      "unallocated_after_Shared25_planning_GPUh": 7.034014934491978,
+      "C1_merged9p25_plus_Shared25_10_funding_gap_GPUh": 2.215985065508022
+    }
   }
 }

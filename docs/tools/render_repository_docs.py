@@ -998,6 +998,10 @@ def build():
     if coverage:
         values['next_stage_notice'] = (link(coverage['research_ref'], coverage['notice_title'])
             + '：' + coverage['summary'] + '\n\n' + values['next_stage_notice'])
+    f19_complete = status.get('fast_F19_speed190_complete_20261104')
+    if f19_complete:
+        values['next_stage_notice'] = (link(f19_complete['research_ref'], f19_complete['notice_title'])
+            + '：' + f19_complete['summary'] + '\n\n' + values['next_stage_notice'])
     outputs = {}
     for template in sorted((ROOT / 'docs/templates').glob('*.md')):
         target = template.name.replace('__', '/')

@@ -2,6 +2,8 @@
 
 # CARA-Cache
 
+[874 F19快速工作点完整接受](research/874_CARA_F19_SPEED190_CAL35_COMPLETE_RESULTS_20261104.md)：F19小卡完整35/24LPIPS/84质量已接受；F17-A2＋轻量C在四旧CAL达到T_DD131.6526秒、1.9191倍、LPIPS0.238368，预登记均值质量门相对Native/F19均过。与同批WC耗时慢1.31%、LPIPS低48.67%；单支刷新LPIPS0.415未过。原GPU/CPU均已结束，释放/Default恢复和唯一2.240264355GPUh结算完成。四旧CAL不是独立确认，不自动派后续卡。
+
 [873 单来源阶段覆盖复核与合并准备](research/873_CARA_SINGLE_SOURCE_PHASE_ROBUSTNESS_AND_MERGED_PLAN_20261103.md)：单来源阶段覆盖零GPU复核通过：lambda2/4下F19-C与旧RGB-MSE赢家为44布局第1/2，剔除近Uniform后排序保持。新7候选用全局峰值/平方和前三名，原第一名不变；120组穷举及4项CPU控制通过。R3合并19D七条＋16/17D各两条，全部C/A1，完整106请求预计9.2406GPUh／建议硬9.25；与Shared25规划10合计19.25，余额仅是19.2743历史快照。旧结果保持，完整生产组合尚待，当前0新GPU、0账本操作。
 
 [869 - P1 R2 完整结果：自动规划链路成立，当前来源估值未提供终点增量](research/869_CARA_P1_R2_COMPLETE_RESULTS_SOURCE_INCREMENT_FAILED_20261103.md)：P1完整146/64/142/12等价门及52质量位置接受，原FIT一次冻结和全93帧/双时钟图表完成；12.270682712GPUh已唯一结算，全部原GPU/CPU结束，所有检查已删。四旧CAL上主V1-19D LPIPS0.479044，F19-A1为0.231499，时延148.027/149.368秒；前来源间距在19D/22D均比阶段＋年龄更差，原工程筛选失败。自动计划链路成立，当前来源估值未提供终点增量，不晋级P2、不自动下一卡；旧冻结、曝光范围和保护输入保持。
@@ -49,6 +51,7 @@ CFG 指 classifier-free guidance，包含条件与负条件两支。A 使用共�
 
 ## 已经得到什么结果
 
+- **F17-A2＋轻量C达到1.919倍T_DD、LPIPS0.2384**（四旧CAL，完整35路径、24LPIPS、84质量）：T_DD131.6526秒，1.9191倍；平均LPIPS0.238368，原F19-A1为0.231499。与同批WC相比耗时慢1.31%、LPIPS低48.67%，六项预登记均值质量差值门均过。 [证据1](research/874_CARA_F19_SPEED190_CAL35_COMPLETE_RESULTS_20261104.md) · [证据2](reports/cara_f19_speed190_complete_r1_20261103/complete_acceptance.json) · [证据3](reports/cara_f19_speed190_complete_r1_20261103/complete_analysis.json) · [证据4](figures/cara_f19_speed190_CAL35_r1_20261104/figure_manifest.json)
 - **写入价值随状态和当前读出条件变化**（两旧FIT、两预登记状态、完整16位置（复用8））：保持当前C读出、只写缓存时，第8步平均LPIPS下降19.51%，第20步下降0.64%；W_C在4/4输入状态为正，W_D在3/4为正，Human199第20步轻微负。 [证据1](research/844_CARA_P0_TWO_POSITION_COMPLETE_RESULTS_AND_V1_CONTINUATION_20261102.md) · [证据2](reports/cara_v1_P0_two_position_complete_acceptance_r1_20261102.json) · [证据3](reports/cara_v1_P0_two_position_complete_analysis_r1_20261102.json) · [证据4](reports/cara_v1_P0_two_position_figures_r1_20261102/figure-report.json)
 - **F19布局在4旧CAL的同19D比较中降低参考误差**（旧CAL4，B36完整36与32评分，双时钟）：F19_C为1.703倍T_DD、1.486倍完整请求速度，Alex0.24936，较Uniform19_C降低46.82%；F19_A1为1.691倍T_DD、Alex0.23150，较F19_C再降低7.16%，4/4同向。 [证据1](research/756_CARA_B36_COMPLETE_ACCEPTANCE_RESULTS_AND_FIGURES_20261029.md) · [证据2](reports/cara_fast_B36_complete_analysis_r1_20261029.json) · [证据3](reports/cara_fast_B36_figures_actual_r1_20261029/report.json)
 - **Shared25-C通过16新DEV冻结验证**（DEV16，完整128，冻结强基线与双预算）：相对冻结S25-A的LPIPS降低14.82%，16/16改善；相对S25-C降低26.16%。246.675秒、约1.269倍，V单侧95%上界0.9863；三项质量非劣门均通过。 [证据1](research/716_CARA_DEV128_COMPLETE_ACCEPTANCE_AND_FROZEN_DECISION_20261027.md) · [证据2](reports/cara_DEV128_A6000_complete_analysis_20261027.json)
