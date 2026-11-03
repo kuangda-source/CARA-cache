@@ -994,6 +994,10 @@ def build():
     if read_write:
         values['next_stage_notice'] = (link(read_write['research_ref'], read_write['notice_title'])
             + '：' + read_write['summary'] + '\n\n' + values['next_stage_notice'])
+    coverage = status.get('source_coverage_20261103')
+    if coverage:
+        values['next_stage_notice'] = (link(coverage['research_ref'], coverage['notice_title'])
+            + '：' + coverage['summary'] + '\n\n' + values['next_stage_notice'])
     outputs = {}
     for template in sorted((ROOT / 'docs/templates').glob('*.md')):
         target = template.name.replace('__', '/')

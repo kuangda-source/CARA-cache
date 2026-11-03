@@ -1047,7 +1047,7 @@
     "new_candidate_production_accepted": false,
     "new_candidate_GPU_authorized": false
   },
-  "current_followup_plan_ref": "plans/cara_next_stage_20261101/source_lifecycle/README.md",
+  "current_followup_plan_ref": "plans/cara_next_stage_20261103/source_coverage/README.md",
   "innovation_gain_exploration_R1": {
     "status": "PAUSED_BY_USER_AFTER_COMPLETE_B1",
     "plan_ref": "plans/cara_innovation_gain_20261027/README.md",
@@ -3228,7 +3228,7 @@
     "original_score_CPU_ended": true,
     "original_score_wall_seconds": 504.61017298698425
   },
-  "current_preparation_id": null,
+  "current_preparation_id": "CARA_SOURCE_COVERAGE_ENDPOINT_CPU_R1",
   "read_write_mainline_preparation_20261101": {
     "status": "P1_R2_COMPLETE_ACCEPTED_SOURCE_INCREMENT_NOT_SUPPORTED",
     "research_ref": "research/869_CARA_P1_R2_COMPLETE_RESULTS_SOURCE_INCREMENT_FAILED_20261103.md",
@@ -4194,5 +4194,23 @@
       "available_gpu_hours": 12.478163965315645,
       "old_host_uncertainty_reserved_GPUh": 16.5
     }
+  },
+  "source_coverage_20261103": {
+    "status": "LOCAL_CPU_ACCEPTED_ENDPOINTS_PENDING",
+    "research_ref": "research/870_CARA_SOURCE_COVERAGE_ENDPOINT_PLANNER_CPU_20261103.md",
+    "receipt_ref": "reports/cara_source_coverage_CPU_acceptance_r4_20261103.json",
+    "receipt_sha256": "b1acec756764b5ed0079fa7f72a7d503ba32052abdb7992f28b320943f30f226",
+    "plan_ref": "plans/cara_next_stage_20261103/source_coverage/README.md",
+    "pools_ref": "plans/cara_next_stage_20261103/source_coverage/CPU_CANDIDATE_POOLS_R4.json",
+    "notice_title": "870 来源覆盖终点校准规划：CPU原型通过",
+    "summary": "来源覆盖终点校准原型已通过16项本地CPU控制、180组穷举对照及8条完整36更新WC/RF/UniPC小权重路径。19D/22D主池生成12/8条去重候选，单来源/无阶段消融和完整终点选择CLI可运行。下一步准备完整视频入口、比较范围与报价，检验同实际校准费用的效率和规则迁移；真实视频分数为空，本轮0GPU、未访问账本。",
+    "tests": 16,
+    "exhaustive_cases": 180,
+    "full36_tiny_paths": 8,
+    "real_video_scores": 0,
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "old_originals_replayed": false,
+    "old42_query_detail_audit": "PENDING_RAW_DETAIL_BYTES"
   }
 }

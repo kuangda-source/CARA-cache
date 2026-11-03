@@ -2,11 +2,17 @@
 
 {{next_stage_notice}}
 
-## 当前主线：P1 R2已关闭，当前版本不晋级P2
+## 当前主线：来源覆盖与终点校准规划
+
+[870 CPU 原型](repo:research/870_CARA_SOURCE_COVERAGE_ENDPOINT_PLANNER_CPU_20261103.md)已通过16项控制、180组穷举对照及8条完整36更新的小权重原缓存/UniPC路径。主方法19D/22D生成12/8条去重候选，单来源与无阶段消融、完整终点选择CLI可运行。接下来完成[方法入口与整卡范围报价](repo:plans/cara_next_stage_20261103/source_coverage/README.md)，以同实际校准费用的终点效率和规则迁移作为主要研究问题。
+
+旧42查询/64标签的完整明细审计与新方法并行准备；当前本机完整便携报告没有这批明细，不把原型推进排在所有旧失败归因之后。真实视频分数仍为空，此次CPU没有启动GPU或访问账本。
+
+## 已关闭的 P1 R2
 
 [869完整结果](repo:research/869_CARA_P1_R2_COMPLETE_RESULTS_SOURCE_INCREMENT_FAILED_20261103.md)和[完整接受](repo:reports/cara_v1_P1_successor_complete_acceptance_r1_20261103.json)保存了146/64/142/12控制、52质量、原FIT一次冻结、完整93帧与双时钟图表。GPU12.270682712GPUh已唯一结算，原GPU/CPU全结束，三个检查全删除。当前来源增量在19D/22D均未支持，原工程筛选失败；不重选原FIT赢家，不重评旧冻结。
 
-保留P0机制和已验证的自动生成器。下一步先明确已有标签/来源组合支持或估值目标的缺口，再单独提出一次有界诊断/修订方案；本卡不自动派发新GPU、V2或保护输入。只引用保存原件，不为刷新文档重跑读者、评分、冻结、结算或监控。四旧CAL/曝光CHECK、WC/RA FIT UNMATCHED、全部旧冻结及最终16/备用16保持。
+保留P0机制和已验证的自动生成器，当前已按用户授权推进上方来源覆盖原型。只引用保存原件，不为刷新文档重跑旧读者、评分、冻结、结算或监控。四旧CAL/曝光CHECK、WC/RA FIT UNMATCHED、全部旧冻结及最终16/备用16保持。
 
 {{queue}}
 
