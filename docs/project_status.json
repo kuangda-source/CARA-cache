@@ -4196,14 +4196,14 @@
     }
   },
   "source_coverage_20261103": {
-    "status": "LOCAL_CPU_ACCEPTED_ENDPOINTS_PENDING",
+    "status": "LOCAL_CPU_AND_SAVED24_AUDIT_ACCEPTED",
     "research_ref": "research/870_CARA_SOURCE_COVERAGE_ENDPOINT_PLANNER_CPU_20261103.md",
     "receipt_ref": "reports/cara_source_coverage_CPU_acceptance_r4_20261103.json",
     "receipt_sha256": "b1acec756764b5ed0079fa7f72a7d503ba32052abdb7992f28b320943f30f226",
     "plan_ref": "plans/cara_next_stage_20261103/source_coverage/README.md",
     "pools_ref": "plans/cara_next_stage_20261103/source_coverage/CPU_CANDIDATE_POOLS_R4.json",
     "notice_title": "870 来源覆盖终点校准规划：CPU原型通过",
-    "summary": "来源覆盖终点校准原型已通过16项本地CPU控制、180组穷举对照及8条完整36更新WC/RF/UniPC小权重路径。19D/22D主池生成12/8条去重候选，单来源/无阶段消融和完整终点选择CLI可运行。下一步准备完整视频入口、比较范围与报价，检验同实际校准费用的效率和规则迁移；真实视频分数为空，本轮0GPU、未访问账本。",
+    "summary": "来源覆盖终点校准原型通过16项本地CPU控制、180组穷举及8条完整36更新小权重路径，19D/22D生成12/8条候选。另3项CPU审计控制通过，原64标签/24搜索查询中局部留出MSE改善而六组终点排序相关均为负，支持优先推进结构候选＋终点选择；全42排序仍缺18评分明细。下一步完整视频入口/范围/报价，本轮0GPU、未访问账本。",
     "tests": 16,
     "exhaustive_cases": 180,
     "full36_tiny_paths": 8,
@@ -4211,6 +4211,9 @@
     "GPU_submissions": 0,
     "ledger_written": false,
     "old_originals_replayed": false,
-    "old42_query_detail_audit": "PENDING_RAW_DETAIL_BYTES"
+    "old42_query_detail_audit": "24_SEARCH_QUERY_RANKING_ACCEPTED_18_DP_ENDPOINTS_MISSING",
+    "saved_data_audit_ref": "reports/cara_source_proxy_saved_CPU_audit_r1_20261103.json",
+    "saved_data_audit_CPU_controls_ref": "reports/cara_source_proxy_saved_CPU_controls_r1_20261103.json",
+    "saved_data_audit_CPU_controls": 3
   }
 }
