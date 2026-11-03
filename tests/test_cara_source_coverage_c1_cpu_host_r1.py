@@ -53,6 +53,20 @@ class CPUHost(unittest.TestCase):
             self.assertEqual(host.prepare('a'*40,'b'*64),{'status':'ORIGINAL'})
             download.assert_not_called()
 
+    def test_r2_uses_original_interpreter_and_readonly_environment(self):
+        python=str(host.ROOT/'envs/wc-cosmos-py310-cu128-r3/bin/python')
+        self.intent['runtime_python']=python
+        (self.stage/'CPU-intent.json').write_text(json.dumps(self.intent))
+        self.inspected['Config'].update(Cmd=['timeout','300',python],
+            Env=['CUDA_VISIBLE_DEVICES=','NVIDIA_VISIBLE_DEVICES=void'])
+        self.inspected['HostConfig']['Binds']=[str(host.ROOT/p)+':'+str(host.ROOT/p)+':ro'
+            for p in ('envs','system-libs-r1')]
+        with patch.object(host,'GENERATION',2),patch.object(host,'inspect',return_value=self.inspected):
+            self.assertEqual(host.capture()['status'],'ORIGINAL_C1_CPU_TERMINAL')
+            self.inspected['HostConfig']['Binds'].pop()
+            with self.assertRaisesRegex(ValueError,'runtime mounts'):
+                host.capture()
+
 
 if __name__=='__main__':
     unittest.main()
