@@ -62,30 +62,35 @@ def collect(adapter,output,before,*,save):
 
 def collect_loaded(inference,samples,card,common,output,storage,mode_types,*,cpu_validation=False):
     model,net=inference.pipe.model,inference.pipe.model.net
-    precision=observed_precision(model)
-    if not cpu_validation and (precision['model_precision']!='torch.bfloat16'
-            or precision['use_wan_fp32_strategy'] is not True
-            or precision['conditional_frame_timestep']!=.1 or precision['outer_autocast'] is not False):
-        raise ValueError('Original Cosmos production precision/conditioning required')
-    versions=[(n,p,p._version,str(p.dtype)) for n,p in net.named_parameters()]
-    mode=establish_shared_eval(net,mode_types)
-    common['wc'].apply_worldcache(net,**{k.removeprefix('worldcache_'):v for k,v in card['settings'].items()})
-    initial=CompleteStateRoundtrip(net,model.sample_scheduler,torch.zeros(1));origin=initial.fingerprint()
-    def verify():
-        verify_shared_eval(net,mode)
-        if any(p._version!=version or str(p.dtype)!=dtype for _,p,version,dtype in versions):raise ValueError('Model weights/precision changed')
-    checks=0
-    def before(slot):
-        nonlocal checks
-        storage.check();initial.restore()
-        if initial.fingerprint()!=origin:raise ValueError('Complete request reset differs')
-        verify();checks+=1
-    output=Path(output)
-    adapter=Requests(inference,samples,card,common,cpu_validation=cpu_validation)
+    caller_owned='forward' in vars(net);caller_forward=net.forward
     try:
-        result=collect(adapter,output,before,save=lambda value:atomic_json(output/'collection.json',value))
+        precision=observed_precision(model)
+        if not cpu_validation and (precision['model_precision']!='torch.bfloat16'
+                or precision['use_wan_fp32_strategy'] is not True
+                or precision['conditional_frame_timestep']!=.1 or precision['outer_autocast'] is not False):
+            raise ValueError('Original Cosmos production precision/conditioning required')
+        versions=[(n,p,p._version,str(p.dtype)) for n,p in net.named_parameters()]
+        mode=establish_shared_eval(net,mode_types)
+        common['wc'].apply_worldcache(net,**{k.removeprefix('worldcache_'):v for k,v in card['settings'].items()})
+        initial=CompleteStateRoundtrip(net,model.sample_scheduler,torch.zeros(1));origin=initial.fingerprint()
+        def verify():
+            verify_shared_eval(net,mode)
+            if any(p._version!=version or str(p.dtype)!=dtype for _,p,version,dtype in versions):raise ValueError('Model weights/precision changed')
+        checks=0
+        def before(slot):
+            nonlocal checks
+            storage.check();initial.restore()
+            if initial.fingerprint()!=origin:raise ValueError('Complete request reset differs')
+            verify();checks+=1
+        output=Path(output)
+        adapter=Requests(inference,samples,card,common,cpu_validation=cpu_validation)
+        try:
+            result=collect(adapter,output,before,save=lambda value:atomic_json(output/'collection.json',value))
+        finally:
+            initial.restore();verify()
+            if initial.fingerprint()!=origin:raise ValueError('Final complete state restoration differs')
+        return result,dict(request_boundary_checks=checks,precision=precision,
+            model_precision_sha256=digest(precision),final_state_restored=True,caller_forward_binding_restored=True,CPU_fixture_only=cpu_validation)
     finally:
-        initial.restore();verify()
-        if initial.fingerprint()!=origin:raise ValueError('Final complete state restoration differs')
-    return result,dict(request_boundary_checks=checks,precision=precision,
-        model_precision_sha256=digest(precision),final_state_restored=True,CPU_fixture_only=cpu_validation)
+        if caller_owned:net.forward=caller_forward
+        else:vars(net).pop('forward',None)

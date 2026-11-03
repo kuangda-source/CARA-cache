@@ -39,7 +39,7 @@ print(json.dumps(dict(status='CAL35_SOURCE_PREPARED_NO_GPU',registration_sha256=
  source_revision=p['revision'],payload_files=len(new['payload_sha256']),runtime_source_sha256=new['runtime_source_sha256'])))
 """
 CPU=PREFIX+"""
-attempt=p.get('CPU_attempt',1);assert attempt in (1,2,3,4,5,6,7,8)
+attempt=p.get('CPU_attempt',1);assert attempt in (1,2,3,4,5,6,7,8,9)
 name=stage.name+'-cpu'+('' if attempt==1 else '-r'+str(attempt))
 intent_name='CPU-intent.json' if attempt==1 else 'CPU-r'+str(attempt)+'-intent.json'
 launch_name='CPU-launch.json' if attempt==1 else 'CPU-r'+str(attempt)+'-launch.json'
@@ -92,7 +92,7 @@ print(json.dumps(dict(status='PRIVATE16_GIB_STORAGE_DISPATCHED_NO_GPU',pid=child
 ADMIT=PREFIX+"""
 sys.path[:0]=[str(stage/'src'),str(stage/'scripts')]
 from four_card_bank24_execution_tools_r1 import verify_nltk_resources
-verify_nltk_resources(root)
+verify_nltk_resources(root.resolve())
 from wcomr.cara_f19_speed190_execution_r1 import fresh,ASSETS,validate_stage
 from wcomr.cara_fast_b36_dispatch_r2 import assets_check
 from wcomr.gpu_budget_pool_v2 import atomic_json
@@ -142,7 +142,7 @@ def payload():
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('action',choices=('install','cpu','cpu-r2','cpu-r3','cpu-r4','cpu-r5','cpu-r6','cpu-r7','cpu-r8','provision','admit'))
+    p=argparse.ArgumentParser();p.add_argument('action',choices=('install','cpu','cpu-r2','cpu-r3','cpu-r4','cpu-r5','cpu-r6','cpu-r7','cpu-r8','cpu-r9','provision','admit'))
     p.add_argument('--receipt',type=Path,required=True);p.add_argument('--route',choices=('ipv4','v6'),default='v6');a=p.parse_args()
     assert not a.receipt.exists()
     data=payload() if a.action=='install' else ({'CPU_attempt':int(a.action[-1])} if a.action.startswith('cpu-r') else {})
@@ -154,7 +154,7 @@ def main():
             data['files']={n:v for n,v in data['files'].items() if n in comparison['needed']}
             result=rpc(INSTALL,data,route=a.route)
             result['compared_overlay_files']=len(data['files'])
-    else:result=rpc({'cpu':CPU,'cpu-r2':CPU,'cpu-r3':CPU,'cpu-r4':CPU,'cpu-r5':CPU,'cpu-r6':CPU,'cpu-r7':CPU,'cpu-r8':CPU,'provision':PROVISION,'admit':ADMIT}[a.action],data,route=a.route,timeout=300 if a.action=='admit' else 90)
+    else:result=rpc({'cpu':CPU,'cpu-r2':CPU,'cpu-r3':CPU,'cpu-r4':CPU,'cpu-r5':CPU,'cpu-r6':CPU,'cpu-r7':CPU,'cpu-r8':CPU,'cpu-r9':CPU,'provision':PROVISION,'admit':ADMIT}[a.action],data,route=a.route,timeout=300 if a.action=='admit' else 90)
     with a.receipt.open('x') as f:json.dump(result,f,indent=2,allow_nan=False);f.write('\n')
     print(json.dumps({k:result.get(k) for k in ('status','stderr','logs','state','source_revision','payload_files')}))
 
