@@ -5,7 +5,6 @@ from pathlib import Path
 import torch
 from wcomr.cara_f19_speed190_identity_r1 import MANIFEST
 from wcomr.cara_f19_speed190_collection_r1 import collect_loaded
-from wcomr.policy_generator_r1.frozen_request_arguments import request_variant
 
 
 def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,artifact_root):
@@ -29,7 +28,9 @@ def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,
     card['settings']['worldcache_flow_enabled']=flow
     from wcomr.cara_fast_spec_r1 import digest
     card['scope_sha256']=digest({k:v for k,v in card.items() if k!='scope_sha256'})
-    samples={m:request_variant(selected[0],seed=0,num_steps=35) for m in card['FIT']+card['CHECK']}
+    from cosmos_predict2.config import InferenceArguments
+    samples={r['name']:InferenceArguments.model_validate({**{k:v for k,v in r.items() if k!='partition'},
+        'resolution':'16,16'}) for r in card['inputs']}
     class Storage:
         def check(self):return dict(CPU_fixture_only=True)
     out=Path(artifact_root)/('flow_'+str(flow));out.mkdir(parents=True)
