@@ -109,6 +109,10 @@ create(control/'score-config.json',config)
 launch=read(base/'GPU-launch.json');old=launch['commands']['container_cli'];env=[]
 for i,v in enumerate(old[:-1]):
  if v=='-e' and old[i+1].split('=',1)[0] in ('PATH','LD_LIBRARY_PATH'):env.extend(['-e',old[i+1]])
+from four_card_bank24_execution_tools_r1 import process_environment
+full_environment=process_environment(root,control/'caches')
+full_environment['LD_LIBRARY_PATH']=next(v.split('=',1)[1] for v in old if v.startswith('LD_LIBRARY_PATH='))
+env=[item for k,v in full_environment.items() for item in ('-e',k+'='+str(v))]
 cmd=['docker','run','-d','--name',name,'--network','none','--read-only','--cpus','2','--cpuset-cpus','4,5',
  '--memory','8g','--memory-swap','8g','--pids-limit','256','--tmpfs','/tmp:rw,size=512m','--user',str(os.getuid())+':'+str(os.getgid()),
  '-e','CUDA_VISIBLE_DEVICES=','-e','NVIDIA_VISIBLE_DEVICES=void','-e','PYTHONDONTWRITEBYTECODE=1','-e','OMP_NUM_THREADS=2',

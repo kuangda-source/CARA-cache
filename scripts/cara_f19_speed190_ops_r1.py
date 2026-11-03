@@ -39,7 +39,7 @@ print(json.dumps(dict(status='CAL35_SOURCE_PREPARED_NO_GPU',registration_sha256=
  source_revision=p['revision'],payload_files=len(new['payload_sha256']),runtime_source_sha256=new['runtime_source_sha256'])))
 """
 CPU=PREFIX+"""
-attempt=p.get('CPU_attempt',1);assert attempt in (1,2,3)
+attempt=p.get('CPU_attempt',1);assert attempt in (1,2,3,4,5)
 name=stage.name+'-cpu'+('' if attempt==1 else '-r'+str(attempt))
 intent_name='CPU-intent.json' if attempt==1 else 'CPU-r'+str(attempt)+'-intent.json'
 launch_name='CPU-launch.json' if attempt==1 else 'CPU-r'+str(attempt)+'-launch.json'
@@ -57,6 +57,11 @@ assert 'No such object' in q.stderr and not (stage/intent_name).exists(),'Unknow
 launch=read(base/'GPU-launch.json');old=launch['commands']['container_cli'];env=[]
 for i,v in enumerate(old[:-1]):
  if v=='-e' and old[i+1].split('=',1)[0] in ('PATH','LD_LIBRARY_PATH','CUDA_HOME','CUDA_PATH','NLTK_DATA'):env.extend(['-e',old[i+1]])
+sys.path[:0]=[str(stage/'scripts'),str(stage/'src')]
+from four_card_bank24_execution_tools_r1 import process_environment
+full_environment=process_environment(root,stage/'CPU-caches')
+full_environment['LD_LIBRARY_PATH']=next(v.split('=',1)[1] for v in old if v.startswith('LD_LIBRARY_PATH='))
+env=[item for k,v in full_environment.items() for item in ('-e',k+'='+str(v))]
 cmd=['docker','run','-d','--name',name,'--network','none','--read-only','--cpus','2','--cpuset-cpus','4,5',
  '--memory','8g','--memory-swap','8g','--pids-limit','256','--tmpfs','/tmp:rw,size=512m',
  '--user',str(os.getuid())+':'+str(os.getgid()),'-e','CUDA_VISIBLE_DEVICES=','-e','NVIDIA_VISIBLE_DEVICES=void',
@@ -95,7 +100,11 @@ if not (stage/'history104-storage.json').exists():
  proof=read(stage/'storage-state.json');assert proof['status']=='TWO_CARD_PRIVATE16_STORAGE_PROVISIONED_NO_GPU'
  create(stage/'history104-storage.json',proof['result']['storage_contract'])
 validate_stage(root,stage)
-if not (stage/'asset-admission.json').exists():create(stage/'asset-admission.json',dict(assets=assets_check(root,read(stage/ASSETS))))
+if not (stage/'asset-admission.json').exists():
+ from wcomr.cara_budget_original_handles_r1 import bind_original_process
+ assert not (stage/'asset-check-intent.json').exists(),'Recover original content-check process before another read'
+ create(stage/'asset-check-intent.json',dict(identity=bind_original_process(os.getpid()),started_unix=time.time(),GPU_submissions=0))
+ create(stage/'asset-admission.json',dict(assets=assets_check(root,read(stage/ASSETS))))
 a=fresh(root,stage);atomic_json(stage/'fresh-admission.json',a)
 print(json.dumps(dict(status='CAL35_FRESH_ADMISSION_NO_GPU',admission=a)))
 """
@@ -133,7 +142,7 @@ def payload():
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('action',choices=('install','cpu','cpu-r2','cpu-r3','provision','admit'))
+    p=argparse.ArgumentParser();p.add_argument('action',choices=('install','cpu','cpu-r2','cpu-r3','cpu-r4','cpu-r5','provision','admit'))
     p.add_argument('--receipt',type=Path,required=True);p.add_argument('--route',choices=('ipv4','v6'),default='v6');a=p.parse_args()
     assert not a.receipt.exists()
     data=payload() if a.action=='install' else ({'CPU_attempt':int(a.action[-1])} if a.action.startswith('cpu-r') else {})
@@ -145,7 +154,7 @@ def main():
             data['files']={n:v for n,v in data['files'].items() if n in comparison['needed']}
             result=rpc(INSTALL,data,route=a.route)
             result['compared_overlay_files']=len(data['files'])
-    else:result=rpc({'cpu':CPU,'cpu-r2':CPU,'cpu-r3':CPU,'provision':PROVISION,'admit':ADMIT}[a.action],data,route=a.route,timeout=300 if a.action=='admit' else 55)
+    else:result=rpc({'cpu':CPU,'cpu-r2':CPU,'cpu-r3':CPU,'cpu-r4':CPU,'cpu-r5':CPU,'provision':PROVISION,'admit':ADMIT}[a.action],data,route=a.route,timeout=300 if a.action=='admit' else 90)
     with a.receipt.open('x') as f:json.dump(result,f,indent=2,allow_nan=False);f.write('\n')
     print(json.dumps({k:result.get(k) for k in ('status','stderr','logs','state','source_revision','payload_files')}))
 

@@ -25,6 +25,8 @@ def main():
     try:
         from cosmos_predict2.config import SetupArguments,InferenceArguments
         import cosmos_predict2.inference
+        from cosmos_predict2._src.predict2.inference import worldcache_utils
+        from cosmos_predict2._src.predict2.models import video2world_model_rectified_flow
     finally:hu.is_flash_attn_2_available,iu.is_flash_attn_2_available,torch.cuda.current_device=saved
     from wcomr.cara_f19_speed190_execution_r1 import validate_stage,MANIFEST
     from wcomr.gpu_budget_pool_v2 import atomic_json
@@ -34,7 +36,7 @@ def main():
     assert not setup.disable_guardrails and not setup.use_torch_compile and not setup.offload_diffusion_model
     for r in card['inputs']:InferenceArguments(**{k:v for k,v in r.items() if k!='partition'})
     import check_cara_f19_speed190_pipeline_cpu_r1 as pipeline
-    numeric=pipeline.run(runtime,a.stage/'CPU-pipeline')
+    numeric=pipeline.run(runtime,a.stage/('CPU-pipeline-'+str(os.getpid())))
     assert len(numeric['checks'])==2 and {r['flow'] for r in numeric['checks']}=={False,True}
     suite=unittest.defaultTestLoader.loadTestsFromName('test_cara_f19_speed190_sampling_r1')
     tests=unittest.TextTestRunner(verbosity=1).run(suite)
