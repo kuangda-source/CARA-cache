@@ -105,7 +105,13 @@ if not (stage/'asset-admission.json').exists():
  assert not (stage/'asset-check-intent.json').exists(),'Recover original content-check process before another read'
  create(stage/'asset-check-intent.json',dict(identity=bind_original_process(os.getpid()),started_unix=time.time(),GPU_submissions=0))
  create(stage/'asset-admission.json',dict(assets=assets_check(root,read(stage/ASSETS))))
-a=fresh(root,stage);atomic_json(stage/'fresh-admission.json',a)
+a=fresh(root,stage)
+from wcomr.cara_fast_b36_capture_r1 import lock_free
+from wcomr.cara_f19_speed190_identity_r1 import GPU
+a['owner_locks']={suffix:lock_free(root/'.sync/gpu-locks'/(GPU+suffix)) for suffix in ('.lock','.mode-owner.lock')}
+assert all(v is not False for v in a['owner_locks'].values())
+assert a['gpu']['compute_cap']=='8.6' and 'RTX A6000' in a['gpu']['name'] and a['gpu']['utilization_percent']==0
+atomic_json(stage/'fresh-admission.json',a)
 print(json.dumps(dict(status='CAL35_FRESH_ADMISSION_NO_GPU',admission=a)))
 """
 

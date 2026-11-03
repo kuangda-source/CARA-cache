@@ -36,7 +36,9 @@ assert not any((stage/n).exists() for n in ('GPU-intent.json','GPU-launch.json',
 from wcomr.cara_budget_original_handles_r1 import bind_original_process
 from wcomr.cara_f19_speed190_execution_r1 import HOST_ENTRY
 assert p['snapshot']['ledger']['jobs'][RUN]==p['envelope']['job']
-create(stage/'central-reservation.json',p['envelope']);atomic_json(stage/'central-snapshot.json',p['snapshot'])
+if (stage/'central-reservation.json').exists():assert read(stage/'central-reservation.json')==p['envelope']
+else:create(stage/'central-reservation.json',p['envelope'])
+atomic_json(stage/'central-snapshot.json',p['snapshot'])
 admission=fresh(root,stage);atomic_json(stage/'fresh-admission.json',admission)
 assert 0<=time.time()-p['snapshot']['observed_unix']<=60
 command=['python3',str(stage/HOST_ENTRY),'guardian','--project',str(root),'--stage',str(stage)]
