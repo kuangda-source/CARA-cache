@@ -60,9 +60,26 @@ def analyze(card,collection,scores,release):
         role_rows.append(dict(role=role,T_DD=t,T_request=mean(latency[m,role]['T_request'] for m in members),
             speedup_T_DD=native/t,LPIPS_Alex=lp,quality={d:mean(quality[m,role,d] for m in members) for d in dims},
             quality_gates=gates,meets_frozen_CAL_target=passed))
+    repeats=[]
+    for r in collection['rows']:
+        if r['slot']['section']=='TIMING_REPEAT':
+            slot,res=r['slot'],r['result'];initial=latency[slot['member'],slot['role']]
+            repeats.append(dict(role=slot['role'],member=slot['member'],initial_T_DD=initial['T_DD'],
+                repeat_T_DD=res['T_DD'],repeat_over_initial=res['T_DD']/initial['T_DD']))
+    profile=next(r['result'].get('component_profile',{}) for r in collection['rows'] if r['slot']['section']=='DIAGNOSTIC')
+    component_by_action={}
+    for action in ('D','A','C'):
+        groups={}
+        for interval in profile.get('intervals',[]):
+            if interval.get('planned_action')!=action:continue
+            g=groups.setdefault(interval['component'],dict(calls=0,inclusive_CUDA_ms=0.))
+            g['calls']+=1;g['inclusive_CUDA_ms']+=interval['CUDA_elapsed_ms']
+        component_by_action[action]=groups
     return dict(status='CAL35_FULL_ACCEPTED',scope_sha256=card['scope_sha256'],release=release,
         physical_paths=35,actual_guided_pairs=1260,formal_positions=28,RGB_positions=35,LPIPS_pairs=24,quality_positions=84,
         controls=collection['controls'],rows=role_rows,independent_new_inputs=False,old_CHECK_exposed=True,
+        timing_repeats=repeats,diagnostic_components_by_action=component_by_action,
+        diagnostic_semantics='Inclusive current-stream intervals; not additive kernel costs; excluded from clean timing',
         passing_roles=[r['role'] for r in role_rows if r['meets_frozen_CAL_target']],
         conclusion_scope='Four exposed CAL inputs; no independent generalization or paper result claim',
         shared25_independent_confirmation_planning_GPUh_preserved=10.)

@@ -7,9 +7,12 @@ from wcomr.cara_f19_speed190_identity_r1 import MANIFEST
 from wcomr.cara_f19_speed190_collection_r1 import collect_loaded
 
 
+@torch.no_grad()
 def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,artifact_root):
     from check_cara_pg_production_sampling_cpu_r1 import load
     model=inference.pipe.model;net=model.net;model.config.state_ch=8
+    model.config.conditional_frame_timestep=.1
+    model.precision,net.use_wan_fp32_strategy=torch.float32,False
     class Head(torch.nn.Module):
         def forward(self,x,*a,**kw):return x+.01*x.square()
     net.final_layer=Head().eval()
@@ -34,8 +37,12 @@ def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,
     class Storage:
         def check(self):return dict(CPU_fixture_only=True)
     out=Path(artifact_root)/('flow_'+str(flow));out.mkdir(parents=True)
+    def native(self,*a,**kw):
+        threshold=self.worldcache_rel_l1_thresh;self.worldcache_rel_l1_thresh=-1.
+        try:return wc.worldcache_mini_train_dit_forward(self,*a,**kw)
+        finally:self.worldcache_rel_l1_thresh=threshold
     result,evidence=collect_loaded(inference,samples,card,
-        dict(runtime=runtime,wc=wc,rf=rf,inference_module=inference_module,expected_shape=[1,8,2,8,8]),
+        dict(runtime=runtime,wc=wc,rf=rf,inference_module=inference_module,expected_shape=[1,8,2,8,8],CPU_native=native),
         out,Storage(),None,cpu_validation=True)
     assert result['status']=='COMPLETE35_PENDING_RELEASE_SCORING'
     assert len(result['rows'])==35 and all(r['status']=='COMPLETE' for r in result['rows'])
