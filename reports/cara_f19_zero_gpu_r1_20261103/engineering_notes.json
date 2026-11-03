@@ -1,0 +1,23 @@
+{
+  "status": "EARLIER_LOCAL_CPU_FIXTURE_FAILURES_RETAINED_FINAL_R2_ACCEPTED",
+  "GPU_submissions": 0,
+  "failures": [
+    {
+      "attempt": 1,
+      "error": "ModuleNotFoundError: No module named 'cosmos_predict2'",
+      "resolution": "Use existing pinned source-extracted CPU namespaces rather than production package imports"
+    },
+    {
+      "attempt": 2,
+      "error": "AttributeError: FunctionalUniPC has no attribute scheduler",
+      "resolution": "Copy original frozen scheduler template for ordinary stateful stepping"
+    },
+    {
+      "attempt": 3,
+      "error": "Conditional/negative-prompt FP32 BCTHW post-denoise tuple required",
+      "resolution": "Use FP32 tiny noise and condition tensors; production FP32 contract unchanged"
+    }
+  ],
+  "original_7_test_16_path_receipt": "CPU_controls.json",
+  "final_7_test_18_path_receipt": "CPU_controls_r2.json"
+}

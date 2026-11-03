@@ -1,0 +1,127 @@
+{
+  "T_DD_seconds": {
+    "NATIVE35": 252.81224208987499,
+    "SHARED25_C": 185.80554166075,
+    "F19_C": 148.4477178445,
+    "F19_A1": 149.48237911425002,
+    "UNIFORM19_C": 148.4208450015,
+    "WC_FAST": 130.0130161365,
+    "RA_FAST": 116.97645231925001,
+    "NATIVE_K": 163.659443118
+  },
+  "target_speedup": 1.9,
+  "target_T_DD_seconds": 133.05907478414474,
+  "seconds_to_save": 16.42330433010528,
+  "F19_A1_counts": {
+    "D": 19,
+    "A": 6,
+    "C": 11
+  },
+  "marginal_D_to_C_seconds": 6.226303969375,
+  "native_to_F19_marginal_seconds": 6.139089661492646,
+  "mixed_model_native_residual_seconds": -1.4826432340000224,
+  "effective_intercept_B_plus_36C_seconds": 30.147942426374996,
+  "C_seconds_identified": false,
+  "C_seconds": null,
+  "decode_seconds_B36": null,
+  "zero_intercept_C_seconds_hypothesis": 0.8374428451770832,
+  "A1_total_increment_seconds": 1.0346612697500177,
+  "A1_increment_per_A_seconds": 0.17244354495833628,
+  "historical_profile_controls": [
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "method": "NATIVE35",
+      "shallow_pair_seconds": 0.4804586548275418,
+      "head_per_call_seconds": 0.0034417933159404334,
+      "solver_per_update_seconds": 0.0022428728606965808,
+      "VAE_seconds": 6.356169921875
+    },
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "method": "WC_HALF",
+      "shallow_pair_seconds": 0.4778651326497396,
+      "head_per_call_seconds": 0.0034354164501031238,
+      "solver_per_update_seconds": 0.001991545758313603,
+      "VAE_seconds": 6.35468701171875
+    },
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "method": "RA_DEFAULT",
+      "shallow_pair_seconds": 0.4828660231696235,
+      "head_per_call_seconds": 0.0034284951355722216,
+      "solver_per_update_seconds": 0.0021681306726402706,
+      "VAE_seconds": 6.358033203125
+    },
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "method": "A_NO_P",
+      "shallow_pair_seconds": 0.4826363173590766,
+      "head_per_call_seconds": 0.003435421594118668,
+      "solver_per_update_seconds": 0.001845235549741321,
+      "VAE_seconds": 6.35583984375
+    },
+    {
+      "scene": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "method": "TABLE_PHASE_H1",
+      "shallow_pair_seconds": 0.47689321009318036,
+      "head_per_call_seconds": 0.0035533627387953964,
+      "solver_per_update_seconds": 0.0021159048941400316,
+      "VAE_seconds": 6.3505009765625
+    },
+    {
+      "scene": "human_199",
+      "method": "NATIVE35",
+      "shallow_pair_seconds": 0.48081289990743,
+      "head_per_call_seconds": 0.0034465284248193107,
+      "solver_per_update_seconds": 0.002170220451222526,
+      "VAE_seconds": 6.3555
+    },
+    {
+      "scene": "human_199",
+      "method": "WC_HALF",
+      "shallow_pair_seconds": 0.47793405977884923,
+      "head_per_call_seconds": 0.0034340782264868416,
+      "solver_per_update_seconds": 0.0019674035542541083,
+      "VAE_seconds": 6.3616591796875
+    },
+    {
+      "scene": "human_199",
+      "method": "RA_DEFAULT",
+      "shallow_pair_seconds": 0.47692757394578716,
+      "head_per_call_seconds": 0.0034294938113954335,
+      "solver_per_update_seconds": 0.0019065253237883248,
+      "VAE_seconds": 6.3551630859375
+    },
+    {
+      "scene": "human_199",
+      "method": "A_NO_P",
+      "shallow_pair_seconds": 0.47888249863518606,
+      "head_per_call_seconds": 0.0034365655471538673,
+      "solver_per_update_seconds": 0.0018701253301567503,
+      "VAE_seconds": 6.3549755859375
+    },
+    {
+      "scene": "human_199",
+      "method": "TABLE_PHASE_H1",
+      "shallow_pair_seconds": 0.4768770315382216,
+      "head_per_call_seconds": 0.0035541124053117706,
+      "solver_per_update_seconds": 0.0020548062142398626,
+      "VAE_seconds": 6.3531171875
+    }
+  ],
+  "historical_shallow_pair_seconds_mean": 0.4792153401904636,
+  "plain_C_probe_removal_seconds_hypothesis": 5.271368742095099,
+  "remaining_gap_after_probe_removal_hypothesis": 11.151935588010183,
+  "plain_C_to_0p3_seconds_hypothesis_savings": 7.699999999999999,
+  "historical_profile_is_F19_measurement": false,
+  "historical_component_intervals_additive": false,
+  "missing_F19_components": [
+    "embedding_and_condition_preparation",
+    "drift_and_saliency",
+    "OSI_and_residual_algebra",
+    "flow_and_two_warps",
+    "readout_bookkeeping"
+  ],
+  "measured_candidate_speedup": null,
+  "measured_candidate_LPIPS": null
+}
