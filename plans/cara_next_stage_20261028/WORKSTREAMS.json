@@ -1,7 +1,7 @@
 {
   "schema": "CARA_NEXT_STAGE_WORKSTREAMS_R1",
   "date": "2026-11-03",
-  "state": "SOURCE_COVERAGE_C1_LOCAL_AND_LINUX_COLLECTION_CPU_ACCEPTED",
+  "state": "C1_ORIGINAL_DEFERRED_ZERO_GPU42_COMPLETE_F19_SHARED25_PRIORITY",
   "source_design_registry_ref": "plans/cara_next_stage_20261028/experiment_registry.json",
   "source_design_registry_sha256": "d2825f85c83be4461f189b39110f2dc5669cce14d37c4739cd21850ec0f656fb",
   "reconciliation_ref": "plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md",
@@ -51,10 +51,22 @@
   },
   "schedule": [
     {
+      "id": "F19-A1 → 1.9×",
+      "owner": "主线",
+      "state": "继续既有零GPU成本/布局与CPU准备；2–3GPUh是规划量，不是完整报价",
+      "next_action": "形成有界同速度比较的完整范围、数值等价/实际入口、报价及相应授权后再执行；不从组件估算宣称达到1.9×"
+    },
+    {
+      "id": "Shared25 独立最终确认",
+      "owner": "主线",
+      "state": "预算优先保护：规划留10GPUh，未实际预约、未访问保护输入",
+      "next_action": "冻结最终方法/协议/完整参考范围并核价；保持最终/备用池及首次使用检查，相应新卡批准后一次确认"
+    },
+    {
       "id": "V1 来源生命周期感知规划 P0→P1→P2",
       "owner": "主线",
-      "state": "P1 R2完整146/64/52接受、原FIT冻结和图表完成；当前来源增量未支持、工程筛选失败",
-      "next_action": "归档当前版本；先明确支持域或估值缺口，再单独提出一次有界诊断/修订方案；P2不晋级，0自动新GPU"
+      "state": "原P1完整关闭；C1零GPU42查询审计完成，正阶段权重有排序信号，双来源无一致增量",
+      "next_action": "原166/14.82方案暂停；只保留19D、70请求/预计6.536GPUh的条件草案，优先F19与Shared25；旧P1门槛保持，无自动新GPU"
     },
     {
       "id": "V2 有界终点响应与完整伴随",
@@ -389,13 +401,26 @@
   "mainline_source_lifecycle_V1_P1_successor_R2_figures_ref": "figures/cara_source_lifecycle_V1_P1_R2_20261103/figure-report.json",
   "mainline_source_lifecycle_V1_P1_successor_R2_all_originals_ended": true,
   "mainline_source_coverage_preparation_ref": "reports/cara_source_coverage_CPU_acceptance_r4_20261103.json",
-  "mainline_source_coverage_research_ref": "research/871_CARA_SOURCE_COVERAGE_C1_SCOPE_QUOTE_AND_CPU_PREPARATION_20261103.md",
-  "current_mainline_preparation_handoff_ref": "plans/cara_next_stage_20261103/source_coverage/c1/C1_CPU_PRODUCTION_BINDING_HANDOFF_R1.md",
+  "mainline_source_coverage_research_ref": "research/872_CARA_C1_ZERO_GPU_AUDIT_AND_BUDGET_REPRIORITIZATION_20261103.md",
+  "current_mainline_preparation_handoff_ref": "plans/cara_next_stage_20261103/source_coverage/c1/C1_REDUCED19_PROPOSAL_R2.md",
   "mainline_source_coverage_video_evaluated": false,
-  "mainline_source_coverage_saved_data_audit_ref": "reports/cara_source_proxy_saved_CPU_audit_r1_20261103.json",
-  "mainline_source_coverage_C1_review_ref": "plans/cara_next_stage_20261103/source_coverage/c1/C1_REVIEW_R1.md",
+  "mainline_source_coverage_saved_data_audit_ref": "reports/cara_source_proxy_saved42_CPU_audit_r2_20261103.json",
+  "mainline_source_coverage_C1_review_ref": "plans/cara_next_stage_20261103/source_coverage/c1/C1_REDUCED19_PROPOSAL_R2.md",
   "mainline_source_coverage_C1_CPU_ref": "plans/cara_next_stage_20261103/source_coverage/c1/C1_CPU_PROOF_R1.json",
-  "mainline_source_coverage_C1_quote_ref": "plans/cara_next_stage_20261103/source_coverage/c1/C1_WHOLE_QUOTE_R1.json",
+  "mainline_source_coverage_C1_quote_ref": "plans/cara_next_stage_20261103/source_coverage/c1/C1_REDUCED19_PROPOSAL_R2.json",
   "mainline_source_coverage_C1_Linux_CPU_ref": "reports/cara_source_coverage_C1_Linux_CPU_accepted_r3_20261103.json",
-  "mainline_source_coverage_C1_production_binding_accepted": false
+  "mainline_source_coverage_C1_production_binding_accepted": false,
+  "mainline_source_coverage_C1_original166_review_ref": "plans/cara_next_stage_20261103/source_coverage/c1/C1_REVIEW_R1.md",
+  "mainline_source_coverage_C1_original166_quote_ref": "plans/cara_next_stage_20261103/source_coverage/c1/C1_WHOLE_QUOTE_R1.json",
+  "mainline_source_coverage_zero_GPU_audit_ref": "reports/cara_source_coverage_C1_zero_GPU_audit_r1_20261103.json",
+  "mainline_source_coverage_zero_GPU_CPU_ref": "reports/cara_source_coverage_zero_GPU_CPU_controls_r1_20261103.json",
+  "mainline_source_coverage_C1_original166_execution_deferred": true,
+  "mainline_source_coverage_C1_reduced70_production_CPU_accepted": false,
+  "mainline_budget_planning_priority": {
+    "Shared25_independent_final_hold_GPUh": 10,
+    "F19_1_9x_upper_GPUh": 3,
+    "C1_conditional_upper_GPUh": 7,
+    "actual_ledger_reservations_created": 0,
+    "no_new_cap_authorized": true
+  }
 }

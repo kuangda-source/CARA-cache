@@ -2,13 +2,17 @@
 
 {{next_stage_notice}}
 
-## 当前主线：来源覆盖与终点校准规划
+## 当前优先级：免费诊断、同速度证据与独立确认
 
-[C1范围与报价](repo:plans/cara_next_stage_20261103/source_coverage/c1/C1_REVIEW_R1.md)已落实为166语义、60质量位置，来源8对8与阶段3对3，隔离缓存的同费用搜索。本地与[两卡Linux](repo:reports/cara_source_coverage_C1_Linux_CPU_accepted_r3_20261103.json)各31项CPU通过；预计14.8224GPUh、建议硬15。按[生产接线承接](repo:plans/cara_next_stage_20261103/source_coverage/c1/C1_CPU_PRODUCTION_BINDING_HANDOFF_R1.md)继续新卡宿主监督、56队列与60位置终态接受组合，完成后再提交启动审阅；当前0GPU、无新账本权限。
+[872零GPU审计](repo:research/872_CARA_C1_ZERO_GPU_AUDIT_AND_BUDGET_REPRIORITIZATION_20261103.md)已完成原42双FIT查询的SHA与完整排序核验。C1候选没有使用旧局部误差回归，正阶段权重与终点排序相关，但双来源没有一致增量。原166位置／14.82GPUh方案暂停；原候选库、31项CPU与旧P1判定保留。
 
-[870 CPU 原型](repo:research/870_CARA_SOURCE_COVERAGE_ENDPOINT_PLANNER_CPU_20261103.md)已通过16项控制、180组穷举对照及8条完整36更新的小权重原缓存/UniPC路径。主方法19D/22D生成12/8条去重候选，单来源与无阶段消融、完整终点选择CLI可运行。接下来完成[方法入口与整卡范围报价](repo:plans/cara_next_stage_20261103/source_coverage/README.md)，以同实际校准费用的终点效率和规则迁移作为主要研究问题。
+1. 继续F19-A1→1.9×的现有零GPU/CPU准备，先形成完整2–3GPUh规划卡的正式范围与报价，不自动启动。
+2. 为Shared25独立最终确认优先规划留10GPUh；完整范围/报价/批准前不访问保护输入。规划留额不是实际预约。
+3. [C1缩减19D条件草案](repo:plans/cara_next_stage_20261103/source_coverage/c1/C1_REDUCED19_PROPOSAL_R2.md)最多70请求，含赢家+A1四路径，预计6.536GPUh、建议硬7。single8和22D不派新视频；phase/neutral只分析FIT子集。双来源免费排序门未过，本草案不因零GPU结果自动执行。其完整70请求生产组合尚未接受。
 
-[原64标签/24搜索查询审计](repo:reports/cara_source_proxy_saved_CPU_audit_r1_20261103.json)与3项CPU控制已完成：局部留出MSE随来源特征改善，六组代理—终点排序相关均为负。完整42排序还缺18次DP候选评分明细；只读传输超时，不重跑原评分。新原型继续推进完整视频校准，其真实视频分数仍为空，此次CPU没有启动GPU或访问账本。
+新方案在任何视频前明确主C方案/F19-A1 LPIPS≤1.15、T_DD≤1.05，且在实耗90%–100%费用匹配下优于LPIPS搜索才继续新DEV。旧P1的1.10门和原结果保持。10+3+7的规划上限20GPUh已超过最后19.274GPUh余额快照，先保护确认、再核价或另审预算。
+
+[原P1局部代理42查询完整审计](repo:reports/cara_source_proxy_saved42_CPU_audit_r2_20261103.json)替代先前缺18条的诊断范围；原24条审计保留。取回原件没有重跑旧读者、评分、冻结、GPU或账本事务。方法贡献聚焦可解释的候选效率，来源额外增量由证据决定。
 
 ## 已关闭的 P1 R2
 

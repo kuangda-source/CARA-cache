@@ -1,0 +1,1637 @@
+{
+  "status": "SAVED42_AUDIT_COMPLETE",
+  "labels": 64,
+  "unique_source_triples": 22,
+  "independent_inputs": 2,
+  "parent_plans": 4,
+  "expected_query_denominator": 42,
+  "endpoint_query_count": 42,
+  "stored_regression_diagnostics": {
+    "stage": {
+      "in_sample_MSE": 0.23546261113186528,
+      "whole_parent_held_out_MSE": 0.24814076449127667,
+      "held_out_parents": [
+        "K19_SIGMA_FARTHEST",
+        "K19_UPDATE_FARTHEST",
+        "K22_SIGMA_FARTHEST",
+        "K22_UPDATE_FARTHEST"
+      ],
+      "held_out_rows": [
+        16,
+        16,
+        16,
+        16
+      ]
+    },
+    "stage_age": {
+      "in_sample_MSE": 0.21838641478762416,
+      "whole_parent_held_out_MSE": 0.22986016119195923,
+      "held_out_parents": [
+        "K19_SIGMA_FARTHEST",
+        "K19_UPDATE_FARTHEST",
+        "K22_SIGMA_FARTHEST",
+        "K22_UPDATE_FARTHEST"
+      ],
+      "held_out_rows": [
+        16,
+        16,
+        16,
+        16
+      ]
+    },
+    "stage_age_previous_gap": {
+      "in_sample_MSE": 0.1894629120291722,
+      "whole_parent_held_out_MSE": 0.20989800505695888,
+      "held_out_parents": [
+        "K19_SIGMA_FARTHEST",
+        "K19_UPDATE_FARTHEST",
+        "K22_SIGMA_FARTHEST",
+        "K22_UPDATE_FARTHEST"
+      ],
+      "held_out_rows": [
+        16,
+        16,
+        16,
+        16
+      ]
+    }
+  },
+  "alignment": [
+    {
+      "family": "stage",
+      "budget": 19,
+      "candidates": 21,
+      "Spearman": -0.6922077922077922,
+      "non_tied_pairs": 210,
+      "concordance": 0.24285714285714285
+    },
+    {
+      "family": "stage",
+      "budget": 22,
+      "candidates": 21,
+      "Spearman": -0.5415584415584416,
+      "non_tied_pairs": 210,
+      "concordance": 0.34285714285714286
+    },
+    {
+      "family": "stage_age",
+      "budget": 19,
+      "candidates": 21,
+      "Spearman": -0.6324675324675325,
+      "non_tied_pairs": 210,
+      "concordance": 0.26666666666666666
+    },
+    {
+      "family": "stage_age",
+      "budget": 22,
+      "candidates": 21,
+      "Spearman": -0.5012987012987012,
+      "non_tied_pairs": 210,
+      "concordance": 0.3238095238095238
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 19,
+      "candidates": 21,
+      "Spearman": -0.5675324675324676,
+      "non_tied_pairs": 210,
+      "concordance": 0.3
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 22,
+      "candidates": 21,
+      "Spearman": -0.5012987012987012,
+      "non_tied_pairs": 210,
+      "concordance": 0.3380952380952381
+    }
+  ],
+  "rows": [
+    {
+      "family": "stage",
+      "budget": 19,
+      "candidate_id": "e8ab5a21db560acb278afd6b03d3f77519920d2cf6577b343031c2a5ec8df0ba",
+      "endpoint_LPIPS": 0.48741937564906257,
+      "origins": [
+        "stage-K19"
+      ],
+      "cost": 0.002444385700737223,
+      "unseen_fraction": 0.8235294117647058,
+      "zero_clamp_fraction": 0.29411764705882354
+    },
+    {
+      "family": "stage",
+      "budget": 19,
+      "candidate_id": "fb0f633a4dd6d21a586fd2507354d82b58d928df0fe2e8354a196b02828bad9c",
+      "endpoint_LPIPS": 0.47128015820698066,
+      "origins": [
+        "stage-K19"
+      ],
+      "cost": 0.002468271795915873,
+      "unseen_fraction": 0.8823529411764706,
+      "zero_clamp_fraction": 0.29411764705882354
+    },
+    {
+      "family": "stage",
+      "budget": 19,
+      "candidate_id": "2b4c053239db3f0975aac32062e5bb6a24dc9edf92e0bbdfcf5886a76f866751",
+      "endpoint_LPIPS": 0.4700288019513571,
+      "origins": [
+        "stage-K19"
+      ],
+      "cost": 0.002537418631151478,
+      "unseen_fraction": 0.8235294117647058,
+      "zero_clamp_fraction": 0.29411764705882354
+    },
+    {
+      "family": "stage",
+      "budget": 22,
+      "candidate_id": "cb8e0b97ae1becf77d264dcd9f12c30763e732b27b64fa0f1499ca7b20d678e8",
+      "endpoint_LPIPS": 0.4406566222508748,
+      "origins": [
+        "stage-K22"
+      ],
+      "cost": 0.0011695354531829493,
+      "unseen_fraction": 0.8571428571428571,
+      "zero_clamp_fraction": 0.35714285714285715
+    },
+    {
+      "family": "stage",
+      "budget": 22,
+      "candidate_id": "7ee54ca636817a606ec09b48eb36209ae00c2bf72f5e8a0306cf0524c7076b69",
+      "endpoint_LPIPS": 0.4095266874759428,
+      "origins": [
+        "stage-K22"
+      ],
+      "cost": 0.0012889011889988492,
+      "unseen_fraction": 0.9285714285714286,
+      "zero_clamp_fraction": 0.35714285714285715
+    },
+    {
+      "family": "stage",
+      "budget": 22,
+      "candidate_id": "2f61c5effafc11b7b0c4094c7cc66351014a17611f582499b7b9da9dcd2b3ab2",
+      "endpoint_LPIPS": 0.4674906903697598,
+      "origins": [
+        "stage-K22"
+      ],
+      "cost": 0.0012901624484149385,
+      "unseen_fraction": 0.8571428571428571,
+      "zero_clamp_fraction": 0.35714285714285715
+    },
+    {
+      "family": "stage",
+      "budget": 19,
+      "candidate_id": "949be184dd406b5dde606c984ff22ec7438d6a998a8d53f49b394980ab3be9ba",
+      "endpoint_LPIPS": 0.49300787894315623,
+      "origins": [
+        "stage_age-K19"
+      ],
+      "cost": 0.004419358917769595,
+      "unseen_fraction": 0.7058823529411765,
+      "zero_clamp_fraction": 0.11764705882352941
+    },
+    {
+      "family": "stage",
+      "budget": 19,
+      "candidate_id": "6ed29d02c310a2b4971ab15da717133c281067cd4710a8ad999bb8a28ea32286",
+      "endpoint_LPIPS": 0.483466330715405,
+      "origins": [
+        "stage_age-K19"
+      ],
+      "cost": 0.0047675948813423125,
+      "unseen_fraction": 0.6470588235294118,
+      "zero_clamp_fraction": 0.11764705882352941
+    },
+    {
+      "family": "stage",
+      "budget": 19,
+      "candidate_id": "982cc073ac4c2f27d6b187148b45d69fc2b9b154644ee5050e37733ea3e06382",
+      "endpoint_LPIPS": 0.4918177632554885,
+      "origins": [
+        "stage_age-K19"
+      ],
+      "cost": 0.0056968431650949464,
+      "unseen_fraction": 0.5882352941176471,
+      "zero_clamp_fraction": 0.17647058823529413
+    },
+    {
+      "family": "stage",
+      "budget": 22,
+      "candidate_id": "0550d39222cc9f6ea573e45d71195094be8c9d6ac6748b257eef6e5aa0d30592",
+      "endpoint_LPIPS": 0.4635644707308021,
+      "origins": [
+        "stage_age-K22"
+      ],
+      "cost": 0.002468271795915873,
+      "unseen_fraction": 0.8571428571428571,
+      "zero_clamp_fraction": 0.14285714285714285
+    },
+    {
+      "family": "stage",
+      "budget": 22,
+      "candidate_id": "7b957bcd862814d055af6b5b74fe9f45e79ad17a2d61d38ce9e660c55863da3f",
+      "endpoint_LPIPS": 0.4635039680106665,
+      "origins": [
+        "stage_age-K22"
+      ],
+      "cost": 0.00271735944812777,
+      "unseen_fraction": 0.7142857142857143,
+      "zero_clamp_fraction": 0.14285714285714285
+    },
+    {
+      "family": "stage",
+      "budget": 22,
+      "candidate_id": "27660ddf87a23c8a630154296ac8d0ba3212f7fa343cd54ec664d2ab442b3181",
+      "endpoint_LPIPS": 0.4363183690014706,
+      "origins": [
+        "stage_age-K22"
+      ],
+      "cost": 0.00264365709522292,
+      "unseen_fraction": 0.8571428571428571,
+      "zero_clamp_fraction": 0.14285714285714285
+    },
+    {
+      "family": "stage",
+      "budget": 19,
+      "candidate_id": "0cf90a9f17658a42820715d91ac6fb6bfd8ade5e65ea75e02dddfa4f30b79d21",
+      "endpoint_LPIPS": 0.49016428105933696,
+      "origins": [
+        "stage_age_previous_gap-K19"
+      ],
+      "cost": 0.00733598386262666,
+      "unseen_fraction": 0.7647058823529411,
+      "zero_clamp_fraction": 0.11764705882352941
+    },
+    {
+      "family": "stage",
+      "budget": 19,
+      "candidate_id": "01b14f223749abd4c07844a19cfa5a54eca50cff93e3b250122e83de3c790e8d",
+      "endpoint_LPIPS": 0.4899532003428346,
+      "origins": [
+        "stage_age_previous_gap-K19"
+      ],
+      "cost": 0.007495754991190085,
+      "unseen_fraction": 0.7647058823529411,
+      "zero_clamp_fraction": 0.11764705882352941
+    },
+    {
+      "family": "stage",
+      "budget": 19,
+      "candidate_id": "d349274fb2b0b47f2c44af334c181825f07029368a6238aaad290de40a579f73",
+      "endpoint_LPIPS": 0.49967691847073137,
+      "origins": [
+        "stage_age_previous_gap-K19"
+      ],
+      "cost": 0.0068820087535000725,
+      "unseen_fraction": 0.7647058823529411,
+      "zero_clamp_fraction": 0.11764705882352941
+    },
+    {
+      "family": "stage",
+      "budget": 22,
+      "candidate_id": "6ec85cc956873b6a5357a5902a0ee8e7f36b0897fe91154f098be93d6517d9b1",
+      "endpoint_LPIPS": 0.46239614887263186,
+      "origins": [
+        "stage_age_previous_gap-K22"
+      ],
+      "cost": 0.003085194848471018,
+      "unseen_fraction": 0.7857142857142857,
+      "zero_clamp_fraction": 0.14285714285714285
+    },
+    {
+      "family": "stage",
+      "budget": 22,
+      "candidate_id": "e54d708a82224b3148e73506a2908982d50715641c9a2759cb3a7d2bb2986481",
+      "endpoint_LPIPS": 0.48107050311180855,
+      "origins": [
+        "stage_age_previous_gap-K22"
+      ],
+      "cost": 0.002833430925690514,
+      "unseen_fraction": 0.7142857142857143,
+      "zero_clamp_fraction": 0.14285714285714285
+    },
+    {
+      "family": "stage",
+      "budget": 22,
+      "candidate_id": "7e5ab9c10a597d28e3ddb78d5845af4c6e9da7aba2f0e662352d21abeb3628d0",
+      "endpoint_LPIPS": 0.4624118816147568,
+      "origins": [
+        "stage_age_previous_gap-K22"
+      ],
+      "cost": 0.003244965977034443,
+      "unseen_fraction": 0.7857142857142857,
+      "zero_clamp_fraction": 0.14285714285714285
+    },
+    {
+      "family": "stage",
+      "budget": 19,
+      "candidate_id": "d552b5b12c142475746edaed06d15f0a33db4d35511df7ac52f92e990dc92a25",
+      "endpoint_LPIPS": 0.4836763281335113,
+      "origins": [
+        "search-K19-q1"
+      ],
+      "cost": 0.011759550547842864,
+      "unseen_fraction": 0.4117647058823529,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage",
+      "budget": 19,
+      "candidate_id": "c3454e63a079faa5aadf49a4e8d8acb16a9ef08602602de5c90c8c973fe2bc90",
+      "endpoint_LPIPS": 0.48236874627169746,
+      "origins": [
+        "search-K19-q2"
+      ],
+      "cost": 0.009104145824233158,
+      "unseen_fraction": 0.7058823529411765,
+      "zero_clamp_fraction": 0.058823529411764705
+    },
+    {
+      "family": "stage",
+      "budget": 19,
+      "candidate_id": "225e87e87164d45593f78d4bb3d3321aa5f772c34fc1ee69994975dc8c22672a",
+      "endpoint_LPIPS": 0.4840439562836001,
+      "origins": [
+        "search-K19-q3"
+      ],
+      "cost": 0.011230099663803016,
+      "unseen_fraction": 0.5294117647058824,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage",
+      "budget": 19,
+      "candidate_id": "e78f3480090846e9fbfc87ae16ed2b30c4202bde1aed852caac0940247ccf501",
+      "endpoint_LPIPS": 0.40371674603672436,
+      "origins": [
+        "search-K19-q4"
+      ],
+      "cost": 0.011397743383358427,
+      "unseen_fraction": 0.7058823529411765,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage",
+      "budget": 19,
+      "candidate_id": "78f512a8ae9a2f9103808c5d50fd5fc6f77042f0e5b7b9535618b7188fffc3fa",
+      "endpoint_LPIPS": 0.4039446838119979,
+      "origins": [
+        "search-K19-q5"
+      ],
+      "cost": 0.013989413173804874,
+      "unseen_fraction": 0.7058823529411765,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage",
+      "budget": 19,
+      "candidate_id": "7ce57751df59b70029f98f3c62ced8e6973b1a7c27807c3bc3b3adcc6ee2aa72",
+      "endpoint_LPIPS": 0.481400629365316,
+      "origins": [
+        "search-K19-q6"
+      ],
+      "cost": 0.012650653346568508,
+      "unseen_fraction": 0.7058823529411765,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage",
+      "budget": 19,
+      "candidate_id": "04548a5197d72370807a95daab07e4b96d0288c12e4a7d714600964b85eaa733",
+      "endpoint_LPIPS": 0.3161964400481152,
+      "origins": [
+        "search-K19-q7"
+      ],
+      "cost": 0.013828854427796092,
+      "unseen_fraction": 0.7647058823529411,
+      "zero_clamp_fraction": 0.058823529411764705
+    },
+    {
+      "family": "stage",
+      "budget": 19,
+      "candidate_id": "61a4fa7e78694071dfdb38ad8841c6d581e8f9fd7083e9a2d88d4946d8e862fe",
+      "endpoint_LPIPS": 0.30085818749922577,
+      "origins": [
+        "search-K19-q8"
+      ],
+      "cost": 0.01385236692410957,
+      "unseen_fraction": 0.8235294117647058,
+      "zero_clamp_fraction": 0.058823529411764705
+    },
+    {
+      "family": "stage",
+      "budget": 19,
+      "candidate_id": "67700d4ddb66df736b68a5122b2aabdbcf4f60ec8c3fb9bc1ff6ef9d728450a9",
+      "endpoint_LPIPS": 0.3173805715576295,
+      "origins": [
+        "search-K19-q9"
+      ],
+      "cost": 0.013640128214775464,
+      "unseen_fraction": 0.8235294117647058,
+      "zero_clamp_fraction": 0.11764705882352941
+    },
+    {
+      "family": "stage",
+      "budget": 19,
+      "candidate_id": "0cc6ad25b37f68430744d8007f9720de4f1a58be4d02cd5c7a6e558db56a5526",
+      "endpoint_LPIPS": 0.34074942687506315,
+      "origins": [
+        "search-K19-q10"
+      ],
+      "cost": 0.014375369385699544,
+      "unseen_fraction": 0.7647058823529411,
+      "zero_clamp_fraction": 0.058823529411764705
+    },
+    {
+      "family": "stage",
+      "budget": 19,
+      "candidate_id": "22cd8ce127adf7f2250b0e22656dd0bbf63498ce634edc7ac85fec47f0c72c80",
+      "endpoint_LPIPS": 0.317632491870593,
+      "origins": [
+        "search-K19-q11"
+      ],
+      "cost": 0.014057772391595122,
+      "unseen_fraction": 0.8823529411764706,
+      "zero_clamp_fraction": 0.058823529411764705
+    },
+    {
+      "family": "stage",
+      "budget": 19,
+      "candidate_id": "73095cfc89c960b458c35a96093a543132834260b28a065f351778428b02cc84",
+      "endpoint_LPIPS": 0.3173953201822055,
+      "origins": [
+        "search-K19-q12"
+      ],
+      "cost": 0.014428362363306132,
+      "unseen_fraction": 0.8823529411764706,
+      "zero_clamp_fraction": 0.058823529411764705
+    },
+    {
+      "family": "stage",
+      "budget": 22,
+      "candidate_id": "46f402fa7f7f3411f120ff3c08ba68b742267e0c66c37ca32ce40caabb3c4ae6",
+      "endpoint_LPIPS": 0.482073903884939,
+      "origins": [
+        "search-K22-q1"
+      ],
+      "cost": 0.007834295342483881,
+      "unseen_fraction": 0.42857142857142855,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage",
+      "budget": 22,
+      "candidate_id": "76458ad7357a9db6753bb250555bcc69a26545e734268930d9e77f4b3da21eaa",
+      "endpoint_LPIPS": 0.4833429482995823,
+      "origins": [
+        "search-K22-q2"
+      ],
+      "cost": 0.006804206442182721,
+      "unseen_fraction": 0.5,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage",
+      "budget": 22,
+      "candidate_id": "1f1c52a92448fa16ae390dfed9e735c47c34cee4e67fd74640e764c686d3645a",
+      "endpoint_LPIPS": 0.4619538332185438,
+      "origins": [
+        "search-K22-q3"
+      ],
+      "cost": 0.0066481517203850786,
+      "unseen_fraction": 0.6428571428571429,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage",
+      "budget": 22,
+      "candidate_id": "899a9f504f34ea47fc149acb07171d8b418c9856e53db5032d8d006d08fbc411",
+      "endpoint_LPIPS": 0.3834203015412054,
+      "origins": [
+        "search-K22-q4"
+      ],
+      "cost": 0.009446620407539583,
+      "unseen_fraction": 0.7857142857142857,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage",
+      "budget": 22,
+      "candidate_id": "8b9738f98e7f71483e7d60eb6b0c661fa12a16f38ff55e6f2fb727ad822bc98c",
+      "endpoint_LPIPS": 0.3930293396916441,
+      "origins": [
+        "search-K22-q5"
+      ],
+      "cost": 0.01043714427120323,
+      "unseen_fraction": 0.7857142857142857,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage",
+      "budget": 22,
+      "candidate_id": "4d5f98c2f9c044e1f3dcd05c54c846171b20f7476740e884384ed3b695d813d3",
+      "endpoint_LPIPS": 0.38124422184241713,
+      "origins": [
+        "search-K22-q6"
+      ],
+      "cost": 0.00909942458016404,
+      "unseen_fraction": 0.9285714285714286,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage",
+      "budget": 22,
+      "candidate_id": "4a18b68b23815d1a8c85f455fa38099cee8d015855275f58dfee9c156165a325",
+      "endpoint_LPIPS": 0.3981472755311638,
+      "origins": [
+        "search-K22-q7"
+      ],
+      "cost": 0.0094461284566964,
+      "unseen_fraction": 0.9285714285714286,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage",
+      "budget": 22,
+      "candidate_id": "2742d357f5955a4c975556ee32cbe7e8a0ea44fc75dd82cbccd06c500cae8ae6",
+      "endpoint_LPIPS": 0.3526347354855589,
+      "origins": [
+        "search-K22-q8"
+      ],
+      "cost": 0.009060269403011396,
+      "unseen_fraction": 0.7857142857142857,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage",
+      "budget": 22,
+      "candidate_id": "982bde45be3cbd236c1cf2d40f22b18cefa95d415d314e21b0e3448a22cebd07",
+      "endpoint_LPIPS": 0.3514033560791323,
+      "origins": [
+        "search-K22-q9"
+      ],
+      "cost": 0.00987480976582431,
+      "unseen_fraction": 0.9285714285714286,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage",
+      "budget": 22,
+      "candidate_id": "138b1068036b4f1717e571ffbde3909441201170c7b6fed188c94519be958346",
+      "endpoint_LPIPS": 0.3803927025166891,
+      "origins": [
+        "search-K22-q10"
+      ],
+      "cost": 0.008470961560196798,
+      "unseen_fraction": 1.0,
+      "zero_clamp_fraction": 0.07142857142857142
+    },
+    {
+      "family": "stage",
+      "budget": 22,
+      "candidate_id": "b3c209da753554c467313fbb0a580e3ef1ea79eb08a2d358af1800d6eb203683",
+      "endpoint_LPIPS": 0.38038731053952246,
+      "origins": [
+        "search-K22-q11"
+      ],
+      "cost": 0.006268336994703643,
+      "unseen_fraction": 0.9285714285714286,
+      "zero_clamp_fraction": 0.07142857142857142
+    },
+    {
+      "family": "stage",
+      "budget": 22,
+      "candidate_id": "80c24c055909ed490ee17bc98136a5a75d99428b1c96643028dd88211b3c6bb7",
+      "endpoint_LPIPS": 0.38493240696768605,
+      "origins": [
+        "search-K22-q12"
+      ],
+      "cost": 0.010154556249340377,
+      "unseen_fraction": 0.9285714285714286,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age",
+      "budget": 19,
+      "candidate_id": "e8ab5a21db560acb278afd6b03d3f77519920d2cf6577b343031c2a5ec8df0ba",
+      "endpoint_LPIPS": 0.48741937564906257,
+      "origins": [
+        "stage-K19"
+      ],
+      "cost": 0.0928159621001308,
+      "unseen_fraction": 0.8235294117647058,
+      "zero_clamp_fraction": 0.058823529411764705
+    },
+    {
+      "family": "stage_age",
+      "budget": 19,
+      "candidate_id": "fb0f633a4dd6d21a586fd2507354d82b58d928df0fe2e8354a196b02828bad9c",
+      "endpoint_LPIPS": 0.47128015820698066,
+      "origins": [
+        "stage-K19"
+      ],
+      "cost": 0.11353426932934704,
+      "unseen_fraction": 0.8823529411764706,
+      "zero_clamp_fraction": 0.058823529411764705
+    },
+    {
+      "family": "stage_age",
+      "budget": 19,
+      "candidate_id": "2b4c053239db3f0975aac32062e5bb6a24dc9edf92e0bbdfcf5886a76f866751",
+      "endpoint_LPIPS": 0.4700288019513571,
+      "origins": [
+        "stage-K19"
+      ],
+      "cost": 0.09305552712392122,
+      "unseen_fraction": 0.8235294117647058,
+      "zero_clamp_fraction": 0.058823529411764705
+    },
+    {
+      "family": "stage_age",
+      "budget": 22,
+      "candidate_id": "cb8e0b97ae1becf77d264dcd9f12c30763e732b27b64fa0f1499ca7b20d678e8",
+      "endpoint_LPIPS": 0.4406566222508748,
+      "origins": [
+        "stage-K22"
+      ],
+      "cost": 0.09146911285305834,
+      "unseen_fraction": 0.8571428571428571,
+      "zero_clamp_fraction": 0.07142857142857142
+    },
+    {
+      "family": "stage_age",
+      "budget": 22,
+      "candidate_id": "7ee54ca636817a606ec09b48eb36209ae00c2bf72f5e8a0306cf0524c7076b69",
+      "endpoint_LPIPS": 0.4095266874759428,
+      "origins": [
+        "stage-K22"
+      ],
+      "cost": 0.0915600534216664,
+      "unseen_fraction": 0.9285714285714286,
+      "zero_clamp_fraction": 0.07142857142857142
+    },
+    {
+      "family": "stage_age",
+      "budget": 22,
+      "candidate_id": "2f61c5effafc11b7b0c4094c7cc66351014a17611f582499b7b9da9dcd2b3ab2",
+      "endpoint_LPIPS": 0.4674906903697598,
+      "origins": [
+        "stage-K22"
+      ],
+      "cost": 0.06135315032216202,
+      "unseen_fraction": 0.8571428571428571,
+      "zero_clamp_fraction": 0.07142857142857142
+    },
+    {
+      "family": "stage_age",
+      "budget": 19,
+      "candidate_id": "949be184dd406b5dde606c984ff22ec7438d6a998a8d53f49b394980ab3be9ba",
+      "endpoint_LPIPS": 0.49300787894315623,
+      "origins": [
+        "stage_age-K19"
+      ],
+      "cost": 0.004408936420364421,
+      "unseen_fraction": 0.7058823529411765,
+      "zero_clamp_fraction": 0.17647058823529413
+    },
+    {
+      "family": "stage_age",
+      "budget": 19,
+      "candidate_id": "6ed29d02c310a2b4971ab15da717133c281067cd4710a8ad999bb8a28ea32286",
+      "endpoint_LPIPS": 0.483466330715405,
+      "origins": [
+        "stage_age-K19"
+      ],
+      "cost": 0.0045286884625538775,
+      "unseen_fraction": 0.6470588235294118,
+      "zero_clamp_fraction": 0.17647058823529413
+    },
+    {
+      "family": "stage_age",
+      "budget": 19,
+      "candidate_id": "982cc073ac4c2f27d6b187148b45d69fc2b9b154644ee5050e37733ea3e06382",
+      "endpoint_LPIPS": 0.4918177632554885,
+      "origins": [
+        "stage_age-K19"
+      ],
+      "cost": 0.00466031521398437,
+      "unseen_fraction": 0.5882352941176471,
+      "zero_clamp_fraction": 0.17647058823529413
+    },
+    {
+      "family": "stage_age",
+      "budget": 22,
+      "candidate_id": "0550d39222cc9f6ea573e45d71195094be8c9d6ac6748b257eef6e5aa0d30592",
+      "endpoint_LPIPS": 0.4635644707308021,
+      "origins": [
+        "stage_age-K22"
+      ],
+      "cost": 0.0020408708504937386,
+      "unseen_fraction": 0.8571428571428571,
+      "zero_clamp_fraction": 0.21428571428571427
+    },
+    {
+      "family": "stage_age",
+      "budget": 22,
+      "candidate_id": "7b957bcd862814d055af6b5b74fe9f45e79ad17a2d61d38ce9e660c55863da3f",
+      "endpoint_LPIPS": 0.4635039680106665,
+      "origins": [
+        "stage_age-K22"
+      ],
+      "cost": 0.0021214525928044616,
+      "unseen_fraction": 0.7142857142857143,
+      "zero_clamp_fraction": 0.21428571428571427
+    },
+    {
+      "family": "stage_age",
+      "budget": 22,
+      "candidate_id": "27660ddf87a23c8a630154296ac8d0ba3212f7fa343cd54ec664d2ab442b3181",
+      "endpoint_LPIPS": 0.4363183690014706,
+      "origins": [
+        "stage_age-K22"
+      ],
+      "cost": 0.002158886439508488,
+      "unseen_fraction": 0.8571428571428571,
+      "zero_clamp_fraction": 0.21428571428571427
+    },
+    {
+      "family": "stage_age",
+      "budget": 19,
+      "candidate_id": "0cf90a9f17658a42820715d91ac6fb6bfd8ade5e65ea75e02dddfa4f30b79d21",
+      "endpoint_LPIPS": 0.49016428105933696,
+      "origins": [
+        "stage_age_previous_gap-K19"
+      ],
+      "cost": 0.007640903219659933,
+      "unseen_fraction": 0.7647058823529411,
+      "zero_clamp_fraction": 0.11764705882352941
+    },
+    {
+      "family": "stage_age",
+      "budget": 19,
+      "candidate_id": "01b14f223749abd4c07844a19cfa5a54eca50cff93e3b250122e83de3c790e8d",
+      "endpoint_LPIPS": 0.4899532003428346,
+      "origins": [
+        "stage_age_previous_gap-K19"
+      ],
+      "cost": 0.007385558021674839,
+      "unseen_fraction": 0.7647058823529411,
+      "zero_clamp_fraction": 0.11764705882352941
+    },
+    {
+      "family": "stage_age",
+      "budget": 19,
+      "candidate_id": "d349274fb2b0b47f2c44af334c181825f07029368a6238aaad290de40a579f73",
+      "endpoint_LPIPS": 0.49967691847073137,
+      "origins": [
+        "stage_age_previous_gap-K19"
+      ],
+      "cost": 0.007302967346545783,
+      "unseen_fraction": 0.7647058823529411,
+      "zero_clamp_fraction": 0.11764705882352941
+    },
+    {
+      "family": "stage_age",
+      "budget": 22,
+      "candidate_id": "6ec85cc956873b6a5357a5902a0ee8e7f36b0897fe91154f098be93d6517d9b1",
+      "endpoint_LPIPS": 0.46239614887263186,
+      "origins": [
+        "stage_age_previous_gap-K22"
+      ],
+      "cost": 0.0031849918413917374,
+      "unseen_fraction": 0.7857142857142857,
+      "zero_clamp_fraction": 0.14285714285714285
+    },
+    {
+      "family": "stage_age",
+      "budget": 22,
+      "candidate_id": "e54d708a82224b3148e73506a2908982d50715641c9a2759cb3a7d2bb2986481",
+      "endpoint_LPIPS": 0.48107050311180855,
+      "origins": [
+        "stage_age_previous_gap-K22"
+      ],
+      "cost": 0.003048098074432013,
+      "unseen_fraction": 0.7142857142857143,
+      "zero_clamp_fraction": 0.14285714285714285
+    },
+    {
+      "family": "stage_age",
+      "budget": 22,
+      "candidate_id": "7e5ab9c10a597d28e3ddb78d5845af4c6e9da7aba2f0e662352d21abeb3628d0",
+      "endpoint_LPIPS": 0.4624118816147568,
+      "origins": [
+        "stage_age_previous_gap-K22"
+      ],
+      "cost": 0.002929646643406644,
+      "unseen_fraction": 0.7857142857142857,
+      "zero_clamp_fraction": 0.14285714285714285
+    },
+    {
+      "family": "stage_age",
+      "budget": 19,
+      "candidate_id": "d552b5b12c142475746edaed06d15f0a33db4d35511df7ac52f92e990dc92a25",
+      "endpoint_LPIPS": 0.4836763281335113,
+      "origins": [
+        "search-K19-q1"
+      ],
+      "cost": 0.012000151026301987,
+      "unseen_fraction": 0.4117647058823529,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age",
+      "budget": 19,
+      "candidate_id": "c3454e63a079faa5aadf49a4e8d8acb16a9ef08602602de5c90c8c973fe2bc90",
+      "endpoint_LPIPS": 0.48236874627169746,
+      "origins": [
+        "search-K19-q2"
+      ],
+      "cost": 0.011755122818077569,
+      "unseen_fraction": 0.7058823529411765,
+      "zero_clamp_fraction": 0.058823529411764705
+    },
+    {
+      "family": "stage_age",
+      "budget": 19,
+      "candidate_id": "225e87e87164d45593f78d4bb3d3321aa5f772c34fc1ee69994975dc8c22672a",
+      "endpoint_LPIPS": 0.4840439562836001,
+      "origins": [
+        "search-K19-q3"
+      ],
+      "cost": 0.011044405665273057,
+      "unseen_fraction": 0.5294117647058824,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age",
+      "budget": 19,
+      "candidate_id": "e78f3480090846e9fbfc87ae16ed2b30c4202bde1aed852caac0940247ccf501",
+      "endpoint_LPIPS": 0.40371674603672436,
+      "origins": [
+        "search-K19-q4"
+      ],
+      "cost": 0.010911712377291624,
+      "unseen_fraction": 0.7058823529411765,
+      "zero_clamp_fraction": 0.058823529411764705
+    },
+    {
+      "family": "stage_age",
+      "budget": 19,
+      "candidate_id": "78f512a8ae9a2f9103808c5d50fd5fc6f77042f0e5b7b9535618b7188fffc3fa",
+      "endpoint_LPIPS": 0.4039446838119979,
+      "origins": [
+        "search-K19-q5"
+      ],
+      "cost": 0.015011296751859618,
+      "unseen_fraction": 0.7058823529411765,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age",
+      "budget": 19,
+      "candidate_id": "7ce57751df59b70029f98f3c62ced8e6973b1a7c27807c3bc3b3adcc6ee2aa72",
+      "endpoint_LPIPS": 0.481400629365316,
+      "origins": [
+        "search-K19-q6"
+      ],
+      "cost": 0.01426092634339238,
+      "unseen_fraction": 0.7058823529411765,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age",
+      "budget": 19,
+      "candidate_id": "04548a5197d72370807a95daab07e4b96d0288c12e4a7d714600964b85eaa733",
+      "endpoint_LPIPS": 0.3161964400481152,
+      "origins": [
+        "search-K19-q7"
+      ],
+      "cost": 0.014797744786433583,
+      "unseen_fraction": 0.7647058823529411,
+      "zero_clamp_fraction": 0.058823529411764705
+    },
+    {
+      "family": "stage_age",
+      "budget": 19,
+      "candidate_id": "61a4fa7e78694071dfdb38ad8841c6d581e8f9fd7083e9a2d88d4946d8e862fe",
+      "endpoint_LPIPS": 0.30085818749922577,
+      "origins": [
+        "search-K19-q8"
+      ],
+      "cost": 0.014821611893330049,
+      "unseen_fraction": 0.8235294117647058,
+      "zero_clamp_fraction": 0.058823529411764705
+    },
+    {
+      "family": "stage_age",
+      "budget": 19,
+      "candidate_id": "67700d4ddb66df736b68a5122b2aabdbcf4f60ec8c3fb9bc1ff6ef9d728450a9",
+      "endpoint_LPIPS": 0.3173805715576295,
+      "origins": [
+        "search-K19-q9"
+      ],
+      "cost": 0.020134353207387032,
+      "unseen_fraction": 0.8235294117647058,
+      "zero_clamp_fraction": 0.058823529411764705
+    },
+    {
+      "family": "stage_age",
+      "budget": 19,
+      "candidate_id": "0cc6ad25b37f68430744d8007f9720de4f1a58be4d02cd5c7a6e558db56a5526",
+      "endpoint_LPIPS": 0.34074942687506315,
+      "origins": [
+        "search-K19-q10"
+      ],
+      "cost": 0.01644094571735665,
+      "unseen_fraction": 0.7647058823529411,
+      "zero_clamp_fraction": 0.058823529411764705
+    },
+    {
+      "family": "stage_age",
+      "budget": 19,
+      "candidate_id": "22cd8ce127adf7f2250b0e22656dd0bbf63498ce634edc7ac85fec47f0c72c80",
+      "endpoint_LPIPS": 0.317632491870593,
+      "origins": [
+        "search-K19-q11"
+      ],
+      "cost": 0.016162658389987542,
+      "unseen_fraction": 0.8823529411764706,
+      "zero_clamp_fraction": 0.058823529411764705
+    },
+    {
+      "family": "stage_age",
+      "budget": 19,
+      "candidate_id": "73095cfc89c960b458c35a96093a543132834260b28a065f351778428b02cc84",
+      "endpoint_LPIPS": 0.3173953201822055,
+      "origins": [
+        "search-K19-q12"
+      ],
+      "cost": 0.018878775199914325,
+      "unseen_fraction": 0.8823529411764706,
+      "zero_clamp_fraction": 0.058823529411764705
+    },
+    {
+      "family": "stage_age",
+      "budget": 22,
+      "candidate_id": "46f402fa7f7f3411f120ff3c08ba68b742267e0c66c37ca32ce40caabb3c4ae6",
+      "endpoint_LPIPS": 0.482073903884939,
+      "origins": [
+        "search-K22-q1"
+      ],
+      "cost": 0.007226856784292178,
+      "unseen_fraction": 0.42857142857142855,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age",
+      "budget": 22,
+      "candidate_id": "76458ad7357a9db6753bb250555bcc69a26545e734268930d9e77f4b3da21eaa",
+      "endpoint_LPIPS": 0.4833429482995823,
+      "origins": [
+        "search-K22-q2"
+      ],
+      "cost": 0.006041825121818435,
+      "unseen_fraction": 0.5,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age",
+      "budget": 22,
+      "candidate_id": "1f1c52a92448fa16ae390dfed9e735c47c34cee4e67fd74640e764c686d3645a",
+      "endpoint_LPIPS": 0.4619538332185438,
+      "origins": [
+        "search-K22-q3"
+      ],
+      "cost": 0.0062008084032981305,
+      "unseen_fraction": 0.6428571428571429,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age",
+      "budget": 22,
+      "candidate_id": "899a9f504f34ea47fc149acb07171d8b418c9856e53db5032d8d006d08fbc411",
+      "endpoint_LPIPS": 0.3834203015412054,
+      "origins": [
+        "search-K22-q4"
+      ],
+      "cost": 0.008191391053263981,
+      "unseen_fraction": 0.7857142857142857,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age",
+      "budget": 22,
+      "candidate_id": "8b9738f98e7f71483e7d60eb6b0c661fa12a16f38ff55e6f2fb727ad822bc98c",
+      "endpoint_LPIPS": 0.3930293396916441,
+      "origins": [
+        "search-K22-q5"
+      ],
+      "cost": 0.009664077878603851,
+      "unseen_fraction": 0.7857142857142857,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age",
+      "budget": 22,
+      "candidate_id": "4d5f98c2f9c044e1f3dcd05c54c846171b20f7476740e884384ed3b695d813d3",
+      "endpoint_LPIPS": 0.38124422184241713,
+      "origins": [
+        "search-K22-q6"
+      ],
+      "cost": 0.01206551277616946,
+      "unseen_fraction": 0.9285714285714286,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age",
+      "budget": 22,
+      "candidate_id": "4a18b68b23815d1a8c85f455fa38099cee8d015855275f58dfee9c156165a325",
+      "endpoint_LPIPS": 0.3981472755311638,
+      "origins": [
+        "search-K22-q7"
+      ],
+      "cost": 0.011816397033103117,
+      "unseen_fraction": 0.9285714285714286,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age",
+      "budget": 22,
+      "candidate_id": "2742d357f5955a4c975556ee32cbe7e8a0ea44fc75dd82cbccd06c500cae8ae6",
+      "endpoint_LPIPS": 0.3526347354855589,
+      "origins": [
+        "search-K22-q8"
+      ],
+      "cost": 0.012000471132459549,
+      "unseen_fraction": 0.7857142857142857,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age",
+      "budget": 22,
+      "candidate_id": "982bde45be3cbd236c1cf2d40f22b18cefa95d415d314e21b0e3448a22cebd07",
+      "endpoint_LPIPS": 0.3514033560791323,
+      "origins": [
+        "search-K22-q9"
+      ],
+      "cost": 0.012730962850665469,
+      "unseen_fraction": 0.9285714285714286,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age",
+      "budget": 22,
+      "candidate_id": "138b1068036b4f1717e571ffbde3909441201170c7b6fed188c94519be958346",
+      "endpoint_LPIPS": 0.3803927025166891,
+      "origins": [
+        "search-K22-q10"
+      ],
+      "cost": 0.013601606165222033,
+      "unseen_fraction": 1.0,
+      "zero_clamp_fraction": 0.07142857142857142
+    },
+    {
+      "family": "stage_age",
+      "budget": 22,
+      "candidate_id": "b3c209da753554c467313fbb0a580e3ef1ea79eb08a2d358af1800d6eb203683",
+      "endpoint_LPIPS": 0.38038731053952246,
+      "origins": [
+        "search-K22-q11"
+      ],
+      "cost": 0.010032039393279351,
+      "unseen_fraction": 0.9285714285714286,
+      "zero_clamp_fraction": 0.07142857142857142
+    },
+    {
+      "family": "stage_age",
+      "budget": 22,
+      "candidate_id": "80c24c055909ed490ee17bc98136a5a75d99428b1c96643028dd88211b3c6bb7",
+      "endpoint_LPIPS": 0.38493240696768605,
+      "origins": [
+        "search-K22-q12"
+      ],
+      "cost": 0.012847885336290998,
+      "unseen_fraction": 0.9285714285714286,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 19,
+      "candidate_id": "e8ab5a21db560acb278afd6b03d3f77519920d2cf6577b343031c2a5ec8df0ba",
+      "endpoint_LPIPS": 0.48741937564906257,
+      "origins": [
+        "stage-K19"
+      ],
+      "cost": 0.09004793453954649,
+      "unseen_fraction": 0.8235294117647058,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 19,
+      "candidate_id": "fb0f633a4dd6d21a586fd2507354d82b58d928df0fe2e8354a196b02828bad9c",
+      "endpoint_LPIPS": 0.47128015820698066,
+      "origins": [
+        "stage-K19"
+      ],
+      "cost": 0.10662652318476484,
+      "unseen_fraction": 0.8823529411764706,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 19,
+      "candidate_id": "2b4c053239db3f0975aac32062e5bb6a24dc9edf92e0bbdfcf5886a76f866751",
+      "endpoint_LPIPS": 0.4700288019513571,
+      "origins": [
+        "stage-K19"
+      ],
+      "cost": 0.09004889461379119,
+      "unseen_fraction": 0.8235294117647058,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 22,
+      "candidate_id": "cb8e0b97ae1becf77d264dcd9f12c30763e732b27b64fa0f1499ca7b20d678e8",
+      "endpoint_LPIPS": 0.4406566222508748,
+      "origins": [
+        "stage-K22"
+      ],
+      "cost": 0.08868091967622191,
+      "unseen_fraction": 0.8571428571428571,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 22,
+      "candidate_id": "7ee54ca636817a606ec09b48eb36209ae00c2bf72f5e8a0306cf0524c7076b69",
+      "endpoint_LPIPS": 0.4095266874759428,
+      "origins": [
+        "stage-K22"
+      ],
+      "cost": 0.08872751046313547,
+      "unseen_fraction": 0.9285714285714286,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 22,
+      "candidate_id": "2f61c5effafc11b7b0c4094c7cc66351014a17611f582499b7b9da9dcd2b3ab2",
+      "endpoint_LPIPS": 0.4674906903697598,
+      "origins": [
+        "stage-K22"
+      ],
+      "cost": 0.05903635862391216,
+      "unseen_fraction": 0.8571428571428571,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 19,
+      "candidate_id": "949be184dd406b5dde606c984ff22ec7438d6a998a8d53f49b394980ab3be9ba",
+      "endpoint_LPIPS": 0.49300787894315623,
+      "origins": [
+        "stage_age-K19"
+      ],
+      "cost": 0.007824216116987415,
+      "unseen_fraction": 0.7058823529411765,
+      "zero_clamp_fraction": 0.058823529411764705
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 19,
+      "candidate_id": "6ed29d02c310a2b4971ab15da717133c281067cd4710a8ad999bb8a28ea32286",
+      "endpoint_LPIPS": 0.483466330715405,
+      "origins": [
+        "stage_age-K19"
+      ],
+      "cost": 0.007519106596710649,
+      "unseen_fraction": 0.6470588235294118,
+      "zero_clamp_fraction": 0.058823529411764705
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 19,
+      "candidate_id": "982cc073ac4c2f27d6b187148b45d69fc2b9b154644ee5050e37733ea3e06382",
+      "endpoint_LPIPS": 0.4918177632554885,
+      "origins": [
+        "stage_age-K19"
+      ],
+      "cost": 0.008717850990595322,
+      "unseen_fraction": 0.5882352941176471,
+      "zero_clamp_fraction": 0.11764705882352941
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 22,
+      "candidate_id": "0550d39222cc9f6ea573e45d71195094be8c9d6ac6748b257eef6e5aa0d30592",
+      "endpoint_LPIPS": 0.4635644707308021,
+      "origins": [
+        "stage_age-K22"
+      ],
+      "cost": 0.004951472127021426,
+      "unseen_fraction": 0.8571428571428571,
+      "zero_clamp_fraction": 0.07142857142857142
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 22,
+      "candidate_id": "7b957bcd862814d055af6b5b74fe9f45e79ad17a2d61d38ce9e660c55863da3f",
+      "endpoint_LPIPS": 0.4635039680106665,
+      "origins": [
+        "stage_age-K22"
+      ],
+      "cost": 0.005312889234106749,
+      "unseen_fraction": 0.7142857142857143,
+      "zero_clamp_fraction": 0.07142857142857142
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 22,
+      "candidate_id": "27660ddf87a23c8a630154296ac8d0ba3212f7fa343cd54ec664d2ab442b3181",
+      "endpoint_LPIPS": 0.4363183690014706,
+      "origins": [
+        "stage_age-K22"
+      ],
+      "cost": 0.004970862314104527,
+      "unseen_fraction": 0.8571428571428571,
+      "zero_clamp_fraction": 0.07142857142857142
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 19,
+      "candidate_id": "0cf90a9f17658a42820715d91ac6fb6bfd8ade5e65ea75e02dddfa4f30b79d21",
+      "endpoint_LPIPS": 0.49016428105933696,
+      "origins": [
+        "stage_age_previous_gap-K19"
+      ],
+      "cost": 0.006437017889991982,
+      "unseen_fraction": 0.7647058823529411,
+      "zero_clamp_fraction": 0.058823529411764705
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 19,
+      "candidate_id": "01b14f223749abd4c07844a19cfa5a54eca50cff93e3b250122e83de3c790e8d",
+      "endpoint_LPIPS": 0.4899532003428346,
+      "origins": [
+        "stage_age_previous_gap-K19"
+      ],
+      "cost": 0.006530343135285318,
+      "unseen_fraction": 0.7647058823529411,
+      "zero_clamp_fraction": 0.058823529411764705
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 19,
+      "candidate_id": "d349274fb2b0b47f2c44af334c181825f07029368a6238aaad290de40a579f73",
+      "endpoint_LPIPS": 0.49967691847073137,
+      "origins": [
+        "stage_age_previous_gap-K19"
+      ],
+      "cost": 0.006540985866193211,
+      "unseen_fraction": 0.7647058823529411,
+      "zero_clamp_fraction": 0.058823529411764705
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 22,
+      "candidate_id": "6ec85cc956873b6a5357a5902a0ee8e7f36b0897fe91154f098be93d6517d9b1",
+      "endpoint_LPIPS": 0.46239614887263186,
+      "origins": [
+        "stage_age_previous_gap-K22"
+      ],
+      "cost": 0.0030192255393120706,
+      "unseen_fraction": 0.7857142857142857,
+      "zero_clamp_fraction": 0.07142857142857142
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 22,
+      "candidate_id": "e54d708a82224b3148e73506a2908982d50715641c9a2759cb3a7d2bb2986481",
+      "endpoint_LPIPS": 0.48107050311180855,
+      "origins": [
+        "stage_age_previous_gap-K22"
+      ],
+      "cost": 0.00309093297846458,
+      "unseen_fraction": 0.7142857142857143,
+      "zero_clamp_fraction": 0.07142857142857142
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 22,
+      "candidate_id": "7e5ab9c10a597d28e3ddb78d5845af4c6e9da7aba2f0e662352d21abeb3628d0",
+      "endpoint_LPIPS": 0.4624118816147568,
+      "origins": [
+        "stage_age_previous_gap-K22"
+      ],
+      "cost": 0.003112550784605406,
+      "unseen_fraction": 0.7857142857142857,
+      "zero_clamp_fraction": 0.07142857142857142
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 19,
+      "candidate_id": "d552b5b12c142475746edaed06d15f0a33db4d35511df7ac52f92e990dc92a25",
+      "endpoint_LPIPS": 0.4836763281335113,
+      "origins": [
+        "search-K19-q1"
+      ],
+      "cost": 0.011067517351880815,
+      "unseen_fraction": 0.4117647058823529,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 19,
+      "candidate_id": "c3454e63a079faa5aadf49a4e8d8acb16a9ef08602602de5c90c8c973fe2bc90",
+      "endpoint_LPIPS": 0.48236874627169746,
+      "origins": [
+        "search-K19-q2"
+      ],
+      "cost": 0.013710211298834636,
+      "unseen_fraction": 0.7058823529411765,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 19,
+      "candidate_id": "225e87e87164d45593f78d4bb3d3321aa5f772c34fc1ee69994975dc8c22672a",
+      "endpoint_LPIPS": 0.4840439562836001,
+      "origins": [
+        "search-K19-q3"
+      ],
+      "cost": 0.009009592395372301,
+      "unseen_fraction": 0.5294117647058824,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 19,
+      "candidate_id": "e78f3480090846e9fbfc87ae16ed2b30c4202bde1aed852caac0940247ccf501",
+      "endpoint_LPIPS": 0.40371674603672436,
+      "origins": [
+        "search-K19-q4"
+      ],
+      "cost": 0.01093148797903473,
+      "unseen_fraction": 0.7058823529411765,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 19,
+      "candidate_id": "78f512a8ae9a2f9103808c5d50fd5fc6f77042f0e5b7b9535618b7188fffc3fa",
+      "endpoint_LPIPS": 0.4039446838119979,
+      "origins": [
+        "search-K19-q5"
+      ],
+      "cost": 0.01157648776984285,
+      "unseen_fraction": 0.7058823529411765,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 19,
+      "candidate_id": "7ce57751df59b70029f98f3c62ced8e6973b1a7c27807c3bc3b3adcc6ee2aa72",
+      "endpoint_LPIPS": 0.481400629365316,
+      "origins": [
+        "search-K19-q6"
+      ],
+      "cost": 0.01798784172869345,
+      "unseen_fraction": 0.7058823529411765,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 19,
+      "candidate_id": "04548a5197d72370807a95daab07e4b96d0288c12e4a7d714600964b85eaa733",
+      "endpoint_LPIPS": 0.3161964400481152,
+      "origins": [
+        "search-K19-q7"
+      ],
+      "cost": 0.012813233282461598,
+      "unseen_fraction": 0.7647058823529411,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 19,
+      "candidate_id": "61a4fa7e78694071dfdb38ad8841c6d581e8f9fd7083e9a2d88d4946d8e862fe",
+      "endpoint_LPIPS": 0.30085818749922577,
+      "origins": [
+        "search-K19-q8"
+      ],
+      "cost": 0.012807766908926854,
+      "unseen_fraction": 0.8235294117647058,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 19,
+      "candidate_id": "67700d4ddb66df736b68a5122b2aabdbcf4f60ec8c3fb9bc1ff6ef9d728450a9",
+      "endpoint_LPIPS": 0.3173805715576295,
+      "origins": [
+        "search-K19-q9"
+      ],
+      "cost": 0.01964181074722136,
+      "unseen_fraction": 0.8235294117647058,
+      "zero_clamp_fraction": 0.058823529411764705
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 19,
+      "candidate_id": "0cc6ad25b37f68430744d8007f9720de4f1a58be4d02cd5c7a6e558db56a5526",
+      "endpoint_LPIPS": 0.34074942687506315,
+      "origins": [
+        "search-K19-q10"
+      ],
+      "cost": 0.013702624865254554,
+      "unseen_fraction": 0.7647058823529411,
+      "zero_clamp_fraction": 0.058823529411764705
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 19,
+      "candidate_id": "22cd8ce127adf7f2250b0e22656dd0bbf63498ce634edc7ac85fec47f0c72c80",
+      "endpoint_LPIPS": 0.317632491870593,
+      "origins": [
+        "search-K19-q11"
+      ],
+      "cost": 0.012512503653317662,
+      "unseen_fraction": 0.8823529411764706,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 19,
+      "candidate_id": "73095cfc89c960b458c35a96093a543132834260b28a065f351778428b02cc84",
+      "endpoint_LPIPS": 0.3173953201822055,
+      "origins": [
+        "search-K19-q12"
+      ],
+      "cost": 0.01713786833798677,
+      "unseen_fraction": 0.8823529411764706,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 22,
+      "candidate_id": "46f402fa7f7f3411f120ff3c08ba68b742267e0c66c37ca32ce40caabb3c4ae6",
+      "endpoint_LPIPS": 0.482073903884939,
+      "origins": [
+        "search-K22-q1"
+      ],
+      "cost": 0.006098185545748509,
+      "unseen_fraction": 0.42857142857142855,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 22,
+      "candidate_id": "76458ad7357a9db6753bb250555bcc69a26545e734268930d9e77f4b3da21eaa",
+      "endpoint_LPIPS": 0.4833429482995823,
+      "origins": [
+        "search-K22-q2"
+      ],
+      "cost": 0.00711110471996043,
+      "unseen_fraction": 0.5,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 22,
+      "candidate_id": "1f1c52a92448fa16ae390dfed9e735c47c34cee4e67fd74640e764c686d3645a",
+      "endpoint_LPIPS": 0.4619538332185438,
+      "origins": [
+        "search-K22-q3"
+      ],
+      "cost": 0.007634335728495176,
+      "unseen_fraction": 0.6428571428571429,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 22,
+      "candidate_id": "899a9f504f34ea47fc149acb07171d8b418c9856e53db5032d8d006d08fbc411",
+      "endpoint_LPIPS": 0.3834203015412054,
+      "origins": [
+        "search-K22-q4"
+      ],
+      "cost": 0.0092968705582162,
+      "unseen_fraction": 0.7857142857142857,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 22,
+      "candidate_id": "8b9738f98e7f71483e7d60eb6b0c661fa12a16f38ff55e6f2fb727ad822bc98c",
+      "endpoint_LPIPS": 0.3930293396916441,
+      "origins": [
+        "search-K22-q5"
+      ],
+      "cost": 0.009802755249057007,
+      "unseen_fraction": 0.7857142857142857,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 22,
+      "candidate_id": "4d5f98c2f9c044e1f3dcd05c54c846171b20f7476740e884384ed3b695d813d3",
+      "endpoint_LPIPS": 0.38124422184241713,
+      "origins": [
+        "search-K22-q6"
+      ],
+      "cost": 0.011856392853399435,
+      "unseen_fraction": 0.9285714285714286,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 22,
+      "candidate_id": "4a18b68b23815d1a8c85f455fa38099cee8d015855275f58dfee9c156165a325",
+      "endpoint_LPIPS": 0.3981472755311638,
+      "origins": [
+        "search-K22-q7"
+      ],
+      "cost": 0.0119353218173489,
+      "unseen_fraction": 0.9285714285714286,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 22,
+      "candidate_id": "2742d357f5955a4c975556ee32cbe7e8a0ea44fc75dd82cbccd06c500cae8ae6",
+      "endpoint_LPIPS": 0.3526347354855589,
+      "origins": [
+        "search-K22-q8"
+      ],
+      "cost": 0.011745224682838333,
+      "unseen_fraction": 0.7857142857142857,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 22,
+      "candidate_id": "982bde45be3cbd236c1cf2d40f22b18cefa95d415d314e21b0e3448a22cebd07",
+      "endpoint_LPIPS": 0.3514033560791323,
+      "origins": [
+        "search-K22-q9"
+      ],
+      "cost": 0.012633059326703774,
+      "unseen_fraction": 0.9285714285714286,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 22,
+      "candidate_id": "138b1068036b4f1717e571ffbde3909441201170c7b6fed188c94519be958346",
+      "endpoint_LPIPS": 0.3803927025166891,
+      "origins": [
+        "search-K22-q10"
+      ],
+      "cost": 0.01465241287238331,
+      "unseen_fraction": 1.0,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 22,
+      "candidate_id": "b3c209da753554c467313fbb0a580e3ef1ea79eb08a2d358af1800d6eb203683",
+      "endpoint_LPIPS": 0.38038731053952246,
+      "origins": [
+        "search-K22-q11"
+      ],
+      "cost": 0.01058501194197848,
+      "unseen_fraction": 0.9285714285714286,
+      "zero_clamp_fraction": 0.0
+    },
+    {
+      "family": "stage_age_previous_gap",
+      "budget": 22,
+      "candidate_id": "80c24c055909ed490ee17bc98136a5a75d99428b1c96643028dd88211b3c6bb7",
+      "endpoint_LPIPS": 0.38493240696768605,
+      "origins": [
+        "search-K22-q12"
+      ],
+      "cost": 0.012858453316603383,
+      "unseen_fraction": 0.9285714285714286,
+      "zero_clamp_fraction": 0.0
+    }
+  ],
+  "adaptive_queries_are_descriptive_only": true,
+  "causal_failure_attribution_proven": false,
+  "old_FIT_reselected": false,
+  "metric_pairs_recomputed": 0,
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "source_sha256": "db5d2ed10e0605a7ace28570c389e29b4af856e119697a2df4d6879a17adbba3",
+  "input_sha256": {
+    "reports/cara_v1_P1_successor_original_algorithm_summary_r1_20261103.json": "63a9c14fc342025cc3c05f2572c15ed9879a51b645ec2bab3d26a5af7383fd55",
+    "reports/cara_v1_P1_successor_original_complete_analysis_r1_20261103.json": "38ff4d3f5450acae0c4eab61d2d1c2d457663be2d0b8cd531fb407728075fa4c",
+    "plans/cara_next_stage_20261101/source_lifecycle/V1_P1_WHOLE_MANIFEST_R1.json": "337fc96b279169ce2196d2567cc0a4cc2821bfa752edc6767e7947d7729d1e5a",
+    "reports/cara_v1_frozen_UniPC_current_input_scale_r1_20261102.json": "00a257e843f08f7db3641d98ff899fa7c7f7fe73dca6ab8636ea7b6c481e3d6a",
+    "reports/cara_source_coverage_P1_original42_score_returns_r1_20261103.json": "fb43237ea2d805b4c0d9c4a20709443549a97cc236f1b0ce832c854f864f4c95"
+  }
+}

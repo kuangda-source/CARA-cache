@@ -59,16 +59,14 @@ r_\gamma(t\mid a,b)=e^{\gamma(s_t-1/2)}\frac{d(t,a)+d(t,b)}2.
 
 ## 下一步
 
-后续已落实为 [C1 完整范围与报价](c1/C1_REVIEW_R1.md)：来源消融8对8、阶段消融3对3、隔离缓存的同费用上限搜索，完整166语义位置／60正式质量位置，预计14.82GPUh、建议硬15GPUh；本地与[两卡Linux](../../../reports/cara_source_coverage_C1_Linux_CPU_accepted_r3_20261103.json)各31项CPU通过。下一步为[新卡生产组合接线](c1/C1_CPU_PRODUCTION_BINDING_HANDOFF_R1.md)，覆盖56查询队列与60位置终态接受；未启动GPU或申请账本事务。
+当前以[872零GPU审计与预算重排](../../../research/872_CARA_C1_ZERO_GPU_AUDIT_AND_BUDGET_REPRIORITIZATION_20261103.md)和[19D条件草案](c1/C1_REDUCED19_PROPOSAL_R2.md)为准：原166位置／14.82GPUh方案暂停。原42个FIT查询的SHA和排序已完整核验；正阶段权重提供排序信号，双来源没有一致增量。先继续F19→1.9×准备并保护Shared25独立最终确认额度。条件C1缩为70请求上界、预计6.536GPUh／建议硬7，不据此次审计自动启动。
 
-将这个生成器接入已有完整视频入口，准备一次小型终点校准与单来源/无阶段消融的完整范围、强对照和报价，优先检验“同等实际校准费用下，更有效地生成候选”。19D、22D 已是开发过的预算；方法选定后另用未参与设计的预算或真实第二网格与新 DEV 检验同一生成规则。P0 作为机制支撑，终点价值增强作为后续模块，均不阻塞首版方法。
+原[166范围与报价](c1/C1_REVIEW_R1.md)、31项本地/LinuxCPU和候选库原样保留；它们不接受新70请求生产入口。新增5项CPU控制覆盖离线目标一致、原评分SHA与A1规则，见[回执](../../../reports/cara_source_coverage_zero_GPU_CPU_controls_r1_20261103.json)。当前GPU和账本操作均为0。
 
-## 已保存数据的并行审计
+## 已保存数据的完整审计
 
-本地原型完成后，通过原 Tailscale 通路只读取回了原算法摘要，SHA `63a9c14fc342025cc3c05f2572c15ed9879a51b645ec2bab3d26a5af7383fd55` 与完整接受报告绑定一致。[审计结果](../../../reports/cara_source_proxy_saved_CPU_audit_r1_20261103.json)和[3 项 CPU 控制](../../../reports/cara_source_proxy_saved_CPU_controls_r1_20261103.json)已保存。没有调用原读者、评分器或模型。
+原P1算法摘要SHA仍为`63a9c14fc342025cc3c05f2572c15ed9879a51b645ec2bab3d26a5af7383fd55`，与原完整接受绑定。64标签的三个父计划留出MSE为0.248141、0.229860、0.209898；局部预测与终点排序是分别报告的证据。
 
-64 条标签覆盖 22 种来源三元组、两个 FIT、四个父计划。三个模型的父计划留出 MSE 为 `0.248141 / 0.229860 / 0.209898`；增加来源特征改善了局部预测。在原算法摘要保留的 24 次完整搜索查询中，19D/22D 各 12 次，三种代理与终点 LPIPS 的 Spearman 分别为：阶段 `-0.608 / -0.196`，阶段＋年龄 `-0.622 / -0.706`，双来源 `-0.406 / -0.629`。重建的旧 DP 代理值全部与原值一致，原指标没有重算。
+[原24查询诊断](../../../reports/cara_source_proxy_saved_CPU_audit_r1_20261103.json)和[原3项CPU控制](../../../reports/cara_source_proxy_saved_CPU_controls_r1_20261103.json)保留。此前缺少的18次DP端点现已从原文件补齐：[42份原评分字节](../../../reports/cara_source_coverage_P1_original42_score_returns_r1_20261103.json)、[旧误差代理完整审计](../../../reports/cara_source_proxy_saved42_CPU_audit_r2_20261103.json)、[新几何覆盖审计](../../../reports/cara_source_coverage_C1_zero_GPU_audit_r1_20261103.json)。它们使用已有两个FIT的原93帧指标，不重跑任何旧读者、模型或评分。
 
-这些是自适应查询中的描述性排序，支持优先检验完整终点选择；不能将退化唯一归因于缺少终点权重。全 42 次排序仍缺 18 次 DP 候选的评分明细，后续只读传输连续超时，未用缺失记录补成完整分母。该缺口不阻塞新原型。
-
-旧 [869 结果](../../../research/869_CARA_P1_R2_COMPLETE_RESULTS_SOURCE_INCREMENT_FAILED_20261103.md)、冻结、实际费用和保护输入保持。此次 CPU 授权没有启动 GPU，也没有访问中央账本；后续 GPU 卡按完整范围报价和既有规则处理。
+旧[869结果](../../../research/869_CARA_P1_R2_COMPLETE_RESULTS_SOURCE_INCREMENT_FAILED_20261103.md)、冻结、实际费用和保护输入保持。新的条件草案不是旧P1重跑或对原工程判定的改写。
