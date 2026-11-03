@@ -127,7 +127,15 @@ def main():
     p.add_argument('--receipt',type=Path,required=True);p.add_argument('--route',choices=('ipv4','v6'),default='v6');a=p.parse_args()
     assert not a.receipt.exists()
     data=payload() if a.action=='install' else {}
-    result=rpc(dict(install=INSTALL,cpu=CPU,provision=PROVISION,admit=ADMIT)[a.action],data,route=a.route)
+    if a.action=='install':
+        comparison=rpc(PREFIX+"assert not stage.exists();print(json.dumps(dict(status='CAL35_BASE_COMPARE_ONLY',needed=[n for n,h in p['hashes'].items() if not (base/n).is_file() or sha(base/n)!=h])))",dict(hashes=data['hashes']),route=a.route)
+        if comparison.get('status')!='CAL35_BASE_COMPARE_ONLY':
+            result=comparison
+        else:
+            data['files']={n:v for n,v in data['files'].items() if n in comparison['needed']}
+            result=rpc(INSTALL,data,route=a.route)
+            result['compared_overlay_files']=len(data['files'])
+    else:result=rpc(dict(cpu=CPU,provision=PROVISION,admit=ADMIT)[a.action],data,route=a.route)
     with a.receipt.open('x') as f:json.dump(result,f,indent=2,allow_nan=False);f.write('\n')
     print(json.dumps({k:result.get(k) for k in ('status','stderr','logs','state','source_revision','payload_files')}))
 
