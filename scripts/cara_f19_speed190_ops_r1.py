@@ -39,7 +39,13 @@ print(json.dumps(dict(status='CAL35_SOURCE_PREPARED_NO_GPU',registration_sha256=
  source_revision=p['revision'],payload_files=len(new['payload_sha256']),runtime_source_sha256=new['runtime_source_sha256'])))
 """
 CPU=PREFIX+"""
-name=stage.name+'-cpu'
+attempt=p.get('CPU_attempt',1);assert attempt in (1,2,3)
+name=stage.name+'-cpu'+('' if attempt==1 else '-r'+str(attempt))
+intent_name='CPU-intent.json' if attempt==1 else 'CPU-r'+str(attempt)+'-intent.json'
+launch_name='CPU-launch.json' if attempt==1 else 'CPU-r'+str(attempt)+'-launch.json'
+if attempt>1:
+ old_cpu=json.loads(subprocess.check_output(['docker','inspect',stage.name+'-cpu'+('' if attempt==2 else '-r'+str(attempt-1))],text=True))[0]
+ assert not old_cpu['State']['Running'] and old_cpu['State']['ExitCode']==1 and not (stage/'CPU-proof.json').exists()
 q=subprocess.run(['docker','inspect',name],capture_output=True,text=True)
 if q.returncode==0:
  c=json.loads(q.stdout)[0];result=dict(status='CPU_RUNNING' if c['State']['Running'] else 'CPU_TERMINAL',state=c['State'])
@@ -47,22 +53,24 @@ if q.returncode==0:
   logs=subprocess.run(['docker','logs','--tail','35',name],capture_output=True,text=True);result['logs']=(logs.stdout+logs.stderr)[-6500:]
  if (stage/'CPU-proof.json').exists():result['proof']=read(stage/'CPU-proof.json')
  print(json.dumps(result));raise SystemExit
-assert 'No such object' in q.stderr and not (stage/'CPU-intent.json').exists(),'Unknown original CPU; recover only'
+assert 'No such object' in q.stderr and not (stage/intent_name).exists(),'Unknown original CPU; recover only'
 launch=read(base/'GPU-launch.json');old=launch['commands']['container_cli'];env=[]
 for i,v in enumerate(old[:-1]):
- if v=='-e' and old[i+1].split('=',1)[0] in ('PATH','LD_LIBRARY_PATH'):env.extend(['-e',old[i+1]])
+ if v=='-e' and old[i+1].split('=',1)[0] in ('PATH','LD_LIBRARY_PATH','CUDA_HOME','CUDA_PATH','NLTK_DATA'):env.extend(['-e',old[i+1]])
 cmd=['docker','run','-d','--name',name,'--network','none','--read-only','--cpus','2','--cpuset-cpus','4,5',
  '--memory','8g','--memory-swap','8g','--pids-limit','256','--tmpfs','/tmp:rw,size=512m',
  '--user',str(os.getuid())+':'+str(os.getgid()),'-e','CUDA_VISIBLE_DEVICES=','-e','NVIDIA_VISIBLE_DEVICES=void',
  '-e','PYTHONDONTWRITEBYTECODE=1','-e','OMP_NUM_THREADS=2','-e','OPENBLAS_NUM_THREADS=2',
  '-e','HF_HUB_OFFLINE=1','-e','TRANSFORMERS_OFFLINE=1',
+ '-e','HF_HOME='+str(root/'cache/huggingface'),'-e','HF_HUB_CACHE='+str(root/'cache/huggingface/hub'),
+ '-e','NLTK_DATA='+str(root/'runtime-resources/nltk-guardrail-d6d4bfa8-r1'),
  '-v',str(root)+':'+str(root)+':ro','-v',str(stage)+':'+str(stage)+':rw',
  '-v',str(stage/'src')+':'+str(stage/'src')+':ro','-v',str(stage/'scripts')+':'+str(stage/'scripts')+':ro',
  '-v',str(stage/'tests')+':'+str(stage/'tests')+':ro','-w',str(root/'runtime')]+env
 cmd += [read(stage/'registration.json')['container_image'],'timeout','--signal=TERM','--kill-after=15s','900',
  launch['commands']['runner'][0],str(stage/'scripts/check_cara_f19_speed190_cpu_r1.py'),'--project',str(root),'--stage',str(stage)]
-create(stage/'CPU-intent.json',dict(command=cmd,registration_sha256=sha(stage/'registration.json'),started_unix=time.time(),GPU_submissions=0))
-q=subprocess.run(cmd,capture_output=True,text=True);create(stage/'CPU-launch.json',dict(exit_code=q.returncode,stdout=q.stdout,stderr=q.stderr))
+create(stage/intent_name,dict(command=cmd,registration_sha256=sha(stage/'registration.json'),started_unix=time.time(),GPU_submissions=0))
+q=subprocess.run(cmd,capture_output=True,text=True);create(stage/launch_name,dict(exit_code=q.returncode,stdout=q.stdout,stderr=q.stderr))
 print(json.dumps(dict(status='CPU_DISPATCHED' if q.returncode==0 else 'CPU_DISPATCH_FAILED_NO_RETRY',exit_code=q.returncode,stderr=q.stderr[-1000:])))
 """
 PROVISION=PREFIX+"""
@@ -78,6 +86,8 @@ print(json.dumps(dict(status='PRIVATE16_GIB_STORAGE_DISPATCHED_NO_GPU',pid=child
 """
 ADMIT=PREFIX+"""
 sys.path[:0]=[str(stage/'src'),str(stage/'scripts')]
+from four_card_bank24_execution_tools_r1 import verify_nltk_resources
+verify_nltk_resources(root)
 from wcomr.cara_f19_speed190_execution_r1 import fresh,ASSETS,validate_stage
 from wcomr.cara_fast_b36_dispatch_r2 import assets_check
 from wcomr.gpu_budget_pool_v2 import atomic_json
@@ -123,10 +133,10 @@ def payload():
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('action',choices=('install','cpu','provision','admit'))
+    p=argparse.ArgumentParser();p.add_argument('action',choices=('install','cpu','cpu-r2','cpu-r3','provision','admit'))
     p.add_argument('--receipt',type=Path,required=True);p.add_argument('--route',choices=('ipv4','v6'),default='v6');a=p.parse_args()
     assert not a.receipt.exists()
-    data=payload() if a.action=='install' else {}
+    data=payload() if a.action=='install' else ({'CPU_attempt':int(a.action[-1])} if a.action.startswith('cpu-r') else {})
     if a.action=='install':
         comparison=rpc(PREFIX+"assert not stage.exists();print(json.dumps(dict(status='CAL35_BASE_COMPARE_ONLY',needed=[n for n,h in p['hashes'].items() if not (base/n).is_file() or sha(base/n)!=h])))",dict(hashes=data['hashes']),route=a.route)
         if comparison.get('status')!='CAL35_BASE_COMPARE_ONLY':
@@ -135,7 +145,7 @@ def main():
             data['files']={n:v for n,v in data['files'].items() if n in comparison['needed']}
             result=rpc(INSTALL,data,route=a.route)
             result['compared_overlay_files']=len(data['files'])
-    else:result=rpc(dict(cpu=CPU,provision=PROVISION,admit=ADMIT)[a.action],data,route=a.route)
+    else:result=rpc({'cpu':CPU,'cpu-r2':CPU,'cpu-r3':CPU,'provision':PROVISION,'admit':ADMIT}[a.action],data,route=a.route,timeout=300 if a.action=='admit' else 55)
     with a.receipt.open('x') as f:json.dump(result,f,indent=2,allow_nan=False);f.write('\n')
     print(json.dumps({k:result.get(k) for k in ('status','stderr','logs','state','source_revision','payload_files')}))
 

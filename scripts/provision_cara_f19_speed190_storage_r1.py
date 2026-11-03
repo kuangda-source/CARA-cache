@@ -70,7 +70,7 @@ def main():
     os.nice(10)
     state = dict(status='TWO_CARD_PRIVATE_STORAGE_PREPARING_NO_GPU', started_unix=time.time(),
         identity=bind_original_process(os.getpid()), source_revision=registration['source_revision'],
-        operator_sha256=registration['operator_sha256'], helper_sha256=HELPER_SHA,
+        operator_sha256=sha(__file__), helper_sha256=HELPER_SHA,
         steps=[], GPU_submissions=0, ledger_written=False)
     write_state(state)
     password = None
