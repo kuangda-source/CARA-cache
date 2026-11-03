@@ -9,6 +9,7 @@ def main():
     a=p.parse_args();runtime=a.project/'runtime';started=time.time()
     os.environ.update(CUDA_VISIBLE_DEVICES='',NVIDIA_VISIBLE_DEVICES='void',HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1',WC_SCOUT_KIND='CAL12')
     sys.path[:0]=[str(a.stage/'src'),str(a.stage/'scripts'),str(a.stage/'tests'),str(runtime),str(runtime/'packages/cosmos-oss'),str(runtime/'packages/cosmos-cuda')]
+    os.environ['CARA_READ_WRITE_RUNTIME']=str(runtime)
     import torch,triton
     torch.set_num_threads(2)
     def forbidden(*a,**kw):raise RuntimeError('CAL35 CPU forbids CUDA and downloads')

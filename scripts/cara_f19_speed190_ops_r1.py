@@ -124,10 +124,10 @@ def payload():
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('action',choices=('install','cpu','provision','admit'))
-    p.add_argument('--receipt',type=Path,required=True);a=p.parse_args()
+    p.add_argument('--receipt',type=Path,required=True);p.add_argument('--route',choices=('ipv4','v6'),default='v6');a=p.parse_args()
     assert not a.receipt.exists()
     data=payload() if a.action=='install' else {}
-    result=rpc(dict(install=INSTALL,cpu=CPU,provision=PROVISION,admit=ADMIT)[a.action],data)
+    result=rpc(dict(install=INSTALL,cpu=CPU,provision=PROVISION,admit=ADMIT)[a.action],data,route=a.route)
     with a.receipt.open('x') as f:json.dump(result,f,indent=2,allow_nan=False);f.write('\n')
     print(json.dumps({k:result.get(k) for k in ('status','stderr','logs','state','source_revision','payload_files')}))
 

@@ -20,7 +20,11 @@ def main():
     assert all(r['status']=='COMPLETE' for r in collection['rows']) and len(collection['controls'])==2
     binding=read(stage/'reports/cara_CAL66_quality_binding_20261025.json')
     quality_root=Path(binding['registration']['stage'])
-    sys.path[:0]=[str(quality_root/'src'),str(quality_root/'scripts'),cfg['piq_site']]
+    overlay=Path(binding['dependency_overlay']);lock=overlay.parent/'dependency-overlay-manifest.json'
+    assert sha(lock)==binding['dependency_overlay_manifest_sha256']
+    deps=read(lock);assert deps['base_environment_modified'] is False
+    assert all(sha(overlay/n)==h for n,h in deps['files'].items())
+    sys.path[:0]=[str(quality_root/'src'),str(quality_root/'scripts'),str(overlay),cfg['piq_site']]
     import wcomr
     wcomr.__path__.append(str(stage/'src/wcomr'))
     import torch,lpips,piq,av,numpy as np

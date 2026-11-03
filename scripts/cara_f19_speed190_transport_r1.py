@@ -11,10 +11,12 @@ ROOT=Path(__file__).resolve().parents[1]
 BOOT="import base64,gzip,json,sys;packet=json.loads(gzip.decompress(base64.b64decode(sys.stdin.read().splitlines()[-1])));exec(compile(packet['operator'],'<F19-CAL35-scoped-operator>','exec'))"
 
 
-def rpc(operator,data,*,host='two_card',timeout=55):
+def rpc(operator,data,*,host='two_card',timeout=55,route='ipv4'):
     assert host in ('two_card','four_card')
-    argv=json.loads((ROOT/'.sync/cara-f19-capture-ssh-ipv4.json').read_text())
-    argv[1:1]=['-C']
+    assert route in ('ipv4','v6')
+    prefix='.sync/cara-f19-capture-ssh-ipv4.json' if route=='ipv4' else '.sync/cara-C1-capture-ssh-v6.json'
+    argv=json.loads((ROOT/prefix).read_text())
+    argv[1:1]=['-C','-o','ControlMaster=auto','-o','ControlPersist=300','-o','ControlPath=/tmp/cara-f19-CAL35-%C.sock']
     argv[-1]=host+'_lan'
     secret=password()
     packet=dict(operator=operator,arguments=data,sudo_password=secret)
