@@ -61,12 +61,14 @@ def collect_loaded(inference,samples,card,common,output,storage,mode_types,*,cpu
             indexed[(member,role,slot['target_update'])]=tensor
             if role in ('RESUME_D','NATIVE35') and (member,'NATIVE_RECORD',None) in indexed:
                 ref=indexed[(member,'NATIVE_RECORD',None)]
-                if not torch.equal(latent,torch.load(ref,map_location='cpu',weights_only=True)):
-                    raise ValueError('Native/allD or unchanged suffix full-latent bridge failed')
+                reference=torch.load(ref,map_location='cpu',weights_only=True)
+                result['latent_bridge']=dict(kind='Native_allD_or_unchanged_suffix',
+                    equal=torch.equal(latent,reference),max_abs_diff=float((latent.float()-reference.float()).abs().max()))
             if role=='FULL_SINGLE_C':
                 ref=indexed[(member,'SINGLE_C',slot['target_update'])]
-                if not torch.equal(latent,torch.load(ref,map_location='cpu',weights_only=True)):
-                    raise ValueError('Single-C complete-prefix/resumed suffix bridge failed')
+                reference=torch.load(ref,map_location='cpu',weights_only=True)
+                result['latent_bridge']=dict(kind='full_single_C_vs_resumed_suffix',
+                    equal=torch.equal(latent,reference),max_abs_diff=float((latent.float()-reference.float()).abs().max()))
             row.update(status='COMPLETE',result=result);save()
         state['status']='COMPLETE_PENDING_RELEASE_SCORING';save()
         return state

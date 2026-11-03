@@ -118,7 +118,7 @@ if __name__ == '__main__':
     assert permutation_test([.2]*4,[.2]*4,.027)==1/70
     assert permutation_test([.2]*4,[.3]*4,.027)==1
     from test_cara_read_write_transition_r1 import modules,pinned_functions
-    runtime=ROOT/'.sync/read-write-pinned-runtime-r1'
+    runtime=Path(os.environ.get('CARA_READ_WRITE_RUNTIME',ROOT/'.sync/read-write-pinned-runtime-r1'))
     wc,rf=modules()
     vars(wc).update({name:getattr(typing,name) for name in ('Optional','Tuple','Dict','List','Union')})
     rf.parallel_state=types.SimpleNamespace(is_initialized=lambda:False)

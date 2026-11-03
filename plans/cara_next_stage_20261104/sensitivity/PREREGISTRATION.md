@@ -29,7 +29,8 @@ first-block 每支记录 `mean(abs(h(t)-h(t-1))) / mean(abs(h(t-1)))`。第 1 �
 (b) 八输入×14 步位＝112 条敏感度后缀。从 Native 第 t 步之前恢复，仅执行 t…36，不重复前缀。
 报告终态 latent MSE、完整 93 帧 LPIPS-Alex、局部 guided 扰动 RMS。对照为同输入同 seed Native 记录轨迹。
 两个原生 warm；另在首个旧输入上安排一个纯 Native bridge、t8/t34 两个不干预续跑和两个独立完整 single-C 路径。
-完整 single-C 与恢复后的路径必须逐元素终态 latent 相等，释放后再核对解码 RGB/PTS；不通过则技术失败，不作敏感度结论。
+完整 single-C 与恢复后的路径记录终态 latent 的 equal/max_abs_diff，释放后再核对解码 RGB/PTS；不通过则该控制记为技术失败并在分析中标注，敏感度结论需结合该差值解释。
+该修订按用户2026-11-04 Phase 2指示在首次GPU执行前提交，不因比特差异中断整卡。
 
 (c) 四新输入各跑 Native、F17、F19、WC，按输入轮转角色顺序。额外 clean Native 是速度基准，避免将 (a) 的观测/状态写入开销带入分母。
 总计 143 请求，包括 8 记录、112 后缀、16 clean、2 warm、5 控制。全部路径与拒绝/失败保留，不补样、不重派。

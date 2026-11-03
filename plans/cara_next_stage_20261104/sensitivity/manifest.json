@@ -1,8 +1,8 @@
 {
   "schema": "CARA_SENSITIVITY8_CONFIRM4_R1",
   "run_id": "cara-native-sensitivity8-confirm4-r1-20261104",
-  "stage_name": "cara-native-sensitivity8-confirm4-r1-20261104",
-  "phase": "PHASE1_PREPARATION_ONLY",
+  "stage_name": "cara-budget-calibration-GPU-native-sensitivity8-confirm4-r1-20261104",
+  "phase": "PHASE2_AUTHORIZED_ONCE_PRE_DISPATCH",
   "GPU_dispatch_ready": false,
   "authority": {
     "user_quote": "批准新旧输入都做，约 8.9 GPUh，硬限 9.5 GPUh",
@@ -2694,7 +2694,7 @@
     }
   },
   "output_root": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-native-sensitivity8-confirm4-r1-20261104",
-  "stage_root": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-native-sensitivity8-confirm4-r1-20261104",
+  "stage_root": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-native-sensitivity8-confirm4-r1-20261104",
   "ledger_reserved": false,
   "GPU_submissions": 0,
   "CPU_dry_run": {
@@ -2895,15 +2895,18 @@
   "protected_inputs_accessed": false,
   "preregistration_ref": "plans/cara_next_stage_20261104/sensitivity/PREREGISTRATION.md",
   "owned_source_sha256": {
-    "plans/cara_next_stage_20261104/sensitivity/analyze.py": "2947ac16a221d915e91e57ccae0553171af8e71ca4eb8e064fec8fb73c9d5132",
-    "plans/cara_next_stage_20261104/sensitivity/cpu_dry_run.py": "952145a3b68e5b92cdbd3971c55b0ff2cc0d4be1bc61e9ea4d282b0453dd4655",
+    "plans/cara_next_stage_20261104/sensitivity/analyze.py": "1601f642b81286eea7b2ed8c311bfb900e8ecf197f5104b1b4d35537240d33fe",
+    "plans/cara_next_stage_20261104/sensitivity/cpu_dry_run.py": "47566eec09c011d922ecc3ddd4dfdb32b44b2ea1ad408e85f27d6470c3185523",
     "plans/cara_next_stage_20261104/sensitivity/host.py": "1a960289b028f282ad41005a425a6c0b27e29fa5e23bbc43003f1aafaf684625",
+    "plans/cara_next_stage_20261104/sensitivity/linux_cpu.py": "be60829a00ad71cf6c8bbc8e1b413290e861a9ac16b469e88a0e3194bbaec7b0",
+    "plans/cara_next_stage_20261104/sensitivity/ops.py": "37dc94c7c1d09ded09522a3c9a483234b7a3b20d181231e994f43c27dba4a8b2",
     "plans/cara_next_stage_20261104/sensitivity/prepare.py": "37b7b5b0486e1e8df8afd0909861839ffc0bacbb2350e0b7c60667e4b913f797",
-    "plans/cara_next_stage_20261104/sensitivity/runner.py": "1e8be0b09f183cc84fb7a0125d9ee7c0f64f52b0e04ea712af901dba9998f4d4",
+    "plans/cara_next_stage_20261104/sensitivity/provision.py": "bb25aaea723a48ed72e47ca94d65f23c5980f933ebf0cc2f52f04615756d68e5",
+    "plans/cara_next_stage_20261104/sensitivity/runner.py": "3ad069d595011fa5dc338526c9b0df3da8b34ddb025c7f900a09285f45c45b78",
     "plans/cara_next_stage_20261104/sensitivity/sampling.py": "77937bdbcb0e42b0036e71bef089c134d44b756680851fcc6f0b539671f9de9b",
-    "plans/cara_next_stage_20261104/sensitivity/score.py": "4ea00043cf78ed478498b8cec8ff6b2e3e201f93e1ab5d964eb607da07d0807d"
+    "plans/cara_next_stage_20261104/sensitivity/score.py": "524e0a6500b6c4c0ce966f079b154c020a38bf975a2595fd24811beff0a033a8"
   },
-  "preregistration_sha256": "ba7e0ef9cee6d91669eb4b152e69fd96774a0d97f55db31f0085763382905ad2",
+  "preregistration_sha256": "7cd1d2bd348d9194ede92606d1bf9fe1a847b9e948f479335e16e71ccce4fe9d",
   "zero_gpu_original_sha256": {
     "plans/cara_next_stage_20261104/sensitivity/zero_gpu/analyze.py": "546baf42dbd8a2c96b49966a79bf9ab9e5ac84d11986e56f76920aba8654dca7",
     "plans/cara_next_stage_20261104/sensitivity/zero_gpu/extra.py": "56a0dd7919f9833f6d831423fac36036254c53483fc52555a6ac97f3146e4189",
@@ -2912,5 +2915,196 @@
     "plans/cara_next_stage_20261104/sensitivity/zero_gpu/robust.py": "5fb5ca0d475bb6cf245b3dd4c4c4fda7343960db64b1863f59a5d545a480861c",
     "plans/cara_next_stage_20261104/sensitivity/zero_gpu/vt_curve.png": "83ca2a7a607c2b660d19a447a97997fcf559e443ce73a323ed3f31c921e5b3b3"
   },
-  "scope_sha256": "9aacd74e57031bc83faa3a7b20e94cc6b01e605b2b6b1535fe2658a1182640f0"
+  "Phase2_revision": {
+    "user_instruction": "Simplify before first GPU; reserve9.5 and launch once; stop agent work after first requests start",
+    "controls": "Record equal/max_abs_diff without interrupting the GPU card; report latent/RGB controls in analyze",
+    "retained_source_checks": "Runner handoff/context gates do not validate payload/runtime bytes, so those checks remain",
+    "CPU_dry_run": {
+      "passed": true,
+      "torch_version": "2.8.0",
+      "weighted_age_exhaustive_controls": 6,
+      "exact_permutation_controls": 2,
+      "pinned_sampler_cache_UniPC": {
+        "status": "PINNED_PIPELINE_CPU_FIXTURE_EXTERNAL_EXERCISE_COMPLETE",
+        "checks": [
+          {
+            "flow": false,
+            "controls": [
+              {
+                "t": 8,
+                "suffix_updates": 29,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 10,
+                "suffix_updates": 27,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 12,
+                "suffix_updates": 25,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 14,
+                "suffix_updates": 23,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 16,
+                "suffix_updates": 21,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 18,
+                "suffix_updates": 19,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 20,
+                "suffix_updates": 17,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 22,
+                "suffix_updates": 15,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 24,
+                "suffix_updates": 13,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 26,
+                "suffix_updates": 11,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 28,
+                "suffix_updates": 9,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 30,
+                "suffix_updates": 7,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 32,
+                "suffix_updates": 5,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 34,
+                "suffix_updates": 3,
+                "full_latent_and_RGB_equal": true
+              }
+            ],
+            "unchanged_suffix_controls": 2,
+            "Native_metrics_steps": 36,
+            "latent_states": 36,
+            "sensitivity_states": 14,
+            "complete_physical_requests": 143,
+            "CPU_request_class": "DECLARED_FROZEN_FIXTURE"
+          },
+          {
+            "flow": true,
+            "controls": [
+              {
+                "t": 8,
+                "suffix_updates": 29,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 10,
+                "suffix_updates": 27,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 12,
+                "suffix_updates": 25,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 14,
+                "suffix_updates": 23,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 16,
+                "suffix_updates": 21,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 18,
+                "suffix_updates": 19,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 20,
+                "suffix_updates": 17,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 22,
+                "suffix_updates": 15,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 24,
+                "suffix_updates": 13,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 26,
+                "suffix_updates": 11,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 28,
+                "suffix_updates": 9,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 30,
+                "suffix_updates": 7,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 32,
+                "suffix_updates": 5,
+                "full_latent_and_RGB_equal": true
+              },
+              {
+                "t": 34,
+                "suffix_updates": 3,
+                "full_latent_and_RGB_equal": true
+              }
+            ],
+            "unchanged_suffix_controls": 2,
+            "Native_metrics_steps": 36,
+            "latent_states": 36,
+            "sensitivity_states": 14,
+            "complete_physical_requests": 143,
+            "CPU_request_class": "DECLARED_FROZEN_FIXTURE"
+          }
+        ],
+        "upstream_sha256": {
+          "cosmos_predict2/inference.py": "0db96c49f0b3f18a971bc989e0727132dafc27ef621145a2d25a3da62a7a1975",
+          "cosmos_predict2/_src/predict2/inference/video2world.py": "59aa9e236a5e7e26490f5cfcb94ab95ce911d9c38eba61dd8aef7d067e458a95",
+          "cosmos_predict2/_src/predict2/inference/worldcache_utils.py": "b485cb8fd6e262a40e5823365c34ef7db1bc036c591d7577489e04077c515903",
+          "cosmos_predict2/_src/predict2/models/text2world_model_rectified_flow.py": "c6c68f297859e11c76d2921667a29cabfecef3a7b5d3ab831bf9bb54b25b7d87",
+          "cosmos_predict2/_src/predict2/models/fm_solvers_unipc.py": "f6a06c75f059693ade6c802e99f6058575969b6a71ef18ab05e7ed46701053d3"
+        },
+        "cuda_initialized": false,
+        "limits": "Unchanged pinned sampler/get_velocity/denoise/decode wrapper, WC, UniPC, generate_vid2world and Inference method bodies. Explicit Toy net, CPU noise/conditioner/normalize/broadcast/prepare/tokenizer/mock writer, offload disabled and CUDA telemetry adapters; equal finite threshold schedule is CPU control only. No weights, true VAE/encoded video, GPU completion, independent restart or quality result. No sparse candidate in this control."
+      },
+      "CUDA_initialized": false,
+      "Cosmos_weights_loaded": false,
+      "GPU_submissions": 0,
+      "ledger_written": false
+    }
+  },
+  "scope_sha256": "d4f2fe3bce614352fca10c734e14775f1e9c999cb4fd92b91959dc1abaf76f65"
 }
