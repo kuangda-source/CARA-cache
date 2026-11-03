@@ -36,7 +36,7 @@ def main():
     assert not setup.disable_guardrails and not setup.use_torch_compile and not setup.offload_diffusion_model
     for r in card['inputs']:InferenceArguments(**{k:v for k,v in r.items() if k!='partition'})
     import check_cara_f19_speed190_pipeline_cpu_r1 as pipeline
-    numeric=pipeline.run(runtime,a.stage/('CPU-pipeline-'+str(os.getpid())))
+    numeric=pipeline.run(runtime,a.stage/('CPU-pipeline-'+str(time.time_ns())))
     assert len(numeric['checks'])==2 and {r['flow'] for r in numeric['checks']}=={False,True}
     suite=unittest.defaultTestLoader.loadTestsFromName('test_cara_f19_speed190_sampling_r1')
     tests=unittest.TextTestRunner(verbosity=1).run(suite)
