@@ -1,14 +1,33 @@
-# Native sensitivity8 / F17 confirm4: prepared, NOT launched
+# Native sensitivity8 / F17 confirm4: RUNNING
 
-**本次启动被宿主内存准入阻止。未预留中央 ledger、未启动 GPU、没有首批请求或运行完成证据。**
-最终状态时间：2026-11-04T03:23:41.350092+08:00。MemAvailable=49.651203GiB，低于原 CAL35 延用的50GiB准入门；此前两次 admit 均在同一内存条件拒绝。
-没有降低门槛、清理其它进程/系统缓存、等待循环或创建任何 heartbeat/cron/automation/持续监控。
+**本轮唯一准入通过，已一次预留9.5GPUh并启动原GPU作业。确认容器/guardian和真实CUDA进程开始后，agent已停止远端操作。尚无完成或科学验收结论。**
+
+本轮按用户监督指令，precheck、central-status、admit各执行一次；不降低50GiB门槛，不drop caches，不动其它进程。
+本次admit的MemAvailable=50.898097992GiB，两张A6000空闲、无compute apps；CAL35仍SETTLED，可用余额17.034014934492GPUh，正式报价9.287657161GPUh不变。
+前轮49.651203GiB拒绝记录保持在本文件Git历史中，本轮没有重做CPU、source prepare或provision。
+没有创建heartbeat、cron、Codex automation或持续监控，只保留原launcher的温度/硬限/独占保护。
+
+## 实际启动与唯一预留
+
+- 计费/guardian开始（Asia/Shanghai）：**2026-11-04T03:31:08.522200+08:00**。
+- GPU容器StartedAt（Asia/Shanghai，显示到微秒）：**2026-11-04T03:31:24.947942+08:00**；原Docker时间 `2026-11-03T19:31:24.947942519Z`；运行PID=363233。
+- 启动取证开始时间（Asia/Shanghai）：2026-11-04T03:34:50.136098+08:00。容器Running=true；原guardian PID=363145、supervisor PID=363233、runner PID=363330均已绑定。
+- GPU进程证据：`GPU-cebf7119-cf03-23b9-e192-cd196332b704, 363330, /data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python, 24482`。因此已确认实际CUDA进程，不只是一份启动意图。
+- runner.log显示Cosmos/VAE/guardrail模型加载；取证时collection.json尚未生成，未确认采样行或最终结果。后续由原launcher继续运行，agent不等待完成。
+- 唯一预留事件：`SENSITIVITY8_WHOLE9_5_RESERVE`，sequence=91；中央job状态RESERVED_OR_RUNNING。尚未结算，不运行CPU评分。
+
+| Ledger | cap | used | reserved | available（GPUh） |
+|---|---:|---:|---:|---:|
+| 预留前 | 250 | 216.465985065508 | 16.500000000000 | 17.034014934492 |
+| 预留后 | 250 | 216.465985065508 | 26.000000000000 | 7.534014934492 |
+
+cap250、旧16.5GPUh责任和其它job保持，没有增cap、另一个预留或自动后继卡。
 
 ## 冻结身份与已完成准备
 
 - Run：`cara-native-sensitivity8-confirm4-r1-20261104`。
-- 预分配 launch id：`c751f711b5e74daf8552eabe0109afe2`；**不是实际GPU launch**，GPU-launch.json 尚不存在。
-- 计划 UUID：`GPU-cebf7119-cf03-23b9-e192-cd196332b704`；启动时间：不适用。
+- 唯一实际 launch id：`c751f711b5e74daf8552eabe0109afe2`；GPU-launch.json 已存在，严禁重放或另建launch。
+- 实际 UUID：`GPU-cebf7119-cf03-23b9-e192-cd196332b704`；启动时间见上。
 - 科学/执行源码：`44f738feadad1c9e697274d9f69a48192c40518c`，已 push。参数、队列、统计函数与报价保持；scope `d4f2fe3bce614352fca10c734e14775f1e9c999cb4fd92b91959dc1abaf76f65`。
 - Stage：`/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-native-sensitivity8-confirm4-r1-20261104`。采用现有 `cara-budget-calibration-GPU-` 前缀以直接复用原生命周期捕获器；run id 不变。
 - 本地原句柄绑定：`.sync/cara-sensitivity-original-binding.json`，包含该原始 launch/source，后续只能恢复，不重做 prepare。
@@ -25,17 +44,28 @@ score 去掉重复依赖/权重哈希、latent字节重读校验及末尾计数�
 validate_runner_handoff 只验证原进程授权/命令，runner_context_gate 只验证GPU独占上下文；二者均不覆盖payload/runtime内容，所以没有删除那两项源码校验，也没有新增校验。
 CAL35 同卡曾有Native/allD全部36步引导张量及终态latent比特复现证据，见874报告；本卡仍报告自身控制差值。
 
-## 最终只读资源状态
+## 正式报价与估计时钟
 
-CAL35仍SETTLED。中央本卡 job=None；cap=250、used=216.465985065508、reserved=16.500000000000、available=17.034014934492GPUh。
-因此“预留后状态”不存在。预算足够，但未通过全部宿主准入。
-两张A6000均利用率0、Default，无compute apps；计划卡24MiB/45°C，另一卡311MiB/42°C。
-GPU-intent/GPU-dispatch/GPU-launch/guardian-intent均不存在，collection.json不存在。没有实际计费区间，也无需对本卡结算0费用或新增结算事件。
+正式报价保持 **9.287657161GPUh**，硬限9.5GPUh，按单张GPU墙钟换算：
 
-正式报价仍 **9.287657161 GPUh**，单卡硬限9.5：a0.698969381，b旧/新各2.769049671，c1.016971396，预热/控制0.583223967，波动/加载/I/O/退出余量1.450393075。
-未启动，所以绝对ETA与中途检查时刻不适用。若以后实际启动T：预计结束T+9小时17分16秒，建议人工中途检查T+4小时38分38秒；新工作停止阈值T+9小时20分，硬限T+9小时30分。都只是工程估计，没有安排任何检查任务。
+- 预计完成：**2026-11-04T12:48:24.087981+08:00**。
+- 建议人工中途检查：**2026-11-04T08:09:46.305091+08:00**。
+- launcher停止新工作阈值：2026-11-04T12:51:08.522200+08:00；硬限：2026-11-04T13:01:08.522200+08:00。
 
-## 原句柄查看与后续启动边界
+全部基于实际guardian计费起点和既有报价，是估计而非完成承诺；没有安排任何检查/提醒任务。报价距停止新工作阈值约2分44秒，温度/I/O保护可能更早结束。
+
+## 四个新输入与预注册
+
+四个输入均按固定来源分组排除/类别哈希规则选取，seed0，没有重新选样：
+
+- `av_cc90f226-5312-4e0f-959a-39cd4eb4d90d`：`vendor/WorldCache/Evaluation/PAI-Eval/cosmos_eval_jsons_text_only/av_cc90f226-5312-4e0f-959a-39cd4eb4d90d.json`。
+- `human_034`：`vendor/WorldCache/Evaluation/PAI-Eval/cosmos_eval_jsons_text_only/human_034.json`。
+- `misc_9699390-uhd_3840_2160_30fps`：`vendor/WorldCache/Evaluation/PAI-Eval/cosmos_eval_jsons_text_only/misc_9699390-uhd_3840_2160_30fps.json`。
+- `physics_017`：`vendor/WorldCache/Evaluation/PAI-Eval/cosmos_eval_jsons_text_only/physics_017.json`。
+
+预注册：`plans/cara_next_stage_20261104/sensitivity/PREREGISTRATION.md`，提交 `44f738feadad1c9e697274d9f69a48192c40518c`，SHA256 `7cd1d2bd348d9194ede92606d1bf9fe1a847b9e948f479335e16e71ccce4fe9d`。
+
+## 原句柄查看与禁止重派
 
 从本地仓库执行一次性查看（不建立循环）：
 
@@ -44,12 +74,11 @@ GPU-intent/GPU-dispatch/GPU-launch/guardian-intent均不存在，collection.json
 ```
 
 日志/原句柄将位于 stage 的 runner.log、host-guardian.log、container-cli.log、guardian.json、supervisor.json、billing.json；原launcher保留自身温度/硬限/独占保护。
-本轮到此停止。以后不能盲目执行prepare/dispatch：先恢复该原stage，针对固定身份重新检查GPU、宿主内存≥50GiB、源/资产、锁、盘和ledger；全部通过后才可为这个原launch一次预留9.5，随后唯一dispatch。不得以当前旧快照启动，不增cap、不重派CAL35。
-已提交的 ops.py 提供 admit / reserve / dispatch 原操作，reserve输入必须是 `{"admission":<新admit响应>}`，dispatch输入必须含原 envelope 和新中央 snapshot。当前没有这些预留/派发输入。
+本卡现已真正启动：禁止再执行prepare、reserve、dispatch或修改原运行源码/配置。状态未知时只恢复这个原launch的句柄，不新建作业、不增cap、不重派CAL35。agent本轮到此停止，没有安排任何后续监控。
 
-## 若未来成功启动，完成后的确切命令
+## 原运行结束后的确切验收命令
 
-以下命令只在原GPU终态后使用，本轮**没有执行**。
+以下命令只在这个原GPU终态后使用，本轮**没有执行**。先验收释放并唯一结算，再执行成功完整结果的CPU评分与分析。
 
 1. 捕获释放与原账单：
 
@@ -101,6 +130,6 @@ F17按固定1.9×/133秒/LPIPS0.27/原六均值质量门与δ0.027、70排列、
 
 ## 风险与范围
 
-当前唯一实际阻塞是宿主内存。未来的真实GPU峰值/9小时I/O与温度尚未验收；CAL35曾到88°C，新卡仍按90°C自动停机，硬限与存储保护不放宽。不完整时保留分母和费用，不自动重派。
-报价含余量但距T+9小时20分停止新工作阈值约2分44秒，仍是估算。Shared25规划10不是ledger已预留额度，当前卡若将来占用9.5后仅余7.534GPUh，不自动推进其它卡。
+本轮宿主内存已通过准入；真实完整卡峰值/9小时I/O与温度尚未完成验收。CAL35曾到88°C，新卡仍按90°C自动停机，硬限与存储保护不放宽。不完整时保留分母和费用，不自动重派。
+报价含余量但距T+9小时20分停止新工作阈值约2分44秒，仍是估算。Shared25规划10不是ledger已预留额度，当前已预留9.5后仅余7.534GPUh，不自动推进其它卡。
 本卡遵循CAL35本目录RUN_HANDOFF.md惯例；memory/handoffs/LATEST.md为生成文档，未手改。其它工作流原M/??保持。
