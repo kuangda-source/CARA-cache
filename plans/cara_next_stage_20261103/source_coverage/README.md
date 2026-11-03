@@ -1,5 +1,7 @@
 # 来源覆盖驱动的终点校准刷新规划
 
+当前主方法采用**阶段加权单来源覆盖＋完整终点校准**。当前范围见[873零GPU复核](../../../research/873_CARA_SINGLE_SOURCE_PHASE_ROBUSTNESS_AND_MERGED_PLAN_20261103.md)与[R3合并草案](c1/PHASE_SINGLE7_MERGED_PROPOSAL_R3.md)；以下原双来源原型及CPU记录保留历史，不再承担新方法的来源增量主张。
+
 2026-11-03，用户同意先做 CPU 验证。本轮交付是可运行的候选生成器、完整终点选择器和实际 CPU 验证，沿用 P0 的写入机制证据。研究问题是：**控制缓存来源在未来更新中的覆盖，能否用一个小型计划族提高完整视频校准的效率，并由同一规则生成不同预算的计划？**
 
 ## 首版方法
@@ -59,9 +61,11 @@ r_\gamma(t\mid a,b)=e^{\gamma(s_t-1/2)}\frac{d(t,a)+d(t,b)}2.
 
 ## 下一步
 
-当前以[872零GPU审计与预算重排](../../../research/872_CARA_C1_ZERO_GPU_AUDIT_AND_BUDGET_REPRIORITIZATION_20261103.md)和[19D条件草案](c1/C1_REDUCED19_PROPOSAL_R2.md)为准：原166位置／14.82GPUh方案暂停。原42个FIT查询的SHA和排序已完整核验；正阶段权重提供排序信号，双来源没有一致增量。先继续F19→1.9×准备并保护Shared25独立最终确认额度。条件C1缩为70请求上界、预计6.536GPUh／建议硬7，不据此次审计自动启动。
+按[合并R3](c1/PHASE_SINGLE7_MERGED_PROPOSAL_R3.md)继续CPU生产准备：19D的lambda2/4各全局前三名、lambda0第一名，共7候选；16/17D各lambda2/4第一名，11条布局均报告C/A1。新[候选池](c1/PHASE_SINGLE7_CANDIDATE_POOLS_R3.json)登记为原42开发审计后的新设计，旧库不改。
 
-原[166范围与报价](c1/C1_REVIEW_R1.md)、31项本地/LinuxCPU和候选库原样保留；它们不接受新70请求生产入口。新增5项CPU控制覆盖离线目标一致、原评分SHA与A1规则，见[回执](../../../reports/cara_source_coverage_zero_GPU_CPU_controls_r1_20261103.json)。当前GPU和账本操作均为0。
+原严格最小峰值版本在19D的正lambda下各只有1条计划；新版本明确按全局峰值/平方和取前三名，最优第一名不变。新增4项CPU控制包含120组独立穷举。完整106请求预计9.2406GPUh、建议硬9.25，与Shared25规划10合计19.25；最后快照19.2743可容纳但不是实时预约。完整GPU/CPU生产组合尚待，当前GPU/账本操作均为0。
+
+原[166范围](c1/C1_REVIEW_R1.md)、[70范围](c1/C1_REDUCED19_PROPOSAL_R2.md)、31项本地/Linux接受及旧候选库保留历史，不接受新106入口。Shared25的独立确认不替代新几何方法冻结后的新输入验证。
 
 ## 已保存数据的完整审计
 
