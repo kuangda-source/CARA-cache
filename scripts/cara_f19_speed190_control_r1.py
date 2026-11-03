@@ -14,9 +14,15 @@ from wcomr.gpu_budget_pool_v2 import atomic_json
 """
 STATUS=BIND+"""
 result=dict(status='ORIGINAL_CAL35_STATUS',authority=read(stage/'GPU-authorization.json'),registration_sha256=sha(stage/'registration.json'),observed_unix=time.time())
-for n in ('CPU-launch.json','CPU-r2-launch.json','CPU-proof.json','storage-state.json','GPU-intent.json','GPU-dispatch.json','GPU-launch.json','guardian.json','supervisor.json','billing.json'):
+for n in ('CPU-launch.json','CPU-r2-launch.json','CPU-proof.json','storage-state.json','GPU-intent.json','GPU-dispatch.json','GPU-launch.json','pg-runner-context-ready.json','pg-runner-context-granted.json','runner-start.json','supervisor-start.json','guardian.json','supervisor.json','billing.json'):
  if (stage/n).exists():result[n]=read(stage/n)
-if (stage/'GPU-launch.json').exists():result['lifecycle']=capture(root,stage)
+if (stage/'GPU-launch.json').exists():
+ result['launch_sha256']=sha(stage/'GPU-launch.json');result['lifecycle']=capture(root,stage)
+monitor=stage/'exclusive-monitor.jsonl'
+if monitor.exists():
+ with monitor.open('rb') as stream:
+  stream.seek(max(0,monitor.stat().st_size-65536));lines=stream.read().splitlines()
+  if lines:result['last_exclusive_monitor']=json.loads(lines[-1])
 output=root/'outputs'/RUN
 if output.exists():
  result['output_free_bytes']=os.statvfs(output).f_bavail*os.statvfs(output).f_frsize
@@ -93,7 +99,13 @@ assert all(release[k] for k in ('GPU_released','mode_restored','cost_settled','o
 control=stage/'released-score-control';name=stage.name+'-score'
 q=subprocess.run(['docker','inspect',name],capture_output=True,text=True)
 if q.returncode==0:
- c=json.loads(q.stdout)[0];result=dict(status='SCORE_RUNNING' if c['State']['Running'] else 'SCORE_TERMINAL',state=c['State'])
+ c=json.loads(q.stdout)[0]
+ original=read(control/'launch.json');assert c['Id']==original['stdout'].strip()
+ h=c['HostConfig'];assert c['Image']==read(stage/'registration.json')['container_image']
+ assert not h.get('DeviceRequests') and h['Memory']==h['MemorySwap']==8*2**30 and h['NanoCpus']==2000000000
+ assert h['CpusetCpus']=='4,5' and h['NetworkMode']=='none' and h['ReadonlyRootfs']
+ assert {'CUDA_VISIBLE_DEVICES=','NVIDIA_VISIBLE_DEVICES=void'}<=set(c['Config']['Env'])
+ result=dict(status='SCORE_RUNNING' if c['State']['Running'] else 'SCORE_TERMINAL',state=c['State'])
  if (control/'scores.json').exists():
   state=read(control/'scores.json');result['progress']=dict(status=state['status'],RGB=len(state['RGB']),LPIPS=len(state['LPIPS']),quality=len(state['quality_rows']))
   if not c['State']['Running']:result['scores']=state
@@ -149,8 +161,8 @@ print(json.dumps(dict(status='RELEASED_CAL35_ARTIFACTS',collection=read(root/'ou
 """
         v=rpc(code,data,route=a.route)
     else:
-        files=local_python_closure(ROOT,['src/wcomr/cara_f19_speed190_execution_r1.py'])
         binding=read(ROOT/'.sync/cara-f19-CAL35-original-binding.json');auth=binding['authority']
+        files=binding.get('central_source_sha256') or local_python_closure(ROOT,['src/wcomr/cara_f19_speed190_execution_r1.py'])
         args=dict(action={'central-prepare':'prepare','reserve':'reserve','settle':'settle'}[a.action],authority=auth,hashes=files,**data)
         if a.action=='central-prepare':
             compare=rpc(CENTRAL,{**args,'action':'compare'},host='four_card',route=a.route)
