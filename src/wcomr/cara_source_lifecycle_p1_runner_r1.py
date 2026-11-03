@@ -7,12 +7,14 @@ from .cara_fast_spec_r1 import digest
 from .cara_source_lifecycle_p1_clock_r1 import OriginalAllocationClock
 from .cara_source_lifecycle_p1_collection_r1 import Collection
 from .cara_source_lifecycle_p1_requests_r1 import Requests
+from .cara_source_lifecycle_p1_plan_r1 import validate
 from .cara_s_endpoint_runner_r1 import observed_precision
 
 
 def collect_loaded(*, inference, samples, card, common, context, output, storage,
                    mode_types, snapshot_limits, weights, score, elapsed_seconds,
-                   query_bounds, cpu_validation=False, create=False, allow_new=False):
+                   query_bounds, cpu_validation=False, create=False, allow_new=False,
+                   collection_class=Collection, card_validator=validate):
     import torch
     from .full_sampling import CompleteStateRoundtrip
     from .h0_mode import establish_shared_eval, verify_shared_eval
@@ -72,10 +74,11 @@ def collect_loaded(*, inference, samples, card, common, context, output, storage
 
         try:
             requests = Requests(inference=inference, samples=samples, card=card, common=common, context=context,
-                before_request=before, snapshot_limits=snapshot_limits, cpu_validation=cpu_validation)
-            collection = Collection(root=Path(output), card=card, context=context, weights=weights,
+                before_request=before, snapshot_limits=snapshot_limits, cpu_validation=cpu_validation,
+                card_validator=card_validator)
+            collection = collection_class(root=Path(output), card=card, context=context, weights=weights,
                 execute=requests, score=internal_score, elapsed_seconds=elapsed_seconds, query_bounds=query_bounds,
-                cpu_validation=cpu_validation, create=create)
+                cpu_validation=cpu_validation, create=create, card_validator=card_validator)
             result = collection.run(allow_new=allow_new)
         finally:
             initial.restore()

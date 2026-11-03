@@ -18,8 +18,8 @@ from .wc_time_protocol_p0 import compile_wc_adapter
 
 class Requests:
     def __init__(self, *, inference, samples, card, common, context, before_request,
-                 snapshot_limits, cpu_validation=False):
-        self.profile = validate(card)
+                 snapshot_limits, cpu_validation=False, card_validator=validate):
+        self.profile = card_validator(card)
         if (context['scope_sha256'] != card['scope_sha256'] or context['host'] != 'two_card'
                 or context['CPU_fixture_only'] is not cpu_validation
                 or not context['launch_id'] or not context['source_revision'] or not context['admission_sha256']):

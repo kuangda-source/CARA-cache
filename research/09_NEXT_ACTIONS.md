@@ -2,7 +2,7 @@
 
 # CARA-Cache 后续实验顺序
 
-[870 来源覆盖终点校准规划：CPU原型通过](870_CARA_SOURCE_COVERAGE_ENDPOINT_PLANNER_CPU_20261103.md)：来源覆盖终点校准原型通过16项本地CPU控制、180组穷举及8条完整36更新小权重路径，19D/22D生成12/8条候选。另3项CPU审计控制通过，原64标签/24搜索查询中局部留出MSE改善而六组终点排序相关均为负，支持优先推进结构候选＋终点选择；全42排序仍缺18评分明细。下一步完整视频入口/范围/报价，本轮0GPU、未访问账本。
+[871 C1 完整校准：范围、CPU流程与报价](871_CARA_SOURCE_COVERAGE_C1_SCOPE_QUOTE_AND_CPU_PREPARATION_20261103.md)：C1完整166语义／最多166物理／60正式质量位置；来源8对8、阶段3对3，搜索使用独立缓存与同实测费用上限。本地31项CPU通过，预计14.8224GPUh、建议硬15。正在恢复原Tailscale通路和Linux CPU接线；新宿主监督/60位置终态接受绑定仍待，不申请或启动GPU，不访问中央账本。
 
 [869 - P1 R2 完整结果：自动规划链路成立，当前来源估值未提供终点增量](869_CARA_P1_R2_COMPLETE_RESULTS_SOURCE_INCREMENT_FAILED_20261103.md)：P1完整146/64/142/12等价门及52质量位置接受，原FIT一次冻结和全93帧/双时钟图表完成；12.270682712GPUh已唯一结算，全部原GPU/CPU结束，所有检查已删。四旧CAL上主V1-19D LPIPS0.479044，F19-A1为0.231499，时延148.027/149.368秒；前来源间距在19D/22D均比阶段＋年龄更差，原工程筛选失败。自动计划链路成立，当前来源估值未提供终点增量，不晋级P2、不自动下一卡；旧冻结、曝光范围和保护输入保持。
 
@@ -21,6 +21,8 @@
 [756 B36完整验收、结果与正式图表](756_CARA_B36_COMPLETE_ACCEPTANCE_RESULTS_AND_FIGURES_20261029.md)：B36完整36/36、0失败，原GPU/CPU/导图CPU均正常退出；原费用2.384553982338661GPUh已中央唯一结算，5.5GPUh硬限、cap226及旧16.5保持。26新评分＋六原A指标组成完整32接受；原规则汇总及四组PNG/PDF、四CSV均完成，两个自动检查已删除。4旧CAL输入等权结果：F19_C为1.703×T_DD、1.486×完整请求，Alex0.24936，较同19D的Uniform19_C降低46.82%；F19_A1为1.691×/1.479×、Alex0.23150，较F19_C再降7.16%，T_DD开销0.70%。WC/RA保持FIT UNMATCHED，原A32评分与冻结未重做；CHECK仍为旧CAL内部留出。10月30日原Tailscale入口恢复后已只读复核中央原结算；原费用和完整接受保持，新GPU仍需fresh准入。 [B36唯一启动回执](../reports/cara_fast_B36_GPU_actual_launch_r1_20261029.json) · [原句柄与验收交接](../plans/cara_next_stage_20261028/mainline/r2/B36_POST_LAUNCH_HANDOFF.md)
 
 ## 当前主线：来源覆盖与终点校准规划
+
+[C1范围与报价](../plans/cara_next_stage_20261103/source_coverage/c1/C1_REVIEW_R1.md)已落实为166语义、60质量位置，来源8对8与阶段3对3，隔离缓存的同费用搜索。本地31项CPU通过；预计14.8224GPUh、建议硬15。继续Linux CPU与新卡宿主监督/终态接受绑定，完成后再提交启动审阅；当前0GPU、无新账本权限。
 
 [870 CPU 原型](870_CARA_SOURCE_COVERAGE_ENDPOINT_PLANNER_CPU_20261103.md)已通过16项控制、180组穷举对照及8条完整36更新的小权重原缓存/UniPC路径。主方法19D/22D生成12/8条去重候选，单来源与无阶段消融、完整终点选择CLI可运行。接下来完成[方法入口与整卡范围报价](../plans/cara_next_stage_20261103/source_coverage/README.md)，以同实际校准费用的终点效率和规则迁移作为主要研究问题。
 

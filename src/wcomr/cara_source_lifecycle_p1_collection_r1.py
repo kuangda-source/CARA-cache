@@ -23,8 +23,8 @@ from .cara_source_lifecycle_search_r1 import run_search
 
 class Collection:
     def __init__(self, *, root, card, context, weights, execute, score, elapsed_seconds,
-                 query_bounds, cpu_validation=False, create=False):
-        self.profile = validate(card)
+                 query_bounds, cpu_validation=False, create=False, card_validator=validate):
+        self.profile = card_validator(card)
         if (context['scope_sha256'] != card['scope_sha256'] or context['host'] != 'two_card'
                 or context['CPU_fixture_only'] is not cpu_validation
                 or len(weights) != 36 or any(not math.isfinite(w) or w < 0 for w in weights)
@@ -159,7 +159,7 @@ class Collection:
                 or a['post_request_RNG_sha256'] != b['post_request_RNG_sha256']):
             raise ValueError('Full latent, RGB or post-request RNG identity control failed')
 
-    def fit_score(self, candidate, outputs, references):
+    def fit_score(self, candidate, outputs, references, *, operation_prefix=''):
         if candidate in self.score_cache:
             return self.score_cache[candidate]
         pairs = []
@@ -169,11 +169,12 @@ class Collection:
                 pair[side] = dict(member=member, seed=0, candidate_id=value['proof']['candidate_id'],
                     proof_path=value['proof_path'], proof_sha256=value['proof_sha256'], **value['proof']['video'])
             pairs.append(pair)
+        name = operation_prefix+'score-'+candidate
         packet = dict(schema='CARA_V1_INTERNAL_COMPLETE_FIT_ARTIFACTS_R1',
             purpose='P1_INTERNAL_FIT_CALIBRATION', CPU_fixture_only=self.cpu_validation,
             FIT_members=self.card['FIT'], schedule_sha256=digest(self.card['schedule']),
             source_revision=self.context['source_revision'], launch_id=self.context['launch_id'],
-            context_sha256=digest(self.context), candidate_id=candidate, query_id='score-'+candidate,
+            context_sha256=digest(self.context), candidate_id=candidate, query_id=name,
             score_shape=[93, 64, 64, 3] if self.cpu_validation else [93, 432, 768, 3], pairs=pairs)
 
         def invoke(directory):
@@ -190,7 +191,6 @@ class Collection:
             select_complete_FIT([plan], accepted['rows'], self.card['FIT'])
             return accepted
 
-        name = 'score-'+candidate
         result = self.once(name, packet, invoke)
         self.score_cache[candidate] = result, name
         return result, name

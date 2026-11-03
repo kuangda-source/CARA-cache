@@ -4,6 +4,8 @@
 
 ## 当前主线：来源覆盖与终点校准规划
 
+[C1范围与报价](repo:plans/cara_next_stage_20261103/source_coverage/c1/C1_REVIEW_R1.md)已落实为166语义、60质量位置，来源8对8与阶段3对3，隔离缓存的同费用搜索。本地31项CPU通过；预计14.8224GPUh、建议硬15。继续Linux CPU与新卡宿主监督/终态接受绑定，完成后再提交启动审阅；当前0GPU、无新账本权限。
+
 [870 CPU 原型](repo:research/870_CARA_SOURCE_COVERAGE_ENDPOINT_PLANNER_CPU_20261103.md)已通过16项控制、180组穷举对照及8条完整36更新的小权重原缓存/UniPC路径。主方法19D/22D生成12/8条去重候选，单来源与无阶段消融、完整终点选择CLI可运行。接下来完成[方法入口与整卡范围报价](repo:plans/cara_next_stage_20261103/source_coverage/README.md)，以同实际校准费用的终点效率和规则迁移作为主要研究问题。
 
 [原64标签/24搜索查询审计](repo:reports/cara_source_proxy_saved_CPU_audit_r1_20261103.json)与3项CPU控制已完成：局部留出MSE随来源特征改善，六组代理—终点排序相关均为负。完整42排序还缺18次DP候选评分明细；只读传输超时，不重跑原评分。新原型继续推进完整视频校准，其真实视频分数仍为空，此次CPU没有启动GPU或访问账本。
