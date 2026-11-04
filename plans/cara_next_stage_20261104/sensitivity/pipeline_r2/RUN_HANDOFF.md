@@ -38,3 +38,13 @@ loop内direct-read的1.226s仍受外层镜像页缓存影响，不用作冷盘�
 若未来批准且实际预留11.5，按该快照可用余量1.117451806GPUh；无控制11.0版本余1.617451806。不预支F17可能返还的余量。两版均>4GPUh，必须批准新数字；当前0新增预留、0新GPU。
 
 scratch仅本轮新建：`$R/.sync/cara-pipeline-benchmark-20261104/state_same_size.pt`及其空目录，已删除；CPU容器已自动移除。direct-read写向`/dev/null`，没有其他数据文件；原五条Native、008失败证据、budget-calibration-r2、CAL35和F17均保持。测量原始输出在Mac `/tmp/cara_pipeline_CPU_IO_r3.json`、`/tmp/cara_pipeline_backing_read.json`，数值已纳入manifest，没有额外审计文档。
+
+
+## 2026-11-04 实际验收：启动条件未满足
+
+用户批准「保留5控制，约10.37GPUh，硬限11.5GPUh，F17验收通过后上卡」，并要求正式中心≤11.0、可用额度≥11.5。Step0中央ledger及服务器回执确认本run无job、无stage、无dispatch或launch；本轮未prepare/provision/reserve/launch。
+F17原18/18 GPU成功，guardian实耗1.201165875084957GPUh已唯一结算seq94；ledger cap250 / used220.1337140687724 / reserved16.5 / available13.366285931227594。
+同批速度1.919510545×、F17平均T_DD131.701258789s；新/旧F17 LPIPS均值0.236186453/0.238367899，固定δ0.027、70排列单侧p=0.300>0.05。非劣性未确立，独立确认FAIL，因此本续卡不启动；没有launch_id、启动/预计完成时间。正式报价10.371018501GPUh、硬11.5保持，仅满足费用门不构成启动条件。
+指定budget-calibration-r1的64GiB镜像及provision.json已删除，删除前loop42/主机挂载/活动容器引用均为空；文件分配合计68,719,484,928 bytes，延迟回收后df可用357G（382,360,334,336 bytes）。r2、CAL35、旧256GiB敏感度卷及F17卷均未改动。
+F17评分/分析入口和唯一结算回执见 `reports/cara_f17_confirm4_r1_20261104/` 及 `../f17_confirm4/RUN_HANDOFF.md`。没有新GPU、预留、监控或自动后继。
+本续卡仍是quote-only源码：未来若另获启动许可，须先完成独立run的binding/event/addendum接线，并用release现有launch_id字段对齐确认复用入口，再做Linux入口及fresh准入；不把本地CPU dry-run称为生产可启动证明。

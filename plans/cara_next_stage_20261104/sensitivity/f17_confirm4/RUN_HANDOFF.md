@@ -1,4 +1,4 @@
-# F17 confirm4：GPU已开始运行
+# F17 confirm4：GPU已完成并结算；独立确认FAIL
 
 Run `cara-f17-confirm4-r1-20261104`；唯一原绑定launch `2fad981cd13e4ec8a0fad00253ea8358`。
 源码/补充预注册已在首次GPU使用前提交并push：`6e33ee31544225802cbb07a7084de8d2cc8e14a1`。
@@ -98,3 +98,25 @@ PY
 record仍取已测均值1388.039s，后缀计算沿用6.859528s/D-pair＋68.257887s/请求，restore以40–124s捕获窗口作代理；10%波动、600s加载、600s退出计入，约 **9.2723–12.1485GPUh（中心10.3460）**。
 若保留原登记的5技术控制，则122新请求，约 **9.7773–12.7048GPUh（中心10.8701）**。删控制不能宣称原143完整履行；该调整需显式写入新续卡协议。实际读回未测、无新盘或hash优化加速折扣，范围不是硬上限。
 全部>4GPUh，需要用户明确批准新数字与硬限；不能沿用原已关闭9.5GPUh批准，也不保证Shared25另有10GPUh。没有为续卡预留或启动。
+
+
+## 2026-11-04 人工验收
+
+Step0中央ledger确认本原launch尚未结算，pipeline_r2无job或stage；未重复结算/启动。原GPU容器2026-11-04 14:00:18.600384北京时间正常退出0、非OOM；guardian计费结束14:00:21.266785。
+18/18完整，释放/Default恢复/原进程结束均通过；guardian唯一账单4324.197150305845秒=1.201165875084957GPUh，中央seq94唯一结算，返还预留余量0.748834124915043GPUh。
+结算后cap250 / used220.1337140687724 / reserved16.5 / available13.366285931227594GPUh。原S/Q责任和所有其他job保持。
+CPU评分2026-11-04 15:00:39.807156北京时间启动原唯一scorer，CUDA隐藏，尚在完成48个质量位置；本段不把CPU评分开始当作完整评分接受。
+
+| 新输入 | Native/F17 T_DD | F17 LPIPS-Alex |
+|---|---:|---:|
+| av_cc90f226-5312-4e0f-959a-39cd4eb4d90d | 1.919858838× | 0.315270626 |
+| human_034 | 1.920085430× | 0.154256711 |
+| misc_9699390-uhd_3840_2160_30fps | 1.919521731× | 0.346878853 |
+| physics_017 | 1.918576411× | 0.128339623 |
+
+同批均值比1.9195105447531575×；Native/F17均值T_DD252.80195500275/131.701258789秒，通过≥1.9及≤133秒门。
+新F17平均LPIPS0.23618645337159916≤0.27，旧CAL35平均0.2383678987301806；固定δ0.027、70标签排列的单侧非劣p=0.300>0.05，非劣性证据不足。
+**独立确认FAIL（统计非劣门未通过，不能解释成已证明新输入更差）**。因此用户附带“F17验收通过后上卡”的pipeline_r2条件未满足：0新增预留、0stage/provision/launch，run仍无launch_id和实际/预计完成时刻。
+结果路径仍为原stage的released-score-control；本地原始collection、terminal_capture、central_settlement、release、score_launch及指定旧卷清理receipt在 `reports/cara_f17_confirm4_r1_20261104/`。旧CAL35四条LPIPS仅复用，无重新评分。
+
+budget-calibration-r1的唯一旧job已核实SETTLED；F17容器退出后losetup -j精确image无输出、findmnt无loop42、fuser无open、唯一活动CPU评分容器无loop42引用。删除了该reservation的output.ext4、provision.json和空目录，分配合计68,719,484,928 bytes（约64GiB）；XFS延迟回收后df为/dev/sdb1 14T/13T/357G/98%，精确可用382,360,334,336 bytes。未触及r2、CAL35、旧256GiB或F17的16GiB卷。本轮没有创建测速scratch文件、监控、cron或automation。
