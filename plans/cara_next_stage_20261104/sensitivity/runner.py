@@ -121,9 +121,7 @@ def collect_loaded(inference,samples,card,common,output,storage,mode_types,*,cpu
 def log_host_memory(path,request_id):
     rss=int(next(line.split()[1] for line in Path('/proc/self/status').read_text().splitlines()
         if line.startswith('VmRSS:')))*1024
-    relative=next(line.split(':')[2] for line in Path('/proc/self/cgroup').read_text().splitlines()
-        if 'memory' in line.split(':')[1].split(','))
-    group=Path('/sys/fs/cgroup/memory')/relative.lstrip('/')
+    group=Path('/sys/fs/cgroup/memory')
     row=dict(request_id=request_id,unix=time.time(),pid=os.getpid(),RSS_bytes=rss,
         cgroup_version=1,memory_current_source='memory.usage_in_bytes',
         memory_current_bytes=int((group/'memory.usage_in_bytes').read_text()))

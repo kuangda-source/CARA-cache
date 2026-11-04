@@ -21,7 +21,7 @@ from wcomr.cpu_owned_state_snapshot import CPUOwnedStateImage
 class RequestMemoryTest(unittest.TestCase):
     def test_host_memory_log_uses_deployed_cgroup_v1_counters(self):
         with tempfile.TemporaryDirectory(prefix='cara-memory-log-') as directory:
-            root=Path(directory);group=root/'sys/fs/cgroup/memory/docker/fixture';group.mkdir(parents=True)
+            root=Path(directory);group=root/'sys/fs/cgroup/memory';group.mkdir(parents=True)
             (root/'proc/self').mkdir(parents=True)
             (root/'proc/self/status').write_text('VmRSS:\t1024 kB\n')
             (root/'proc/self/cgroup').write_text('13:memory:/docker/fixture\n')
