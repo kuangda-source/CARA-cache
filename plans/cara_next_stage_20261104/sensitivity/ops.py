@@ -76,6 +76,9 @@ cmd=['docker','run','-d','--name',stage.name+'-cpu','--network','none','--read-o
  '-e','PYTHONDONTWRITEBYTECODE=1','-e','OMP_NUM_THREADS=2','-e','OPENBLAS_NUM_THREADS=2',
  '-v',str(root)+':'+str(root)+':ro','-v',str(stage)+':'+str(stage)+':rw','-w',str(root/'runtime')]
 cmd += [x for k,v in env.items() for x in ('-e',k+'='+str(v))]
+card=read(card_path)
+if 'reuse' in card:
+ source=pathlib.Path(card['reuse']['output_root']).resolve();cmd += ['-v',str(source)+':'+str(source)+':ro']
 cmd += [read(stage/'registration.json')['container_image'],'timeout','--signal=TERM','--kill-after=15s','1800',
  str(root/'envs/wc-cosmos-py310-cu128-r3/bin/python'),str(stage/rel/'linux_cpu.py'),'--manifest',str(card_path)]
 create(stage/'CPU-intent.json',dict(command=cmd,GPU_submissions=0))
@@ -238,6 +241,10 @@ def launch_host(project,stage):
     i=command.index(str(stage/'scripts/cara_fast_worker_r2.py'));command[i:i+2]=[str(stage/REL/'host.py'),'supervise']
     j=command.index('--entrypoint');command[j:j]=['--cidfile',str(stage/'container.cid'),
         '-v',str(stage/REL)+':'+str(stage/REL)+':ro']
+    card=read(stage/CARD_REL)
+    if 'reuse' in card:
+        source=Path(card['reuse']['output_root']).resolve()
+        command[j:j]=['-v',str(source)+':'+str(source)+':ro']
     from wcomr.cara_budget_lifecycle_r1 import IDENTITY
     launch={k:auth[k] for k in IDENTITY}
     launch.update(CPU_fixture_only=False,container=stage.name+'-gpu',guardian_identity=identity,

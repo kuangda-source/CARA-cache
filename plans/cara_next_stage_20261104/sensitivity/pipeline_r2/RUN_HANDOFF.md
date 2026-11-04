@@ -63,3 +63,5 @@ PY
 评分为112个新后缀LPIPS-Alex/latent MSE和原等价控制；analysis只合并F17既有12 LPIPS及48质量位置，F17仍为FAIL/p=0.300，独立报告s·Δv原理重建。结果在`S/released-score-control/scores.json`、`complete_analysis.json`。不在本轮等待完成、评分或结算。
 
 原stage安装调用传输超时，已通过现有FRP主入口只读恢复同一binding：source dcfee63ce059838596e046cc2322020d41b2e756、launch 56926fe31f234746940a9d2d6677335d，registration和authorization均完整；未重复prepare。操作端显式--route relay使用two_card_relay，中央ledger仍走原four_card bookkeeping通道，不自动重放；服务器已安装执行源码不再改动。
+
+启动前容器路径检查发现旧回执的/media/minchen实路径不可见、/data20t别名可见；为CPU入口、GPU采集及CPU评分显式增加旧256GiB输出卷的实路径只读挂载，并在Linux入口检查五条复用记录的latent/video可读。原CPU验证完成后保存其证明，在同一未预留/未启动的stage更新这次修订，再验证新入口；沿用原launch_id，不重建64GiB卷、不改数据或协议。

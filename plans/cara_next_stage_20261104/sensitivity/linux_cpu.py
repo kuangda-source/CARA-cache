@@ -40,6 +40,12 @@ finally:
 card=json.loads(args.manifest.read_text())
 for row in card['inputs']:
     InferenceArguments(**{k:v for k,v in row.items() if k!='partition'})
+if 'reuse' in card:
+    original=json.loads(Path(card['reuse']['collection']).read_text())
+    for row in original['rows']:
+        if row['slot']['id'] in card['reuse']['record_ids']:
+            for key in ('latent_artifact','video_artifact'):
+                assert Path(row['result'][key]['path']).is_file(), 'Reused artifact is outside the container mounts'
 SetupArguments(**{**json.loads((STAGE/'configs/f1_setup.json').read_text()),
     'keep_going':True,'worldcache_enabled':True,'output_dir':str(STAGE/'CPU-output')})
 runpy.run_path(str(HERE/'runner.py'),run_name='sensitivity_runner_import')

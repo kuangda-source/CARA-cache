@@ -36,6 +36,9 @@ cmd=['docker','run','-d','--name',name,'--network','none','--read-only','--cpus'
  '-v',str(root)+':'+str(root)+':ro','-v',str(stage)+':'+str(stage)+':rw',
  '-v',str(output)+':'+str(output)+':ro','-v',actual_output+':'+actual_output+':ro','-w',str(root/'runtime')]
 cmd += [x for k,v in env.items() for x in ('-e',k+'='+str(v))]
+card=read(card_path)
+if 'reuse' in card:
+ source=pathlib.Path(card['reuse']['output_root']).resolve();cmd += ['-v',str(source)+':'+str(source)+':ro']
 cmd += [read(stage/'registration.json')['container_image'],'timeout','--signal=TERM','--kill-after=15s','86400',
  str(root/'envs/wc-cosmos-py310-cu128-r3/bin/python'),str(stage/rel/'score.py'),'--manifest',str(card_path),'--stage',str(stage),'--control',str(control)]
 create(control/'intent.json',dict(command=cmd,GPU_submissions=0))
