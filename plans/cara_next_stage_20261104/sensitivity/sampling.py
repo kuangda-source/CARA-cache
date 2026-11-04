@@ -44,20 +44,23 @@ def save_state(path,image,step):
         state_bytes=stream.getvalue(),digest=image.digest,rng=RNGState(),step=step),path)
 
 
-def load_state(saved):
-    stores={key:value.to(device=saved['devices'][key],copy=True) for key,value in saved['stores'].items()}
-    tensors={}
-    class StateUnpickler(pickle.Unpickler):
-        def persistent_load(self,descriptor):
-            identity,key,dtype,offset,shape,stride=descriptor
-            if identity not in tensors:
-                tensors[identity]=torch.empty(0,dtype=dtype,device=stores[key].device).set_(
-                    stores[key].untyped_storage(),offset,shape,stride)
-            return tensors[identity]
-    state=StateUnpickler(io.BytesIO(saved['state_bytes'])).load()
-    if tree_digest(plain(state))!=saved['digest']:
+def load_state(saved, *, device=None):
+    def rebuild(stores):
+        tensors={}
+        class StateUnpickler(pickle.Unpickler):
+            def persistent_load(self,descriptor):
+                identity,key,dtype,offset,shape,stride=descriptor
+                if identity not in tensors:
+                    tensors[identity]=torch.empty(0,dtype=dtype,device=stores[key].device).set_(
+                        stores[key].untyped_storage(),offset,shape,stride)
+                return tensors[identity]
+        return StateUnpickler(io.BytesIO(saved['state_bytes'])).load()
+    # Validate the serialized CPU image once, before device transfer.
+    if tree_digest(plain(rebuild(saved['stores'])))!=saved['digest']:
         raise ValueError('Serialized complete state differs')
-    return state
+    stores={key:value.to(device=saved['devices'][key] if device is None else device,copy=True)
+            for key,value in saved['stores'].items()}
+    return rebuild(stores)
 
 
 def resume_sampler(model, runtime, start):

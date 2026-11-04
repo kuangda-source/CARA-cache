@@ -47,7 +47,7 @@ def main():
     target=control/'scores.json'
     if target.exists():raise ValueError('Recover existing original scores without replay')
     rows=collection['rows'];formal=[r for r in rows if r['slot']['section']=='c']
-    recorded={r['slot']['member']:r for r in rows if r['slot']['section']=='a'}
+    recorded={r['slot']['member']:r for r in collection.get('reused_rows',[])+rows if r['slot']['section']=='a'}
     references={r['slot']['member']:r for r in formal if r['slot']['role']=='NATIVE35'}
     state=dict(status='SCORING',scope_sha256=card['scope_sha256'],LPIPS=[],sensitivity=[],quality_rows=[],RGB_controls=[],GPU_submissions=0)
     def save():atomic_json(target,state)
@@ -91,19 +91,20 @@ def main():
                 local_guided_delta_RMS=row['result']['local_guided_delta_RMS']))
         save()
     del alex
-    factory=OriginalMetricFactory(stage=quality_root,resources=binding['resources'],CPU_acceptance=binding['acceptance'],
-        CPU_registration=binding['registration'],scorer_fingerprint=digest(binding['identity']),torch=torch,device='cpu')
-    members={r['name']:r for r in card['inputs']}
-    for dimension in ('MUSIQ_LONGER512','subject_consistency','motion_smoothness'):
-        with factory(dimension) as scorer:
-            for row in formal:
-                slot=row['slot'];member=members[slot['member']];video=row['result']['video_artifact']
-                planned=dict(case_id=slot['member'],method=slot['id'],dimension=dimension,seed=0,role=slot['role'],
-                    prompt=member['prompt'],prompt_sha256=text_sha(member['prompt']),input_status='READY_TO_SCORE',
-                    video_path=video['path'],video_sha256=video['sha256'],request_sha256=digest(row['result']),
-                    scorer_fingerprint=digest(binding['identity']),expected_sampling=sampling_spec(dimension))
-                result=scorer.score(planned);validate_result(planned,result);validate_sources_and_decoder(binding['identity'],result)
-                state['quality_rows'].append(dict(planned=planned,result=result));save()
+    if formal:
+        factory=OriginalMetricFactory(stage=quality_root,resources=binding['resources'],CPU_acceptance=binding['acceptance'],
+            CPU_registration=binding['registration'],scorer_fingerprint=digest(binding['identity']),torch=torch,device='cpu')
+        members={r['name']:r for r in card['inputs']}
+        for dimension in ('MUSIQ_LONGER512','subject_consistency','motion_smoothness'):
+            with factory(dimension) as scorer:
+                for row in formal:
+                    slot=row['slot'];member=members[slot['member']];video=row['result']['video_artifact']
+                    planned=dict(case_id=slot['member'],method=slot['id'],dimension=dimension,seed=0,role=slot['role'],
+                        prompt=member['prompt'],prompt_sha256=text_sha(member['prompt']),input_status='READY_TO_SCORE',
+                        video_path=video['path'],video_sha256=video['sha256'],request_sha256=digest(row['result']),
+                        scorer_fingerprint=digest(binding['identity']),expected_sampling=sampling_spec(dimension))
+                    result=scorer.score(planned);validate_result(planned,result);validate_sources_and_decoder(binding['identity'],result)
+                    state['quality_rows'].append(dict(planned=planned,result=result));save()
     state.update(status='COMPLETE_PENDING_ANALYSIS',CUDA_initialized=torch.cuda.is_initialized());save()
 
 

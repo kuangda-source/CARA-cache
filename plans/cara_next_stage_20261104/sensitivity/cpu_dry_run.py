@@ -92,12 +92,41 @@ def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,
         finally:self.worldcache_rel_l1_thresh=threshold
     from runner import collect_loaded
     from wcomr.h0_mode import mode_snapshot
+    if 'reuse' in production_card:
+        from wcomr.gpu_budget_pool_v2 import sha
+        old_root=root/'reused';old_rows=[]
+        old_manifest=json.loads((HERE/'manifest.json').read_text())
+        for identity in production_card['reuse']['record_ids']:
+            slot=next(r for r in old_manifest['matrix'] if r['id']==identity)
+            initial.restore();member=slot['member']
+            result=execute(inference,samples[member],card=production_card,common=common,
+                output=old_root/'requests'/identity,record_root=old_root/'native_states'/member)
+            latent=result.pop('final_latent');artifact=old_root/(identity+'.pt');torch.save(latent,artifact)
+            video=Path(result['video_path'])
+            result['latent_artifact']=dict(path=str(artifact),sha256=sha(artifact))
+            result['video_artifact']=dict(path=str(video),sha256=sha(video),bytes=video.stat().st_size)
+            old_rows.append(dict(slot=slot,status='COMPLETE',result=result))
+        (old_root/'collection.json').write_text(json.dumps(dict(run_id=production_card['reuse']['run_id'],
+            scope_sha256=production_card['reuse']['scope_sha256'],rows=old_rows)))
+        production_card['reuse'].update(collection=str(old_root/'collection.json'),output_root=str(old_root))
     class Storage:
-        def check(self):return None
+        def check(self):
+            if production_card.get('pipeline'):
+                # Reused states live on their read-only source; new storage holds one set.
+                active=[p for p in (root/'collection/native_states').glob('*') if list(p.glob('state_before_*.pt'))]
+                assert len(active)<=1
     collection=collect_loaded(inference,samples,production_card,dict(common,CPU_native=native),
         root/'collection',Storage(),mode_snapshot(net)['module_types'],cpu_validation=True)
     assert collection['status']=='COMPLETE_PENDING_RELEASE_SCORING'
     assert len(collection['rows'])==len(production_card['matrix']) and all(r['status']=='COMPLETE' for r in collection['rows'])
+    if production_card.get('pipeline'):
+        cleanup=[r['state_cleanup'] for r in collection['rows'] if 'state_cleanup' in r]
+        assert len(cleanup)==3 and all(r['count']==14 for r in cleanup)
+        assert not list((root/'collection/native_states').glob('*/state_before_*.pt'))
+        assert len(list((root/'reused/native_states').glob('*/state_before_*.pt')))==70
+        assert len(list((root/'collection/native_states').glob('*/metrics.json')))==3
+        assert len(list((root/'collection/native_states').glob('*/guided_*.pt')))==42
+        assert len(collection['reused_rows'])==5
     if production_card['counts']['b']==0:
         assert not (root/'collection/native_states').exists()
         from analyze import analyze
@@ -124,6 +153,25 @@ if __name__ == '__main__':
     torch.set_num_threads(2)
     def forbidden(*args,**kwargs):raise RuntimeError('CPU dry-run forbids CUDA')
     torch.cuda._lazy_init=forbidden
+    from unittest.mock import patch
+    from wcomr.cpu_owned_state_snapshot import CPUOwnedStateImage
+    from wcomr.mid_coverage import tree_digest
+    from sampling import save_state,load_state
+    value=torch.arange(16,dtype=torch.float32)
+    tree=dict(base=value,view=value[2:10],repeat=value)
+    with patch('wcomr.cpu_owned_state_snapshot.tree_digest',wraps=tree_digest) as counter:
+        image=CPUOwnedStateImage(tree,logical_copy_cap_bytes=1024,CPU_storage_cap_bytes=1024)
+        assert counter.call_count==1
+    with tempfile.TemporaryDirectory(prefix='cara-state-alias-test-') as directory:
+        path=Path(directory)/'state.pt';save_state(path,image,8)
+        saved=torch.load(path,map_location='cpu',weights_only=False);restored=load_state(saved,device='cpu')
+        assert restored['base'] is restored['repeat']
+        assert restored['base'].untyped_storage()._cdata==restored['view'].untyped_storage()._cdata
+        assert torch.equal(restored['view'],value[2:10])
+        next(iter(saved['stores'].values()))[0]^=1
+        try:load_state(saved,device='cpu')
+        except ValueError as error:assert str(error)=='Serialized complete state differs'
+        else:raise AssertionError('Corrupt state accepted')
     from analyze import reconstruct,permutation_test
     rng=random.Random(0)
     for weights in ([1.]*36,[1.+i%3 for i in range(36)],[rng.random()+.01 for _ in range(36)]):

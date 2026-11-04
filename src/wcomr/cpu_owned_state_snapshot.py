@@ -85,9 +85,7 @@ class CPUOwnedStateImage:
             raise ValueError('Owned-state image exceeds original logical copy cap')
         if self.inventory['unique_storage_bytes'] > CPU_storage_cap_bytes:
             raise ValueError('Owned-state image exceeds explicit CPU-storage cap')
-        # Guard finite values before source bytes are accepted; no deepcopy of
-        # GPU tensors occurs. Hashing may transfer only contiguous value bytes.
-        source_digest = tree_digest(plain(value))
+        # Copy each storage once; hash/finite-check the CPU image, not the GPU tree.
         self._storage_images = {}
         self._original_devices = {}
         self._CPU_views = {}
@@ -106,8 +104,6 @@ class CPUOwnedStateImage:
             self._CPU_views[id(CPU_view)] = (key,CPU_view)
         self.saved = copy.deepcopy(value,memo)
         self.digest = tree_digest(plain(self.saved))
-        if self.digest != source_digest or any(t.device.type!='cpu' for t in _walk_tensors(self.saved)):
-            raise ValueError('Owned CPU image differs from complete original value state')
         self.GPU_snapshot_storage_allocation_bytes = 0
 
     @torch.no_grad()

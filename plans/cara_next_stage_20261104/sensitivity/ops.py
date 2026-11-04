@@ -279,6 +279,8 @@ def main():
     parser.add_argument('--project',type=Path);parser.add_argument('--stage',type=Path)
     parser.add_argument('--manifest',type=Path,default=CARD)
     parser.add_argument('--route',choices=('ipv4','v6'),default='ipv4');args=parser.parse_args()
+    if CONFIG['phase']=='FORMAL_QUOTE_AWAITING_APPROVAL' and args.action in ('prepare','reserve','dispatch','launch-host'):
+        raise ValueError('Pipeline quote has no GPU or reservation authority')
     if args.action=='launch-host':launch_host(args.project,args.stage);return
     from cara_f19_speed190_transport_r1 import rpc
     if args.receipt.exists():raise ValueError('Preserve the original observation/transaction')

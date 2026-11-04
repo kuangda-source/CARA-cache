@@ -35,14 +35,27 @@ def collect_loaded(inference,samples,card,common,output,storage,mode_types,*,cpu
     state=dict(status='RUNNING',run_id=card['run_id'],scope_sha256=card['scope_sha256'],
         rows=[dict(slot=copy.deepcopy(s),status='NOT_REACHED') for s in card['matrix']],
         CPU_fixture_only=cpu_validation)
-    indexed={}
+    indexed={};reused_members=set()
+    record_roots={member:output/'native_states'/member for member in samples}
+    if 'reuse' in card:
+        reuse=card['reuse'];original=json.loads(Path(reuse['collection']).read_text())
+        if original['run_id']!=reuse['run_id'] or original['scope_sha256']!=reuse['scope_sha256']:
+            raise ValueError('Original Native record scope differs')
+        reused=[copy.deepcopy(r) for r in original['rows'] if r['slot']['id'] in reuse['record_ids']]
+        if len(reused)!=len(reuse['record_ids']) or any(r['status']!='COMPLETE' or r['slot']['role']!='NATIVE_RECORD' for r in reused):
+            raise ValueError('Complete original Native records required')
+        state['reused_rows']=reused
+        for row in reused:
+            member=row['slot']['member'];reused_members.add(member)
+            indexed[member,'NATIVE_RECORD',None]=Path(row['result']['latent_artifact']['path'])
+            record_roots[member]=Path(reuse['output_root'])/'native_states'/member
     def save():atomic_json(target,state)
     save()
     try:
         for row in state['rows']:
             slot=row['slot'];storage.check();initial.restore();verify_shared_eval(net,mode)
             row['status']='RUNNING';save()
-            member=slot['member'];states=output/'native_states'/member
+            member=slot['member'];states=record_roots[member]
             path=output/'requests'/slot['id'];role=slot['role']
             if role in card['roles']:
                 result=clean(slot,path)
@@ -70,6 +83,15 @@ def collect_loaded(inference,samples,card,common,output,storage,mode_types,*,cpu
                 result['latent_bridge']=dict(kind='full_single_C_vs_resumed_suffix',
                     equal=torch.equal(latent,reference),max_abs_diff=float((latent.float()-reference.float()).abs().max()))
             row.update(status='COMPLETE',result=result);save()
+            if (card.get('pipeline') and role=='SINGLE_C' and slot['target_update']==card['sensitivity_steps'][-1]
+                    and member not in reused_members):
+                removed=0
+                for t in card['sensitivity_steps']:
+                    checkpoint=states/f'state_before_{t:02d}.pt'
+                    removed+=checkpoint.stat().st_size;checkpoint.unlink()
+                row['state_cleanup']=dict(count=len(card['sensitivity_steps']),bytes=removed,
+                    retained='metrics, every-step latents, guided tensors, terminal latent and MP4')
+                save()
         state['status']='COMPLETE_PENDING_RELEASE_SCORING';save()
         return state
     except BaseException as error:

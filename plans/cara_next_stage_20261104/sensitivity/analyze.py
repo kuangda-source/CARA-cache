@@ -96,7 +96,8 @@ def analyze(card,collection,scores,old_scores,root):
     sensitivity=interpolate(fit_s);predictions={}
     # FIT sensitivity curve is transferred unchanged to all six non-FIT inputs.
     for member in card['old_CHECK']+card['new_confirm']:
-        metrics=json.loads((Path(root)/'native_states'/member/'metrics.json').read_text())
+        source=Path(card['reuse']['output_root']) if 'reuse' in card and member in card['reuse']['members'] else Path(root)
+        metrics=json.loads((source/'native_states'/member/'metrics.json').read_text())
         weights=[0. if row['step'] in (*range(1,8),36) else sensitivity[row['step']-1]*row['guided_delta_RMS'] for row in metrics]
         scale=statistics.mean(weights[7:35]);weights=[v/scale for v in weights]
         predictions[member]={str(n):reconstruct(weights,n) for n in (16,17,19,22,25)}
@@ -121,5 +122,17 @@ if __name__=='__main__':
     p=argparse.ArgumentParser()
     for key in ('manifest','collection','scores','old-scores','root','output'):p.add_argument('--'+key,type=Path,required=True)
     args=p.parse_args();read=lambda path:json.loads(path.read_text())
-    result=analyze(read(args.manifest),read(args.collection),read(args.scores),read(args.old_scores),args.root)
+    card=read(args.manifest);collection=read(args.collection);scores=read(args.scores)
+    if 'reuse_confirmation' in card:
+        source=card['reuse_confirmation'];release=read(Path(source['release']))
+        if release['run_id']!=source['run_id'] or not all(release[k] for k in
+                ('GPU_released','mode_restored','cost_settled','original_processes_ended','container_exit_success')):
+            raise ValueError('Original F17 card must be successfully released and settled')
+        confirmation=read(Path(source['collection']));accepted=read(Path(source['scores']))
+        if (confirmation['scope_sha256']!=source['scope_sha256'] or accepted['scope_sha256']!=source['scope_sha256']
+                or accepted['status']!='COMPLETE_PENDING_ANALYSIS'):
+            raise ValueError('Original F17 scoring scope or completeness differs')
+        collection=dict(collection,rows=collection['rows']+[r for r in confirmation['rows'] if r['slot']['section']=='c'])
+        scores=dict(scores,LPIPS=scores['LPIPS']+accepted['LPIPS'],quality_rows=accepted['quality_rows'])
+    result=analyze(card,collection,scores,read(args.old_scores),args.root)
     with args.output.open('x') as f:json.dump(result,f,indent=2,allow_nan=False);f.write('\n')
