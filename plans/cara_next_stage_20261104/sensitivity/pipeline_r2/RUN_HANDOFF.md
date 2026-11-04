@@ -1,4 +1,4 @@
-# sensitivity8 流水线续卡
+# sensitivity8 流水线续卡：GPU已启动
 
 Run `cara-native-sensitivity8-pipeline-r2-20261104`。
 用户批准在 F17 非劣 FAIL（p=0.300）情况下照样启动，保留五控制，约10.37GPUh、硬限11.5GPUh；F17原判不变。
@@ -20,7 +20,7 @@ Run `cara-native-sensitivity8-pipeline-r2-20261104`。
 ## 启动接线与验收入口
 
 独立run binding与11.5GPUh中央事件；payload包含本补充预注册；F17复用以其原launch `2fad981cd13e4ec8a0fad00253ea8358` 对齐release。启动前源码提交并push，Linux入口/全部tiny路径、新卷及fresh准入完成后才唯一预留、唯一启动。
-本段为启动前记录；实际source、launch、时间、资源和ledger由启动后的一次确认补入。正常回执放`reports/cara_sensitivity8_pipeline_r2_20261104/`。
+实际GPU源码固定为 `fafb0f23edfb149897b8c822f9f9d6ebb6a3f2ee`，scope `4f551bdddd8ffcd25d98d3d4fd73dcc531652676456c2b1bfcb640309dd309e4`。正常回执放`reports/cara_sensitivity8_pipeline_r2_20261104/`。
 
 从Mac仓库根目录执行一次只读status，每次使用新receipt文件名：
 
@@ -62,6 +62,23 @@ PY
 
 评分为112个新后缀LPIPS-Alex/latent MSE和原等价控制；analysis只合并F17既有12 LPIPS及48质量位置，F17仍为FAIL/p=0.300，独立报告s·Δv原理重建。结果在`S/released-score-control/scores.json`、`complete_analysis.json`。不在本轮等待完成、评分或结算。
 
-原stage安装调用传输超时，已通过现有FRP主入口只读恢复同一binding：source dcfee63ce059838596e046cc2322020d41b2e756、launch 56926fe31f234746940a9d2d6677335d，registration和authorization均完整；未重复prepare。操作端显式--route relay使用two_card_relay，中央ledger仍走原four_card bookkeeping通道，不自动重放；服务器已安装执行源码不再改动。
 
-启动前容器路径检查发现旧回执的/media/minchen实路径不可见、/data20t别名可见；为CPU入口、GPU采集及CPU评分显式增加旧256GiB输出卷的实路径只读挂载，并在Linux入口检查五条复用记录的latent/video可读。原CPU验证完成后保存其证明，在同一未预留/未启动的stage更新这次修订，再验证新入口；沿用原launch_id，不重建64GiB卷、不改数据或协议。
+## 原launch与一次启动确认
+
+原stage安装调用响应丢失，经既有FRP主入口恢复了同一binding。启动前容器路径测试发现旧回执实路径不可见；为CPU入口、GPU采集及CPU评分补上旧256GiB输出实路径的只读挂载，源码在GPU前修订并发布为fafb0f23，launch_id沿用，64GiB卷沿用。初版与修订版Linux证明均保存；修订版16:44:50正常退出0，Torch2.7.1+cu128，两flow各122完整tiny请求、旧实路径可读，CUDA=false。F17原FAIL/p=0.300未改。
+
+唯一launch_id `56926fe31f234746940a9d2d6677335d`；GPU UUID `GPU-cebf7119-cf03-23b9-e192-cd196332b704`。
+guardian计费开始（北京时间）：**2026-11-04T16:47:59.057262+08:00**；容器StartedAt=`2026-11-04T08:48:00.765748585Z`。
+预计完成（北京时间）：**2026-11-05T03:10:14.723865+08:00**；预计单GPU墙钟约10小时22分16秒。此为正式报价换算的估计，工程范围8.459252–11.370268小时。硬限11.5GPUh；停止新工作阈值2026-11-05T04:07:59.057262+08:00，硬截止2026-11-05T04:17:59.057262+08:00。
+
+中央唯一预留 **seq95 SENSITIVITY8_PIPELINE_R2_WHOLE11_5_RESERVE，11.5GPUh**，job为RESERVED_OR_RUNNING，尚未结算。
+
+| ledger GPUh | cap | used | reserved | available |
+|---|---:|---:|---:|---:|
+| 预留前 | 250 | 220.1337140687724 | 16.5 | 13.366285931227594 |
+| 预留后 | 250 | 220.1337140687724 | 28.0 | 1.8662859312275941 |
+
+Fresh准入MemAvailable=55781072896 bytes（51.950172GiB），目标卡无compute PID、24MiB、0%、45°C、Default，owner锁、源码/实际资产及存储检查通过。
+一次启动确认：guardian PID=622200原进程存活，supervisor为BUDGET_CALIBRATION_SUPERVISOR_RUNNING，容器Running=true；唯一CUDA runner PID=622342、306MiB，GPU为Exclusive_Process、49°C。
+状态目录 `/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cara_cal66_sm86_workspace/outputs/cara-native-sensitivity8-pipeline-r2-20261104/native_states` 在新64GiB镜像（68,719,476,736 bytes，inode66973293）的/dev/loop42 ext4上；主机与GPU容器内st_dev均为1834。此loop42是新卷复用的设备号，非已删除旧r1镜像。旧256GiB输出实路径Mount.RW=false。
+已完成唯一启动与挂载确认，随后停止远端检查；未等待请求/整卡完成，未创建heartbeat、cron、automation或额外持续监控。源码及服务器manifest自GPU启动起不再改动。后续仅按上文原句柄status和终态capture→唯一settle→CPU score→analyze人工验收。
