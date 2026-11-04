@@ -13,12 +13,16 @@ BOOT="import base64,gzip,json,sys;packet=json.loads(gzip.decompress(base64.b64de
 
 def rpc(operator,data,*,host='two_card',timeout=90,route='ipv4'):
     assert host in ('two_card','four_card')
-    assert route in ('ipv4','v6')
-    prefix='.sync/cara-f19-capture-ssh-ipv4.json' if route=='ipv4' else '.sync/cara-C1-capture-ssh-v6.json'
-    argv=json.loads((ROOT/prefix).read_text())
-    argv[1:1]=['-C','-o','ControlMaster=auto','-o','ControlPersist=300','-o','ControlPath=/tmp/cara-f19-CAL35-%C.sock']
-    argv=[('ConnectTimeout=55' if v=='ConnectTimeout=25' else v) for v in argv]
-    argv[-1]=host+'_lan'
+    assert route in ('ipv4','v6','relay')
+    if route=='relay' and host=='two_card':
+        argv=['ssh','-T','-C','-o','BatchMode=yes','-o','ConnectTimeout=30','two_card_relay']
+    else:
+        # Central bookkeeping keeps its existing route; relay is two-card only.
+        prefix='.sync/cara-C1-capture-ssh-v6.json' if route=='v6' else '.sync/cara-f19-capture-ssh-ipv4.json'
+        argv=json.loads((ROOT/prefix).read_text())
+        argv[1:1]=['-C','-o','ControlMaster=auto','-o','ControlPersist=300','-o','ControlPath=/tmp/cara-f19-CAL35-%C.sock']
+        argv=[('ConnectTimeout=55' if v=='ConnectTimeout=25' else v) for v in argv]
+        argv[-1]=host+'_lan'
     secret=password()
     packet=dict(operator=operator,arguments=data,sudo_password=secret)
     encoded=base64.b64encode(gzip.compress(json.dumps(packet).encode())).decode()

@@ -58,7 +58,7 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('action',choices=('score','analyze'))
     parser.add_argument('--input',type=Path);parser.add_argument('--receipt',type=Path,required=True)
     parser.add_argument('--manifest',type=Path,default=CARD)
-    parser.add_argument('--route',choices=('ipv4','v6'),default='ipv4');args=parser.parse_args()
+    parser.add_argument('--route',choices=('ipv4','v6','relay'),default='ipv4');args=parser.parse_args()
     if args.receipt.exists():raise ValueError('Preserve the original operator response')
     data=json.loads(args.input.read_text()) if args.input else {}
     result=rpc(SCORE if args.action=='score' else ANALYZE,data,route=args.route)

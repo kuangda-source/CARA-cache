@@ -27,14 +27,14 @@ Run `cara-native-sensitivity8-pipeline-r2-20261104`。
 ```sh
 P=plans/cara_next_stage_20261104/sensitivity
 M=$P/pipeline_r2/manifest.json
-.venv/bin/python "$P/ops.py" status --manifest "$M" --receipt /tmp/cara_pipeline_r2_status_manual.json
+.venv/bin/python "$P/ops.py" status --manifest "$M" --route relay --receipt /tmp/cara_pipeline_r2_status_manual.json
 ```
 
 日志在`S/runner.log`、`host-guardian.log`、`guardian.json`、`supervisor.json`、`billing.json`；进度为`O/collection.json`。UNKNOWN只恢复本原launch，不prepare/reserve/dispatch第二次。
 原GPU终态后capture，包含失败实际费用在内唯一结算；响应丢失只恢复同一交易：
 
 ```sh
-.venv/bin/python "$P/ops.py" capture --manifest "$M" --receipt /tmp/cara_pipeline_r2_terminal.json
+.venv/bin/python "$P/ops.py" capture --manifest "$M" --route relay --receipt /tmp/cara_pipeline_r2_terminal.json
 .venv/bin/python - <<'PY'
 import json
 from pathlib import Path
@@ -42,7 +42,7 @@ v=json.loads(Path('/tmp/cara_pipeline_r2_terminal.json').read_text())
 assert v['status']=='ORIGINAL_CALIBRATION_LIFECYCLE_CAPTURE'
 Path('/tmp/cara_pipeline_r2_settle_input.json').write_text(json.dumps(dict(capture=v,launch_sha256=v['files']['launch']['sha256'])))
 PY
-.venv/bin/python "$P/ops.py" settle --manifest "$M" --input /tmp/cara_pipeline_r2_settle_input.json --receipt /tmp/cara_pipeline_r2_settlement.json
+.venv/bin/python "$P/ops.py" settle --manifest "$M" --route relay --input /tmp/cara_pipeline_r2_settle_input.json --receipt /tmp/cara_pipeline_r2_settlement.json
 ```
 
 完整122/122、释放/Default恢复/原进程结束及唯一结算后，启动一次CPU评分；已有scorer只恢复：
@@ -55,9 +55,11 @@ c=json.loads(Path('/tmp/cara_pipeline_r2_terminal.json').read_text())
 s=json.loads(Path('/tmp/cara_pipeline_r2_settlement.json').read_text())
 Path('/tmp/cara_pipeline_r2_score_input.json').write_text(json.dumps(dict(capture=c,settlement=s)))
 PY
-.venv/bin/python "$P/postrun.py" score --manifest "$M" --input /tmp/cara_pipeline_r2_score_input.json --receipt /tmp/cara_pipeline_r2_score_launch.json
+.venv/bin/python "$P/postrun.py" score --manifest "$M" --route relay --input /tmp/cara_pipeline_r2_score_input.json --receipt /tmp/cara_pipeline_r2_score_launch.json
 # 原CPU scorer退出0且scores.json为COMPLETE_PENDING_ANALYSIS后：
-.venv/bin/python "$P/postrun.py" analyze --manifest "$M" --receipt /tmp/cara_pipeline_r2_analysis.json
+.venv/bin/python "$P/postrun.py" analyze --manifest "$M" --route relay --receipt /tmp/cara_pipeline_r2_analysis.json
 ```
 
 评分为112个新后缀LPIPS-Alex/latent MSE和原等价控制；analysis只合并F17既有12 LPIPS及48质量位置，F17仍为FAIL/p=0.300，独立报告s·Δv原理重建。结果在`S/released-score-control/scores.json`、`complete_analysis.json`。不在本轮等待完成、评分或结算。
+
+原stage安装调用传输超时，已通过现有FRP主入口只读恢复同一binding：source dcfee63ce059838596e046cc2322020d41b2e756、launch 56926fe31f234746940a9d2d6677335d，registration和authorization均完整；未重复prepare。操作端显式--route relay使用two_card_relay，中央ledger仍走原four_card bookkeeping通道，不自动重放；服务器已安装执行源码不再改动。
