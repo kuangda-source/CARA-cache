@@ -28,3 +28,4 @@ if __name__=='__main__':
         IMAGE=base/'output.ext4',JOURNAL_DIR=journal,JOURNAL=journal/'control.journal',
         CPU_STAGE=ROOT,HELPER=ROOT/'src/wcomr/history104_storage_r2.py')
     scope['main']()
+    if 'pipeline' in card:(project/'outputs'/run/'native_states').mkdir()

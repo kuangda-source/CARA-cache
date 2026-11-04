@@ -118,21 +118,27 @@ def analyze(card,collection,scores,old_scores,root):
         interpretation='Four new inputs, seed0. Inconclusive NI is not confirmation; reconstructed masks are analysis, never an automatic GPU candidate.')
 
 
+def reuse_confirmation(card,collection,scores):
+    """Merge the released F17 measurements; its scientific verdict is unchanged."""
+    read=lambda path:json.loads(Path(path).read_text())
+    source=card['reuse_confirmation'];release=read(source['release'])
+    if release['launch_id']!=source['launch_id'] or not all(release[k] for k in
+            ('GPU_released','mode_restored','cost_settled','original_processes_ended','container_exit_success')):
+        raise ValueError('Original F17 card must be successfully released and settled')
+    confirmation=read(source['collection']);accepted=read(source['scores'])
+    if (confirmation['scope_sha256']!=source['scope_sha256'] or accepted['scope_sha256']!=source['scope_sha256']
+            or accepted['status']!='COMPLETE_PENDING_ANALYSIS'):
+        raise ValueError('Original F17 scoring scope or completeness differs')
+    collection=dict(collection,rows=collection['rows']+[r for r in confirmation['rows'] if r['slot']['section']=='c'])
+    scores=dict(scores,LPIPS=scores['LPIPS']+accepted['LPIPS'],quality_rows=accepted['quality_rows'])
+    return collection,scores
+
+
 if __name__=='__main__':
     p=argparse.ArgumentParser()
     for key in ('manifest','collection','scores','old-scores','root','output'):p.add_argument('--'+key,type=Path,required=True)
     args=p.parse_args();read=lambda path:json.loads(path.read_text())
     card=read(args.manifest);collection=read(args.collection);scores=read(args.scores)
-    if 'reuse_confirmation' in card:
-        source=card['reuse_confirmation'];release=read(Path(source['release']))
-        if release['run_id']!=source['run_id'] or not all(release[k] for k in
-                ('GPU_released','mode_restored','cost_settled','original_processes_ended','container_exit_success')):
-            raise ValueError('Original F17 card must be successfully released and settled')
-        confirmation=read(Path(source['collection']));accepted=read(Path(source['scores']))
-        if (confirmation['scope_sha256']!=source['scope_sha256'] or accepted['scope_sha256']!=source['scope_sha256']
-                or accepted['status']!='COMPLETE_PENDING_ANALYSIS'):
-            raise ValueError('Original F17 scoring scope or completeness differs')
-        collection=dict(collection,rows=collection['rows']+[r for r in confirmation['rows'] if r['slot']['section']=='c'])
-        scores=dict(scores,LPIPS=scores['LPIPS']+accepted['LPIPS'],quality_rows=accepted['quality_rows'])
+    if 'reuse_confirmation' in card:collection,scores=reuse_confirmation(card,collection,scores)
     result=analyze(card,collection,scores,read(args.old_scores),args.root)
     with args.output.open('x') as f:json.dump(result,f,indent=2,allow_nan=False);f.write('\n')

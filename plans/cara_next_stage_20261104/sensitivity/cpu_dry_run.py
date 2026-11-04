@@ -172,7 +172,22 @@ if __name__ == '__main__':
         try:load_state(saved,device='cpu')
         except ValueError as error:assert str(error)=='Serialized complete state differs'
         else:raise AssertionError('Corrupt state accepted')
-    from analyze import reconstruct,permutation_test
+    from analyze import reconstruct,permutation_test,reuse_confirmation
+    with tempfile.TemporaryDirectory(prefix='cara-confirmation-reuse-test-') as directory:
+        root=Path(directory);scope='frozen-confirmation-scope';launch='original-F17-launch'
+        release=dict(launch_id=launch,**{k:True for k in
+            ('GPU_released','mode_restored','cost_settled','original_processes_ended','container_exit_success')})
+        confirmation=dict(scope_sha256=scope,rows=[dict(slot=dict(section='c')) for _ in range(16)]
+            +[dict(slot=dict(section='warm')) for _ in range(2)])
+        accepted=dict(scope_sha256=scope,status='COMPLETE_PENDING_ANALYSIS',
+            LPIPS=[dict(result=dict(Alex=.3)) for _ in range(12)],quality_rows=[{} for _ in range(48)])
+        for name,value in (('release',release),('collection',confirmation),('scores',accepted)):
+            (root/(name+'.json')).write_text(json.dumps(value))
+        card=dict(reuse_confirmation=dict(launch_id=launch,scope_sha256=scope,
+            **{name:str(root/(name+'.json')) for name in ('release','collection','scores')}))
+        merged,scored=reuse_confirmation(card,dict(rows=[]),dict(LPIPS=[],quality_rows=[]))
+        assert len(merged['rows'])==16 and len(scored['LPIPS'])==12 and len(scored['quality_rows'])==48
+        assert scored['LPIPS'][0]['result']['Alex']==.3
     rng=random.Random(0)
     for weights in ([1.]*36,[1.+i%3 for i in range(36)],[rng.random()+.01 for _ in range(36)]):
         for nD in (34,35):

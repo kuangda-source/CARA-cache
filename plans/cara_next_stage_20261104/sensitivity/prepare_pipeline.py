@@ -77,7 +77,7 @@ def build(measurement,backing_read,reuse_check,ledger,deletion):
             record_ids=[r['row']['slot']['id'] for r in reused],members=reused_names,files_checked=reuse_check['files_checked'],
             integrity_scope=reuse_check['integrity_scope'],stored_file_hashes=reuse_check['stored_file_hashes'],
             state_files=[dict(member=r['row']['slot']['member'],**f) for r in reused for f in r['files']]),
-        reuse_confirmation=dict(run_id='cara-f17-confirm4-r1-20261104',scope_sha256='831797c82e8d1fa4ffe31716c5696da768b960571efe93dec8f094dfc0b5e6be',
+        reuse_confirmation=dict(run_id='cara-f17-confirm4-r1-20261104',launch_id='2fad981cd13e4ec8a0fad00253ea8358',scope_sha256='831797c82e8d1fa4ffe31716c5696da768b960571efe93dec8f094dfc0b5e6be',
             collection='/data20t/gaokuangda/worldcache_workspace/outputs/cara-f17-confirm4-r1-20261104/collection.json',
             scores=f17_stage+'/released-score-control/scores.json',release=f17_stage+'/released-score-control/release.json',
             required='COMPLETE original 18 requests, released, uniquely settled, accepted CPU scores; do not rescore/replay'),

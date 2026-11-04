@@ -24,7 +24,7 @@ LIMIT=CONFIG['quote']['hard_GPUh']
 REQUESTS=len(CONFIG['matrix'])
 REL='plans/cara_next_stage_20261104/sensitivity'
 GPU='GPU-cebf7119-cf03-23b9-e192-cd196332b704'
-BINDING=ROOT/'.sync'/('cara-sensitivity-original-binding.json' if CONFIG['counts']['b'] else RUN+'-original-binding.json')
+BINDING=ROOT/'.sync'/('cara-sensitivity-original-binding.json' if RUN=='cara-native-sensitivity8-confirm4-r1-20261104' else RUN+'-original-binding.json')
 
 PREFIX=f'''
 import base64,copy,hashlib,json,os,pathlib,subprocess,sys,time
@@ -129,7 +129,7 @@ mem=int(next(l.split()[1] for l in pathlib.Path('/proc/meminfo').read_text().spl
 assert not gpu['pids'] and gpu['memory_used_mib']<=1024 and gpu['compute_mode']=='Default' and gpu['utilization_percent']==0
 assert mem>=50*2**30 and gpu['temperature_C']<90
 assert all(lock_free(root/'.sync/gpu-locks'/(gpu_uuid+s)) for s in ('.lock','.mode-owner.lock'))
-assert card['quote']['forecast_GPUh']<=limit and not any((stage/n).exists() for n in ('GPU-intent.json','GPU-launch.json'))
+assert card['quote']['forecast_GPUh']<=(11.0 if 'pipeline' in card else limit) and not any((stage/n).exists() for n in ('GPU-intent.json','GPU-launch.json'))
 admission=dict(authorization=read(stage/'GPU-authorization.json'),authorization_sha256=sha(stage/'GPU-authorization.json'),
  registration_sha256=sha(stage/'registration.json'),gpu=gpu,MemAvailable_bytes=mem,storage=checked,
  forecast_GPUh=card['quote']['forecast_GPUh'],observed_unix=time.time())
@@ -160,7 +160,8 @@ if p['action']=='reserve':
    before=copy.deepcopy(value);after=copy.deepcopy(value)
    job={k:auth[k] for k in IDENTITY};job.update(job_id=run,registration_sha256=a['registration_sha256'],
     authorization_sha256=a['authorization_sha256'],forecast_GPUh=a['forecast_GPUh'],status='RESERVED_OR_RUNNING',kind='V2',reserved_unix=time.time(),physical_paths=request_count)
-   after['jobs'][run]=job;after.update(pool.accounting(after));after['events'].append(dict(sequence=len(after['events'])+1,unix=time.time(),type='SENSITIVITY8_WHOLE9_5_RESERVE' if request_count==143 else 'F17_CONFIRM4_WHOLE1_95_RESERVE',job_id=run))
+   event='SENSITIVITY8_PIPELINE_R2_WHOLE11_5_RESERVE' if request_count==122 else 'SENSITIVITY8_WHOLE9_5_RESERVE' if request_count==143 else 'F17_CONFIRM4_WHOLE1_95_RESERVE'
+   after['jobs'][run]=job;after.update(pool.accounting(after));after['events'].append(dict(sequence=len(after['events'])+1,unix=time.time(),type=event,job_id=run))
    receipt=dict(central_ledger_host='four_card',new_reservation=True,job=job,central_before=before,central_after=after,observed_unix=time.time())
    create(path,receipt);atomic_json(pool.path,after)
 elif p['action']=='settle':
@@ -257,7 +258,7 @@ def payload():
     files=local_python_closure(ROOT,seeds)
     for name in (REL+'/manifest.json',REL+'/PREREGISTRATION.md',CARD_REL):
         files[name]=hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-    if CONFIG['counts']['b']==0:
+    if CARD!=HERE/'manifest.json':
         name=str((CARD.parent/'PREREGISTRATION_ADDENDUM.md').relative_to(ROOT))
         files[name]=hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
     revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()

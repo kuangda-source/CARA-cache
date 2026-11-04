@@ -2,15 +2,18 @@
   "schema": "CARA_SENSITIVITY8_PIPELINE_R2",
   "run_id": "cara-native-sensitivity8-pipeline-r2-20261104",
   "stage_name": "cara-budget-calibration-GPU-native-sensitivity8-pipeline-r2-20261104",
-  "phase": "FORMAL_QUOTE_AWAITING_APPROVAL",
+  "phase": "PIPELINE_R2_APPROVED_PENDING_LINUX_ADMISSION",
   "GPU_dispatch_ready": false,
   "authority": {
-    "execution_authorized": false,
-    "user_quote": "走流水线，去掉重复哈希，并删掉budget-calibration-r1的64GiB镜像，然后给我正式报价",
-    "authorizes_GPU": false,
-    "authorizes_ledger_reservation": false,
+    "execution_authorized": true,
+    "user_quote": "F17 非劣未过也照样上卡补跑，保留 5 条控制，约 10.37 GPUh，硬限 11.5 GPUh",
+    "authorizes_GPU": true,
+    "authorizes_ledger_reservation": true,
     "cap_increase_allowed": false,
-    "automatic_monitoring_allowed": false
+    "automatic_monitoring_allowed": false,
+    "F17_confirmation_pass_required": false,
+    "maximum_forecast_GPUh": 11.0,
+    "hard_GPUh": 11.5
   },
   "CAL35_manifest_ref": "plans/cara_next_stage_20261103/f19_speed190_cal/CAL35_MANIFEST_R1.json",
   "CAL35_manifest_sha256": "bcdb54f4eb3c7687e263d34b3eb33cbcbfe5437e4786e2102cace55c7902337f",
@@ -2523,7 +2526,7 @@
         ],
         "recommended_hard_GPUh": 11.5,
         "expected_wall_hours": 10.371018500875135,
-        "available_after_proposed_hard_reservation_GPUh": 1.1174518063125625
+        "available_after_proposed_hard_reservation_GPUh": 1.8662859312275941
       },
       "without_5_controls": {
         "requests": 117,
@@ -2541,7 +2544,7 @@
         ],
         "recommended_hard_GPUh": 11.0,
         "expected_wall_hours": 9.937369058998572,
-        "available_after_proposed_hard_reservation_GPUh": 1.6174518063125625
+        "available_after_proposed_hard_reservation_GPUh": 2.366285931227594
       }
     },
     "forecast_GPUh": 10.371018500875135,
@@ -3735,47 +3738,53 @@
   },
   "reuse_confirmation": {
     "run_id": "cara-f17-confirm4-r1-20261104",
+    "launch_id": "2fad981cd13e4ec8a0fad00253ea8358",
     "scope_sha256": "831797c82e8d1fa4ffe31716c5696da768b960571efe93dec8f094dfc0b5e6be",
     "collection": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-f17-confirm4-r1-20261104/collection.json",
     "scores": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-f17-confirm4-r1-20261104/released-score-control/scores.json",
     "release": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-f17-confirm4-r1-20261104/released-score-control/release.json",
-    "required": "COMPLETE original 18 requests, released, uniquely settled, accepted CPU scores; do not rescore/replay"
+    "required": "COMPLETE original 18 requests, released, uniquely settled, accepted CPU scores; do not rescore/replay",
+    "registered_result": {
+      "confirmation_passed": false,
+      "NI_passed": false,
+      "NI_permutation_p": 0.3,
+      "analysis": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-f17-confirm4-r1-20261104/released-score-control/complete_analysis.json"
+    }
   },
   "ledger_snapshot": {
     "cap_gpu_hours": 250,
-    "used_gpu_hours": 218.93254819368744,
-    "reserved_gpu_hours": 18.45,
-    "available_gpu_hours": 12.617451806312562
+    "used_gpu_hours": 220.1337140687724,
+    "reserved_gpu_hours": 16.5,
+    "available_gpu_hours": 13.366285931227594
   },
   "budget_calibration_r1_image_cleanup": {
-    "status": "HOST_UNMOUNTED_DETACH_PENDING_RUNNING_F17_NAMESPACE",
-    "image": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cara_cal66_sm86_workspace/.sync/storage-reservations/budget-calibration-r1/output.ext4",
-    "image_allocated_bytes": 68719480832,
-    "job": "cara-budget-calibration-14gpuh-r1-20261030",
-    "job_status": "SETTLED",
-    "deleted": false,
-    "freed_bytes": 0,
-    "host_unmounted": true,
-    "loop": {
-      "name": "/dev/loop42",
-      "back-file": "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cara_cal66_sm86_workspace/.sync/storage-reservations/budget-calibration-r1/output.ext4",
-      "autoclear": true
-    },
-    "F17_readonly_mount_refs": [
-      "3676 3664 7:42 / /data20t/gaokuangda/worldcache_workspace/outputs/cara-budget-calibration-14gpuh-r1-20261030 ro,nosuid,nodev,noexec,relatime - ext4 /dev/loop42 rw"
+    "status": "SETTLED_BUDGET_CALIBRATION_R1_RESERVATION_REMOVED",
+    "observed_unix": 1793775685.1449664,
+    "deleted": [
+      {
+        "path": "/data20t/gaokuangda/worldcache_workspace/.sync/storage-reservations/budget-calibration-r1/output.ext4",
+        "bytes": 68719476736,
+        "allocated_bytes": 68719480832
+      },
+      {
+        "path": "/data20t/gaokuangda/worldcache_workspace/.sync/storage-reservations/budget-calibration-r1/provision.json",
+        "bytes": 1751,
+        "allocated_bytes": 4096
+      }
     ],
-    "df_h": "文件系统        容量  已用  可用 已用% 挂载点\n/dev/sdb1        14T   13T  293G   98% /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b\n",
-    "reason": "Do not remove backing file while F17 private mount namespace still references loop42; no F17 namespace mutation, wait for natural release, no scheduled cleanup",
-    "final_check": {
-      "observed_unix": 1793770150.9405553,
-      "image_deleted": false,
-      "freed_bytes": 0,
-      "remaining_loop_reference": "/dev/loop42: []: (/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cara_cal66_sm86_workspace/.sync/storage-reservations/budget-calibration-r1/output.ext4)\n",
-      "host_mounted": false,
-      "disk_available_bytes": 313642373120,
-      "df_h": "文件系统        容量  已用  可用 已用% 挂载点\n/dev/sdb1        14T   13T  293G   98% /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b\n",
-      "benchmark_scratch_exists": false
-    }
+    "freed_allocated_bytes": 68719484928,
+    "free_bytes_before": 313640882176,
+    "free_bytes_after": 313640882176,
+    "df": "文件系统        容量  已用  可用 已用% 挂载点\n/dev/sdb1        14T   13T  293G   98% /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b\n",
+    "losetup": "",
+    "findmnt_loop42": "",
+    "active_containers_checked": [
+      {
+        "name": "/cara-budget-calibration-GPU-f17-confirm4-r1-20261104-score",
+        "pid": 598623,
+        "loop42_references": []
+      }
+    ]
   },
-  "scope_sha256": "201e4768957193d0d28fd0cd811428446e9ddefa7a9427ebe075369664ae1d1f"
+  "scope_sha256": "4f551bdddd8ffcd25d98d3d4fd73dcc531652676456c2b1bfcb640309dd309e4"
 }
