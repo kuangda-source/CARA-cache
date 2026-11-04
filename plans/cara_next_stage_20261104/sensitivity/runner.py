@@ -1,6 +1,7 @@
 """Already-admitted loaded-model entry. No ledger, dispatch or monitoring service."""
 import argparse
 import copy
+import gc
 import json
 import os
 from pathlib import Path
@@ -92,6 +93,8 @@ def collect_loaded(inference,samples,card,common,output,storage,mode_types,*,cpu
                 row['state_cleanup']=dict(count=len(card['sensitivity_steps']),bytes=removed,
                     retained='metrics, every-step latents, guided tensors, terminal latent and MP4')
                 save()
+            # Compiled sampler/unpickler cycles retain checkpoint tensors until cyclic GC.
+            gc.collect()
         state['status']='COMPLETE_PENDING_RELEASE_SCORING';save()
         return state
     except BaseException as error:

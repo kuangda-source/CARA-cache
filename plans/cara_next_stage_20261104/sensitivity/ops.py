@@ -203,6 +203,9 @@ STATUS=PREFIX+'''
 v=dict(observed_unix=time.time())
 for name in ('GPU-launch.json','guardian.json','supervisor.json','billing.json'):
  if (stage/name).exists():v[name]=read(stage/name)
+if (stage/'central-settlement.json').exists():
+ s=read(stage/'central-settlement.json');v['billing.json']['central_settlement_pending']=False
+ v['settlement']=dict(sequence=s['central_after']['events'][-1]['sequence'],cumulative_GPUh=s['central_after']['used_gpu_hours'],actual_GPUh=s['central_after']['jobs'][run]['actual_GPUh'])
 q=subprocess.run(['docker','inspect','--format','{{json .State}}',stage.name+'-gpu'],capture_output=True,text=True)
 v['container_state']=json.loads(q.stdout) if q.returncode==0 else None
 v['compute_apps']=subprocess.check_output(['nvidia-smi','--query-compute-apps=gpu_uuid,pid,process_name,used_gpu_memory','--format=csv,noheader,nounits'],text=True)
