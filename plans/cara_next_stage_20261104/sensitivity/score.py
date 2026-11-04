@@ -46,7 +46,7 @@ def main():
     from wcomr.cara_fast_spec_r1 import digest
     target=control/'scores.json'
     if target.exists():raise ValueError('Recover existing original scores without replay')
-    rows=collection['rows'];formal=[r for r in rows if r['slot']['section']=='c']
+    rows=collection.get('carried_rows',[])+collection['rows'];formal=[r for r in rows if r['slot']['section']=='c']
     recorded={r['slot']['member']:r for r in collection.get('reused_rows',[])+rows if r['slot']['section']=='a'}
     references={r['slot']['member']:r for r in formal if r['slot']['role']=='NATIVE35'}
     state=dict(status='SCORING',scope_sha256=card['scope_sha256'],LPIPS=[],sensitivity=[],quality_rows=[],RGB_controls=[],GPU_submissions=0)

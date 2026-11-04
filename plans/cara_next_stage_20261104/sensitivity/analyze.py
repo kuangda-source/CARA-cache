@@ -139,6 +139,7 @@ if __name__=='__main__':
     for key in ('manifest','collection','scores','old-scores','root','output'):p.add_argument('--'+key,type=Path,required=True)
     args=p.parse_args();read=lambda path:json.loads(path.read_text())
     card=read(args.manifest);collection=read(args.collection);scores=read(args.scores)
+    collection=dict(collection,rows=collection.get('carried_rows',[])+collection['rows'])
     if 'reuse_confirmation' in card:collection,scores=reuse_confirmation(card,collection,scores)
     result=analyze(card,collection,scores,read(args.old_scores),args.root)
     with args.output.open('x') as f:json.dump(result,f,indent=2,allow_nan=False);f.write('\n')

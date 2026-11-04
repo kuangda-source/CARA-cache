@@ -79,6 +79,8 @@ cmd += [x for k,v in env.items() for x in ('-e',k+'='+str(v))]
 card=read(card_path)
 if 'reuse' in card:
  source=pathlib.Path(card['reuse']['output_root']).resolve();cmd += ['-v',str(source)+':'+str(source)+':ro']
+if 'carryover' in card:
+ source=pathlib.Path(card['carryover']['output_root']).resolve();cmd += ['-v',str(source)+':'+str(source)+':ro']
 cmd += [read(stage/'registration.json')['container_image'],'timeout','--signal=TERM','--kill-after=15s','1800',
  str(root/'envs/wc-cosmos-py310-cu128-r3/bin/python'),str(stage/rel/'linux_cpu.py'),'--manifest',str(card_path)]
 create(stage/'CPU-intent.json',dict(command=cmd,GPU_submissions=0))
@@ -163,7 +165,7 @@ if p['action']=='reserve':
    before=copy.deepcopy(value);after=copy.deepcopy(value)
    job={k:auth[k] for k in IDENTITY};job.update(job_id=run,registration_sha256=a['registration_sha256'],
     authorization_sha256=a['authorization_sha256'],forecast_GPUh=a['forecast_GPUh'],status='RESERVED_OR_RUNNING',kind='V2',reserved_unix=time.time(),physical_paths=request_count)
-   event='SENSITIVITY8_PIPELINE_R2_WHOLE11_5_RESERVE' if request_count==122 else 'SENSITIVITY8_WHOLE9_5_RESERVE' if request_count==143 else 'F17_CONFIRM4_WHOLE1_95_RESERVE'
+   event=auth['reservation_event']
    after['jobs'][run]=job;after.update(pool.accounting(after));after['events'].append(dict(sequence=len(after['events'])+1,unix=time.time(),type=event,job_id=run))
    receipt=dict(central_ledger_host='four_card',new_reservation=True,job=job,central_before=before,central_after=after,observed_unix=time.time())
    create(path,receipt);atomic_json(pool.path,after)
@@ -212,6 +214,8 @@ v['compute_apps']=subprocess.check_output(['nvidia-smi','--query-compute-apps=gp
 target=root/'outputs'/run/'collection.json'
 if target.exists():
  c=read(target);v['progress']=dict(status=c['status'],completed=sum(r['status']=='COMPLETE' for r in c['rows']),denominator=request_count,first=c['rows'][0]['status'],running=[r['slot']['id'] for r in c['rows'] if r['status']=='RUNNING'])
+memory=root/'outputs'/run/'host_memory.jsonl'
+if memory.exists():v['host_memory']=[json.loads(line) for line in memory.read_text().splitlines()[-3:]]
 v['log_tail']=(stage/'runner.log').read_text()[-1500:] if (stage/'runner.log').exists() else (stage/'host-guardian.log').read_text()[-1500:] if (stage/'host-guardian.log').exists() else ''
 print(json.dumps(v))
 '''
@@ -248,6 +252,9 @@ def launch_host(project,stage):
     if 'reuse' in card:
         source=Path(card['reuse']['output_root']).resolve()
         command[j:j]=['-v',str(source)+':'+str(source)+':ro']
+    if 'carryover' in card:
+        source=Path(card['carryover']['output_root']).resolve()
+        command[j:j]=['-v',str(source)+':'+str(source)+':ro']
     from wcomr.cara_budget_lifecycle_r1 import IDENTITY
     launch={k:auth[k] for k in IDENTITY}
     launch.update(CPU_fixture_only=False,container=stage.name+'-gpu',guardian_identity=identity,
@@ -269,7 +276,7 @@ def payload():
     for name in (REL+'/manifest.json',REL+'/PREREGISTRATION.md',CARD_REL):
         files[name]=hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
     if CARD!=HERE/'manifest.json':
-        name=str((CARD.parent/'PREREGISTRATION_ADDENDUM.md').relative_to(ROOT))
+        name=str((CARD.parent/('RUN_HANDOFF.md' if 'carryover' in CONFIG else 'PREREGISTRATION_ADDENDUM.md')).relative_to(ROOT))
         files[name]=hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
     revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
     for name,digest in files.items():
@@ -279,6 +286,7 @@ def payload():
         stage='/data20t/gaokuangda/worldcache_workspace/.sync/'+STAGE,source_revision=revision,
         scope_sha256=card['scope_sha256'],billed_limit_GPUh=LIMIT,execution_authorized=True,
         direct_user_authorization=True,user_quote=card['authority']['user_quote'],
+        reservation_event=card.get('reservation_event','SENSITIVITY8_PIPELINE_R2_WHOLE11_5_RESERVE' if REQUESTS==122 else 'SENSITIVITY8_WHOLE9_5_RESERVE' if REQUESTS==143 else 'F17_CONFIRM4_WHOLE1_95_RESERVE'),
         authorizes_replay=False,CPU_fixture_only=False,central_transaction_authorized=True)
     return dict(files={name:base64.b64encode((ROOT/name).read_bytes()).decode() for name in files},
         hashes=files,revision=revision,authority=auth)

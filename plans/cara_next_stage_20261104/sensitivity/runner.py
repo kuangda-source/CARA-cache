@@ -6,6 +6,7 @@ import json
 import os
 from pathlib import Path
 import sys
+import time
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
@@ -50,6 +51,16 @@ def collect_loaded(inference,samples,card,common,output,storage,mode_types,*,cpu
             member=row['slot']['member'];reused_members.add(member)
             indexed[member,'NATIVE_RECORD',None]=Path(row['result']['latent_artifact']['path'])
             record_roots[member]=Path(reuse['output_root'])/'native_states'/member
+    if 'carryover' in card:
+        carried=copy.deepcopy(card['carryover']['rows'])
+        for row in carried:
+            for key in ('latent_artifact','video_artifact'):
+                artifact=row['result'][key]
+                if sha(artifact['path'])!=artifact['sha256']:
+                    raise ValueError('Carried result bytes differ')
+            slot=row['slot']
+            indexed[slot['member'],slot['role'],slot['target_update']]=Path(row['result']['latent_artifact']['path'])
+        state['carried_rows']=carried
     def save():atomic_json(target,state)
     save()
     try:
@@ -95,6 +106,8 @@ def collect_loaded(inference,samples,card,common,output,storage,mode_types,*,cpu
                 save()
             # Compiled sampler/unpickler cycles retain checkpoint tensors until cyclic GC.
             gc.collect()
+            if card.get('host_memory_logging') and not cpu_validation:
+                log_host_memory(output/'host_memory.jsonl',slot['id'])
         state['status']='COMPLETE_PENDING_RELEASE_SCORING';save()
         return state
     except BaseException as error:
@@ -103,6 +116,20 @@ def collect_loaded(inference,samples,card,common,output,storage,mode_types,*,cpu
         initial.restore();verify_shared_eval(net,mode)
         if caller_owned:net.forward=caller_forward
         else:vars(net).pop('forward',None)
+
+
+def log_host_memory(path,request_id):
+    rss=int(next(line.split()[1] for line in Path('/proc/self/status').read_text().splitlines()
+        if line.startswith('VmRSS:')))*1024
+    relative=next(line.split(':')[2] for line in Path('/proc/self/cgroup').read_text().splitlines()
+        if 'memory' in line.split(':')[1].split(','))
+    group=Path('/sys/fs/cgroup/memory')/relative.lstrip('/')
+    row=dict(request_id=request_id,unix=time.time(),pid=os.getpid(),RSS_bytes=rss,
+        cgroup_version=1,memory_current_source='memory.usage_in_bytes',
+        memory_current_bytes=int((group/'memory.usage_in_bytes').read_text()))
+    peak=group/'memory.max_usage_in_bytes'
+    if peak.exists():row['memory_peak_bytes']=int(peak.read_text())
+    with Path(path).open('a') as stream:stream.write(json.dumps(row)+'\n')
 
 
 def main():

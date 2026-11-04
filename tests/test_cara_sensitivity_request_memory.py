@@ -1,5 +1,6 @@
 """Small CPU lifecycle tests: no real model, video decoder, CUDA or GPU jobs."""
 import gc
+import json
 from pathlib import Path
 from types import SimpleNamespace
 import sys
@@ -12,12 +13,28 @@ import torch
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'plans/cara_next_stage_20261104/sensitivity'))
-from runner import collect_loaded
+from runner import collect_loaded,log_host_memory
 from sampling import load_state,save_state
 from wcomr.cpu_owned_state_snapshot import CPUOwnedStateImage
 
 
 class RequestMemoryTest(unittest.TestCase):
+    def test_host_memory_log_uses_deployed_cgroup_v1_counters(self):
+        with tempfile.TemporaryDirectory(prefix='cara-memory-log-') as directory:
+            root=Path(directory);group=root/'sys/fs/cgroup/memory/docker/fixture';group.mkdir(parents=True)
+            (root/'proc/self').mkdir(parents=True)
+            (root/'proc/self/status').write_text('VmRSS:\t1024 kB\n')
+            (root/'proc/self/cgroup').write_text('13:memory:/docker/fixture\n')
+            (group/'memory.usage_in_bytes').write_text('2097152')
+            (group/'memory.max_usage_in_bytes').write_text('4194304')
+            def path(value):
+                value=Path(value)
+                return root/str(value).lstrip('/') if str(value).startswith(('/proc/','/sys/')) else value
+            with patch('runner.Path',side_effect=path):log_host_memory(root/'memory.jsonl','fixture')
+            row=json.loads((root/'memory.jsonl').read_text())
+            self.assertEqual((row['RSS_bytes'],row['memory_current_bytes'],row['memory_peak_bytes']),
+                (1048576,2097152,4194304))
+
     def checkpoint(self,directory):
         value=torch.arange(2**18,dtype=torch.float32)
         image=CPUOwnedStateImage(dict(value=value,view=value[1:]),

@@ -115,10 +115,21 @@ def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,
                 # Reused states live on their read-only source; new storage holds one set.
                 active=[p for p in (root/'collection/native_states').glob('*') if list(p.glob('state_before_*.pt'))]
                 assert len(active)<=1
+    if 'carryover' in production_card:
+        from wcomr.gpu_budget_pool_v2 import sha
+        seed=copy.deepcopy(production_card);seed.pop('carryover');seed['host_memory_logging']=False
+        seed['matrix']=[r['slot'] for r in production_card['carryover']['rows']]
+        carried=collect_loaded(inference,samples,seed,dict(common,CPU_native=native),
+            root/'carried',Storage(),mode_snapshot(net)['module_types'],cpu_validation=True)
+        production_card['carryover']['rows']=carried['rows']
     collection=collect_loaded(inference,samples,production_card,dict(common,CPU_native=native),
         root/'collection',Storage(),mode_snapshot(net)['module_types'],cpu_validation=True)
     assert collection['status']=='COMPLETE_PENDING_RELEASE_SCORING'
     assert len(collection['rows'])==len(production_card['matrix']) and all(r['status']=='COMPLETE' for r in collection['rows'])
+    if 'carryover' in production_card:
+        assert len(collection['carried_rows'])==6
+        bridges=[r for r in collection['rows'] if r['slot']['role']=='FULL_SINGLE_C']
+        assert len(bridges)==2 and all(r['result']['latent_bridge']['equal'] for r in bridges)
     if production_card.get('pipeline'):
         cleanup=[r['state_cleanup'] for r in collection['rows'] if 'state_cleanup' in r]
         assert len(cleanup)==3 and all(r['count']==14 for r in cleanup)
