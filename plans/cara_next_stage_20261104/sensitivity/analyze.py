@@ -84,6 +84,13 @@ def analyze(card,collection,scores,old_scores,root):
                                        for m in card['new_confirm'])
             gates.append(dict(reference=reference,dimension=dimension,difference=difference,minimum=minimum,passed=difference>=minimum))
     p=permutation_test(old_lp,new_lp,margin=.027)
+    result=dict(latent_controls=[dict(slot=r['slot'],**r['result']['latent_bridge']) for r in collection['rows'] if 'latent_bridge' in r['result']],
+        RGB_controls=scores.get('RGB_controls',[]),speedup_T_DD=speed,mean_LPIPS_new=statistics.mean(new_lp),mean_LPIPS_old=statistics.mean(old_lp),
+        NI_margin=.027,NI_permutation_p=p,NI_passed=p<=.05,quality_gates=gates,
+        confirmation_passed=speed>=1.9 and means['F17_A2_LIGHT_C']<=133 and statistics.mean(new_lp)<=.27
+            and p<=.05 and all(g['passed'] for g in gates))
+    if card['counts']['b']==0:
+        return dict(result,sensitivity_status='PENDING_ORIGINAL_CARD')
     fit_s={t:statistics.mean(math.sqrt(r['latent_MSE'])/max(r['local_guided_delta_RMS'],1e-12)
         for r in scores['sensitivity'] if r['member'] in card['FIT'] and r['t']==t) for t in card['sensitivity_steps']}
     sensitivity=interpolate(fit_s);predictions={}
@@ -103,11 +110,7 @@ def analyze(card,collection,scores,old_scores,root):
         prediction.update(freeD_overlap=len(D&actualD),A_overlap=len(A&actualA),
             DAC_Hamming=sum(('D' if t in actualD else 'A' if t in actualA else 'C')!=reference[t-1] for t in range(1,37)),
             C_Jaccard=len(referenceC&actualC)/len(referenceC|actualC))
-    return dict(latent_controls=[dict(slot=r['slot'],**r['result']['latent_bridge']) for r in collection['rows'] if 'latent_bridge' in r['result']],
-        RGB_controls=scores.get('RGB_controls',[]),speedup_T_DD=speed,mean_LPIPS_new=statistics.mean(new_lp),mean_LPIPS_old=statistics.mean(old_lp),
-        NI_margin=.027,NI_permutation_p=p,NI_passed=p<=.05,quality_gates=gates,
-        confirmation_passed=speed>=1.9 and means['F17_A2_LIGHT_C']<=133 and statistics.mean(new_lp)<=.27
-            and p<=.05 and all(g['passed'] for g in gates),
+    return dict(result,
         FIT_sensitivity=fit_s,non_FIT_reconstruction=predictions,
         principle_supported=statistics.median(p['17']['freeD_overlap'] for p in predictions.values())>=7
             and statistics.median(p['17']['A_overlap'] for p in predictions.values())>=7,

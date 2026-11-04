@@ -84,6 +84,7 @@ def main():
     parser=argparse.ArgumentParser()
     for name in ('project','stage'):parser.add_argument('--'+name,type=Path,required=True)
     for name in ('source-revision','gpu-uuid'):parser.add_argument('--'+name,required=True)
+    parser.add_argument('--manifest',type=Path,default=HERE/'manifest.json')
     args=parser.parse_args()
     sys.path[:0]=[str(args.stage/'src'),str(args.stage/'scripts'),str(args.project/'runtime'),
         str(args.project/'runtime/packages/cosmos-oss'),str(args.project/'runtime/packages/cosmos-cuda')]
@@ -93,9 +94,9 @@ def main():
     from run_cara_budget_calibration_r1 import validate_runner_handoff
     read=lambda path:json.loads(Path(path).read_text())
     launch=read(args.stage/'GPU-launch.json');reg=read(args.stage/'registration.json')
-    card=read(HERE/'manifest.json')
+    card=read(args.manifest)
     if (launch['run_id']!=card['run_id'] or launch['source_revision']!=args.source_revision
-            or launch['gpu_uuid']!=args.gpu_uuid or launch['billed_limit_GPUh']!=9.5
+            or launch['gpu_uuid']!=args.gpu_uuid or launch['billed_limit_GPUh']!=card['quote']['hard_GPUh']
             or launch['scope_sha256']!=card['scope_sha256']):
         raise ValueError('Exact Phase2 admitted source/run/budget required')
     if any(sha(args.stage/name)!=digest for name,digest in reg['payload_sha256'].items()):
@@ -106,7 +107,7 @@ def main():
     if envelope['job']['job_id']!=card['run_id'] or envelope['job']['launch_id']!=launch['launch_id']:
         raise ValueError('Exact single central reservation required')
     command=[sys.executable,str(HERE/'runner.py'),'--project',str(args.project),'--stage',str(args.stage),
-        '--source-revision',args.source_revision,'--gpu-uuid',args.gpu_uuid]
+        '--manifest',str(args.manifest),'--source-revision',args.source_revision,'--gpu-uuid',args.gpu_uuid]
     validate_runner_handoff(args.stage,launch,sha(args.stage/'GPU-launch.json'),command)
     runner_context_gate(args.project,args.stage,args.gpu_uuid)
     import torch

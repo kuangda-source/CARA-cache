@@ -1,4 +1,5 @@
 """Real pinned sampler/cache/UniPC with tiny CPU modules; no model weights/GPU."""
+import copy
 import json
 import inspect
 import itertools
@@ -42,31 +43,34 @@ def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,
     common=dict(runtime=runtime,wc=wc,rf=rf,inference_module=inference_module,expected_shape=[1,8,2,8,8])
     initial=CompleteStateRoundtrip(net,model.sample_scheduler,torch.zeros(1))
     root=Path(artifact_root)/str(flow);root.mkdir()
-    initial.restore()
-    record=execute(inference,selected[0],card=card,common=common,output=root/'record',record_root=root/'states')
-    profile=profile_from(card['profile'])
+    production_card=json.loads(Path(os.environ.get('CARA_SENS_MANIFEST',HERE/'manifest.json')).read_text())
     controls=[]
-    # Each resumed single-C must equal a separately executed complete single-C request.
-    for target in range(8,35,2):
-        initial.restore()
-        suffix=execute(inference,selected[0],card=card,common=common,output=root/f'suffix_{target}',
-            checkpoint=root/'states'/f'state_before_{target:02d}.pt',target=target)
-        initial.restore()
-        full=full_policy(inference,selected[0],profile=profile,policy=policy_for(profile,target),
-            output=root/f'full_{target}',settings=card['settings'],calibration=None,specs={},audit=True,**common)
-        assert torch.equal(suffix['final_latent'],full['final_latent']),target
-        assert Path(suffix['video_path']).read_bytes()==Path(full['video_path']).read_bytes(),target
-        assert suffix['guided_pairs']==suffix['solver_steps']==37-target
-        controls.append(dict(t=target,suffix_updates=37-target,full_latent_and_RGB_equal=True))
-    for target in (8,34):
-        initial.restore()
-        suffix=execute(inference,selected[0],card=card,common=common,output=root/f'unchanged_{target}',
-            checkpoint=root/'states'/f'state_before_{target:02d}.pt')
-        assert torch.equal(record['final_latent'],suffix['final_latent'])
-    metrics=json.loads((root/'states/metrics.json').read_text())
-    assert len(metrics)==36 and metrics[0]['guided_delta_RMS'] is None
-    assert all(r['v_c_delta_RMS'] is not None and r['first_block_rel_l1_u'] is not None for r in metrics[1:])
-    assert len(list((root/'states').glob('latent_before_*.pt')))==36
+    initial.restore()
+    if production_card['counts']['b']:
+        record=execute(inference,selected[0],card=card,common=common,output=root/'record',record_root=root/'states')
+        profile=profile_from(card['profile'])
+        controls=[]
+        # Each resumed single-C must equal a separately executed complete single-C request.
+        for target in range(8,35,2):
+            initial.restore()
+            suffix=execute(inference,selected[0],card=card,common=common,output=root/f'suffix_{target}',
+                checkpoint=root/'states'/f'state_before_{target:02d}.pt',target=target)
+            initial.restore()
+            full=full_policy(inference,selected[0],profile=profile,policy=policy_for(profile,target),
+                output=root/f'full_{target}',settings=card['settings'],calibration=None,specs={},audit=True,**common)
+            assert torch.equal(suffix['final_latent'],full['final_latent']),target
+            assert Path(suffix['video_path']).read_bytes()==Path(full['video_path']).read_bytes(),target
+            assert suffix['guided_pairs']==suffix['solver_steps']==37-target
+            controls.append(dict(t=target,suffix_updates=37-target,full_latent_and_RGB_equal=True))
+        for target in (8,34):
+            initial.restore()
+            suffix=execute(inference,selected[0],card=card,common=common,output=root/f'unchanged_{target}',
+                checkpoint=root/'states'/f'state_before_{target:02d}.pt')
+            assert torch.equal(record['final_latent'],suffix['final_latent'])
+        metrics=json.loads((root/'states/metrics.json').read_text())
+        assert len(metrics)==36 and metrics[0]['guided_delta_RMS'] is None
+        assert all(r['v_c_delta_RMS'] is not None and r['first_block_rel_l1_u'] is not None for r in metrics[1:])
+        assert len(list((root/'states').glob('latent_before_*.pt')))==36
     initial.restore()
     # Complete physical routing, with an explicitly declared frozen request fixture.
     # The production class is separately imported in the Phase2 Linux admission.
@@ -78,7 +82,6 @@ def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,
         def model_dump(self,**kwargs):return dict(vars(self))
         @classmethod
         def model_validate(cls,value):return cls(**value)
-    production_card=json.loads((HERE/'manifest.json').read_text())
     production_card['settings']['worldcache_flow_enabled']=flow
     samples={r['name']:FrozenSample(**{**{k:v for k,v in r.items() if k!='partition'},'resolution':'16,16'})
              for r in production_card['inputs']}
@@ -94,10 +97,27 @@ def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,
     collection=collect_loaded(inference,samples,production_card,dict(common,CPU_native=native),
         root/'collection',Storage(),mode_snapshot(net)['module_types'],cpu_validation=True)
     assert collection['status']=='COMPLETE_PENDING_RELEASE_SCORING'
-    assert len(collection['rows'])==143 and all(r['status']=='COMPLETE' for r in collection['rows'])
-    return [dict(flow=flow,controls=controls,unchanged_suffix_controls=2,
-                 Native_metrics_steps=36,latent_states=36,sensitivity_states=14,
-                 complete_physical_requests=143,CPU_request_class='DECLARED_FROZEN_FIXTURE')]
+    assert len(collection['rows'])==len(production_card['matrix']) and all(r['status']=='COMPLETE' for r in collection['rows'])
+    if production_card['counts']['b']==0:
+        assert not (root/'collection/native_states').exists()
+        from analyze import analyze
+        synthetic=copy.deepcopy(collection)
+        for row in synthetic['rows']:
+            row['result']['T_DD']={'NATIVE35':250.,'F17_A2_LIGHT_C':130.,'F19_A1':150.,'WC_T006':129.}[row['slot']['role']]
+        formal=[r for r in synthetic['rows'] if r['slot']['section']=='c']
+        scores=dict(LPIPS=[dict(slot=r['slot'],result=dict(Alex=.2)) for r in formal if r['slot']['role']!='NATIVE35'],
+            quality_rows=[dict(planned=dict(case_id=r['slot']['member'],role=r['slot']['role'],dimension=d),result=dict(value=1.))
+                for r in formal for d in production_card['quality']['independent_quality_min_differences']])
+        old_scores=dict(LPIPS=[dict(role='F17_A2_LIGHT_C',result=dict(Alex=.2)) for _ in range(4)])
+        accepted=analyze(production_card,synthetic,scores,old_scores,root)
+        assert accepted['confirmation_passed'] and accepted['sensitivity_status']=='PENDING_ORIGINAL_CARD'
+        for row in scores['LPIPS']:
+            if row['slot']['role']=='F17_A2_LIGHT_C':row['result']['Alex']=.3
+        rejected=analyze(production_card,synthetic,scores,old_scores,root)
+        assert not rejected['confirmation_passed'] and not rejected['NI_passed']
+    return [dict(flow=flow,controls=controls,unchanged_suffix_controls=2 if controls else 0,
+                 Native_metrics_steps=36 if controls else 0,latent_states=36 if controls else 0,sensitivity_states=14 if controls else 0,
+                 complete_physical_requests=len(production_card['matrix']),CPU_request_class='DECLARED_FROZEN_FIXTURE')]
 
 
 if __name__ == '__main__':

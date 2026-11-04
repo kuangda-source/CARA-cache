@@ -1,4 +1,5 @@
 """GPU-hidden production import and the same complete tiny CPU dry-run."""
+import argparse
 import json
 import os
 from pathlib import Path
@@ -6,11 +7,14 @@ import runpy
 import sys
 
 HERE=Path(__file__).resolve().parent
+parser=argparse.ArgumentParser()
+parser.add_argument('--manifest',type=Path,default=HERE/'manifest.json')
+args=parser.parse_args()
 STAGE=HERE.parents[2]
 PROJECT=STAGE.parents[1]
 runtime=PROJECT/'runtime'
 os.environ.update(CUDA_VISIBLE_DEVICES='',NVIDIA_VISIBLE_DEVICES='void',
-    CARA_READ_WRITE_RUNTIME=str(runtime),HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1',WC_SCOUT_KIND='CAL12')
+    CARA_READ_WRITE_RUNTIME=str(runtime),CARA_SENS_MANIFEST=str(args.manifest),HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1',WC_SCOUT_KIND='CAL12')
 sys.path[:0]=[str(STAGE/'src'),str(STAGE/'scripts'),str(STAGE/'tests'),str(HERE),str(runtime),
     str(runtime/'packages/cosmos-oss'),str(runtime/'packages/cosmos-cuda')]
 import torch,triton
@@ -33,7 +37,7 @@ try:
     from cosmos_predict2._src.predict2.models import video2world_model_rectified_flow
 finally:
     hu.is_flash_attn_2_available,iu.is_flash_attn_2_available,torch.cuda.current_device=saved
-card=json.loads((HERE/'manifest.json').read_text())
+card=json.loads(args.manifest.read_text())
 for row in card['inputs']:
     InferenceArguments(**{k:v for k,v in row.items() if k!='partition'})
 SetupArguments(**{**json.loads((STAGE/'configs/f1_setup.json').read_text()),
@@ -45,4 +49,4 @@ registration=json.loads((STAGE/'registration.json').read_text())
 atomic_json(STAGE/'CPU-proof.json',dict(passed=True,actual_production_entry_imported=True,
     scope_sha256=card['scope_sha256'],source_sha256=registration['payload_sha256'],
     runtime_source_sha256=registration['runtime_source_sha256'],torch_version=torch.__version__,
-    complete_tiny_requests=286,CUDA_initialized=torch.cuda.is_initialized(),GPU_submissions=0))
+    complete_tiny_requests=2*len(card['matrix']),CUDA_initialized=torch.cuda.is_initialized(),GPU_submissions=0))

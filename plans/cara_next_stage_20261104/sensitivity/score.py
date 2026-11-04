@@ -11,7 +11,8 @@ HERE=Path(__file__).resolve().parent
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--stage',type=Path,required=True)
-    p.add_argument('--control',type=Path,required=True);args=p.parse_args()
+    p.add_argument('--control',type=Path,required=True)
+    p.add_argument('--manifest',type=Path,default=HERE/'manifest.json');args=p.parse_args()
     stage,control=args.stage,args.control
     read=lambda path:json.loads(Path(path).read_text())
     sha=lambda path:hashlib.sha256(Path(path).read_bytes()).hexdigest()
@@ -22,7 +23,7 @@ def main():
         raise ValueError('Original released identity differs')
     if os.environ['CUDA_VISIBLE_DEVICES']!='' or os.environ['NVIDIA_VISIBLE_DEVICES']!='void':
         raise ValueError('CPU-only scoring required')
-    card=read(HERE/'manifest.json');out=Path(card['output_root']);collection=read(out/'collection.json')
+    card=read(args.manifest);out=Path(card['output_root']);collection=read(out/'collection.json')
     if collection['status']!='COMPLETE_PENDING_RELEASE_SCORING' or len(collection['rows'])!=card['counts']['total_requests']:
         raise ValueError('Complete physical denominator required before scoring')
     if sha(out/'collection.json')!=config['collection_sha256'] or collection['scope_sha256']!=card['scope_sha256']:
@@ -67,7 +68,7 @@ def main():
     indexed={(r['slot']['member'],r['slot']['role'],r['slot']['target_update']):r for r in rows}
     for row in rows:
         slot=row['slot'];member=slot['member'];role=slot['role']
-        if role in ('NATIVE35','RESUME_D'):reference=recorded[member]
+        if role in ('NATIVE35','RESUME_D') and member in recorded:reference=recorded[member]
         elif role=='FULL_SINGLE_C':reference=indexed[member,'SINGLE_C',slot['target_update']]
         else:continue
         equal=RGB(row)==RGB(reference)

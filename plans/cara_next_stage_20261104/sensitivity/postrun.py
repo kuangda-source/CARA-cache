@@ -8,7 +8,7 @@ HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[2]
 sys.path[:0]=[str(ROOT/'scripts'),str(HERE)]
 from cara_f19_speed190_transport_r1 import rpc
-from ops import PREFIX
+from ops import PREFIX,CARD
 
 SCORE=PREFIX+'''
 sys.path[:0]=[str(stage/'src'),str(stage/'scripts')]
@@ -37,7 +37,7 @@ cmd=['docker','run','-d','--name',name,'--network','none','--read-only','--cpus'
  '-v',str(output)+':'+str(output)+':ro','-v',actual_output+':'+actual_output+':ro','-w',str(root/'runtime')]
 cmd += [x for k,v in env.items() for x in ('-e',k+'='+str(v))]
 cmd += [read(stage/'registration.json')['container_image'],'timeout','--signal=TERM','--kill-after=15s','86400',
- str(root/'envs/wc-cosmos-py310-cu128-r3/bin/python'),str(stage/rel/'score.py'),'--stage',str(stage),'--control',str(control)]
+ str(root/'envs/wc-cosmos-py310-cu128-r3/bin/python'),str(stage/rel/'score.py'),'--manifest',str(card_path),'--stage',str(stage),'--control',str(control)]
 create(control/'intent.json',dict(command=cmd,GPU_submissions=0))
 q=subprocess.run(cmd,capture_output=True,text=True);result=dict(exit_code=q.returncode,stdout=q.stdout,stderr=q.stderr)
 create(control/'launch.json',result);print(json.dumps(result))
@@ -46,7 +46,7 @@ create(control/'launch.json',result);print(json.dumps(result))
 ANALYZE=PREFIX+'''
 control=stage/'released-score-control';assert read(control/'scores.json')['status']=='COMPLETE_PENDING_ANALYSIS'
 output=root/'outputs'/run
-cmd=['python3',str(stage/rel/'analyze.py'),'--manifest',str(stage/rel/'manifest.json'),
+cmd=['python3',str(stage/rel/'analyze.py'),'--manifest',str(card_path),
  '--collection',str(output/'collection.json'),'--scores',str(control/'scores.json'),
  '--old-scores',str(base/'released-score-control/scores.json'),'--root',str(output),
  '--output',str(control/'complete_analysis.json')]
@@ -57,6 +57,7 @@ print(json.dumps(dict(exit_code=q.returncode,stdout=q.stdout,stderr=q.stderr,out
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('action',choices=('score','analyze'))
     parser.add_argument('--input',type=Path);parser.add_argument('--receipt',type=Path,required=True)
+    parser.add_argument('--manifest',type=Path,default=CARD)
     parser.add_argument('--route',choices=('ipv4','v6'),default='ipv4');args=parser.parse_args()
     if args.receipt.exists():raise ValueError('Preserve the original operator response')
     data=json.loads(args.input.read_text()) if args.input else {}
