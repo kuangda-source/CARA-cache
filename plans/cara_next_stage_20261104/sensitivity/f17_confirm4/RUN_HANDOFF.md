@@ -105,7 +105,7 @@ record仍取已测均值1388.039s，后缀计算沿用6.859528s/D-pair＋68.2578
 Step0中央ledger确认本原launch尚未结算，pipeline_r2无job或stage；未重复结算/启动。原GPU容器2026-11-04 14:00:18.600384北京时间正常退出0、非OOM；guardian计费结束14:00:21.266785。
 18/18完整，释放/Default恢复/原进程结束均通过；guardian唯一账单4324.197150305845秒=1.201165875084957GPUh，中央seq94唯一结算，返还预留余量0.748834124915043GPUh。
 结算后cap250 / used220.1337140687724 / reserved16.5 / available13.366285931227594GPUh。原S/Q责任和所有其他job保持。
-CPU评分2026-11-04 15:00:39.807156北京时间启动原唯一scorer，CUDA隐藏，尚在完成48个质量位置；本段不把CPU评分开始当作完整评分接受。
+原唯一CPU scorer于2026-11-04 15:00:39.807156开始、15:47:35.389716北京时间结束，wall 2815.582560秒；exit0、非OOM、CUDA_initialized=false。12/12完整93帧LPIPS及48/48原质量位置完成，scores状态COMPLETE_PENDING_ANALYSIS；随后原stage的固定analyze正常退出0。
 
 | 新输入 | Native/F17 T_DD | F17 LPIPS-Alex |
 |---|---:|---:|
@@ -120,3 +120,19 @@ CPU评分2026-11-04 15:00:39.807156北京时间启动原唯一scorer，CUDA隐�
 结果路径仍为原stage的released-score-control；本地原始collection、terminal_capture、central_settlement、release、score_launch及指定旧卷清理receipt在 `reports/cara_f17_confirm4_r1_20261104/`。旧CAL35四条LPIPS仅复用，无重新评分。
 
 budget-calibration-r1的唯一旧job已核实SETTLED；F17容器退出后losetup -j精确image无输出、findmnt无loop42、fuser无open、唯一活动CPU评分容器无loop42引用。删除了该reservation的output.ext4、provision.json和空目录，分配合计68,719,484,928 bytes（约64GiB）；XFS延迟回收后df为/dev/sdb1 14T/13T/357G/98%，精确可用382,360,334,336 bytes。未触及r2、CAL35、旧256GiB或F17的16GiB卷。本轮没有创建测速scratch文件、监控、cron或automation。
+
+
+六个点均值质量门全部通过（差值均为F17减对应reference）：
+
+| reference | 维度 | 均值差 | 最低门 | 通过 |
+|---|---|---:|---:|---|
+| NATIVE35 | MUSIQ_LONGER512 | -0.505542735 | -1.0 | 是 |
+| NATIVE35 | subject_consistency | 0.012133556 | -0.01 | 是 |
+| NATIVE35 | motion_smoothness | 0.000602518 | -0.01 | 是 |
+| F19_A1 | MUSIQ_LONGER512 | 0.796042494 | -1.0 | 是 |
+| F19_A1 | subject_consistency | 0.001197851 | -0.01 | 是 |
+| F19_A1 | motion_smoothness | 0.000306426 | -0.01 | 是 |
+
+正式 `complete_analysis.json` 的 `confirmation_passed=false`、`NI_passed=false`、`sensitivity_status=PENDING_ORIGINAL_CARD`。速度、平均T_DD、平均LPIPS及六质量门均通过，唯独固定统计非劣门未通过。源码/阈值未改，未重评分旧CAL35。
+原始完整结果为 `reports/cara_f17_confirm4_r1_20261104/scores.json`、`CPU_score_terminal.json`、`complete_analysis.json`；服务器保留原S/released-score-control/scores.json及complete_analysis.json。上文capture/settle/score/analyze命令已各执行一次，已有句柄/交易只恢复，不重派或重评分。
+15:48终态只读复核：中央ledger cap250 / used220.1337140687724 / reserved16.5 / available13.366285931227594；pipeline job为空、stage不存在。数据盘df仍14T/13T/357G/98%，精确可用382,359,617,536 bytes。没有新reserve或GPU启动；37项其他工作流未提交项保持未入本提交。

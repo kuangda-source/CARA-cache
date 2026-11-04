@@ -48,3 +48,5 @@ F17原18/18 GPU成功，guardian实耗1.201165875084957GPUh已唯一结算seq94�
 指定budget-calibration-r1的64GiB镜像及provision.json已删除，删除前loop42/主机挂载/活动容器引用均为空；文件分配合计68,719,484,928 bytes，延迟回收后df可用357G（382,360,334,336 bytes）。r2、CAL35、旧256GiB敏感度卷及F17卷均未改动。
 F17评分/分析入口和唯一结算回执见 `reports/cara_f17_confirm4_r1_20261104/` 及 `../f17_confirm4/RUN_HANDOFF.md`。没有新GPU、预留、监控或自动后继。
 本续卡仍是quote-only源码：未来若另获启动许可，须先完成独立run的binding/event/addendum接线，并用release现有launch_id字段对齐确认复用入口，再做Linux入口及fresh准入；不把本地CPU dry-run称为生产可启动证明。
+
+F17 CPU验收已于15:47:35正常结束：12/12 LPIPS、48/48质量、六质量门全过，固定analyze正常完成但NI p=0.300，confirmation_passed=false。15:48中央job仍为空、服务器stage仍不存在、available13.366285931227594；本卡不执行capture/settle/score/analyze。原F17已执行的确切命令及结果文件见 `../f17_confirm4/RUN_HANDOFF.md`。无实际启动时间或预计完成时间；10.371018501小时仅是未执行方案的报价墙钟。
