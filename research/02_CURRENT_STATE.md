@@ -2,6 +2,9 @@
 
 # CARA-Cache 当前状态
 
+> **对外方法设计（2026-11-05）：** [METHOD_DESIGN_CARA_CURRENT_20261105.md](METHOD_DESIGN_CARA_CURRENT_20261105.md) — 机制、计时、布局生成、关键结果与开放问题的中文汇总（讨论用）。
+
+
 ## 当前规则与状态（2026-11-05）
 
 用户最新确认：只以outcome评价（同T_DD预算的加速与配对LPIPS），F17仅为手搜参考，D/A位置重叠门已作废。[flat_opt](../reports/cara_flat_opt_20261105/report.md)穷举6,906,900个17D布局；每输入模型最优5%代价带内有17–298个布局（多数几十至上百，O4为17），与F17的D位重叠中位约3–6；未校准加性s·Δv与实测排序不符。[principle_fit](../reports/cara_principle_fit_20261105/report.md)收录346个layout×input点（234多步评价点）；s(t)×drift-since-last-D类模型LOLO基础within-input Spearman约0.63、配对约0.94–0.96，nD-only配对基线−0.18。M5f（σ加权，w∝σ_t^2.72，κ_A≈0.26）略优，但近优布局配对相关仅约0.55；N3 misc_9699的F17−F19约+0.071仍未解释。这些是零GPU事后拟合与新mask预测，尚非新布局的实测收益。

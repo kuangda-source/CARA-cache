@@ -1,0 +1,470 @@
+{
+  "OUTCOME": "FINISHED",
+  "verdict": "INCONCLUSIVE",
+  "verdict_basis": "Common T_DD cap passed; mean paired LPIPS improves but descriptive CI crosses zero and directions split 2/4. No NI/p test or post-hoc quality gate.",
+  "run_id": "cara-g17-minitest-with-nonfast-r1-20261105",
+  "launch_id": "66164b05160c4c9b8c411ff65bc0871e",
+  "GPU_finished_Beijing": "2026-11-05T16:30:36.722082+08:00",
+  "physical_requests": 30,
+  "formal_scores": 28,
+  "full_frames_per_pair": 93,
+  "all_fixed_masks_matched": true,
+  "CPU_only": true,
+  "primary": {
+    "candidate": "G17",
+    "reference": "F17_A2_LIGHT_C",
+    "members": [
+      "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "misc_13398218_3840_2160_60fps",
+      "av_cc90f226-5312-4e0f-959a-39cd4eb4d90d",
+      "misc_9699390-uhd_3840_2160_30fps"
+    ],
+    "mean_delta": -0.021834072286403314,
+    "CI95": [
+      -0.05251443490225782,
+      0.008846290329451195
+    ],
+    "improved": 2,
+    "equal": 0,
+    "n": 4,
+    "per_input": [
+      {
+        "member": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "delta_Alex": 0.00017379208277629177,
+        "delta_T_DD": 0.8153858229999855
+      },
+      {
+        "member": "misc_13398218_3840_2160_60fps",
+        "delta_Alex": -0.05840832011033131,
+        "delta_T_DD": 0.8137773409999909
+      },
+      {
+        "member": "av_cc90f226-5312-4e0f-959a-39cd4eb4d90d",
+        "delta_Alex": -0.04662054969418433,
+        "delta_T_DD": 0.934427391000014
+      },
+      {
+        "member": "misc_9699390-uhd_3840_2160_30fps",
+        "delta_Alex": 0.0175187885761261,
+        "delta_T_DD": 0.8493951359999983
+      }
+    ],
+    "mean_delta_T_DD": 0.8532464227499972
+  },
+  "tail_vs_G17": {
+    "candidate": "G17_TAIL",
+    "reference": "G17",
+    "members": [
+      "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "misc_13398218_3840_2160_60fps",
+      "av_cc90f226-5312-4e0f-959a-39cd4eb4d90d",
+      "misc_9699390-uhd_3840_2160_30fps"
+    ],
+    "mean_delta": 0.004017924709666158,
+    "CI95": [
+      -0.007925822689969053,
+      0.01596167210930137
+    ],
+    "improved": 2,
+    "equal": 0,
+    "n": 4,
+    "per_input": [
+      {
+        "member": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+        "delta_Alex": 0.019202593513714367,
+        "delta_T_DD": 0.039474397000020645
+      },
+      {
+        "member": "misc_13398218_3840_2160_60fps",
+        "delta_Alex": 0.012720750704888373,
+        "delta_T_DD": -0.06563100799999688
+      },
+      {
+        "member": "av_cc90f226-5312-4e0f-959a-39cd4eb4d90d",
+        "delta_Alex": -0.007909663261905786,
+        "delta_T_DD": -0.15302453300000707
+      },
+      {
+        "member": "misc_9699390-uhd_3840_2160_30fps",
+        "delta_Alex": -0.00794198211803232,
+        "delta_T_DD": -0.0031089210000061485
+      }
+    ],
+    "mean_delta_T_DD": -0.045572516249997364
+  },
+  "means": {
+    "F17_A2_LIGHT_C": {
+      "Alex": 0.2975641937265473,
+      "T_DD": 131.75015698775002,
+      "historical_Native_speed_reference": 1.918681338349402,
+      "T_DD_ratio_vs_same_batch_F17": 1.0
+    },
+    "G17": {
+      "Alex": 0.27573012144014397,
+      "T_DD": 132.6034034105,
+      "historical_Native_speed_reference": 1.9063354411383342,
+      "T_DD_ratio_vs_same_batch_F17": 1.00647624596629
+    },
+    "G17_TAIL": {
+      "Alex": 0.27974804614981014,
+      "T_DD": 132.55783089425,
+      "historical_Native_speed_reference": 1.9069908268087479,
+      "T_DD_ratio_vs_same_batch_F17": 1.0061303449268382
+    },
+    "G19": {
+      "Alex": 0.3521021402651264,
+      "T_DD": 151.29084451025,
+      "historical_Native_speed_reference": 1.6708649380291722,
+      "T_DD_ratio_vs_same_batch_F17": 1.1483162371056366
+    },
+    "G22": {
+      "Alex": 0.2912942387804549,
+      "T_DD": 169.50497676875,
+      "historical_Native_speed_reference": 1.4913223927452484,
+      "T_DD_ratio_vs_same_batch_F17": 1.2865637555521878
+    }
+  },
+  "per_input": [
+    {
+      "alias": "O1",
+      "member": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
+      "F17_A2_LIGHT_C": {
+        "Alex": 0.20128140286091836,
+        "T_DD": 131.794550262
+      },
+      "G17": {
+        "Alex": 0.20145519494369465,
+        "T_DD": 132.609936085
+      },
+      "G17_TAIL": {
+        "Alex": 0.22065778845740902,
+        "T_DD": 132.649410482
+      },
+      "G19": {
+        "Alex": 0.31915785452371004,
+        "T_DD": 151.32013727
+      },
+      "G22": {
+        "Alex": 0.26474141609925095,
+        "T_DD": 169.517470742
+      },
+      "delta_G17_F17": 0.00017379208277629177,
+      "delta_tail_G17": 0.019202593513714367
+    },
+    {
+      "alias": "O3",
+      "member": "misc_13398218_3840_2160_60fps",
+      "F17_A2_LIGHT_C": {
+        "Alex": 0.3268258927329894,
+        "T_DD": 131.774414484
+      },
+      "G17": {
+        "Alex": 0.2684175726226581,
+        "T_DD": 132.588191825
+      },
+      "G17_TAIL": {
+        "Alex": 0.28113832332754646,
+        "T_DD": 132.522560817
+      },
+      "G19": {
+        "Alex": 0.3610686054152827,
+        "T_DD": 151.288535007
+      },
+      "G22": {
+        "Alex": 0.3031748369816811,
+        "T_DD": 169.525808849
+      },
+      "delta_G17_F17": -0.05840832011033131,
+      "delta_tail_G17": 0.012720750704888373
+    },
+    {
+      "alias": "N1",
+      "member": "av_cc90f226-5312-4e0f-959a-39cd4eb4d90d",
+      "F17_A2_LIGHT_C": {
+        "Alex": 0.3152706260963153,
+        "T_DD": 131.654428003
+      },
+      "G17": {
+        "Alex": 0.26865007640213096,
+        "T_DD": 132.588855394
+      },
+      "G17_TAIL": {
+        "Alex": 0.26074041314022517,
+        "T_DD": 132.435830861
+      },
+      "G19": {
+        "Alex": 0.3438524168024781,
+        "T_DD": 151.242942035
+      },
+      "G22": {
+        "Alex": 0.2868502672000598,
+        "T_DD": 169.440983674
+      },
+      "delta_G17_F17": -0.04662054969418433,
+      "delta_tail_G17": -0.007909663261905786
+    },
+    {
+      "alias": "N3",
+      "member": "misc_9699390-uhd_3840_2160_30fps",
+      "F17_A2_LIGHT_C": {
+        "Alex": 0.3468788532159662,
+        "T_DD": 131.777235202
+      },
+      "G17": {
+        "Alex": 0.3643976417920923,
+        "T_DD": 132.626630338
+      },
+      "G17_TAIL": {
+        "Alex": 0.35645565967405995,
+        "T_DD": 132.623521417
+      },
+      "G19": {
+        "Alex": 0.3843296843190347,
+        "T_DD": 151.311763729
+      },
+      "G22": {
+        "Alex": 0.31041043484082786,
+        "T_DD": 169.53564381
+      },
+      "delta_G17_F17": 0.0175187885761261,
+      "delta_tail_G17": -0.00794198211803232
+    }
+  ],
+  "diagnostics": {
+    "N1": {
+      "values": {
+        "F17_A2_LIGHT_C": {
+          "Alex": 0.3152706260963153,
+          "T_DD": 131.654428003
+        },
+        "F19_A1_LIGHT_C": {
+          "Alex": 0.30578366370611293,
+          "T_DD": 142.101104281
+        },
+        "F17_ORIGINAL_C": {
+          "Alex": 0.31763694972120304,
+          "T_DD": 137.542382955
+        },
+        "F19_A2_LATE4_LIGHT_C": {
+          "Alex": 0.3071788328309213,
+          "T_DD": 145.490185063
+        },
+        "F17_D27_LIGHT_C": {
+          "Alex": 0.3097806877346449,
+          "T_DD": 138.621341828
+        },
+        "F19_A1_HISTORY": {
+          "Alex": 0.30855115222674545,
+          "T_DD": null
+        }
+      },
+      "ordered_difference_decomposition": {
+        "light_C_on_F19": -0.0027674885206325217,
+        "late_A22_23_25_26": 0.0013951691248083598,
+        "drop_D30_after_late_A": 0.0026018549037236105,
+        "drop_D27_after_drop_D30": 0.005489938361670388
+      },
+      "total_F17_minus_historical_F19": 0.006719473869569836,
+      "light_C_effect_on_F17": -0.002366323624887756,
+      "original_C_F17_minus_original_C_F19": 0.009085797494457593
+    },
+    "N3": {
+      "values": {
+        "F17_A2_LIGHT_C": {
+          "Alex": 0.3468788532159662,
+          "T_DD": 131.777235202
+        },
+        "F19_A1_LIGHT_C": {
+          "Alex": 0.29866320199222973,
+          "T_DD": 142.239739801
+        },
+        "F17_ORIGINAL_C": {
+          "Alex": 0.3071241279443105,
+          "T_DD": 137.669792956
+        },
+        "F19_A2_LATE4_LIGHT_C": {
+          "Alex": 0.29415246668041395,
+          "T_DD": 145.524836104
+        },
+        "F17_D27_LIGHT_C": {
+          "Alex": 0.3101854587113985,
+          "T_DD": 138.612099339
+        },
+        "F19_A1_HISTORY": {
+          "Alex": 0.27619331786709445,
+          "T_DD": null
+        }
+      },
+      "ordered_difference_decomposition": {
+        "light_C_on_F19": 0.022469884125135287,
+        "late_A22_23_25_26": -0.004510735311815783,
+        "drop_D30_after_late_A": 0.016032992030984572,
+        "drop_D27_after_drop_D30": 0.036693394504567656
+      },
+      "total_F17_minus_historical_F19": 0.07068553534887173,
+      "light_C_effect_on_F17": 0.03975472527165569,
+      "original_C_F17_minus_original_C_F19": 0.030930810077216042
+    }
+  },
+  "diagnostic_interpretation": "Ordered telescoping path, not a factorial/additive main-effect decomposition. F19 original-C is a preregistered historical reference with the same Native SHA; its timing is not same-batch.",
+  "M5f": {
+    "frozen_prediction_source": "reports/cara_principle_fit_20261105/gen_results_M5f.json",
+    "normalization": "Equal mean of four paired LPIPS/F17 ratios; not the 8-input MEAN field. No fitting or intercept update.",
+    "summary": {
+      "F17_A2_LIGHT_C": {
+        "predicted_mean_paired_ratio": 1.0,
+        "measured_mean_paired_ratio": 1.0,
+        "measured_Alex_mean": 0.2975641937265473
+      },
+      "G17": {
+        "predicted_mean_paired_ratio": 0.847463039252883,
+        "measured_mean_paired_ratio": 0.9311947279253034,
+        "measured_Alex_mean": 0.27573012144014397
+      },
+      "G19": {
+        "predicted_mean_paired_ratio": 0.6777808217053003,
+        "measured_mean_paired_ratio": 1.2222566990291721,
+        "measured_Alex_mean": 0.3521021402651264
+      },
+      "G22": {
+        "predicted_mean_paired_ratio": 0.4351836402228032,
+        "measured_mean_paired_ratio": 1.0119088046532245,
+        "measured_Alex_mean": 0.2912942387804549
+      }
+    },
+    "per_input": [
+      {
+        "alias": "O1",
+        "predicted_ratios": {
+          "F17_A2_LIGHT_C": 1.0,
+          "G17": 0.8823722730389132,
+          "G19": 0.7136353308954146,
+          "G22": 0.4685714022475611
+        },
+        "measured_ratios": {
+          "F17_A2_LIGHT_C": 1.0,
+          "G17": 1.0008634284156712,
+          "G19": 1.585630117772192,
+          "G22": 1.3152800623224106
+        },
+        "predicted_order": [
+          "G22",
+          "G19",
+          "G17",
+          "F17_A2_LIGHT_C"
+        ],
+        "measured_order": [
+          "F17_A2_LIGHT_C",
+          "G17",
+          "G22",
+          "G19"
+        ]
+      },
+      {
+        "alias": "O3",
+        "predicted_ratios": {
+          "F17_A2_LIGHT_C": 1.0,
+          "G17": 0.8251934275166234,
+          "G19": 0.6533897893618245,
+          "G22": 0.4118937723168034
+        },
+        "measured_ratios": {
+          "F17_A2_LIGHT_C": 1.0,
+          "G17": 0.8212861299883305,
+          "G19": 1.1047735612253615,
+          "G22": 0.9276340820076003
+        },
+        "predicted_order": [
+          "G22",
+          "G19",
+          "G17",
+          "F17_A2_LIGHT_C"
+        ],
+        "measured_order": [
+          "G17",
+          "G22",
+          "F17_A2_LIGHT_C",
+          "G19"
+        ]
+      },
+      {
+        "alias": "N1",
+        "predicted_ratios": {
+          "F17_A2_LIGHT_C": 1.0,
+          "G17": 0.8045528682438268,
+          "G19": 0.6332112373151391,
+          "G22": 0.40462076530548463
+        },
+        "measured_ratios": {
+          "F17_A2_LIGHT_C": 1.0,
+          "G17": 0.8521252985999979,
+          "G19": 1.0906579564993506,
+          "G22": 0.9098540855259599
+        },
+        "predicted_order": [
+          "G22",
+          "G19",
+          "G17",
+          "F17_A2_LIGHT_C"
+        ],
+        "measured_order": [
+          "G17",
+          "G22",
+          "F17_A2_LIGHT_C",
+          "G19"
+        ]
+      },
+      {
+        "alias": "N3",
+        "predicted_ratios": {
+          "F17_A2_LIGHT_C": 1.0,
+          "G17": 0.8777335882121688,
+          "G19": 0.7108869292488229,
+          "G22": 0.4556486210213637
+        },
+        "measured_ratios": {
+          "F17_A2_LIGHT_C": 1.0,
+          "G17": 1.0505040546972142,
+          "G19": 1.1079651606197847,
+          "G22": 0.8948669887569274
+        },
+        "predicted_order": [
+          "G22",
+          "G19",
+          "G17",
+          "F17_A2_LIGHT_C"
+        ],
+        "measured_order": [
+          "G22",
+          "F17_A2_LIGHT_C",
+          "G17",
+          "G19"
+        ]
+      }
+    ],
+    "predicted_mean_order": [
+      "G22",
+      "G19",
+      "G17",
+      "F17_A2_LIGHT_C"
+    ],
+    "measured_mean_order": [
+      "G17",
+      "G22",
+      "F17_A2_LIGHT_C",
+      "G19"
+    ],
+    "tail_numeric_prediction_registered": false
+  },
+  "speed_reference_note": "No fresh Native timing. Native speed ratios use four historical Native clean times; only F17 is same-batch.",
+  "financial": {
+    "settlement_sequence": 100,
+    "actual_GPUh": 1.787543629149182,
+    "previous_cumulative_GPUh": 228.350508821035,
+    "cumulative_GPUh": 230.13805245018418,
+    "legacy_cap_field": 250,
+    "reserved_GPUh": 16.5,
+    "legacy_available_GPUh": 3.3619475498158238
+  },
+  "CPU_score_wall_seconds": 813.67892
+}
