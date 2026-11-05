@@ -1,0 +1,165 @@
+{
+  "base": {
+    "anchors": {
+      "basis": "CAL35 full clean T_request means; four-parameter exact cost interpolation. Center+10%, engineering range -10%/+20%,600s load+600s release. CPU scoring excluded from GPU bill.",
+      "CAL35_ref": "reports/cara_f19_speed190_complete_r1_20261103/complete_analysis.json",
+      "measured_clean": {
+        "NATIVE35": {
+          "T_DD": 252.65663431,
+          "T_request": 314.5362213039771
+        },
+        "F19_A1": {
+          "T_DD": 149.36111579574998,
+          "T_request": 212.3889537935611
+        },
+        "F19_A1_LIGHT_C": {
+          "T_DD": 142.07916879625,
+          "T_request": 205.37153091654181
+        },
+        "F17_A2_LIGHT_C": {
+          "T_DD": 131.65259999174998,
+          "T_request": 195.80283302557655
+        }
+      },
+      "marginal_seconds": {
+        "shared": 70.73485217286674,
+        "D": 6.772260253641954,
+        "A": 0.9939556540796599,
+        "original_C": 0.6379475342744793
+      },
+      "confirm4_F17_T_request_seconds": [
+        192.98197014071047,
+        195.62619890458882,
+        191.21601692121476,
+        189.07969092018902
+      ],
+      "confirm4_F17_T_request_mean": 192.22596922167577,
+      "historical_code_equal": {
+        "ee105ecb3f3ab8a7e7e348ef275f5d4bf3cd34c9": {
+          "src/wcomr/cara_f19_speed190_requests_r1.py": true,
+          "src/wcomr/cara_f19_speed190_sampling_r1.py": true,
+          "src/wcomr/policy_generator_r1/production_sampling.py": true,
+          "src/wcomr/paper_latency_r1.py": true
+        },
+        "6e33ee31544225802cbb07a7084de8d2cc8e14a1": {
+          "src/wcomr/cara_f19_speed190_requests_r1.py": true,
+          "src/wcomr/cara_f19_speed190_sampling_r1.py": true,
+          "src/wcomr/policy_generator_r1/production_sampling.py": true,
+          "src/wcomr/paper_latency_r1.py": true
+        }
+      },
+      "same_hardware": "two_card RTX A6000 GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+      "F17_control_decision": "Include4: historical paths are functionally comparable, but belong to different batches; small marginal cost buys same-batch paired T_DD/LPIPS.",
+      "unmeasured": "Long-A placement and guardrail variability; range is engineering, not confidence interval.",
+      "remote_calls": 0
+    },
+    "request_prices_seconds": {
+      "F17_A2_LIGHT_C": 195.80283302557655,
+      "F19_A1_LIGHT_C": 205.37153091654181,
+      "G17": 196.79678867965623,
+      "G17_TAIL": 196.79678867965623,
+      "G19": 216.30504311141806,
+      "G22": 233.63995691010496,
+      "F17_ORIGINAL_C": 201.54436083404687,
+      "F19_A2_LATE4_LIGHT_C": 209.34735353286044,
+      "F17_D27_LIGHT_C": 202.5750932792185
+    },
+    "request_sum_seconds": 4392.609512524514,
+    "forecast_GPUh": 1.6755195732713792,
+    "range_GPUh": [
+      1.4314857114644617,
+      1.797536504174838
+    ],
+    "hard_GPUh": 2.0,
+    "expected_wall_hours": 1.6755195732713792,
+    "model_load_seconds": 600,
+    "release_margin_seconds": 600,
+    "F17_controls_marginal_center_GPUh": 0.23931457369792689,
+    "formal_requests": 20,
+    "warm_requests": 2,
+    "total_requests": 22
+  },
+  "base_plus_19D_22D": {
+    "anchors": {
+      "basis": "CAL35 full clean T_request means; four-parameter exact cost interpolation. Center+10%, engineering range -10%/+20%,600s load+600s release. CPU scoring excluded from GPU bill.",
+      "CAL35_ref": "reports/cara_f19_speed190_complete_r1_20261103/complete_analysis.json",
+      "measured_clean": {
+        "NATIVE35": {
+          "T_DD": 252.65663431,
+          "T_request": 314.5362213039771
+        },
+        "F19_A1": {
+          "T_DD": 149.36111579574998,
+          "T_request": 212.3889537935611
+        },
+        "F19_A1_LIGHT_C": {
+          "T_DD": 142.07916879625,
+          "T_request": 205.37153091654181
+        },
+        "F17_A2_LIGHT_C": {
+          "T_DD": 131.65259999174998,
+          "T_request": 195.80283302557655
+        }
+      },
+      "marginal_seconds": {
+        "shared": 70.73485217286674,
+        "D": 6.772260253641954,
+        "A": 0.9939556540796599,
+        "original_C": 0.6379475342744793
+      },
+      "confirm4_F17_T_request_seconds": [
+        192.98197014071047,
+        195.62619890458882,
+        191.21601692121476,
+        189.07969092018902
+      ],
+      "confirm4_F17_T_request_mean": 192.22596922167577,
+      "historical_code_equal": {
+        "ee105ecb3f3ab8a7e7e348ef275f5d4bf3cd34c9": {
+          "src/wcomr/cara_f19_speed190_requests_r1.py": true,
+          "src/wcomr/cara_f19_speed190_sampling_r1.py": true,
+          "src/wcomr/policy_generator_r1/production_sampling.py": true,
+          "src/wcomr/paper_latency_r1.py": true
+        },
+        "6e33ee31544225802cbb07a7084de8d2cc8e14a1": {
+          "src/wcomr/cara_f19_speed190_requests_r1.py": true,
+          "src/wcomr/cara_f19_speed190_sampling_r1.py": true,
+          "src/wcomr/policy_generator_r1/production_sampling.py": true,
+          "src/wcomr/paper_latency_r1.py": true
+        }
+      },
+      "same_hardware": "two_card RTX A6000 GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+      "F17_control_decision": "Include4: historical paths are functionally comparable, but belong to different batches; small marginal cost buys same-batch paired T_DD/LPIPS.",
+      "unmeasured": "Long-A placement and guardrail variability; range is engineering, not confidence interval.",
+      "remote_calls": 0
+    },
+    "request_prices_seconds": {
+      "F17_A2_LIGHT_C": 195.80283302557655,
+      "F19_A1_LIGHT_C": 205.37153091654181,
+      "G17": 196.79678867965623,
+      "G17_TAIL": 196.79678867965623,
+      "G19": 216.30504311141806,
+      "G22": 233.63995691010496,
+      "F17_ORIGINAL_C": 201.54436083404687,
+      "F19_A2_LATE4_LIGHT_C": 209.34735353286044,
+      "F17_D27_LIGHT_C": 202.5750932792185
+    },
+    "request_sum_seconds": 6192.389512610605,
+    "forecast_GPUh": 2.2254523510754627,
+    "range_GPUh": [
+      1.8814307114859847,
+      2.397463170870201
+    ],
+    "hard_GPUh": 2.5,
+    "expected_wall_hours": 2.2254523510754627,
+    "model_load_seconds": 600,
+    "release_margin_seconds": 600,
+    "F17_controls_marginal_center_GPUh": 0.23931457369792689,
+    "formal_requests": 28,
+    "warm_requests": 2,
+    "total_requests": 30
+  },
+  "GPU_submissions": 0,
+  "ledger_reservations": 0,
+  "sync_launch": false
+}
