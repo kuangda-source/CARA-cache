@@ -4,12 +4,14 @@
 
 ## 当前规则与状态（2026-11-05）
 
+用户最新确认：只以outcome评价（同T_DD预算的加速与配对LPIPS），F17仅为手搜参考，D/A位置重叠门已作废。[flat_opt](../reports/cara_flat_opt_20261105/report.md)穷举6,906,900个17D布局；每输入模型最优5%代价带内有17–298个布局（多数几十至上百，O4为17），与F17的D位重叠中位约3–6；未校准加性s·Δv与实测排序不符。[principle_fit](../reports/cara_principle_fit_20261105/report.md)收录346个layout×input点（234多步评价点）；s(t)×drift-since-last-D类模型LOLO基础within-input Spearman约0.63、配对约0.94–0.96，nD-only配对基线−0.18。M5f（σ加权，w∝σ_t^2.72，κ_A≈0.26）略优，但近优布局配对相关仅约0.55；N3 misc_9699的F17−F19约+0.071仍未解释。这些是零GPU事后拟合与新mask预测，尚非新布局的实测收益。
+
 不设GPUh累计总上限，只维护running cumulative actual GPUh；任一单run正式报价>8GPUh须用户本人明确批准。≤8GPUh仅在已授权科学范围及既有规则内推进，不扩大scope、不拆卡规避门槛。每run仍有独立硬限、唯一预留和包含失败费用的唯一实际结算；保留原16.5GPUh未知责任，不将历史cap/available字段当作当前累计政策上限。50GiB宿主内存、90°C自动停及4GiB磁盘低水位不降低；不建heartbeat、cron、automation或持续监控。
 
 - 累计实际 **228.350508821GPUh**；本次resume r3完整116/116，唯一结算seq98、**7.566297455GPUh**；六条r2正式结果按hash继承，五条原Native及F17 clean16复用。完整112个s(t)和288行Native Δv见[本次结果](../reports/cara_sensitivity8_resume_r3_20261105/COMPLETE_RESULTS.md)，无新GPU任务。
 - 第一张sensitivity卡因私有输出盘低水位停止，7完整/008截断，失败费用2.466563128GPUh已部分结算；[原结算](../reports/cara_sensitivity8_terminal_partial_r1_20261104/central_settlement.json)保留。pipeline_r2在PIPE_009因40g host cgroup OOM停止，8/122；checkpoint state tensors的闭包/类循环跨请求滞留，gc修复15bb3d39，失败费用0.650497297GPUh已结算。r3完整跑通，后缀GC后RSS中位约14.06GiB、cgroup峰值38.4357/40GiB；文件缓存参与有数值证据，峰值未采集anon/file分项，不称全部是page cache。
 - F17 confirm4的原非配对n=4/组非劣设计未能证明非劣（δ0.027、70排列、p=0.300；原NI/确认布尔值仍false），定性为确认设计的功效问题与不确定结果，不写成“F17方法失败”。同batch速度1.919511×、T_DD131.701259s、mean Alex0.236186及六均值质量门通过。逐输入F17−F19配对Alex差为0.006719/0.003856/0.070686/0.005028，均值0.021572；这是诊断，不替代原非配对检验。misc的F17 Alex0.346879、F19 0.276193，差0.070686；新AV的F17 0.315271也超过0.27。0.27原为均值门，不能隐藏这些案例或改成事后逐输入门。[原F17结果](../reports/cara_f17_confirm4_r1_20261104/complete_analysis.json)不改。
-- 本卡固定s·Δv原理重建：D自由位置重合中位5/9、A重合中位6/10，登记门未通过，全输入/预算结果均保留，不用终点结果调参。
+- 本卡固定s·Δv原理重建：D自由位置重合中位5/9、A重合中位6/10，原登记门未通过；该位置重叠门现已由用户废止，仅保留历史数值，全输入/预算结果不改。
 - fast tier现采用**F17-A2+lightC**。R3 proposal已superseded：写于F17被接受前，以F19-A1参照且门限过时。R4只保留17D fast tier及原则生成的19D/22D arms，不做16D；同batch F17-A2+lightC为强对照，所有候选用A2+lightC读出，在pipeline结果后重新设计、冻结范围和报价。本段不授予新GPU权限。S-END强对照同步改为F17。
 
 以下为历史接受与准备快照；旧累计cap、2/4GPUh分档、R3范围及旧“下一步”不再作为当前规则。
