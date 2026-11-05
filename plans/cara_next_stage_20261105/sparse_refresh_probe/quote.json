@@ -1,6 +1,6 @@
 {
-  "basis": "Requested rounded CAL35 T_request coefficients; light-C term zero; provisional P=0.5*D.",
-  "provisional": true,
+  "basis": "Requested rounded CAL35 T_request coefficients; light-C term zero; confirmed P upper bound=0.5*D.",
+  "design_confirmed": true,
   "arms": [
     "b",
     "c"
@@ -40,8 +40,8 @@
       "3151.35596640",
       "3621.80795520"
     ],
-    "hard": "3600",
-    "upper_exceeds_hard": "21.80795520"
+    "hard": "3780.00",
+    "upper_headroom": "158.19204480"
   },
   "request_sum_seconds": 1568.173296,
   "forecast_GPUh": 0.962497396,
@@ -49,7 +49,7 @@
     0.8753766573333334,
     1.0060577653333334
   ],
-  "hard_GPUh": 1.0,
+  "hard_GPUh": 1.05,
   "formal_requests": 8,
   "warm_video_requests": 0,
   "total_requests": 9,
@@ -61,10 +61,10 @@
   ],
   "request_count_note": "9 parent/video requests = one S1 prefix (no video) + 8 S2 videos; S1 also has 20 local evaluations plus paired step30 comparison.",
   "center_within_limit": true,
-  "upper_within_limit": false,
-  "feasible_under_approved_hard_limit": false,
+  "upper_within_limit": true,
+  "feasible_under_approved_hard_limit": true,
   "GPU_submissions": 0,
   "ledger_reservations": 0,
-  "blocked": true,
-  "block_reason": "Upper quote exceeds the approved 1.0 GPUh hard limit; stop without admission, reservation, or dispatch."
+  "blocked": false,
+  "block_reason": null
 }

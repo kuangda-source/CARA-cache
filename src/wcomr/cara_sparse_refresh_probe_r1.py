@@ -8,7 +8,7 @@ from .cara_f19_speed190_sampling_r1 import SpeedOwner, SpeedReadout
 
 
 def s1_gate(*,D_seconds,P_seconds,C_next_MSE,sync_C_next_MSE,drift_D_to_next,drift_P_to_next):
-    """Provisional in-job S1 decision, using amplitude kappa from next-step C.
+    """Confirmed in-job S1 decision, using amplitude kappa from next-step C.
 
     Both C errors use the same next-step state/teacher; the no-P control restores
     the latest-DD caches. Drift is the frozen cumulative-drift coordinate.
@@ -21,7 +21,7 @@ def s1_gate(*,D_seconds,P_seconds,C_next_MSE,sync_C_next_MSE,drift_D_to_next,dri
     lam=drift_P_to_next/drift_D_to_next
     kappa=(math.sqrt(sync_C_next_MSE/C_next_MSE)-lam)/(1-lam)
     ratio=P/D
-    return dict(provisional=True,cost_ratio=ratio,kappa=kappa,lambda_drift=lam,
+    return dict(cost_ratio=ratio,kappa=kappa,lambda_drift=lam,
         timing_passed=ratio<=.5,kappa_passed=kappa<.45,gate_passed=ratio<=.5 and kappa<.45)
 
 
@@ -57,7 +57,7 @@ class SparseReadout(SpeedReadout):
         if self.sync_residual:
             self.net.residual_cache[1]=self.net.residual_cache[0]-self.residual_delta
             self.cache_birth_steps[1]=step
-            # Provisional A-state sync. This is an approximate anchor, not an
+            # Confirmed A-state sync. This is an approximate anchor, not an
             # observed uncond D: do not train observe_full's regression on it.
             anchor=Anchor(step,(self.net.probe_residual_cache[0]-self.probe_delta).detach(),
                 self.net.residual_cache[1].detach())

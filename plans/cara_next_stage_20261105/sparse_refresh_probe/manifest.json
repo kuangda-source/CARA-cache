@@ -1,17 +1,21 @@
 {
   "schema": "CARA_SPARSE_REFRESH_PROBE_R1",
   "run_id": "cara-sparse-refresh-probe-r1-20261105",
-  "phase": "BLOCKED_QUOTE_UPPER_EXCEEDS_HARD_LIMIT",
+  "phase": "AUTHORIZED_PENDING_RUNTIME_AND_FRESH_ADMISSION",
   "GPU_dispatch_ready": false,
+  "reservation_event": "SPARSE_REFRESH_PROBE_WHOLE1_05_RESERVE",
   "authority": {
-    "user_quote": "P 探针去掉 b0，硬限 1.0 GPUh，精确重报后在空闲卡上跑",
-    "hard_GPUh": 1.0,
+    "user_quote": "P 探针硬限放到 1.05 GPUh，设计不动，空闲卡上跑",
+    "hard_GPUh": 1.05,
     "idle_card_only": true,
     "mainline_confirm10_has_priority": true,
-    "current_instruction": "Only launch after center and upper quote <=1.0 GPUh and fresh idle-card admission; otherwise stop. No routines.",
+    "current_instruction": "Only launch after quote and production CPU acceptance pass, on the idle GPU other than confirm10. No routines.",
     "execution_authorized": true,
     "ledger_reservation_authorized": true,
-    "reservation_only_at_launch": true
+    "reservation_only_at_launch": true,
+    "direct_user_authorization": true,
+    "cumulative_budget_policy": "RUNNING_TOTAL_NO_CUMULATIVE_CAP",
+    "authorization_date": "2026-11-05"
   },
   "inputs": [
     {
@@ -962,8 +966,8 @@
     }
   },
   "quote": {
-    "basis": "Requested rounded CAL35 T_request coefficients; light-C term zero; provisional P=0.5*D.",
-    "provisional": true,
+    "basis": "Requested rounded CAL35 T_request coefficients; light-C term zero; confirmed P upper bound=0.5*D.",
+    "design_confirmed": true,
     "arms": [
       "b",
       "c"
@@ -1003,8 +1007,8 @@
         "3151.35596640",
         "3621.80795520"
       ],
-      "hard": "3600",
-      "upper_exceeds_hard": "21.80795520"
+      "hard": "3780.00",
+      "upper_headroom": "158.19204480"
     },
     "request_sum_seconds": 1568.173296,
     "forecast_GPUh": 0.962497396,
@@ -1012,7 +1016,7 @@
       0.8753766573333334,
       1.0060577653333334
     ],
-    "hard_GPUh": 1.0,
+    "hard_GPUh": 1.05,
     "formal_requests": 8,
     "warm_video_requests": 0,
     "total_requests": 9,
@@ -1024,12 +1028,12 @@
     ],
     "request_count_note": "9 parent/video requests = one S1 prefix (no video) + 8 S2 videos; S1 also has 20 local evaluations plus paired step30 comparison.",
     "center_within_limit": true,
-    "upper_within_limit": false,
-    "feasible_under_approved_hard_limit": false,
+    "upper_within_limit": true,
+    "feasible_under_approved_hard_limit": true,
     "GPU_submissions": 0,
     "ledger_reservations": 0,
-    "blocked": true,
-    "block_reason": "Upper quote exceeds the approved 1.0 GPUh hard limit; stop without admission, reservation, or dispatch."
+    "blocked": false,
+    "block_reason": null
   },
   "counts": {
     "S1_parent": 1,
@@ -1056,7 +1060,7 @@
     "delta_age": 3,
     "next_step": 30,
     "metric": "guided FP64-reduction MSE vs same-state D",
-    "provisional": true,
+    "design_confirmed": true,
     "gate": "median(P_sync timed seconds) / median(D timed seconds) <= 0.5 AND amplitude kappa < 0.45; otherwise release without S2",
     "gate_entry": "wcomr.cara_sparse_refresh_probe_r1.s1_gate",
     "gate_thresholds": {
@@ -2039,20 +2043,20 @@
     "disk_low_water_GiB": 4
   },
   "ledger": {
-    "reserve_only_at_launch_GPUh": 1.0,
+    "reserve_only_at_launch_GPUh": 1.05,
     "old_unknown_reserve_GPUh": 16.5,
     "transactions_this_preparation": 0
   },
   "postrelease_CPU_entry": "plans/cara_next_stage_20261105/sparse_refresh_probe/postprocess.py",
   "output_root": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-sparse-refresh-probe-r1-20261105",
   "report_root": "reports/cara_sparse_refresh_probe_r1_20261105",
-  "provisional_amendment": {
+  "confirmed_amendment": {
     "same_age_uncond_A_anchor": true,
     "anchor_probe": "probe_c_at_P - (probe_c_DD - probe_u_DD)",
     "synthetic_anchor_is_true_DD": false,
     "update_uncond_regression": false
   },
-  "launch_block": "Selected b/c four-input scope has upper quote 1.006057765333 GPUh > hard1.0 by 21.8079552s; stop before idle-card admission or ledger reservation.",
+  "launch_block": "Complete the S1 collector and production CPU acceptance, then fresh idle-card/host-resource admission before reservation.",
   "runtime_status": "Sampling hooks and callable S1 gate CPU-tested only; S1 GPU collector/ops staging remains unprepared.",
-  "scope_sha256": "74549fc62a438acb9cb8f0ad630f0e094aaa761ed6eb8341ae82df8caa393adb"
+  "scope_sha256": "3c2661da1216da494e4a3d4d0025f00d4ce95365126303d8c69dab36c0742697"
 }
