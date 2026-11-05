@@ -23,6 +23,7 @@ from wcomr import clean_speed20_r1 as clean
 
 def run(runtime,output):
     # Same pinned namespace setup as sensitivity/cpu_dry_run.py, without Cosmos imports on Mac.
+    os.environ['CARA_READ_WRITE_RUNTIME']=str(runtime.resolve())
     from test_cara_read_write_transition_r1 import modules,pinned_functions
     wc,rf=modules()
     vars(wc).update({name:getattr(typing,name) for name in ('Optional','Tuple','Dict','List','Union')})
