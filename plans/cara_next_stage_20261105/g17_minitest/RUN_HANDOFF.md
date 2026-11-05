@@ -78,3 +78,17 @@ PY_SCORE
 ```
 
 服务器R=/data20t/gaokuangda/worldcache_workspace；S=$R/.sync/cara-budget-calibration-GPU-g17-minitest-with-nonfast-r1-20261105；O=$R/outputs/cara-g17-minitest-with-nonfast-r1-20261105。进度O/collection.json；日志S/runner.log、host-guardian.log、guardian.json、supervisor.json、billing.json；收尾S/released-score-control/{scores,complete_analysis}.json。路由`~/.local/bin/intranet-ssh two-card`（ops --route relay；FRP优先），不切换正在运行卡的路由。
+
+
+唯一启动与首条确认（2026-11-05）：
+
+- run_id：`cara-g17-minitest-with-nonfast-r1-20261105`；launch_id：`66164b05160c4c9b8c411ff65bc0871e`；GPU：`GPU-cebf7119-cf03-23b9-e192-cd196332b704`。
+- GPU冻结源码：`1f949cb0c76fdb651f885b233762b9fca5b3a794`（启动前已commit+push）；scope：`702fb9d1b5a94aae19dc7ef7637471d425c8550d4259482a6bffc6770be5013d`。科学矩阵、mask、参数、原Native SHA及报价与f88856ac相同；只有执行权限、专属预留事件和CPU/lifecycle接线变化。
+- guardian计费/启动北京时间：**2026-11-05T14:43:21.565000+08:00**；Docker StartedAt：`2026-11-05T06:43:23.106975408Z`（UTC）。中心墙钟2小时13分32秒（约2h14m），预计完成北京时间 **2026-11-05T16:56:53.193464+08:00**；工程范围1.881430711–2.397463171小时，硬限2.5GPUh。新工作停止阈值为2026-11-05T17:03:21.565000+08:00，硬截止2026-11-05T17:13:21.565000+08:00，保留既有600s释放余量。
+- 实际路由：FRP `two_card_relay`，经`~/.local/bin/intranet-ssh two-card` / ops `--route relay`，未退Tailscale。
+- 中央唯一预留：**seq99 G17_MINITEST_NONFAST_WHOLE2_5_RESERVE，2.5GPUh**。预留前 used228.350508821035/reserved16.5/历史格式available5.1494911789650075；预留后 used228.350508821035/reserved19.0/历史格式available2.6494911789650075。cap250为兼容字段，不是新的累计政策上限；19.0=旧16.5未知责任＋本run2.5，实际累计仍为228.350508821035，最终按guardian实际唯一结算。
+- Linux生产入口导入及60条完整tiny请求通过，原CPU退出0、CUDA=false；fresh准入MemAvailable=58596474880 bytes（54.57221984863281GiB）、目标卡空闲，资产/源码/双锁/存储通过。
+- 新卷`/dev/loop54` ext4，image为`/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cara_cal66_sm86_workspace/.sync/storage-reservations/g17-minitest-with-nonfast-r1/output.ext4`，17,179,869,184 bytes（16GiB），输出设备1846；容器输出bind为该卷上的本run输出，未写旧卡卷。低水位4GiB；Memory=MemorySwap=42,949,672,960 bytes（40g）；50GiB宿主门、90°C自动停保持。
+- 一次前台有界启动确认于北京时间2026-11-05T14:45:29.088435+08:00结束：Running=true、OOMKilled=false；guardian PID1140332、supervisor PID1140417、runner PID1140461的原PID/start ticks均存活；目标GPU唯一runner显存24,418MiB、Exclusive_Process、59°C；collection状态RUNNING、0/30完成，首条G17MINI_001 RUNNING。未等待首条结束或整卡完成。确认读取已退出，不留监控、heartbeat、cron或automation。
+
+正常回执：`reports/cara_g17_minitest_nonfast_r1_20261105/`中的precheck.json、linux_cpu.json、storage.json、admission.json、central_reservation.json、start_confirmation.json。此确认后停止远端操作；后续人工只读status及终态capture→唯一settle→CPU score→analyze用上文命令，不重复启动、预留或评分。
