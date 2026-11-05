@@ -17,7 +17,7 @@ worldcache_omr/.venv/bin/python worldcache_omr/plans/cara_next_stage_20261105/co
 
 只做首条开始的一次短status确认，此后由用户另行安排半程和最终验收；无监控/cron/例程。半程建议第26/51个请求结束，实际时间按启动时间和累计请求报价在末尾填写。Phase B的k18接线只改本地源码并用独立CPU-only stage验收，不动本run stage，也不预留/启动k18。
 
-以下为本次唯一运行的的只读status与收尾模板；收尾在终态才执行：
+以下为本次唯一运行的只读status与收尾模板；收尾在终态才执行：
 
 ```sh
 PY=worldcache_omr/.venv/bin/python
