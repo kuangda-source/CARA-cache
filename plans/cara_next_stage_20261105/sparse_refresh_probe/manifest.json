@@ -1,8 +1,10 @@
 {
   "schema": "CARA_SPARSE_REFRESH_PROBE_R1",
   "run_id": "cara-sparse-refresh-probe-r1-20261105",
-  "phase": "AUTHORIZED_PENDING_RUNTIME_AND_FRESH_ADMISSION",
-  "GPU_dispatch_ready": false,
+  "phase": "USER_APPROVED_PENDING_PRODUCTION_CPU_AND_FRESH_ADMISSION",
+  "GPU_dispatch_ready": true,
+  "gpu_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+  "confirm10_run_id": "cara-generator-v1-confirm10-r1-20261105",
   "reservation_event": "SPARSE_REFRESH_PROBE_WHOLE1_05_RESERVE",
   "authority": {
     "user_quote": "P 探针硬限放到 1.05 GPUh，设计不动，空闲卡上跑",
@@ -1067,6 +1069,11 @@
       "max_cost_ratio": 0.5,
       "kappa_strict_upper": 0.45
     },
+    "gate_drift": {
+      "drift_D_to_next": 0.922860786318779,
+      "drift_P_to_next": 0.26701250672340393
+    },
+    "gate_drift_source": "reports/cara_flat_opt_20261105/data/native_delta_v.csv",
     "kappa_definition": "lambda=drift(P29,next30)/drift(DD26,next30); kappa=(sqrt(sync_C_next_MSE/C_next_MSE)-lambda)/(1-lambda); no clipping or gamma power",
     "kappa_control": "Both C errors and their D teacher use the same next30 state after sync P29; no-P C control restores latest-DD caches/anchors. Raw continuation is reported separately.",
     "next_step_teacher": "For each raw/sync P29 continuation, compare C30 with D30 at that continuation own identical solver state.",
@@ -2034,7 +2041,8 @@
     "plans/cara_next_stage_20261105/avslc_minitest/manifest.json": "d721ea052228938ba249b079366352892057fa5f3f768d4d720b689906ad8264",
     "reports/cara_avslc_minitest_r1_20261105/scores.json": "60e0ad8ab290c53977f404a19d908c38cebed0ceaaa6fb9eb25963343e5d7738",
     "reports/cara_avslc_minitest_r1_20261105/complete_analysis.json": "df185bbe039540ed438643eee2277613688f35bc5921fa9d9bc029eec73171c7",
-    "plans/cara_next_stage_20261105/g17_minitest/manifest_with_nonfast.json": "b1827bde3271e7086e5cf5e3f14371933228c26d7f103dcfc8e80f3c01c9a0ef"
+    "plans/cara_next_stage_20261105/g17_minitest/manifest_with_nonfast.json": "b1827bde3271e7086e5cf5e3f14371933228c26d7f103dcfc8e80f3c01c9a0ef",
+    "reports/cara_flat_opt_20261105/data/native_delta_v.csv": "f522b9d7dbf0c9920d8ce09b6ea444cfc69fcd0d6197ee55ace1279047dd4c19"
   },
   "indexing": "1-based; 35 requested solver steps yield 36 updates, including terminal D36",
   "guardian": {
@@ -2048,6 +2056,17 @@
     "transactions_this_preparation": 0
   },
   "postrelease_CPU_entry": "plans/cara_next_stage_20261105/sparse_refresh_probe/postprocess.py",
+  "postrelease_inputs": [
+    "plans/cara_next_stage_20261105/avslc_minitest/manifest.json",
+    "reports/cara_avslc_minitest_r1_20261105/scores.json",
+    "reports/cara_avslc_minitest_r1_20261105/complete_analysis.json",
+    "plans/cara_next_stage_20261105/g17_minitest/manifest_with_nonfast.json",
+    "reports/cara_flat_opt_20261105/data/native_delta_v.csv"
+  ],
+  "runtime_entry": "plans/cara_next_stage_20261105/sparse_refresh_probe/runner.py",
+  "loaded_request_entry": "wcomr.cara_f19_speed190_requests_r1.Requests",
+  "runtime_setup_ref": "configs/f1_setup.json",
+  "runtime_torch_version": "2.7.1+cu128",
   "output_root": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-sparse-refresh-probe-r1-20261105",
   "report_root": "reports/cara_sparse_refresh_probe_r1_20261105",
   "confirmed_amendment": {
@@ -2056,7 +2075,7 @@
     "synthetic_anchor_is_true_DD": false,
     "update_uncond_regression": false
   },
-  "launch_block": "Complete the S1 collector and production CPU acceptance, then fresh idle-card/host-resource admission before reservation.",
-  "runtime_status": "Sampling hooks and callable S1 gate CPU-tested only; S1 GPU collector/ops staging remains unprepared.",
-  "scope_sha256": "3c2661da1216da494e4a3d4d0025f00d4ce95365126303d8c69dab36c0742697"
+  "launch_block": "Production CPU proof and fresh idle-card/host-resource admission required before reservation.",
+  "runtime_status": "One guarded S1 prefix, same-state probes and gate, then the existing eight-request S2 collector; no automatic launch.",
+  "scope_sha256": "c3b5f2dd12163d90379c1f7d0831f289cad06f943468d1e90471fa5f45feff1f"
 }

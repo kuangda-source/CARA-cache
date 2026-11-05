@@ -13,8 +13,8 @@ ROOT=HERE.parents[2]
 sys.path[:0]=[str(ROOT),str(ROOT/'src'),str(ROOT/'tests')]
 os.environ.update(CUDA_VISIBLE_DEVICES='',NVIDIA_VISIBLE_DEVICES='void')
 import torch
-from prepare import build,policy
-from postprocess import summarize
+from plans.cara_next_stage_20261105.sparse_refresh_probe.prepare import build,policy
+from plans.cara_next_stage_20261105.sparse_refresh_probe.postprocess import summarize
 from wcomr.cara_fast_spec_r1 import profile_from
 from wcomr.cara_f19_speed190_sampling_r1 import light_source
 from wcomr.cara_sparse_refresh_probe_r1 import SparseOwner,LayerReuse,s1_gate

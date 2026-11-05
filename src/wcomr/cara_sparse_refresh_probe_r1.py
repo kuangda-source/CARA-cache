@@ -112,8 +112,9 @@ class LayerReuse:
     Attach before the parent trajectory. Call begin once per pair; only D writes
     layer anchors. P operates on a disposable local state and never emits video.
     """
-    def __init__(self,net):
+    def __init__(self,net,*,cache_from=0):
         self.net=net
+        self.cache_from=cache_from
         self.originals=[block.forward for block in net.blocks]
         self.residuals=[[None]*len(net.blocks) for _ in (0,1)]
         self.birth_steps=[[None]*len(net.blocks) for _ in (0,1)]
@@ -124,7 +125,7 @@ class LayerReuse:
                 if self.action=='P' and _index>=self.k:
                     return value+self.residuals[branch][_index]
                 result=self.originals[_index](value,**kwargs)
-                if self.action=='D':
+                if self.action=='D' and _index>=self.cache_from:
                     self.residuals[branch][_index]=(result-value).detach()
                     self.birth_steps[branch][_index]=self.step
                 return result

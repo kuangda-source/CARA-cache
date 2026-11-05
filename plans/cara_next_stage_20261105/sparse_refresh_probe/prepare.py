@@ -1,5 +1,6 @@
 """Freeze the requested sparse-P scope and CAL35 quote; never dispatch."""
 import copy
+import csv
 from decimal import Decimal
 import hashlib
 import json
@@ -77,10 +78,16 @@ def build():
     quote=quote_scope(summary)
     refs=[r for r in scores['rows'] if r['slot']['role']=='R18C']
     assert len(refs)==4
+    drift_ref='reports/cara_flat_opt_20261105/data/native_delta_v.csv'
+    with (ROOT/drift_ref).open() as stream:
+        dv={int(r['step']):float(r['guided_delta_RMS']) for r in csv.DictReader(stream)
+            if r['member']==old['inputs_by_alias']['O1'] and r['guided_delta_RMS']}
     sources=[BASE,SCORES,'reports/cara_avslc_minitest_r1_20261105/complete_analysis.json',
-        'plans/cara_next_stage_20261105/g17_minitest/manifest_with_nonfast.json']
+        'plans/cara_next_stage_20261105/g17_minitest/manifest_with_nonfast.json',drift_ref]
     card=dict(schema='CARA_SPARSE_REFRESH_PROBE_R1',run_id='cara-sparse-refresh-probe-r1-20261105',
-        phase='AUTHORIZED_PENDING_RUNTIME_AND_FRESH_ADMISSION',GPU_dispatch_ready=False,
+        phase='USER_APPROVED_PENDING_PRODUCTION_CPU_AND_FRESH_ADMISSION',GPU_dispatch_ready=True,
+        gpu_uuid='GPU-de9a5370-cd87-0f1c-a48e-288888777dd3',
+        confirm10_run_id='cara-generator-v1-confirm10-r1-20261105',
         reservation_event='SPARSE_REFRESH_PROBE_WHOLE1_05_RESERVE',
         authority=dict(user_quote='P 探针硬限放到 1.05 GPUh，设计不动，空闲卡上跑',
             hard_GPUh=float(HARD_GPUH),idle_card_only=True,mainline_confirm10_has_priority=True,
@@ -97,6 +104,8 @@ def build():
             gate='median(P_sync timed seconds) / median(D timed seconds) <= 0.5 AND amplitude kappa < 0.45; otherwise release without S2',
             gate_entry='wcomr.cara_sparse_refresh_probe_r1.s1_gate',
             gate_thresholds=dict(max_cost_ratio=.5,kappa_strict_upper=.45),
+            gate_drift=dict(drift_D_to_next=sum(dv[t] for t in range(27,31)),drift_P_to_next=dv[30]),
+            gate_drift_source=drift_ref,
             kappa_definition='lambda=drift(P29,next30)/drift(DD26,next30); kappa=(sqrt(sync_C_next_MSE/C_next_MSE)-lambda)/(1-lambda); no clipping or gamma power',
             kappa_control='Both C errors and their D teacher use the same next30 state after sync P29; no-P C control restores latest-DD caches/anchors. Raw continuation is reported separately.',
             next_step_teacher='For each raw/sync P29 continuation, compare C30 with D30 at that continuation own identical solver state.',
@@ -106,13 +115,17 @@ def build():
         guardian=dict(min_host_available_GiB=50,max_temperature_C=90,disk_low_water_GiB=4),
         ledger=dict(reserve_only_at_launch_GPUh=float(HARD_GPUH),old_unknown_reserve_GPUh=16.5,transactions_this_preparation=0),
         postrelease_CPU_entry=str(HERE.relative_to(ROOT)/'postprocess.py'),
+        postrelease_inputs=sources,
+        runtime_entry=str(HERE.relative_to(ROOT)/'runner.py'),
+        loaded_request_entry='wcomr.cara_f19_speed190_requests_r1.Requests',
+        runtime_setup_ref='configs/f1_setup.json',runtime_torch_version='2.7.1+cu128',
         output_root='/data20t/gaokuangda/worldcache_workspace/outputs/cara-sparse-refresh-probe-r1-20261105',
         report_root='reports/cara_sparse_refresh_probe_r1_20261105',
         confirmed_amendment=dict(same_age_uncond_A_anchor=True,
             anchor_probe='probe_c_at_P - (probe_c_DD - probe_u_DD)',
             synthetic_anchor_is_true_DD=False,update_uncond_regression=False),
-        launch_block='Complete the S1 collector and production CPU acceptance, then fresh idle-card/host-resource admission before reservation.',
-        runtime_status='Sampling hooks and callable S1 gate CPU-tested only; S1 GPU collector/ops staging remains unprepared.')
+        launch_block='Production CPU proof and fresh idle-card/host-resource admission required before reservation.',
+        runtime_status='One guarded S1 prefix, same-state probes and gate, then the existing eight-request S2 collector; no automatic launch.')
     card['scope_sha256']=digest(card)
     return card
 

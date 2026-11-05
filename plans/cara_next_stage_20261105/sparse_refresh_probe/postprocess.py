@@ -44,7 +44,7 @@ if __name__=='__main__':
     if args.action=='analyze':
         scores=read(args.scores)
         assert scores['status']=='COMPLETE_PENDING_ANALYSIS' and scores['scope_sha256']==card['scope_sha256']
-        atomic_json(args.output,summarize(card,scores['rows'],read(args.s1)))
+        atomic_json(args.output,summarize(card,scores['rows'],read(args.s1)['measurements']))
     else:
         import os
         import torch
