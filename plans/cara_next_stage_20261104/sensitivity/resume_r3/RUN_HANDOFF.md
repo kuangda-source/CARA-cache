@@ -1,5 +1,12 @@
 # sensitivity8 resume r3
 
+## 终验完成（2026-11-05）
+
+原GPU北京时间08:31:44正常退出0，116/116完成，OOMKilled=false；释放/Default恢复/原进程结束已验证。中央唯一结算seq98，actual **7.566297455049482GPUh**，累计 **228.350508821035GPUh**；原11.0预留解除，保留旧BANK24 4.5及FULL1624 12.0共16.5未知责任。原billing的哈希绑定字节保持，stage/central-settlement.json及ops.status将pending覆盖为false。
+CPU评分原容器正常退出0、CUDA=false：112完整93帧LPIPS及latent MSE齐全，六继承结果合并，五登记控制及额外warm桥的latent/RGB均相等。F17原12 LPIPS和48质量只复用，不重算。原analyze.py已执行完成：D自由位置重合中位5/9、A重合中位6/10，固定原理描述门未通过；原F17非劣p0.300/未证实非劣及compound=false保持，不改判。
+完整s(t)表、288行Δv、内存及账本解释见[COMPLETE_RESULTS.md](../../../../reports/cara_sensitivity8_resume_r3_20261105/COMPLETE_RESULTS.md)。GC后RSS最高15.499306GiB，suffix中位14.057072GiB；cgroup峰值38.435738/40GiB，余量1.564262GiB。文件缓存参与有证据，缺少峰值anon/file分项，不能将整个峰值归为page cache。
+本run已关闭，不重启GPU、不再预留或重新计费；下列capture/settle/score/analyze命令为已执行的原流程，只恢复原交易和输出，不另起scorer或分析。本轮未启动新GPU、未降门限、未建监控/automation，旧输出卷保持。
+
 用户2026-11-05 00:30北京时间批准：「批准从 PIPE_009 续跑，约 9.84 GPUh」。仅此一个新run `cara-native-sensitivity8-resume-r3-20261105`，硬限11.0GPUh；已结算r2不重启。累计仅记实际GPUh，新单卡>8GPUh需本人批准，本卡已有批准。
 
 本补充登记只接续原PREREGISTRATION.md及pipeline_r2补充协议：新队列116=2 fresh warm＋原PIPE_009…122的114请求，原编号保持；r2的PIPE_003…008六条COMPLETE（3控制＋3敏感度）在manifest按原slot/result与latent/video SHA固定。启动时各验一次产物hash并预置控制索引；最终CPU评分包含六条，无新增重复样本或计费。原r1五Native及F17 clean16继续只读复用，F17非劣原FAIL/p=0.300保持，s·Δv函数、seed、输入、五控制、全112后缀分母不变。
@@ -64,7 +71,7 @@ GPU源码 `113dc7c80fafee00e15ae18375875732e8e97e4b`（含15bb3d39 GC修复；�
 
 计费开始北京时间 **2026-11-05T00:57:45.435984+08:00**；Docker StartedAt=`2026-11-04T16:57:46.991568752Z`（UTC，约北京时间00:57:47）。中心墙钟 **9小时50分33秒**；预计完成 **2026-11-05T10:48:18.190724+08:00**，为报价估计，工程范围8.019355–10.801045小时；不承诺准时。硬限11.0GPUh，停止新工作阈值2026-11-05T11:47:45.435984+08:00，硬截止2026-11-05T11:57:45.435984+08:00。
 
-中央唯一预留 **seq97 SENSITIVITY8_RESUME_R3_WHOLE11_RESERVE，11.0GPUh**；本run为RESERVED_OR_RUNNING，尚未结算。累计实际仅记账，不新增累计政策硬限，历史cap字段保留兼容。
+中央唯一预留 **seq97 SENSITIVITY8_RESUME_R3_WHOLE11_RESERVE，11.0GPUh**；此为启动时RESERVED_OR_RUNNING快照，现已seq98 SETTLED（见顶部终验）。累计实际仅记账，不新增累计政策硬限，历史cap字段保留兼容。
 
 | ledger GPUh | 历史cap字段 | used | reserved | 历史格式available |
 |---|---:|---:|---:|---:|
