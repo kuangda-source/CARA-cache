@@ -1,29 +1,23 @@
-# confirm10 — PREPARE / QUOTE ONLY
+# confirm10 — 用户批准五臂 Phase A
 
-计划run_id `cara-generator-v1-confirm10-r1-20261105`；没有launch_id、stage、私有卷、预留或启动。`manifest.json` 的phase为PREPARE_QUOTE_PENDING_USER_APPROVAL，三项authority及GPU_dispatch_ready均false。**所有新run须用户本次go-ahead，当前不得sync/prepare远端、预留或启动。** 本轮远端操作仅relay只读身份检查；不查询/写入中央预留。建议硬限5.0GPUh不是执行批准。
+run_id `cara-generator-v1-confirm10-r1-20261105`。用户2026-11-05原话：「批准 confirm10：先去掉 Native-k18 上卡，k18 接线验收后单独补跑；硬限按重报的数」。本卡只含Native36/F17/R18C/R16C/R21C；k18和次要(c)为deferred supplement，不自动启动补卡。manifest authority已按此批准开启；launch/预留/首条证据记录于末尾。
 
-62请求=10输入×6角色+2warm（首输入F17、Native-k18）。CAL35完整请求合计13339.467544s；中心 **4.409281749555557GPUh / 4小时24分33秒**，工程范围 **3.6682002193333347–4.779822514666669GPUh / 3小时40分06秒–4小时46分47秒**，建议硬限5.0GPUh。不是idea的粗估3.5h；这里计入十个全新Native36、完整请求非loop开销、两warm、10%及1200s加载/释放。逐角色报价与锚见quote.json。
+51请求=10输入×5角色+1条首输入F17 warm，40个93帧CPU LPIPS pair。指定CAL35完整请求公式不变：合计11145.981832s，中心 **3.739050004222224GPUh**，范围 **3.119828791333335–4.048660610666668**，硬限 **4.1GPUh**（范围上界向上取0.1）。墙钟中心3小时44分21秒，范围3小时7分11秒–4小时2分55秒；含600s load+600s release。
 
-本地执行（cwd始终Codex项目根；不会连接服务器）：
+采用一张空闲A6000 `GPU-cebf7119-cf03-23b9-e192-cd196332b704`，不占另一张GPU。50GiB host admission、90°C、4GiB低水位及40g Memory/MemorySwap不变，新16GiB私有卷、不存逐步state。源码先commit+push，既有ops Linux生产CPU→存储→fresh admit→唯一预留4.1→一次dispatch。冻结stage在启动后不再同步。
+
+旧cap250及16.5未知责任保留；当前预算政策为不设累计上限，单run>8需用户本人批准，累计used只在实际结算时增加。ops仅对显式携带新预算政策和直接批准的卡使用该政策；本次中央job记用户原话/日期。负的旧available只是兼容算式，不代表新政策余额。
+
+本地准备（cwd为Codex项目根）：
 
 ```sh
 worldcache_omr/.venv/bin/python worldcache_omr/plans/cara_next_stage_20261105/confirm10/prepare.py
 worldcache_omr/.venv/bin/python worldcache_omr/plans/cara_next_stage_20261105/confirm10/cpu_check.py
 ```
 
-本次CPU检查：F17、R16C/R18C/R21C各flow on/off，共8条完整36步tiny sampler路径，实际action无fallback、latent有限、CUDA=false；10prompt合成分析覆盖BETTER、SECONDARY_NONINFERIOR、INCONCLUSIVE和报告先列冻结预测。未加载生产权重；未运行Linux生产入口/真实93帧评分，不宣称Native-k18生产路由通过。
+只做首条开始的一次短status确认，此后由用户另行安排半程和最终验收；无监控/cron/例程。半程建议第26/51个请求结束，实际时间按启动时间和累计请求报价在末尾填写。Phase B的k18接线只改本地源码并用独立CPU-only stage验收，不动本run stage，也不预留/启动k18。
 
-**启动前尚需的小接线（本轮只记录，不修改共享runner/src）：**
-
-1. `src/wcomr/cara_f19_speed190_requests_r1.py` 的 `Requests.__call__` 从本manifest角色取 `role['requested_steps']` 和 `slot['seed']`；native分支用 `role['schedule']`；T_DD wrapper用 `role['expected_updates']`。本卡已为所有角色填写这些值，NATIVE35=35/36，NATIVE_K18=18/19。当前旧入口仍固定35/36，不能启动此manifest。
-2. 复用 `p2_native_sampling.execute` 的已验18..35请求域、全block计数和固定UniPC网格。原网格见reports/cara_PG_Native18to35_committed_scheduler_CPU_20261023.json。无需改sampler/vendor；为18/19及35/36两条Native增加/适配现有tiny CPU fixture后，再跑相同Linux生产入口证明。LinuxCPU原fixture也使用固定35/36，不能把目前8条mask检查当其替代。
-3. Native-k18按仓库惯例实际19D，预计T_DD136.90s，较R18C130.09s约+5.2%；当前不是已实测严格等时基线。若用户要**恰好18次实际更新**，requested17目前被底层拒绝，需要另外决定协议，不在本卡暗改。
-
-得到明确go-ahead且接线/CPU通过后，才走既有ops：无同名run/launch/容器/输出检查→冻结源码和Linux CPU→新16GiB私有卷→fresh admit→一次中央预留→一次dispatch。两卡relay；50GiB host内存、90°C、4GiB低水位和40g Memory/MemorySwap保持。输出只有MP4、终点latent/ordinary history，无逐步state；沿用gc修复。此处不提供或执行GPU启动命令。
-
-只设一次人工半程检查及最终验收，无持续监控/例程。半程约第31/62个请求结束，按已冻结顺序累计公式约start+2小时13分（实际检查时间在未来launch时按真实start填写）；最终按4小时24分33秒中心估计。没有当前start/ETA。
-
-以下仅是**未来实际获批并运行后**的只读status与收尾模板；本轮不执行：
+以下为本次唯一运行的的只读status与收尾模板；收尾在终态才执行：
 
 ```sh
 PY=worldcache_omr/.venv/bin/python
@@ -40,7 +34,7 @@ PY_SETTLE
 "$PY" "$P/ops.py" settle --manifest "$M" --route relay --input /tmp/cara_confirm10_settle_input.json --receipt /tmp/cara_confirm10_settlement.json
 ```
 
-唯一结算包含失败实际费用；响应丢失只恢复同一交易。只有62/62完成、原进程结束/GPU释放/Default恢复且唯一结算后，才CPU评分一次：
+唯一结算包含失败实际费用；响应丢失只恢复同一交易。只有51/51完成、原进程结束/GPU释放/Default恢复且唯一结算后，才CPU评分一次：
 
 ```sh
 "$PY" - <<'PY_SCORE'

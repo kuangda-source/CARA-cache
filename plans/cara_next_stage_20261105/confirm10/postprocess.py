@@ -60,8 +60,8 @@ def summarize(card, rows, native_timings):
         CI_method=card['bootstrap'], same_run_controls=True,
         per_input_T_DD={m: {role: native_timings[m] if role == 'NATIVE35' else indexed[m, role]['T_DD']
                            for role in card['roles']} for m in members},
-        native_k18_actual_updates=19,
-        timing_note='Report measured R18C-vs-k18 T_DD difference. Requested18 has19 actual full updates; same-budget equivalence is not presumed.',
+        deferred_supplements=['NATIVE_K18; R18C-vs-k18 secondary comparison'],
+        timing_note='All five arms have36 actual updates; report measured T_DD. k18 comparison is deferred.',
         position_overlap_gate=False)
 
 
@@ -136,11 +136,8 @@ def main():
         if slot['section'] == 'warm' or slot['role'] == 'NATIVE35':
             continue
         fidelity = score_video_pair(row['result']['video_artifact'], references[slot['member']]['result']['video_artifact'], alex)
-        if slot['role'] == 'NATIVE_K18':
-            matched = row['result']['actual_updates'] == 19 and row['result']['full_block_calls'] == [38, 38]
-        else:
-            actual = ''.join(h['actual'] for h in row['result']['semantic_history'])
-            matched = actual == ''.join(card['roles'][slot['role']]['policy']['actions'])
+        actual = ''.join(h['actual'] for h in row['result']['semantic_history'])
+        matched = actual == ''.join(card['roles'][slot['role']]['policy']['actions'])
         state['rows'].append(dict(slot=slot, Alex=fidelity['Alex'], T_DD=row['result']['T_DD'], fidelity=fidelity, mask_matches=matched))
         atomic_json(args.output, state)
     state.update(status='COMPLETE_PENDING_ANALYSIS', CUDA_initialized=torch.cuda.is_initialized())

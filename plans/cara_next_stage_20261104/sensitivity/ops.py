@@ -159,13 +159,20 @@ if p['action']=='reserve':
    else:assert value['jobs'][run]==receipt['job']
   else:
    assert run not in value['jobs'] and value['jobs']['cara-F19-speed190-CAL35-r1-20261103']['status']=='SETTLED'
-   assert value['cap_gpu_hours']==250 and pool.accounting(value)['available_gpu_hours']>=limit and not value.get('budget_overrun_recorded')
+   assert not value.get('budget_overrun_recorded')
+   if 'cumulative_budget_policy' in auth:
+    assert auth['cumulative_budget_policy']=='RUNNING_TOTAL_NO_CUMULATIVE_CAP' and auth['direct_user_authorization']
+   else:
+    assert value['cap_gpu_hours']==250 and pool.accounting(value)['available_gpu_hours']>=limit
    assert auth['run_id']==run and auth['billed_limit_GPUh']==limit and auth['execution_authorized'] and 0<=time.time()-a['observed_unix']<=60
    admit_host(value,'two_card')
    before=copy.deepcopy(value);after=copy.deepcopy(value)
    job={k:auth[k] for k in IDENTITY};job.update(job_id=run,registration_sha256=a['registration_sha256'],
     authorization_sha256=a['authorization_sha256'],forecast_GPUh=a['forecast_GPUh'],status='RESERVED_OR_RUNNING',kind='V2',reserved_unix=time.time(),physical_paths=request_count)
    event=auth['reservation_event']
+   if 'cumulative_budget_policy' in auth:
+    job.update(cumulative_budget_policy=auth['cumulative_budget_policy'],user_quote=auth['user_quote'],authorization_date=auth['authorization_date'])
+    after['budget_policy']=dict(cumulative_cap_GPUh=None,running_cumulative_only=True,single_run_user_approval_above_GPUh=8)
    after['jobs'][run]=job;after.update(pool.accounting(after));after['events'].append(dict(sequence=len(after['events'])+1,unix=time.time(),type=event,job_id=run))
    receipt=dict(central_ledger_host='four_card',new_reservation=True,job=job,central_before=before,central_after=after,observed_unix=time.time())
    create(path,receipt);atomic_json(pool.path,after)
@@ -292,6 +299,8 @@ def payload():
         direct_user_authorization=True,user_quote=card['authority']['user_quote'],
         reservation_event=card.get('reservation_event','SENSITIVITY8_PIPELINE_R2_WHOLE11_5_RESERVE' if REQUESTS==122 else 'SENSITIVITY8_WHOLE9_5_RESERVE' if REQUESTS==143 else 'F17_CONFIRM4_WHOLE1_95_RESERVE'),
         authorizes_replay=False,CPU_fixture_only=False,central_transaction_authorized=True)
+    if 'cumulative_budget_policy' in card['authority']:
+        auth.update({k:card['authority'][k] for k in ('cumulative_budget_policy','authorization_date')})
     return dict(files={name:base64.b64encode((ROOT/name).read_bytes()).decode() for name in files},
         hashes=files,revision=revision,authority=auth)
 

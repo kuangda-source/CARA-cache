@@ -210,12 +210,7 @@ def build():
             light_C_semantics=original['roles']['F17_A2_LIGHT_C']['light_C_semantics'],
             delta_semantics=original['roles']['F17_A2_LIGHT_C']['delta_semantics'])
         masks[name] = {k: selected[k] for k in ('mask', 'D', 'A', 'C', 'actual_updates')}
-    # Existing UniPC convention: requested18 means19 actual full updates, not18.
-    native18 = next(row for row in read(GRID)['rows'] if row['requested_steps'] == 18)
-    roles['NATIVE_K18'] = dict(kind='native', requested_steps=18,
-        schedule=native18, expected_updates=native18['actual_updates'])
-    masks['NATIVE_K18'] = dict(mask='D' * 19, D=19, A=0, C=0, actual_updates=19)
-    order = ['NATIVE35', 'F17_A2_LIGHT_C', 'R18C', 'R16C', 'R21C', 'NATIVE_K18']
+    order = ['NATIVE35', 'F17_A2_LIGHT_C', 'R18C', 'R16C', 'R21C']
     roles = {name: roles[name] for name in order}
     for name, role in roles.items():
         role['expected_updates'] = masks[name]['actual_updates']
@@ -239,7 +234,6 @@ def build():
             section=section, seed=0, target_update=None, audit=False,
             eligible_clean_time=section != 'warm'))
     add(MEMBERS[0], 'F17_A2_LIGHT_C', 'warm')
-    add(MEMBERS[0], 'NATIVE_K18', 'warm')
     for i, member in enumerate(MEMBERS):
         rotated = order[i % len(order):] + order[:i % len(order)]
         for role in rotated:
@@ -256,31 +250,29 @@ def build():
     anchors = dict(basis='CAL35 complete T_request interpolation, user-specified six-decimal coefficients; light C cost0. GPU bill excludes released CPU scoring.',
         CAL35_ref='reports/cara_f19_speed190_complete_r1_20261103/complete_analysis.json',
         marginal_seconds=cost, native36_assumption='36 actual D updates in the same formula',
-        native_k18_assumption='No matched CAL35 T_DD/T_request measurement for k18. Use19 actual D updates, not18; request18 scheduler is pinned in GRID.',
-        native_k18_scheduler_ref=GRID,
-        historical_native18=dict(ref='reports/wc_paper_N05_core66_observed_tradeoff_20261016_1205.json',
-            mean_seconds=167.93834615219384,
-            use_for_quote=False, reason='Older batch reports mean_seconds without a CAL35-matched T_DD/T_request binding; not a matched anchor.'),
         predicted_T_DD_seconds=dict(NATIVE35=252.65663431, F17_A2_LIGHT_C=131.65259999174998,
-            **{k: v['T_pred'] for k, v in frozen['selected'].items()}, NATIVE_K18=136.90),
-        predicted_T_DD_sources='Native/F17 CAL35 means; generated arms and k18 use frozen7.51+6.81*nD+0.85*nA. k18=19 full updates is an assumption, not measured same-budget equivalence.')
+            **{k: v['T_pred'] for k, v in frozen['selected'].items()}),
+        predicted_T_DD_sources='Native/F17 CAL35 means; generated arms use frozen7.51+6.81*nD+0.85*nA. k18 deferred.')
     quote = dict(anchors=anchors, request_prices_seconds=prices, request_sum_seconds=raw,
         formal_request_seconds=formal, warm_request_seconds=raw-formal,
-        forecast_GPUh=center, range_GPUh=interval, hard_GPUh=math.ceil(interval[1]*4)/4,
-        hard_limit_is_suggestion_only=True, expected_wall_hours=center,
+        forecast_GPUh=center, range_GPUh=interval, hard_GPUh=math.ceil(interval[1]*10)/10,
+        hard_limit_is_suggestion_only=False, expected_wall_hours=center,
         expected_wall_seconds=center*3600, model_load_seconds=600, release_margin_seconds=600,
-        formal_requests=60, warm_requests=2, total_requests=62,
-        warm_roles=['F17_A2_LIGHT_C', 'NATIVE_K18'],
-        approval_required_for_any_run=True, GPU_submissions=0, ledger_reservations=0)
-    sources = [FREEZE + '/frozen_masks_r16_r18_r21.json', FREEZE + '/frozen_gen_v1.json', GRID, CAL]
+        formal_requests=50, warm_requests=1, total_requests=51,
+        warm_roles=['F17_A2_LIGHT_C'],
+        approval_required_for_any_run=True, user_approved=True, GPU_submissions=0, ledger_reservations=0)
+    sources = [FREEZE + '/frozen_masks_r16_r18_r21.json', FREEZE + '/frozen_gen_v1.json', CAL]
     card = dict(schema='CARA_CONFIRM10_PREPARE_QUOTE_R1', run_id='cara-generator-v1-confirm10-r1-20261105',
-        phase='PREPARE_QUOTE_PENDING_USER_APPROVAL', GPU_dispatch_ready=False,
-        authority=dict(execution_authorized=False, ledger_reservation_authorized=False, sync_launch_authorized=False),
+        phase='USER_APPROVED_PENDING_FRESH_ADMISSION', GPU_dispatch_ready=True,
+        authority=dict(execution_authorized=True, ledger_reservation_authorized=True, sync_launch_authorized=True,
+            user_quote='批准 confirm10：先去掉 Native-k18 上卡，k18 接线验收后单独补跑；硬限按重报的数',
+            authorization_date='2026-11-05', cumulative_budget_policy='RUNNING_TOTAL_NO_CUMULATIVE_CAP'),
+        reservation_event='CONFIRM10_WHOLE4_1_RESERVE', gpu_uuid='GPU-cebf7119-cf03-23b9-e192-cd196332b704',
         inputs=inputs, inputs_by_alias={f'C{i+1:02d}': name for i, name in enumerate(MEMBERS)},
         input_provenance=provenance, input_exclusion_check=EXCLUSION_EVIDENCE,
         profile=original['profile'], schedule=original['schedule'], settings=original['settings'],
         roles=roles, matrix=matrix, mask_summary=masks, seed=0,
-        counts=dict(a=0, b=0, c=60, warm=2, controls=10, total_requests=62, LPIPS_pairs=50, quality_positions=0),
+        counts=dict(a=0, b=0, c=50, warm=1, controls=10, total_requests=51, LPIPS_pairs=40, quality_positions=0),
         generated_A_alpha=1.0, F17_A2_gains=dict(other_A=1.0, step25=.5, step26=.5),
         native_references={}, native_reference_source='Ten new same-run NATIVE35 formal rows in collection.json; no historical Native reuse',
         fresh_Native_timing_requests=10, native_reuse_count=0,
@@ -293,11 +285,9 @@ def build():
             secondary_success='If primary not met, CI95.upper<0.01'),
         contrasts=[dict(candidate=name, reference=reference, members=MEMBERS)
             for name, reference in [('R18C', 'F17_A2_LIGHT_C'), ('R16C', 'F17_A2_LIGHT_C'),
-                                    ('R21C', 'F17_A2_LIGHT_C'), ('NATIVE_K18', 'F17_A2_LIGHT_C'),
-                                    ('R18C', 'NATIVE_K18')]],
-        execution_readiness=dict(native_k18_adapter_implemented=False, local_tiny_CPU_is_not_Linux_admission=True,
-            blocker='Requests hardcodes seed0/num_steps35, card.schedule and expected_updates36; route role.requested_steps/role.schedule/role.expected_updates for Native-k18 before production CPU proof.',
-            steps_note='Repo k18=requested18/actual19. Exactly18 actual updates would require unsupported requested17 and a separate protocol decision; not silently substituted.'),
+                                    ('R21C', 'F17_A2_LIGHT_C')]],
+        deferred_supplements=['NATIVE_K18: 10 formal requests after adapter CPU acceptance and separate approval; R18C-vs-k18 secondary endpoint deferred'],
+        execution_readiness=dict(scope='Five36-update arms supported by current Requests; Linux CPU and fresh admission required'),
         runtime_entry='plans/cara_next_stage_20261104/sensitivity/runner.py',
         loaded_request_entry='wcomr.cara_f19_speed190_requests_r1.Requests',
         runtime_setup_ref='configs/f1_setup.json', runtime_torch_version='2.7.1+cu128',
@@ -313,7 +303,7 @@ def build():
 
 if __name__ == '__main__':
     card = build()
-    for name, value in [('manifest.json', card), ('quote.json', dict(card['quote'], mask_summary=card['mask_summary'], blocked=True))]:
+    for name, value in [('manifest.json', card), ('quote.json', dict(card['quote'], mask_summary=card['mask_summary'], blocked=False))]:
         (HERE / name).write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n')
     print(json.dumps(dict(center=card['quote']['forecast_GPUh'], range=card['quote']['range_GPUh'],
-        suggested_hard=card['quote']['hard_GPUh'], requests=len(card['matrix']), GPU_dispatch_ready=False)))
+        suggested_hard=card['quote']['hard_GPUh'], requests=len(card['matrix']), GPU_dispatch_ready=True)))

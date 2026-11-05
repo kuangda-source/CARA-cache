@@ -1,13 +1,18 @@
 {
   "schema": "CARA_CONFIRM10_PREPARE_QUOTE_R1",
   "run_id": "cara-generator-v1-confirm10-r1-20261105",
-  "phase": "PREPARE_QUOTE_PENDING_USER_APPROVAL",
-  "GPU_dispatch_ready": false,
+  "phase": "USER_APPROVED_PENDING_FRESH_ADMISSION",
+  "GPU_dispatch_ready": true,
   "authority": {
-    "execution_authorized": false,
-    "ledger_reservation_authorized": false,
-    "sync_launch_authorized": false
+    "execution_authorized": true,
+    "ledger_reservation_authorized": true,
+    "sync_launch_authorized": true,
+    "user_quote": "批准 confirm10：先去掉 Native-k18 上卡，k18 接线验收后单独补跑；硬限按重报的数",
+    "authorization_date": "2026-11-05",
+    "cumulative_budget_policy": "RUNNING_TOTAL_NO_CUMULATIVE_CAP"
   },
+  "reservation_event": "CONFIRM10_WHOLE4_1_RESERVE",
+  "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
   "inputs": [
     {
       "inference_type": "text2world",
@@ -1817,58 +1822,6 @@
       "light_C_semantics": "CURRENT_EMBEDDING_PLUS_LATEST_TRUE_D_RESIDUAL_NO_PROBE_OSI_FLOW",
       "delta_semantics": "POST_RF_DIFFERENCE_FROM_MOST_RECENT_TRUE_DD_ONLY",
       "expected_updates": 36
-    },
-    "NATIVE_K18": {
-      "kind": "native",
-      "requested_steps": 18,
-      "schedule": {
-        "requested_steps": 18,
-        "actual_updates": 19,
-        "timesteps": [
-          995,
-          993,
-          990,
-          987,
-          982,
-          974,
-          963,
-          945,
-          918,
-          877,
-          814,
-          721,
-          593,
-          440,
-          284,
-          157,
-          74,
-          29,
-          9
-        ],
-        "sigmas": [
-          0.9950248599052429,
-          0.9932908415794373,
-          0.9908360838890076,
-          0.9873107671737671,
-          0.9821711182594299,
-          0.9745620489120483,
-          0.963125467300415,
-          0.9456996917724609,
-          0.9188792705535889,
-          0.8774884343147278,
-          0.8143265843391418,
-          0.7212982177734375,
-          0.5939794182777405,
-          0.44011932611465454,
-          0.28448477387428284,
-          0.1574164479970932,
-          0.07417303323745728,
-          0.02966456115245819,
-          0.009900989942252636,
-          0.0
-        ]
-      },
-      "expected_updates": 19
     }
   },
   "matrix": [
@@ -1885,17 +1838,17 @@
     {
       "id": "CONFIRM10_002",
       "member": "av_5da7e548-93f4-4a9f-b59d-418051e7c859",
-      "role": "NATIVE_K18",
-      "section": "warm",
+      "role": "NATIVE35",
+      "section": "c",
       "seed": 0,
       "target_update": null,
       "audit": false,
-      "eligible_clean_time": false
+      "eligible_clean_time": true
     },
     {
       "id": "CONFIRM10_003",
       "member": "av_5da7e548-93f4-4a9f-b59d-418051e7c859",
-      "role": "NATIVE35",
+      "role": "F17_A2_LIGHT_C",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -1905,7 +1858,7 @@
     {
       "id": "CONFIRM10_004",
       "member": "av_5da7e548-93f4-4a9f-b59d-418051e7c859",
-      "role": "F17_A2_LIGHT_C",
+      "role": "R18C",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -1915,7 +1868,7 @@
     {
       "id": "CONFIRM10_005",
       "member": "av_5da7e548-93f4-4a9f-b59d-418051e7c859",
-      "role": "R18C",
+      "role": "R16C",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -1925,16 +1878,6 @@
     {
       "id": "CONFIRM10_006",
       "member": "av_5da7e548-93f4-4a9f-b59d-418051e7c859",
-      "role": "R16C",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "CONFIRM10_007",
-      "member": "av_5da7e548-93f4-4a9f-b59d-418051e7c859",
       "role": "R21C",
       "section": "c",
       "seed": 0,
@@ -1943,17 +1886,7 @@
       "eligible_clean_time": true
     },
     {
-      "id": "CONFIRM10_008",
-      "member": "av_5da7e548-93f4-4a9f-b59d-418051e7c859",
-      "role": "NATIVE_K18",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "CONFIRM10_009",
+      "id": "CONFIRM10_007",
       "member": "av_ba7d9ba6-04e5-4d30-a882-e51abe37aa84",
       "role": "F17_A2_LIGHT_C",
       "section": "c",
@@ -1963,9 +1896,29 @@
       "eligible_clean_time": true
     },
     {
-      "id": "CONFIRM10_010",
+      "id": "CONFIRM10_008",
       "member": "av_ba7d9ba6-04e5-4d30-a882-e51abe37aa84",
       "role": "R18C",
+      "section": "c",
+      "seed": 0,
+      "target_update": null,
+      "audit": false,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "CONFIRM10_009",
+      "member": "av_ba7d9ba6-04e5-4d30-a882-e51abe37aa84",
+      "role": "R16C",
+      "section": "c",
+      "seed": 0,
+      "target_update": null,
+      "audit": false,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "CONFIRM10_010",
+      "member": "av_ba7d9ba6-04e5-4d30-a882-e51abe37aa84",
+      "role": "R21C",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -1975,36 +1928,6 @@
     {
       "id": "CONFIRM10_011",
       "member": "av_ba7d9ba6-04e5-4d30-a882-e51abe37aa84",
-      "role": "R16C",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "CONFIRM10_012",
-      "member": "av_ba7d9ba6-04e5-4d30-a882-e51abe37aa84",
-      "role": "R21C",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "CONFIRM10_013",
-      "member": "av_ba7d9ba6-04e5-4d30-a882-e51abe37aa84",
-      "role": "NATIVE_K18",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "CONFIRM10_014",
-      "member": "av_ba7d9ba6-04e5-4d30-a882-e51abe37aa84",
       "role": "NATIVE35",
       "section": "c",
       "seed": 0,
@@ -2013,7 +1936,7 @@
       "eligible_clean_time": true
     },
     {
-      "id": "CONFIRM10_015",
+      "id": "CONFIRM10_012",
       "member": "av_2cdc6699-574f-40b7-9b5b-15905c540274",
       "role": "R18C",
       "section": "c",
@@ -2023,7 +1946,7 @@
       "eligible_clean_time": true
     },
     {
-      "id": "CONFIRM10_016",
+      "id": "CONFIRM10_013",
       "member": "av_2cdc6699-574f-40b7-9b5b-15905c540274",
       "role": "R16C",
       "section": "c",
@@ -2033,7 +1956,7 @@
       "eligible_clean_time": true
     },
     {
-      "id": "CONFIRM10_017",
+      "id": "CONFIRM10_014",
       "member": "av_2cdc6699-574f-40b7-9b5b-15905c540274",
       "role": "R21C",
       "section": "c",
@@ -2043,17 +1966,7 @@
       "eligible_clean_time": true
     },
     {
-      "id": "CONFIRM10_018",
-      "member": "av_2cdc6699-574f-40b7-9b5b-15905c540274",
-      "role": "NATIVE_K18",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "CONFIRM10_019",
+      "id": "CONFIRM10_015",
       "member": "av_2cdc6699-574f-40b7-9b5b-15905c540274",
       "role": "NATIVE35",
       "section": "c",
@@ -2063,8 +1976,48 @@
       "eligible_clean_time": true
     },
     {
-      "id": "CONFIRM10_020",
+      "id": "CONFIRM10_016",
       "member": "av_2cdc6699-574f-40b7-9b5b-15905c540274",
+      "role": "F17_A2_LIGHT_C",
+      "section": "c",
+      "seed": 0,
+      "target_update": null,
+      "audit": false,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "CONFIRM10_017",
+      "member": "av_dc14df7f-b671-4d66-a98b-b751d8112e6c",
+      "role": "R16C",
+      "section": "c",
+      "seed": 0,
+      "target_update": null,
+      "audit": false,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "CONFIRM10_018",
+      "member": "av_dc14df7f-b671-4d66-a98b-b751d8112e6c",
+      "role": "R21C",
+      "section": "c",
+      "seed": 0,
+      "target_update": null,
+      "audit": false,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "CONFIRM10_019",
+      "member": "av_dc14df7f-b671-4d66-a98b-b751d8112e6c",
+      "role": "NATIVE35",
+      "section": "c",
+      "seed": 0,
+      "target_update": null,
+      "audit": false,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "CONFIRM10_020",
+      "member": "av_dc14df7f-b671-4d66-a98b-b751d8112e6c",
       "role": "F17_A2_LIGHT_C",
       "section": "c",
       "seed": 0,
@@ -2075,7 +2028,7 @@
     {
       "id": "CONFIRM10_021",
       "member": "av_dc14df7f-b671-4d66-a98b-b751d8112e6c",
-      "role": "R16C",
+      "role": "R18C",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -2084,7 +2037,7 @@
     },
     {
       "id": "CONFIRM10_022",
-      "member": "av_dc14df7f-b671-4d66-a98b-b751d8112e6c",
+      "member": "av_snowy_1_0",
       "role": "R21C",
       "section": "c",
       "seed": 0,
@@ -2094,8 +2047,8 @@
     },
     {
       "id": "CONFIRM10_023",
-      "member": "av_dc14df7f-b671-4d66-a98b-b751d8112e6c",
-      "role": "NATIVE_K18",
+      "member": "av_snowy_1_0",
+      "role": "NATIVE35",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -2104,8 +2057,8 @@
     },
     {
       "id": "CONFIRM10_024",
-      "member": "av_dc14df7f-b671-4d66-a98b-b751d8112e6c",
-      "role": "NATIVE35",
+      "member": "av_snowy_1_0",
+      "role": "F17_A2_LIGHT_C",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -2114,8 +2067,8 @@
     },
     {
       "id": "CONFIRM10_025",
-      "member": "av_dc14df7f-b671-4d66-a98b-b751d8112e6c",
-      "role": "F17_A2_LIGHT_C",
+      "member": "av_snowy_1_0",
+      "role": "R18C",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -2124,8 +2077,8 @@
     },
     {
       "id": "CONFIRM10_026",
-      "member": "av_dc14df7f-b671-4d66-a98b-b751d8112e6c",
-      "role": "R18C",
+      "member": "av_snowy_1_0",
+      "role": "R16C",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -2134,8 +2087,8 @@
     },
     {
       "id": "CONFIRM10_027",
-      "member": "av_snowy_1_0",
-      "role": "R21C",
+      "member": "av_0b82886b-be71-49f9-83a3-346bc0134c4b",
+      "role": "NATIVE35",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -2144,8 +2097,8 @@
     },
     {
       "id": "CONFIRM10_028",
-      "member": "av_snowy_1_0",
-      "role": "NATIVE_K18",
+      "member": "av_0b82886b-be71-49f9-83a3-346bc0134c4b",
+      "role": "F17_A2_LIGHT_C",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -2154,8 +2107,8 @@
     },
     {
       "id": "CONFIRM10_029",
-      "member": "av_snowy_1_0",
-      "role": "NATIVE35",
+      "member": "av_0b82886b-be71-49f9-83a3-346bc0134c4b",
+      "role": "R18C",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -2164,8 +2117,8 @@
     },
     {
       "id": "CONFIRM10_030",
-      "member": "av_snowy_1_0",
-      "role": "F17_A2_LIGHT_C",
+      "member": "av_0b82886b-be71-49f9-83a3-346bc0134c4b",
+      "role": "R16C",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -2174,76 +2127,6 @@
     },
     {
       "id": "CONFIRM10_031",
-      "member": "av_snowy_1_0",
-      "role": "R18C",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "CONFIRM10_032",
-      "member": "av_snowy_1_0",
-      "role": "R16C",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "CONFIRM10_033",
-      "member": "av_0b82886b-be71-49f9-83a3-346bc0134c4b",
-      "role": "NATIVE_K18",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "CONFIRM10_034",
-      "member": "av_0b82886b-be71-49f9-83a3-346bc0134c4b",
-      "role": "NATIVE35",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "CONFIRM10_035",
-      "member": "av_0b82886b-be71-49f9-83a3-346bc0134c4b",
-      "role": "F17_A2_LIGHT_C",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "CONFIRM10_036",
-      "member": "av_0b82886b-be71-49f9-83a3-346bc0134c4b",
-      "role": "R18C",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "CONFIRM10_037",
-      "member": "av_0b82886b-be71-49f9-83a3-346bc0134c4b",
-      "role": "R16C",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "CONFIRM10_038",
       "member": "av_0b82886b-be71-49f9-83a3-346bc0134c4b",
       "role": "R21C",
       "section": "c",
@@ -2253,17 +2136,7 @@
       "eligible_clean_time": true
     },
     {
-      "id": "CONFIRM10_039",
-      "member": "common_sense_f66000f7-6b6d-4bab-a889-cca8beb5b827",
-      "role": "NATIVE35",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "CONFIRM10_040",
+      "id": "CONFIRM10_032",
       "member": "common_sense_f66000f7-6b6d-4bab-a889-cca8beb5b827",
       "role": "F17_A2_LIGHT_C",
       "section": "c",
@@ -2273,7 +2146,7 @@
       "eligible_clean_time": true
     },
     {
-      "id": "CONFIRM10_041",
+      "id": "CONFIRM10_033",
       "member": "common_sense_f66000f7-6b6d-4bab-a889-cca8beb5b827",
       "role": "R18C",
       "section": "c",
@@ -2283,8 +2156,88 @@
       "eligible_clean_time": true
     },
     {
-      "id": "CONFIRM10_042",
+      "id": "CONFIRM10_034",
       "member": "common_sense_f66000f7-6b6d-4bab-a889-cca8beb5b827",
+      "role": "R16C",
+      "section": "c",
+      "seed": 0,
+      "target_update": null,
+      "audit": false,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "CONFIRM10_035",
+      "member": "common_sense_f66000f7-6b6d-4bab-a889-cca8beb5b827",
+      "role": "R21C",
+      "section": "c",
+      "seed": 0,
+      "target_update": null,
+      "audit": false,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "CONFIRM10_036",
+      "member": "common_sense_f66000f7-6b6d-4bab-a889-cca8beb5b827",
+      "role": "NATIVE35",
+      "section": "c",
+      "seed": 0,
+      "target_update": null,
+      "audit": false,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "CONFIRM10_037",
+      "member": "human_222",
+      "role": "R18C",
+      "section": "c",
+      "seed": 0,
+      "target_update": null,
+      "audit": false,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "CONFIRM10_038",
+      "member": "human_222",
+      "role": "R16C",
+      "section": "c",
+      "seed": 0,
+      "target_update": null,
+      "audit": false,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "CONFIRM10_039",
+      "member": "human_222",
+      "role": "R21C",
+      "section": "c",
+      "seed": 0,
+      "target_update": null,
+      "audit": false,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "CONFIRM10_040",
+      "member": "human_222",
+      "role": "NATIVE35",
+      "section": "c",
+      "seed": 0,
+      "target_update": null,
+      "audit": false,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "CONFIRM10_041",
+      "member": "human_222",
+      "role": "F17_A2_LIGHT_C",
+      "section": "c",
+      "seed": 0,
+      "target_update": null,
+      "audit": false,
+      "eligible_clean_time": true
+    },
+    {
+      "id": "CONFIRM10_042",
+      "member": "misc_3105317-hd_1920_1080_24fps",
       "role": "R16C",
       "section": "c",
       "seed": 0,
@@ -2294,7 +2247,7 @@
     },
     {
       "id": "CONFIRM10_043",
-      "member": "common_sense_f66000f7-6b6d-4bab-a889-cca8beb5b827",
+      "member": "misc_3105317-hd_1920_1080_24fps",
       "role": "R21C",
       "section": "c",
       "seed": 0,
@@ -2304,8 +2257,8 @@
     },
     {
       "id": "CONFIRM10_044",
-      "member": "common_sense_f66000f7-6b6d-4bab-a889-cca8beb5b827",
-      "role": "NATIVE_K18",
+      "member": "misc_3105317-hd_1920_1080_24fps",
+      "role": "NATIVE35",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -2314,7 +2267,7 @@
     },
     {
       "id": "CONFIRM10_045",
-      "member": "human_222",
+      "member": "misc_3105317-hd_1920_1080_24fps",
       "role": "F17_A2_LIGHT_C",
       "section": "c",
       "seed": 0,
@@ -2324,7 +2277,7 @@
     },
     {
       "id": "CONFIRM10_046",
-      "member": "human_222",
+      "member": "misc_3105317-hd_1920_1080_24fps",
       "role": "R18C",
       "section": "c",
       "seed": 0,
@@ -2334,8 +2287,8 @@
     },
     {
       "id": "CONFIRM10_047",
-      "member": "human_222",
-      "role": "R16C",
+      "member": "physics_050",
+      "role": "R21C",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -2344,8 +2297,8 @@
     },
     {
       "id": "CONFIRM10_048",
-      "member": "human_222",
-      "role": "R21C",
+      "member": "physics_050",
+      "role": "NATIVE35",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -2354,8 +2307,8 @@
     },
     {
       "id": "CONFIRM10_049",
-      "member": "human_222",
-      "role": "NATIVE_K18",
+      "member": "physics_050",
+      "role": "F17_A2_LIGHT_C",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -2364,8 +2317,8 @@
     },
     {
       "id": "CONFIRM10_050",
-      "member": "human_222",
-      "role": "NATIVE35",
+      "member": "physics_050",
+      "role": "R18C",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -2374,118 +2327,8 @@
     },
     {
       "id": "CONFIRM10_051",
-      "member": "misc_3105317-hd_1920_1080_24fps",
-      "role": "R18C",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "CONFIRM10_052",
-      "member": "misc_3105317-hd_1920_1080_24fps",
-      "role": "R16C",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "CONFIRM10_053",
-      "member": "misc_3105317-hd_1920_1080_24fps",
-      "role": "R21C",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "CONFIRM10_054",
-      "member": "misc_3105317-hd_1920_1080_24fps",
-      "role": "NATIVE_K18",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "CONFIRM10_055",
-      "member": "misc_3105317-hd_1920_1080_24fps",
-      "role": "NATIVE35",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "CONFIRM10_056",
-      "member": "misc_3105317-hd_1920_1080_24fps",
-      "role": "F17_A2_LIGHT_C",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "CONFIRM10_057",
       "member": "physics_050",
       "role": "R16C",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "CONFIRM10_058",
-      "member": "physics_050",
-      "role": "R21C",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "CONFIRM10_059",
-      "member": "physics_050",
-      "role": "NATIVE_K18",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "CONFIRM10_060",
-      "member": "physics_050",
-      "role": "NATIVE35",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "CONFIRM10_061",
-      "member": "physics_050",
-      "role": "F17_A2_LIGHT_C",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "CONFIRM10_062",
-      "member": "physics_050",
-      "role": "R18C",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -2528,24 +2371,17 @@
       "A": 0,
       "C": 15,
       "actual_updates": 36
-    },
-    "NATIVE_K18": {
-      "mask": "DDDDDDDDDDDDDDDDDDD",
-      "D": 19,
-      "A": 0,
-      "C": 0,
-      "actual_updates": 19
     }
   },
   "seed": 0,
   "counts": {
     "a": 0,
     "b": 0,
-    "c": 60,
-    "warm": 2,
+    "c": 50,
+    "warm": 1,
     "controls": 10,
-    "total_requests": 62,
-    "LPIPS_pairs": 50,
+    "total_requests": 51,
+    "LPIPS_pairs": 40,
     "quality_positions": 0
   },
   "generated_A_alpha": 1.0,
@@ -2626,45 +2462,13 @@
         "misc_3105317-hd_1920_1080_24fps",
         "physics_050"
       ]
-    },
-    {
-      "candidate": "NATIVE_K18",
-      "reference": "F17_A2_LIGHT_C",
-      "members": [
-        "av_5da7e548-93f4-4a9f-b59d-418051e7c859",
-        "av_ba7d9ba6-04e5-4d30-a882-e51abe37aa84",
-        "av_2cdc6699-574f-40b7-9b5b-15905c540274",
-        "av_dc14df7f-b671-4d66-a98b-b751d8112e6c",
-        "av_snowy_1_0",
-        "av_0b82886b-be71-49f9-83a3-346bc0134c4b",
-        "common_sense_f66000f7-6b6d-4bab-a889-cca8beb5b827",
-        "human_222",
-        "misc_3105317-hd_1920_1080_24fps",
-        "physics_050"
-      ]
-    },
-    {
-      "candidate": "R18C",
-      "reference": "NATIVE_K18",
-      "members": [
-        "av_5da7e548-93f4-4a9f-b59d-418051e7c859",
-        "av_ba7d9ba6-04e5-4d30-a882-e51abe37aa84",
-        "av_2cdc6699-574f-40b7-9b5b-15905c540274",
-        "av_dc14df7f-b671-4d66-a98b-b751d8112e6c",
-        "av_snowy_1_0",
-        "av_0b82886b-be71-49f9-83a3-346bc0134c4b",
-        "common_sense_f66000f7-6b6d-4bab-a889-cca8beb5b827",
-        "human_222",
-        "misc_3105317-hd_1920_1080_24fps",
-        "physics_050"
-      ]
     }
   ],
+  "deferred_supplements": [
+    "NATIVE_K18: 10 formal requests after adapter CPU acceptance and separate approval; R18C-vs-k18 secondary endpoint deferred"
+  ],
   "execution_readiness": {
-    "native_k18_adapter_implemented": false,
-    "local_tiny_CPU_is_not_Linux_admission": true,
-    "blocker": "Requests hardcodes seed0/num_steps35, card.schedule and expected_updates36; route role.requested_steps/role.schedule/role.expected_updates for Native-k18 before production CPU proof.",
-    "steps_note": "Repo k18=requested18/actual19. Exactly18 actual updates would require unsupported requested17 and a separate protocol decision; not silently substituted."
+    "scope": "Five36-update arms supported by current Requests; Linux CPU and fresh admission required"
   },
   "runtime_entry": "plans/cara_next_stage_20261104/sensitivity/runner.py",
   "loaded_request_entry": "wcomr.cara_f19_speed190_requests_r1.Requests",
@@ -2682,7 +2486,6 @@
   "postrelease_inputs": [
     "plans/cara_next_stage_20261105/generator_v1_frozen/frozen_masks_r16_r18_r21.json",
     "plans/cara_next_stage_20261105/generator_v1_frozen/frozen_gen_v1.json",
-    "reports/cara_PG_Native18to35_committed_scheduler_CPU_20261023.json",
     "plans/cara_next_stage_20261103/f19_speed190_cal/CAL35_MANIFEST_R1.json"
   ],
   "storage": {
@@ -2707,56 +2510,46 @@
         "original_C": 0.637948
       },
       "native36_assumption": "36 actual D updates in the same formula",
-      "native_k18_assumption": "No matched CAL35 T_DD/T_request measurement for k18. Use19 actual D updates, not18; request18 scheduler is pinned in GRID.",
-      "native_k18_scheduler_ref": "reports/cara_PG_Native18to35_committed_scheduler_CPU_20261023.json",
-      "historical_native18": {
-        "ref": "reports/wc_paper_N05_core66_observed_tradeoff_20261016_1205.json",
-        "mean_seconds": 167.93834615219384,
-        "use_for_quote": false,
-        "reason": "Older batch reports mean_seconds without a CAL35-matched T_DD/T_request binding; not a matched anchor."
-      },
       "predicted_T_DD_seconds": {
         "NATIVE35": 252.65663431,
         "F17_A2_LIGHT_C": 131.65259999174998,
         "R16C": 116.47,
         "R18C": 130.09,
-        "R21C": 150.52,
-        "NATIVE_K18": 136.9
+        "R21C": 150.52
       },
-      "predicted_T_DD_sources": "Native/F17 CAL35 means; generated arms and k18 use frozen7.51+6.81*nD+0.85*nA. k18=19 full updates is an assumption, not measured same-budget equivalence."
+      "predicted_T_DD_sources": "Native/F17 CAL35 means; generated arms use frozen7.51+6.81*nD+0.85*nA. k18 deferred."
     },
     "request_prices_seconds": {
       "NATIVE35": 314.53621200000003,
       "F17_A2_LIGHT_C": 195.802832,
       "R18C": 192.635532,
       "R16C": 179.091012,
-      "R21C": 212.952312,
-      "NATIVE_K18": 199.40779200000003
+      "R21C": 212.952312
     },
-    "request_sum_seconds": 13339.467544000005,
-    "formal_request_seconds": 12944.25692,
-    "warm_request_seconds": 395.2106240000048,
-    "forecast_GPUh": 4.409281749555557,
+    "request_sum_seconds": 11145.981832000005,
+    "formal_request_seconds": 10950.179,
+    "warm_request_seconds": 195.80283200000486,
+    "forecast_GPUh": 3.739050004222224,
     "range_GPUh": [
-      3.6682002193333347,
-      4.779822514666669
+      3.119828791333335,
+      4.048660610666668
     ],
-    "hard_GPUh": 5.0,
-    "hard_limit_is_suggestion_only": true,
-    "expected_wall_hours": 4.409281749555557,
-    "expected_wall_seconds": 15873.414298400006,
+    "hard_GPUh": 4.1,
+    "hard_limit_is_suggestion_only": false,
+    "expected_wall_hours": 3.739050004222224,
+    "expected_wall_seconds": 13460.580015200007,
     "model_load_seconds": 600,
     "release_margin_seconds": 600,
-    "formal_requests": 60,
-    "warm_requests": 2,
-    "total_requests": 62,
+    "formal_requests": 50,
+    "warm_requests": 1,
+    "total_requests": 51,
     "warm_roles": [
-      "F17_A2_LIGHT_C",
-      "NATIVE_K18"
+      "F17_A2_LIGHT_C"
     ],
     "approval_required_for_any_run": true,
+    "user_approved": true,
     "GPU_submissions": 0,
     "ledger_reservations": 0
   },
-  "scope_sha256": "6de32870d9e65768fe029e59a8ca28d50f818c659a033b6062f9b2ba23a26b1d"
+  "scope_sha256": "9fb88510b5c5b30bde05f619ad60fa609359a76c6e627d79f27c6c52da0f1904"
 }

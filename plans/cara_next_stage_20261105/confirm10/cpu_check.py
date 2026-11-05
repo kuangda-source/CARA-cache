@@ -31,12 +31,11 @@ if __name__ == '__main__':
             assert not any(h['fallback_reason'] for h in result['history'])
             assert len(result['outputs']) == 36 and torch.isfinite(result['latent']).all()
             checks.append(dict(role=name, flow=flow, actual36_actions_match=True))
-    assert len(card['matrix']) == 62 and card['counts']['LPIPS_pairs'] == 50
-    assert card['roles']['NATIVE_K18']['schedule']['actual_updates'] == 19
+    assert len(card['matrix']) == 51 and card['counts']['LPIPS_pairs'] == 40
     fixture = copy.deepcopy(card)
     fixture['bootstrap']['replicates'] = 1000
     assert interval([-.04, .02], fixture['bootstrap']) == [-.04, .02]
-    values = dict(F17_A2_LIGHT_C=.25, R16C=.24, R18C=.22, R21C=.20, NATIVE_K18=.30)
+    values = dict(F17_A2_LIGHT_C=.25, R16C=.24, R18C=.22, R21C=.20)
     rows = [dict(slot=s, Alex=values[s['role']], T_DD=100., mask_matches=True)
             for s in card['matrix'] if s['section'] != 'warm' and s['role'] != 'NATIVE35']
     native_timings = {m: 200. for m in card['inputs_by_alias'].values()}
