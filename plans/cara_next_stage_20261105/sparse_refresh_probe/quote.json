@@ -3,7 +3,6 @@
   "provisional": true,
   "arms": [
     "b",
-    "b0",
     "c"
   ],
   "input_count": 4,
@@ -23,44 +22,49 @@
     "includes": "Unchanged design 0.15 GPUh allowance for one parent-prefix/local probe, including its estimated load."
   },
   "S2": {
-    "request_sum_seconds": 2365.804464,
-    "GPUh": 0.6571679066666666,
-    "requests": 12,
+    "request_sum_seconds": 1568.173296,
+    "GPUh": 0.4356036933333333,
+    "requests": 8,
     "request_prices_seconds": {
       "b": 199.407792,
-      "b0": 199.407792,
-      "c": 192.63553199999998
+      "c": 192.635532
     }
   },
   "model_load_seconds": 600,
   "release_margin_seconds": 600,
   "S1_load_overlap": "Unchanged conservative accounting: full design S1 allowance plus common 600s load and 600s release; no load subtraction.",
-  "zero_S1_lower_bound": {
-    "center_GPUh": 1.0562180306666666,
-    "upper_GPUh": 1.1219348213333333
+  "exact_seconds": {
+    "S2": "1568.1732960",
+    "center": "3464.99062560",
+    "range": [
+      "3151.35596640",
+      "3621.80795520"
+    ],
+    "hard": "3600",
+    "upper_exceeds_hard": "21.80795520"
   },
-  "request_sum_seconds": 2365.804464,
-  "forecast_GPUh": 1.2062180306666668,
+  "request_sum_seconds": 1568.173296,
+  "forecast_GPUh": 0.962497396,
   "range_GPUh": [
-    1.0747844493333334,
-    1.2719348213333332
+    0.8753766573333334,
+    1.0060577653333334
   ],
   "hard_GPUh": 1.0,
-  "formal_requests": 12,
+  "formal_requests": 8,
   "warm_video_requests": 0,
-  "total_requests": 13,
+  "total_requests": 9,
   "S1_parent_requests": 1,
   "S1_local_evaluations": 20,
   "S1_next_step_comparisons": [
     "raw",
     "sync"
   ],
-  "request_count_note": "13 parent/video requests = one S1 prefix (no video) + 12 S2 videos; S1 also has 20 local evaluations plus paired step30 comparison.",
-  "center_within_limit": false,
+  "request_count_note": "9 parent/video requests = one S1 prefix (no video) + 8 S2 videos; S1 also has 20 local evaluations plus paired step30 comparison.",
+  "center_within_limit": true,
   "upper_within_limit": false,
   "feasible_under_approved_hard_limit": false,
   "GPU_submissions": 0,
   "ledger_reservations": 0,
   "blocked": true,
-  "block_reason": "Zero-GPU amendment only; scope/limit decision and GPU staging remain pending regardless of quote feasibility."
+  "block_reason": "Upper quote exceeds the approved 1.0 GPUh hard limit; stop without admission, reservation, or dispatch."
 }

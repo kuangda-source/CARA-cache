@@ -132,8 +132,10 @@ if __name__=='__main__':
     assert len(writes(original))==1 and writes(original)==writes(transformed)
     for name,role in card['roles'].items():
         for flow in (False,True):checks.append(dict(role=name,**check_path(card,role,flow)))
-    for name in ('b','b0'):
-        for flow in (False,True):checks.append(dict(role=name+'_A_fixture',**check_path(card,card['roles'][name],flow,A_steps=(30,33))))
+    raw=copy.deepcopy(card['roles']['b']);raw['sync_residual']=False
+    for flow in (False,True):checks.append(dict(role='S1_raw_fixture',**check_path(card,raw,flow)))
+    for name,role in [('S1_sync_A_fixture',card['roles']['b']),('S1_raw_A_fixture',raw)]:
+        for flow in (False,True):checks.append(dict(role=name,**check_path(card,role,flow,A_steps=(30,33))))
     pk=[check_layers(k) for k in (14,20)]
     references={r['slot']['member']:r for r in card['reused_R18C']}
     def rows_for(deltas):
@@ -148,12 +150,12 @@ if __name__=='__main__':
     assert not s1_gate(**slow)['gate_passed']
     boundary=dict(measurements,sync_C_next_MSE=(.2+.45*.8)**2)
     assert not s1_gate(**boundary)['gate_passed']
-    good=summarize(card,rows_for(dict(b=-.005,b0=.01,c=-.001)),measurements)
-    bad=summarize(card,rows_for(dict(b=.01,b0=.02,c=.01)),measurements)
-    assert good['go'] and good['b_go'] and good['c_go'] and not good['close_CFG_branch_P']
-    assert not bad['go'] and bad['close_CFG_branch_P']
-    assert not summarize(card,rows_for(dict(b=-.005,b0=.01,c=-.001)),slow)['go']
-    assert not summarize(card,rows_for(dict(b=-.005,b0=.01,c=-.001)),boundary)['go']
+    good=summarize(card,rows_for(dict(b=-.005,c=-.001)),measurements)
+    bad=summarize(card,rows_for(dict(b=.01,c=.01)),measurements)
+    assert good['go'] and good['b_go'] and good['c_go'] and good['new_full93_pairs']==8
+    assert not bad['go'] and set(bad['contrasts'])=={'b','c'}
+    assert not summarize(card,rows_for(dict(b=-.005,c=-.001)),slow)['go']
+    assert not summarize(card,rows_for(dict(b=-.005,c=-.001)),boundary)['go']
     value=dict(passed=True,pinned_WC_sha256=hashlib.sha256((RUNTIME/WC_PATH).read_bytes()).hexdigest(),
         full_path_residual_write_preserved=True,light_AST_proof=proof,complete36_paths=checks,Pk=pk,
         S1_gate_fixture=dict(amplitude_kappa=gate['kappa'],cost_ratio=gate['cost_ratio'],cost_equality_passes=True,

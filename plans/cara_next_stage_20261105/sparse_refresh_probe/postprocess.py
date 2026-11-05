@@ -13,27 +13,24 @@ from wcomr.cara_sparse_refresh_probe_r1 import s1_gate
 def summarize(card,rows,s1):
     gate=s1_gate(**s1)
     expected={(s['member'],s['role']) for s in card['matrix']}
-    assert len(rows)==12 and {(r['slot']['member'],r['slot']['role']) for r in rows}==expected
+    assert len(rows)==8 and {(r['slot']['member'],r['slot']['role']) for r in rows}==expected
     assert all(r['mask_matches'] and r['fidelity']['frames']==93 for r in rows)
     indexed={(r['slot']['member'],r['slot']['role']):r for r in rows}
     contrasts={}
-    for role in ('b','b0','c'):
+    for role in ('b','c'):
         pairs=[]
         for ref in card['reused_R18C']:
             member=ref['slot']['member'];new=indexed[member,role]
             pairs.append(dict(member=member,delta_Alex=new['Alex']-ref['Alex'],delta_T_DD=new['T_DD']-ref['T_DD']))
         contrasts[role]=dict(per_input=pairs,mean_delta_Alex=statistics.mean(r['delta_Alex'] for r in pairs),
             mean_delta_T_DD=statistics.mean(r['delta_T_DD'] for r in pairs),improved=sum(r['delta_Alex']<0 for r in pairs))
-    b,b0,c=(contrasts[k] for k in ('b','b0','c'))
+    b,c=(contrasts[k] for k in ('b','c'))
     b_go=b['mean_delta_Alex']<0 and b['improved']>=3 and -b['mean_delta_Alex']>=.0044*max(0,b['mean_delta_T_DD'])
     c_go=c['mean_delta_T_DD']<=0 and c['improved']>=3 and c['mean_delta_Alex']<=0
-    sync_raw=[dict(member=m,delta_Alex=indexed[m,'b']['Alex']-indexed[m,'b0']['Alex'],
-        delta_T_DD=indexed[m,'b']['T_DD']-indexed[m,'b0']['T_DD']) for m in card['inputs_by_alias'].values()]
     return dict(status='COMPLETE',run_id=card['run_id'],scope_sha256=card['scope_sha256'],contrasts=contrasts,
-        sync_minus_raw=sync_raw,mean_sync_minus_raw_Alex=statistics.mean(r['delta_Alex'] for r in sync_raw),
         S1=dict(measurements=s1,**gate),go=bool(gate['gate_passed'] and (b_go or c_go)),b_go=b_go,c_go=c_go,
-        close_CFG_branch_P=b['mean_delta_Alex']>0 and b0['mean_delta_Alex']>0,
-        reused_R18C_scores=4,new_full93_pairs=12,posthoc_tuning=False,reruns=0,
+        sync_raw_comparison='S1 local only; no raw endpoint arm or raw-endpoint closure decision',
+        reused_R18C_scores=4,new_full93_pairs=8,posthoc_tuning=False,reruns=0,
         limitation='Exposed four-input development probe; cross-run R18C timing reference; no independent confirmation.')
 
 

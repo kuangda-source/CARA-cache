@@ -1,16 +1,17 @@
 {
   "schema": "CARA_SPARSE_REFRESH_PROBE_R1",
   "run_id": "cara-sparse-refresh-probe-r1-20261105",
-  "phase": "ZERO_GPU_AMENDMENT_PENDING_SCOPE_DECISION",
+  "phase": "BLOCKED_QUOTE_UPPER_EXCEEDS_HARD_LIMIT",
   "GPU_dispatch_ready": false,
   "authority": {
-    "user_quote": "可以，gpu 探针如果服务器卡空闲也能做，有两张卡",
+    "user_quote": "P 探针去掉 b0，硬限 1.0 GPUh，精确重报后在空闲卡上跑",
     "hard_GPUh": 1.0,
     "idle_card_only": true,
     "mainline_confirm10_has_priority": true,
-    "current_instruction": "Zero-GPU amendment only; no GPU jobs, ledger reservation, or routines.",
-    "execution_authorized": false,
-    "ledger_reservation_authorized": false
+    "current_instruction": "Only launch after center and upper quote <=1.0 GPUh and fresh idle-card admission; otherwise stop. No routines.",
+    "execution_authorized": true,
+    "ledger_reservation_authorized": true,
+    "reservation_only_at_launch": true
   },
   "inputs": [
     {
@@ -539,310 +540,6 @@
       "light_C": true,
       "requested_steps": 35
     },
-    "b0": {
-      "kind": "sparse_policy",
-      "policy": {
-        "version": "CARA_POLICY_GENERATOR_CPU_R1",
-        "fingerprint": "814d100e7c841727670dc554de2761a58d1cbe6dd00ada07a67bdce371c97a04",
-        "profile_identity": "8b35974e725fa1fbb72fb5474f10c763edb998e4b59bd21f7775e44ed3c6a00b",
-        "grammar_sha256": "0273c501d6f8383b81900d113dc68f9a304feed444dfc5c3d29184ec6c2e5889",
-        "dense_mask": [
-          true,
-          true,
-          true,
-          true,
-          true,
-          true,
-          true,
-          true,
-          true,
-          true,
-          true,
-          true,
-          false,
-          true,
-          false,
-          true,
-          false,
-          false,
-          true,
-          false,
-          false,
-          true,
-          false,
-          false,
-          false,
-          true,
-          false,
-          false,
-          true,
-          false,
-          false,
-          true,
-          false,
-          false,
-          false,
-          true
-        ],
-        "actions": [
-          "D",
-          "D",
-          "D",
-          "D",
-          "D",
-          "D",
-          "D",
-          "D",
-          "D",
-          "D",
-          "D",
-          "D",
-          "C",
-          "D",
-          "C",
-          "D",
-          "C",
-          "C",
-          "D",
-          "C",
-          "C",
-          "D",
-          "C",
-          "C",
-          "C",
-          "D",
-          "C",
-          "C",
-          "D",
-          "C",
-          "C",
-          "D",
-          "C",
-          "C",
-          "C",
-          "D"
-        ],
-        "shared_alpha": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ],
-        "source_before": [
-          null,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7,
-          8,
-          9,
-          10,
-          11,
-          12,
-          12,
-          14,
-          14,
-          16,
-          16,
-          16,
-          19,
-          19,
-          19,
-          22,
-          22,
-          22,
-          22,
-          26,
-          26,
-          26,
-          29,
-          29,
-          29,
-          32,
-          32,
-          32,
-          32
-        ],
-        "intervals": [
-          {
-            "start": 1,
-            "end": 2,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 2,
-            "end": 3,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 3,
-            "end": 4,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 4,
-            "end": 5,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 5,
-            "end": 6,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 6,
-            "end": 7,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 7,
-            "end": 8,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 8,
-            "end": 9,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 9,
-            "end": 10,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 10,
-            "end": 11,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 11,
-            "end": 12,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 12,
-            "end": 14,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 14,
-            "end": 16,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 16,
-            "end": 19,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 19,
-            "end": 22,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 22,
-            "end": 26,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 26,
-            "end": 29,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 29,
-            "end": 32,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 32,
-            "end": 36,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 36,
-            "end": 37,
-            "A_window": [],
-            "alpha": 0.0
-          }
-        ],
-        "terminal_node": 37,
-        "terminal_model_calls": 0,
-        "counts": {
-          "D": 20,
-          "A": 0,
-          "C": 16
-        },
-        "fallback_policy": "FULL_D_ON_UNSUPPORTED_OR_NONFINITE_READOUT_RECORD_ACTUAL_COST",
-        "budget_predicted_seconds": null,
-        "budget_observed_seconds": null,
-        "deployment_budget_status": "BUDGET_NOT_VERIFIED",
-        "production_CPU_accepted": false,
-        "GPU_dispatch_ready": false
-      },
-      "mask": "DDDDDDDDDDDDCDCDCCDCCDCCCDCCPCCPCCCD",
-      "partial_updates": [
-        29,
-        32
-      ],
-      "sync_residual": false,
-      "light_C": true,
-      "requested_steps": 35
-    },
     "c": {
       "kind": "sparse_policy",
       "policy": {
@@ -1158,7 +855,7 @@
       "id": "SPARSE_002",
       "member": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
       "alias": "O1",
-      "role": "b0",
+      "role": "c",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -1167,9 +864,9 @@
     },
     {
       "id": "SPARSE_003",
-      "member": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
-      "alias": "O1",
-      "role": "c",
+      "member": "misc_13398218_3840_2160_60fps",
+      "alias": "O3",
+      "role": "b",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -1180,7 +877,7 @@
       "id": "SPARSE_004",
       "member": "misc_13398218_3840_2160_60fps",
       "alias": "O3",
-      "role": "b",
+      "role": "c",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -1189,9 +886,9 @@
     },
     {
       "id": "SPARSE_005",
-      "member": "misc_13398218_3840_2160_60fps",
-      "alias": "O3",
-      "role": "b0",
+      "member": "av_cc90f226-5312-4e0f-959a-39cd4eb4d90d",
+      "alias": "N1",
+      "role": "b",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -1200,8 +897,8 @@
     },
     {
       "id": "SPARSE_006",
-      "member": "misc_13398218_3840_2160_60fps",
-      "alias": "O3",
+      "member": "av_cc90f226-5312-4e0f-959a-39cd4eb4d90d",
+      "alias": "N1",
       "role": "c",
       "section": "c",
       "seed": 0,
@@ -1211,8 +908,8 @@
     },
     {
       "id": "SPARSE_007",
-      "member": "av_cc90f226-5312-4e0f-959a-39cd4eb4d90d",
-      "alias": "N1",
+      "member": "misc_9699390-uhd_3840_2160_30fps",
+      "alias": "N3",
       "role": "b",
       "section": "c",
       "seed": 0,
@@ -1222,50 +919,6 @@
     },
     {
       "id": "SPARSE_008",
-      "member": "av_cc90f226-5312-4e0f-959a-39cd4eb4d90d",
-      "alias": "N1",
-      "role": "b0",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "SPARSE_009",
-      "member": "av_cc90f226-5312-4e0f-959a-39cd4eb4d90d",
-      "alias": "N1",
-      "role": "c",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "SPARSE_010",
-      "member": "misc_9699390-uhd_3840_2160_30fps",
-      "alias": "N3",
-      "role": "b",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "SPARSE_011",
-      "member": "misc_9699390-uhd_3840_2160_30fps",
-      "alias": "N3",
-      "role": "b0",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "SPARSE_012",
       "member": "misc_9699390-uhd_3840_2160_30fps",
       "alias": "N3",
       "role": "c",
@@ -1278,21 +931,6 @@
   ],
   "mask_summary": {
     "b": {
-      "mask": "DDDDDDDDDDDDCDCDCCDCCDCCCDCCPCCPCCCD",
-      "D": 18,
-      "A": 0,
-      "C": 16,
-      "P": 2,
-      "delta_sources": [
-        26,
-        26
-      ],
-      "delta_ages": [
-        3,
-        6
-      ]
-    },
-    "b0": {
       "mask": "DDDDDDDDDDDDCDCDCCDCCDCCCDCCPCCPCCCD",
       "D": 18,
       "A": 0,
@@ -1328,7 +966,6 @@
     "provisional": true,
     "arms": [
       "b",
-      "b0",
       "c"
     ],
     "input_count": 4,
@@ -1348,54 +985,59 @@
       "includes": "Unchanged design 0.15 GPUh allowance for one parent-prefix/local probe, including its estimated load."
     },
     "S2": {
-      "request_sum_seconds": 2365.804464,
-      "GPUh": 0.6571679066666666,
-      "requests": 12,
+      "request_sum_seconds": 1568.173296,
+      "GPUh": 0.4356036933333333,
+      "requests": 8,
       "request_prices_seconds": {
         "b": 199.407792,
-        "b0": 199.407792,
-        "c": 192.63553199999998
+        "c": 192.635532
       }
     },
     "model_load_seconds": 600,
     "release_margin_seconds": 600,
     "S1_load_overlap": "Unchanged conservative accounting: full design S1 allowance plus common 600s load and 600s release; no load subtraction.",
-    "zero_S1_lower_bound": {
-      "center_GPUh": 1.0562180306666666,
-      "upper_GPUh": 1.1219348213333333
+    "exact_seconds": {
+      "S2": "1568.1732960",
+      "center": "3464.99062560",
+      "range": [
+        "3151.35596640",
+        "3621.80795520"
+      ],
+      "hard": "3600",
+      "upper_exceeds_hard": "21.80795520"
     },
-    "request_sum_seconds": 2365.804464,
-    "forecast_GPUh": 1.2062180306666668,
+    "request_sum_seconds": 1568.173296,
+    "forecast_GPUh": 0.962497396,
     "range_GPUh": [
-      1.0747844493333334,
-      1.2719348213333332
+      0.8753766573333334,
+      1.0060577653333334
     ],
     "hard_GPUh": 1.0,
-    "formal_requests": 12,
+    "formal_requests": 8,
     "warm_video_requests": 0,
-    "total_requests": 13,
+    "total_requests": 9,
     "S1_parent_requests": 1,
     "S1_local_evaluations": 20,
     "S1_next_step_comparisons": [
       "raw",
       "sync"
     ],
-    "request_count_note": "13 parent/video requests = one S1 prefix (no video) + 12 S2 videos; S1 also has 20 local evaluations plus paired step30 comparison.",
-    "center_within_limit": false,
+    "request_count_note": "9 parent/video requests = one S1 prefix (no video) + 8 S2 videos; S1 also has 20 local evaluations plus paired step30 comparison.",
+    "center_within_limit": true,
     "upper_within_limit": false,
     "feasible_under_approved_hard_limit": false,
     "GPU_submissions": 0,
     "ledger_reservations": 0,
     "blocked": true,
-    "block_reason": "Zero-GPU amendment only; scope/limit decision and GPU staging remain pending regardless of quote feasibility."
+    "block_reason": "Upper quote exceeds the approved 1.0 GPUh hard limit; stop without admission, reservation, or dispatch."
   },
   "counts": {
     "S1_parent": 1,
     "S1_local_timed": 15,
     "S1_local_warm": 5,
-    "S2": 12,
-    "total_requests": 13,
-    "LPIPS_pairs": 12
+    "S2": 8,
+    "total_requests": 9,
+    "LPIPS_pairs": 8
   },
   "S1": {
     "alias": "O1",
@@ -2410,7 +2052,7 @@
     "synthetic_anchor_is_true_DD": false,
     "update_uncond_regression": false
   },
-  "launch_block": "Zero-GPU only; scope/hard-limit decision pending. Keep full three-arm/four-input design and hard1.0; no remote stage, reservation, or dispatch.",
+  "launch_block": "Selected b/c four-input scope has upper quote 1.006057765333 GPUh > hard1.0 by 21.8079552s; stop before idle-card admission or ledger reservation.",
   "runtime_status": "Sampling hooks and callable S1 gate CPU-tested only; S1 GPU collector/ops staging remains unprepared.",
-  "scope_sha256": "bb237975f8614d82a9b1a9442c4c2d8900079534679703b41bff353ef0c744d8"
+  "scope_sha256": "74549fc62a438acb9cb8f0ad630f0e094aaa761ed6eb8341ae82df8caa393adb"
 }
