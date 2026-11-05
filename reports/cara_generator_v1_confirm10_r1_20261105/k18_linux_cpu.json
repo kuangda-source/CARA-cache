@@ -1,0 +1,20 @@
+{
+  "observed_unix": 1793888615.0113478,
+  "state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 1,
+    "Error": "",
+    "StartedAt": "2026-11-05T14:21:59.001235247Z",
+    "FinishedAt": "2026-11-05T14:22:06.603369348Z"
+  },
+  "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-confirm10-k18-CPU-r1-20261105",
+  "GPU_submissions": 0,
+  "ledger_written": false,
+  "logs": "Traceback (most recent call last):\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-confirm10-k18-CPU-r1-20261105/plans/cara_next_stage_20261105/confirm10/k18_cpu.py\", line 101, in <module>\n    result=run(a.runtime,Path(directory))\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-confirm10-k18-CPU-r1-20261105/plans/cara_next_stage_20261105/confirm10/k18_cpu.py\", line 27, in run\n    wc,rf=modules()\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-confirm10-k18-CPU-r1-20261105/tests/test_cara_read_write_transition_r1.py\", line 47, in modules\n    pinned_functions(RUNTIME/WC_PATH, ['estimate_optical_flow', 'warp_feature',\n  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-confirm10-k18-CPU-r1-20261105/tests/test_cara_read_write_transition_r1.py\", line 34, in pinned_functions\n    nodes = [node for node in ast.walk(ast.parse(path.read_bytes()))\n  File \"/usr/local/lib/python3.10/pathlib.py\", line 1126, in read_bytes\n    with self.open(mode='rb') as f:\n  File \"/usr/local/lib/python3.10/pathlib.py\", line 1119, in open\n    return self._accessor.open(self, mode, buffering, encoding, errors,\nFileNotFoundError: [Errno 2] No such file or directory: '/data20t/gaokuangda/worldcache_workspace/.sync/cara-confirm10-k18-CPU-r1-20261105/.sync/read-write-pinned-runtime-r1/cosmos_predict2/_src/predict2/inference/worldcache_utils.py'\n"
+}
