@@ -55,7 +55,7 @@ def write_results(output,result):
         ratios_vs_F17=result['ratios_vs_F17'],all_fixed_masks_matched=result['all_fixed_masks_matched'],
         formal_new_scores=result['formal_new_scores'],reused_control_count=result['reused_control_count']))
     lines=['# AVSLC 完整结果','',f"run_id: {result['run_id']}",
-        '','20个新正式结果；8个旧F17/G17结果复用，不重跑、不重算。旧对照属于前一卡的同协议H批次，不是本run的新同时计时。',
+        '',f"{result['formal_new_scores']}个新正式结果；8个旧F17/G17结果复用，不重跑、不重算。旧对照属于前一卡的同协议H批次，不是本run的新同时计时。",
         '','|arm|mean Alex|mean T_DD(s)|mean ratio/F17|95%描述性CI|M0A_all|M0A_exclG|','|---|---:|---:|---:|---|---:|---:|']
     for role,r in result['ratios_vs_F17'].items():
         v=result['mean_metrics'][role]

@@ -1,14 +1,13 @@
 {
   "schema": "CARA_AVSLC_MINITEST_R1",
   "run_id": "cara-avslc-minitest-r1-20261105",
-  "phase": "FORMAL_QUOTE_AWAITING_APPROVAL",
-  "GPU_dispatch_ready": false,
-  "dispatch_blocker": "CAL35 mandatory quote center exceeds approved hard1.5; no reserve/stage/launch.",
+  "phase": "USER_APPROVED_PENDING_FRESH_ADMISSION",
+  "GPU_dispatch_ready": true,
   "authority": {
     "execution_authorized": true,
     "ledger_reservation_authorized": true,
     "sync_launch_authorized": true,
-    "user_quote": "User-approved AVSLC scope, center about1.2 GPUh, hard1.5 GPUh; no authority to increase hard limit."
+    "user_quote": "User approved reduced four-arm AVSLC scope; re-quote and launch only if center<=1.5 GPUh; hard1.5 unchanged."
   },
   "reservation_event": "AVSLC_MINITEST_WHOLE1_5_RESERVE",
   "inputs": [
@@ -234,301 +233,6 @@
     "outputs": "MP4, terminal latent, ordinary request history; no Native state recording"
   },
   "roles": {
-    "G17_ATAIL": {
-      "kind": "speed_policy",
-      "requested_steps": 35,
-      "policy": {
-        "version": "CARA_POLICY_GENERATOR_CPU_R1",
-        "fingerprint": "069e048063624fcb75333575d706fa5eb5c61426e399f315dd3789c3596929c8",
-        "profile_identity": "8b35974e725fa1fbb72fb5474f10c763edb998e4b59bd21f7775e44ed3c6a00b",
-        "grammar_sha256": "0273c501d6f8383b81900d113dc68f9a304feed444dfc5c3d29184ec6c2e5889",
-        "dense_mask": [
-          true,
-          true,
-          true,
-          true,
-          true,
-          true,
-          true,
-          true,
-          true,
-          true,
-          true,
-          true,
-          true,
-          false,
-          true,
-          false,
-          true,
-          false,
-          false,
-          true,
-          false,
-          false,
-          false,
-          false,
-          false,
-          false,
-          false,
-          false,
-          false,
-          false,
-          false,
-          false,
-          false,
-          false,
-          false,
-          true
-        ],
-        "actions": [
-          "D",
-          "D",
-          "D",
-          "D",
-          "D",
-          "D",
-          "D",
-          "D",
-          "D",
-          "D",
-          "D",
-          "D",
-          "D",
-          "A",
-          "D",
-          "A",
-          "D",
-          "A",
-          "A",
-          "D",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "A",
-          "D"
-        ],
-        "shared_alpha": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1.0,
-          null,
-          1.0,
-          null,
-          1.0,
-          1.0,
-          null,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          1.0,
-          null
-        ],
-        "source_before": [
-          null,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7,
-          8,
-          9,
-          10,
-          11,
-          12,
-          13,
-          13,
-          15,
-          15,
-          17,
-          17,
-          17,
-          20,
-          20,
-          20,
-          20,
-          20,
-          20,
-          20,
-          20,
-          20,
-          20,
-          20,
-          20,
-          20,
-          20,
-          20,
-          20
-        ],
-        "intervals": [
-          {
-            "start": 1,
-            "end": 2,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 2,
-            "end": 3,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 3,
-            "end": 4,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 4,
-            "end": 5,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 5,
-            "end": 6,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 6,
-            "end": 7,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 7,
-            "end": 8,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 8,
-            "end": 9,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 9,
-            "end": 10,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 10,
-            "end": 11,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 11,
-            "end": 12,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 12,
-            "end": 13,
-            "A_window": [],
-            "alpha": 0.0
-          },
-          {
-            "start": 13,
-            "end": 15,
-            "A_window": [
-              14,
-              14
-            ],
-            "alpha": 1.0
-          },
-          {
-            "start": 15,
-            "end": 17,
-            "A_window": [
-              16,
-              16
-            ],
-            "alpha": 1.0
-          },
-          {
-            "start": 17,
-            "end": 20,
-            "A_window": [
-              18,
-              19
-            ],
-            "alpha": 1.0
-          },
-          {
-            "start": 20,
-            "end": 36,
-            "A_window": [
-              21,
-              35
-            ],
-            "alpha": 1.0
-          },
-          {
-            "start": 36,
-            "end": 37,
-            "A_window": [],
-            "alpha": 0.0
-          }
-        ],
-        "terminal_node": 37,
-        "terminal_model_calls": 0,
-        "counts": {
-          "D": 17,
-          "A": 19,
-          "C": 0
-        },
-        "fallback_policy": "FULL_D_ON_UNSUPPORTED_OR_NONFINITE_READOUT_RECORD_ACTUAL_COST",
-        "budget_predicted_seconds": null,
-        "budget_observed_seconds": null,
-        "deployment_budget_status": "BUDGET_NOT_VERIFIED",
-        "production_CPU_accepted": false,
-        "GPU_dispatch_ready": false
-      },
-      "light_C": true,
-      "partial_updates": [],
-      "light_C_semantics": "CURRENT_EMBEDDING_PLUS_LATEST_TRUE_D_RESIDUAL_NO_PROBE_OSI_FLOW",
-      "delta_semantics": "POST_RF_DIFFERENCE_FROM_MOST_RECENT_TRUE_DD_ONLY"
-    },
     "G17_CALL": {
       "kind": "speed_policy",
       "requested_steps": 35,
@@ -1718,7 +1422,7 @@
     {
       "id": "AVSLC_002",
       "member": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
-      "role": "G17_ATAIL",
+      "role": "G17_A21_24",
       "section": "warm",
       "seed": 0,
       "target_update": null,
@@ -1728,7 +1432,7 @@
     {
       "id": "AVSLC_003",
       "member": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
-      "role": "G17_ATAIL",
+      "role": "G17_CALL",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -1738,7 +1442,7 @@
     {
       "id": "AVSLC_004",
       "member": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
-      "role": "G17_CALL",
+      "role": "G17_A21_24",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -1748,7 +1452,7 @@
     {
       "id": "AVSLC_005",
       "member": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
-      "role": "G17_A21_24",
+      "role": "R18C",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -1758,7 +1462,7 @@
     {
       "id": "AVSLC_006",
       "member": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
-      "role": "R18C",
+      "role": "R17A",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -1767,8 +1471,8 @@
     },
     {
       "id": "AVSLC_007",
-      "member": "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
-      "role": "R17A",
+      "member": "misc_13398218_3840_2160_60fps",
+      "role": "G17_A21_24",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -1778,7 +1482,7 @@
     {
       "id": "AVSLC_008",
       "member": "misc_13398218_3840_2160_60fps",
-      "role": "G17_CALL",
+      "role": "R18C",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -1788,7 +1492,7 @@
     {
       "id": "AVSLC_009",
       "member": "misc_13398218_3840_2160_60fps",
-      "role": "G17_A21_24",
+      "role": "R17A",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -1798,7 +1502,7 @@
     {
       "id": "AVSLC_010",
       "member": "misc_13398218_3840_2160_60fps",
-      "role": "R18C",
+      "role": "G17_CALL",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -1807,8 +1511,8 @@
     },
     {
       "id": "AVSLC_011",
-      "member": "misc_13398218_3840_2160_60fps",
-      "role": "R17A",
+      "member": "av_cc90f226-5312-4e0f-959a-39cd4eb4d90d",
+      "role": "R18C",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -1817,8 +1521,8 @@
     },
     {
       "id": "AVSLC_012",
-      "member": "misc_13398218_3840_2160_60fps",
-      "role": "G17_ATAIL",
+      "member": "av_cc90f226-5312-4e0f-959a-39cd4eb4d90d",
+      "role": "R17A",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -1828,7 +1532,7 @@
     {
       "id": "AVSLC_013",
       "member": "av_cc90f226-5312-4e0f-959a-39cd4eb4d90d",
-      "role": "G17_A21_24",
+      "role": "G17_CALL",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -1838,7 +1542,7 @@
     {
       "id": "AVSLC_014",
       "member": "av_cc90f226-5312-4e0f-959a-39cd4eb4d90d",
-      "role": "R18C",
+      "role": "G17_A21_24",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -1847,7 +1551,7 @@
     },
     {
       "id": "AVSLC_015",
-      "member": "av_cc90f226-5312-4e0f-959a-39cd4eb4d90d",
+      "member": "misc_9699390-uhd_3840_2160_30fps",
       "role": "R17A",
       "section": "c",
       "seed": 0,
@@ -1857,8 +1561,8 @@
     },
     {
       "id": "AVSLC_016",
-      "member": "av_cc90f226-5312-4e0f-959a-39cd4eb4d90d",
-      "role": "G17_ATAIL",
+      "member": "misc_9699390-uhd_3840_2160_30fps",
+      "role": "G17_CALL",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -1867,8 +1571,8 @@
     },
     {
       "id": "AVSLC_017",
-      "member": "av_cc90f226-5312-4e0f-959a-39cd4eb4d90d",
-      "role": "G17_CALL",
+      "member": "misc_9699390-uhd_3840_2160_30fps",
+      "role": "G17_A21_24",
       "section": "c",
       "seed": 0,
       "target_update": null,
@@ -1884,55 +1588,9 @@
       "target_update": null,
       "audit": false,
       "eligible_clean_time": true
-    },
-    {
-      "id": "AVSLC_019",
-      "member": "misc_9699390-uhd_3840_2160_30fps",
-      "role": "R17A",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "AVSLC_020",
-      "member": "misc_9699390-uhd_3840_2160_30fps",
-      "role": "G17_ATAIL",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "AVSLC_021",
-      "member": "misc_9699390-uhd_3840_2160_30fps",
-      "role": "G17_CALL",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
-    },
-    {
-      "id": "AVSLC_022",
-      "member": "misc_9699390-uhd_3840_2160_30fps",
-      "role": "G17_A21_24",
-      "section": "c",
-      "seed": 0,
-      "target_update": null,
-      "audit": false,
-      "eligible_clean_time": true
     }
   ],
   "mask_summary": {
-    "G17_ATAIL": {
-      "mask": "DDDDDDDDDDDDDADADAADAAAAAAAAAAAAAAAD",
-      "D": 17,
-      "A": 19,
-      "C": 0
-    },
     "G17_CALL": {
       "mask": "DDDDDDDDDDDDDCDCDCCDCCCCCCCCCCCCCCCD",
       "D": 17,
@@ -1961,11 +1619,11 @@
   "counts": {
     "a": 0,
     "b": 0,
-    "c": 20,
+    "c": 16,
     "warm": 2,
     "controls": 0,
-    "total_requests": 22,
-    "LPIPS_pairs": 20,
+    "total_requests": 18,
+    "LPIPS_pairs": 16,
     "quality_positions": 0
   },
   "generated_A_alpha": 1.0,
@@ -3897,16 +3555,12 @@
   },
   "frozen_predictions": {
     "M0A_all": {
-      "G17": 1.1470964193909876,
-      "G17_ATAIL": 1.327297352371566,
       "G17_CALL": 0.969701359945791,
       "G17_A21_24": 1.0621674811292332,
       "R18C": 0.8249317063188927,
       "R17A": 0.9919756141703632
     },
     "M0A_exclG": {
-      "G17": 1.2082425495048386,
-      "G17_ATAIL": 1.3697884062753132,
       "G17_CALL": 1.23831228760032,
       "G17_A21_24": 1.1690323507312144,
       "R18C": 1.051838819349812,
@@ -3914,7 +3568,6 @@
     }
   },
   "predicted_T_DD": {
-    "G17_ATAIL": 139.43,
     "G17_CALL": 123.28,
     "G17_A21_24": 130.08,
     "R18C": 130.09,
@@ -3922,26 +3575,6 @@
   },
   "contrasts": [
     {
-      "candidate": "G17_ATAIL",
-      "reference": "F17_A2_LIGHT_C",
-      "members": [
-        "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
-        "misc_13398218_3840_2160_60fps",
-        "av_cc90f226-5312-4e0f-959a-39cd4eb4d90d",
-        "misc_9699390-uhd_3840_2160_30fps"
-      ]
-    },
-    {
-      "candidate": "G17_ATAIL",
-      "reference": "G17",
-      "members": [
-        "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
-        "misc_13398218_3840_2160_60fps",
-        "av_cc90f226-5312-4e0f-959a-39cd4eb4d90d",
-        "misc_9699390-uhd_3840_2160_30fps"
-      ]
-    },
-    {
       "candidate": "G17_CALL",
       "reference": "F17_A2_LIGHT_C",
       "members": [
@@ -4034,16 +3667,6 @@
     {
       "candidate": "G17_CALL",
       "reference": "R18C",
-      "members": [
-        "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
-        "misc_13398218_3840_2160_60fps",
-        "av_cc90f226-5312-4e0f-959a-39cd4eb4d90d",
-        "misc_9699390-uhd_3840_2160_30fps"
-      ]
-    },
-    {
-      "candidate": "G17_ATAIL",
-      "reference": "G17_A21_24",
       "members": [
         "av_28b7cf08-cfb8-41e4-8b1b-d669aa69e632",
         "misc_13398218_3840_2160_60fps",
@@ -4107,29 +3730,28 @@
       }
     },
     "request_prices_seconds": {
-      "G17_ATAIL": 204.7484339122935,
       "G17_CALL": 185.86327648477996,
       "G17_A21_24": 193.81492171741723,
       "R18C": 192.6355367384219,
       "R17A": 196.79678867965623
     },
-    "request_sum_seconds": 4286.047540527348,
-    "formal_request_seconds": 3895.4358301302755,
-    "warm_request_seconds": 390.6117103970728,
-    "forecast_GPUh": 1.6429589707166898,
+    "request_sum_seconds": 3456.1202926832984,
+    "formal_request_seconds": 3076.442094481102,
+    "warm_request_seconds": 379.67819820219665,
+    "forecast_GPUh": 1.389370089431008,
     "range_GPUh": [
-      1.4048452184651705,
-      1.7620158468424494
+      1.1973634065041578,
+      1.4853734308944329
     ],
     "hard_GPUh": 1.5,
-    "expected_wall_hours": 1.6429589707166898,
+    "expected_wall_hours": 1.389370089431008,
     "model_load_seconds": 600,
     "release_margin_seconds": 600,
-    "without_warm_center_GPUh": 1.5236053925398065,
-    "formal_requests": 20,
+    "without_warm_center_GPUh": 1.2733573066470034,
+    "formal_requests": 16,
     "warm_requests": 2,
-    "total_requests": 22,
-    "feasible_under_approved_hard_limit": false
+    "total_requests": 18,
+    "feasible_under_approved_hard_limit": true
   },
-  "scope_sha256": "f887f9d8fff40a6d3e78e9f2133bf2f32509f4ee769f695355684d70ea32051e"
+  "scope_sha256": "e44d6a74994fa1c20b967c779f503f4879b3b1f6af35d5a672e5e56448204b15"
 }

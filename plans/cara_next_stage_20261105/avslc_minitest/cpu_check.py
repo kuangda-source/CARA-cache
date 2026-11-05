@@ -28,13 +28,13 @@ if __name__=='__main__':
     rows=[dict(slot=s,Alex=.25,T_DD=card['predicted_T_DD'][s['role']],mask_matches=True)
         for s in card['matrix'] if s['section']!='warm']
     summary=summarize(card,rows)
-    assert summary['reused_control_count']==8 and len(summary['contrasts'])==13
+    assert summary['reused_control_count']==8 and len(summary['contrasts'])==10
     expected=sum(.25-r['Alex'] for r in card['reused_controls'] if r['slot']['role']=='F17_A2_LIGHT_C')/4
     assert abs(summary['contrasts'][0]['mean_delta']-expected)<1e-12
     with tempfile.TemporaryDirectory(prefix='cara-avslc-CPU-report-') as directory:
         path=Path(directory);write_results(path/'complete_analysis.json',summary)
         assert all((path/name).is_file() for name in ('complete_analysis.json','outcome_summary.json','COMPLETE_RESULTS.md'))
-    value=dict(passed=True,checks=checks,merged_controls=8,contrasts=13,analysis_fixture_passed=True,
+    value=dict(passed=True,checks=checks,merged_controls=8,contrasts=10,analysis_fixture_passed=True,
         CUDA_initialized=torch.cuda.is_initialized(),model_weights_loaded=False,GPU_submissions=0,remote_calls=0,
         scope='Local tiny full36 paths and synthetic analysis only; not Linux production admission')
     (HERE/'cpu_check.json').write_text(json.dumps(value,indent=2)+'\n')
