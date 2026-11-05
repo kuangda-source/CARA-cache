@@ -81,3 +81,17 @@ PY_SCORE
 - 一次有界前台确认于北京时间2026-11-05T18:44:45.862575+08:00结束：容器Running=true/OOMKilled=false；guardian PID1286393、supervisor PID1286476、runner PID1286518的原PID/start ticks均存活；目标GPU唯一runner占24,418MiB，Exclusive_Process、58°C；collection=RUNNING，0/18完成，首条AVSLC_001 RUNNING。未等待首条结束或全卡完成。确认reader已退出，此后不再远端检查或改动运行stage。
 
 正常回执为本报告目录的precheck_reduced.json、linux_cpu.json、storage.json、admission.json、central_reservation.json、start_confirmation.json。沿用上文status及终态capture→唯一settle→CPU score→analyze命令；不重复预留、启动或评分，无monitor/heartbeat/cron/automation。
+
+## 终态验收（2026-11-05）
+
+原GPU18/18完成，北京时间19:44:43.198关闭；容器退出0、OOMKilled=false，原guardian/supervisor/runner均结束，GPU释放、Default恢复、双锁释放。中央唯一结算 **seq102**，actual **1.0310915331330357GPUh**，新累计used **231.1691439833172GPUh**（230.13805245018418＋实际值），本run1.5预留解除；旧16.5未知预留保持，历史格式available2.3308560166827874。原billing哈希字节不改，stage/central-settlement.json及release.json明确已结算。
+
+唯一CPU scorer（fd7062f311c034c74972d7637b99694b52e8dfbf6a9c148501eae2a61c8ca690）于北京时间20:40:51.514退出0，16/16新正式结果均完整93帧、CUDA=false，无OOM；八个旧F17/G17结果只复用。原analyze完成，10个对比、全部实际mask通过。结果在[COMPLETE_RESULTS.md](../../../reports/cara_avslc_minitest_r1_20261105/COMPLETE_RESULTS.md)、同目录complete_analysis.json、outcome_summary.json及scores.json；terminal.json、central_settlement.json、release.json、score_launch.json、score_terminal.json、analysis_receipt.json为原收尾凭据。
+
+主判据：G17_CALL mean ratio/F17 **0.914526**，R18C **0.817241**，均更接近M0A_all预测0.969701/0.824932，而非M0A_exclG的1.238312/1.051839。冻结两主臂MAE分别 **0.0314330021 vs 0.2791920225**。按预注册描述性规则选择 **M0A_all**；下一版生成器应采用该套参数（原拟合β_L≈0.514），不把去G的β_L≈1.115作为本次选择，不重新拟合β_L，不宣称统计显著或n=4非劣通过。
+
+相对复用F17的mean ΔAlex：CALL −0.027383（2改善/2退化）、A21_24 −0.026693（3/1）、R18C −0.057650（4/0）、R17A −0.005237（3/1）；mean T_DD分别123.3756/130.0333/130.2536/132.5030s。R17A−R18C为+0.052413、描述性95% CI[0.026140,0.078685]且慢2.2494s，四输入均不及R18C；R18C相对G17为−0.035816、CI[−0.061519,−0.013947]且快2.3498s，四输入均改善。所有逐输入差、ratio CI及其他对比保留原输出，不加新判据。
+
+执行说明：初次本地读取早于结算回执返回，未触发远端评分；等待同一交易后才启动上述唯一CPU实例。首次未压缩collection传输超时，随后gzip取回同一文件；无再次结算、评分或GPU请求。所有命令保持--route relay；末次结果取回由intranet-ssh自动选择two_card_lan（原GPU及CPU均已结束），未手动切换运行中卡路由或修改网络。
+
+本run已关闭，以上命令仅供恢复原交易/原结果，不能再次启动或计费。本轮无新GPU工作、无重跑，未降低guardian门限，未建heartbeat/cron/automation；原MP4/latent及16GiB卷保持原位。后续模型/生成器部署或新输入验证是独立任务，本轮只报告冻结参数集的描述性选择。
