@@ -7,9 +7,11 @@ import sys
 
 ROOT=Path(__file__).resolve().parents[3]
 sys.path.insert(0,str(ROOT/'src'))
+from wcomr.cara_sparse_refresh_probe_r1 import s1_gate
 
 
 def summarize(card,rows,s1):
+    gate=s1_gate(**s1)
     expected={(s['member'],s['role']) for s in card['matrix']}
     assert len(rows)==12 and {(r['slot']['member'],r['slot']['role']) for r in rows}==expected
     assert all(r['mask_matches'] and r['fidelity']['frames']==93 for r in rows)
@@ -29,7 +31,7 @@ def summarize(card,rows,s1):
         delta_T_DD=indexed[m,'b']['T_DD']-indexed[m,'b0']['T_DD']) for m in card['inputs_by_alias'].values()]
     return dict(status='COMPLETE',run_id=card['run_id'],scope_sha256=card['scope_sha256'],contrasts=contrasts,
         sync_minus_raw=sync_raw,mean_sync_minus_raw_Alex=statistics.mean(r['delta_Alex'] for r in sync_raw),
-        S1=s1,go=bool(s1['gate_passed'] and (b_go or c_go)),b_go=b_go,c_go=c_go,
+        S1=dict(measurements=s1,**gate),go=bool(gate['gate_passed'] and (b_go or c_go)),b_go=b_go,c_go=c_go,
         close_CFG_branch_P=b['mean_delta_Alex']>0 and b0['mean_delta_Alex']>0,
         reused_R18C_scores=4,new_full93_pairs=12,posthoc_tuning=False,reruns=0,
         limitation='Exposed four-input development probe; cross-run R18C timing reference; no independent confirmation.')

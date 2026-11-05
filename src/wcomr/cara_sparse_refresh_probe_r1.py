@@ -1,7 +1,28 @@
 """Opt-in sparse-refresh probe; original F19 contracts remain the default."""
+import math
+import statistics
 from types import MethodType
 
+from .calibration import Anchor
 from .cara_f19_speed190_sampling_r1 import SpeedOwner, SpeedReadout
+
+
+def s1_gate(*,D_seconds,P_seconds,C_next_MSE,sync_C_next_MSE,drift_D_to_next,drift_P_to_next):
+    """Provisional in-job S1 decision, using amplitude kappa from next-step C.
+
+    Both C errors use the same next-step state/teacher; the no-P control restores
+    the latest-DD caches. Drift is the frozen cumulative-drift coordinate.
+    """
+    D=statistics.median(D_seconds);P=statistics.median(P_seconds)
+    values=(D,P,C_next_MSE,sync_C_next_MSE,drift_D_to_next,drift_P_to_next)
+    if not all(math.isfinite(v) for v in values) or not (
+            D>0 and P>=0 and C_next_MSE>0 and sync_C_next_MSE>=0 and 0<=drift_P_to_next<drift_D_to_next):
+        raise ValueError('S1 requires finite timing, positive C error and ordered D/P drift')
+    lam=drift_P_to_next/drift_D_to_next
+    kappa=(math.sqrt(sync_C_next_MSE/C_next_MSE)-lam)/(1-lam)
+    ratio=P/D
+    return dict(provisional=True,cost_ratio=ratio,kappa=kappa,lambda_drift=lam,
+        timing_passed=ratio<=.5,kappa_passed=kappa<.45,gate_passed=ratio<=.5 and kappa<.45)
 
 
 class SparseReadout(SpeedReadout):
@@ -9,6 +30,9 @@ class SparseReadout(SpeedReadout):
         super().__init__(*args,**kwargs)
         self.sync_residual=True
         self.residual_delta=None
+        self.probe_delta=None
+        self.synthetic_uncond_anchor_step=None
+        self.true_uncond_anchor=None
         self.cache_birth_steps=[None,None]
 
     def delta_age_allowed(self,step):
@@ -17,19 +41,37 @@ class SparseReadout(SpeedReadout):
     def remember_dd(self,actual,step):
         super().remember_dd(actual,step)
         self.residual_delta=(self.net.residual_cache[0]-self.net.residual_cache[1]).detach()
+        self.probe_delta=(self.net.probe_residual_cache[0]-self.net.probe_residual_cache[1]).detach()
+        self.synthetic_uncond_anchor_step=None
+        self.true_uncond_anchor=self.calibrators[1].anchors[-1]
         self.cache_birth_steps=[step,step]
+
+    def hidden(self,net,skipped,branch,*args):
+        if not skipped and branch==1 and self.synthetic_uncond_anchor_step is not None:
+            # The next real D regresses against the previous real D, not P.
+            self.calibrators[1].anchors=[self.true_uncond_anchor]
+        return super().hidden(net,skipped,branch,*args)
 
     def partial_result(self,actual,step):
         self.cache_birth_steps[0]=step
         if self.sync_residual:
             self.net.residual_cache[1]=self.net.residual_cache[0]-self.residual_delta
             self.cache_birth_steps[1]=step
+            # Provisional A-state sync. This is an approximate anchor, not an
+            # observed uncond D: do not train observe_full's regression on it.
+            anchor=Anchor(step,(self.net.probe_residual_cache[0]-self.probe_delta).detach(),
+                self.net.residual_cache[1].detach())
+            calibrator=self.calibrators[1]
+            calibrator.anchors=(calibrator.anchors+[anchor])[-2:]
+            self.synthetic_uncond_anchor_step=step
         return super().partial_result(actual,step)
 
     def end(self,actual,action):
         result=super().end(actual,action)
         self.history[-1].update(cache_birth_steps=list(self.cache_birth_steps),
-            residual_sync=self.sync_residual and self.completed in self.partial_updates)
+            residual_sync=self.sync_residual and self.completed in self.partial_updates,
+            calibrator_anchor_steps=[c.anchors[-1].step for c in self.calibrators],
+            synthetic_uncond_anchor_step=self.synthetic_uncond_anchor_step)
         return result
 
 
@@ -54,6 +96,8 @@ class SparseOwner(SpeedOwner):
 
     def close(self):
         self.readout.residual_delta=None
+        self.readout.probe_delta=None
+        self.readout.true_uncond_anchor=None
         super().close()
 
     def pair(self,*args,**kwargs):

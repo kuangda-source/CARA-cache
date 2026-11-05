@@ -13,18 +13,24 @@ ROOT=HERE.parents[2]
 sys.path[:0]=[str(ROOT),str(ROOT/'src'),str(ROOT/'tests')]
 os.environ.update(CUDA_VISIBLE_DEVICES='',NVIDIA_VISIBLE_DEVICES='void')
 import torch
-from prepare import build
+from prepare import build,policy
 from postprocess import summarize
 from wcomr.cara_fast_spec_r1 import profile_from
 from wcomr.cara_f19_speed190_sampling_r1 import light_source
-from wcomr.cara_sparse_refresh_probe_r1 import SparseOwner,LayerReuse
+from wcomr.cara_sparse_refresh_probe_r1 import SparseOwner,LayerReuse,s1_gate
 from wcomr.cfg_paired_probe_forward import _function,WC_PATH,WC_SHA
 from wcomr.policy_interval_readout_r1 import guided
 from test_cara_read_write_provenance_r1 import bound,RUNTIME
 from test_cara_read_write_transition_r1 import modules
 
 
-def check_path(card,role,flow):
+def check_path(card,role,flow,*,A_steps=()):
+    role=copy.deepcopy(role)
+    if A_steps:
+        mask=list(role['mask'])
+        for t in A_steps:mask[t-1]='A'
+        role['mask']=''.join(mask)
+        role['policy']=policy(profile_from(card['profile']),role['mask'].replace('P','D'),[1. if c=='A' else None for c in mask])
     step,_=bound(flow);model=step.worldcache.model;wc,rf=modules()
     model.net.forward=MethodType(wc.worldcache_mini_train_dit_forward,model.net)
     model.denoise=MethodType(rf.denoise,model);model.tensor_kwargs['dtype']=torch.float32
@@ -33,36 +39,60 @@ def check_path(card,role,flow):
             setattr(c,key,getattr(c,key).float())
     owner=SparseOwner(model,policy=role['policy'],profile=profile_from(card['profile']),context=('sparse_CPU',str(flow)),
         runtime=RUNTIME,wc=wc,rf=rf,light_C=True,partial_updates=tuple(role['partial_updates']),sync_residual=role['sync_residual'])
-    latent=step.noise.float();noise=latent.clone();scheduler=copy.deepcopy(step.solver._template);writes=[];next_C=[]
+    latent=step.noise.float();noise=latent.clone();scheduler=copy.deepcopy(step.solver._template);writes=[];next_C=[];next_A=[]
     with torch.no_grad():
         for t,timestep in enumerate(step.timesteps,1):
-            delta=owner.readout.delta;dr=owner.readout.residual_delta;source=owner.readout.delta_step
+            delta=owner.readout.delta;dr=owner.readout.residual_delta;dp=owner.readout.probe_delta;source=owner.readout.delta_step
+            uncond_calibrator=owner.readout.calibrators[1]
+            synthetic_step=owner.readout.synthetic_uncond_anchor_step
+            old_regression={k:v for k,v in uncond_calibrator.receipt().items() if k!='anchor_steps'}
             old_cache=list(model.net.residual_cache);old_birth=list(owner.readout.cache_birth_steps)
             old_u=old_cache[1]
             pair=owner.pair(noise,latent,timestep.reshape(1,1),step.conditions,owner.choose)
             assert pair[0].shape==pair[1].shape==noise.shape
+            if synthetic_step is not None and role['mask'][t-1]=='D':
+                assert [a.step for a in uncond_calibrator.anchors]==[source,t]
+                assert owner.readout.synthetic_uncond_anchor_step is None
             if t in role['partial_updates']:
-                assert owner.readout.delta is delta and owner.readout.residual_delta is dr and owner.readout.delta_step==source
+                assert owner.readout.delta is delta and owner.readout.residual_delta is dr and owner.readout.probe_delta is dp and owner.readout.delta_step==source
                 assert torch.allclose(pair[0]-pair[1],delta,atol=1e-6,rtol=1e-5)
                 assert owner.executor.last['action']=='DC'
                 if role['sync_residual']:
                     assert torch.equal(model.net.residual_cache[1],model.net.residual_cache[0]-dr)
                     assert owner.readout.cache_birth_steps==[t,t]
+                    assert [c.anchors[-1].step for c in owner.readout.calibrators]==[t,t]
+                    anchor=uncond_calibrator.anchors[-1]
+                    assert torch.equal(anchor.probe,model.net.probe_residual_cache[0]-dp)
+                    assert torch.equal(anchor.residual,model.net.residual_cache[1])
+                    assert owner.readout.synthetic_uncond_anchor_step==t
                 else:
                     assert model.net.residual_cache[1] is old_u
                     assert owner.readout.cache_birth_steps==[t,source]
-                writes.append(dict(step=t,true_DD_source=source,birth_steps=list(owner.readout.cache_birth_steps)))
+                    assert uncond_calibrator.anchors[-1].step==source
+                    assert owner.readout.synthetic_uncond_anchor_step is None
+                assert old_regression=={k:v for k,v in uncond_calibrator.receipt().items() if k!='anchor_steps'}
+                writes.append(dict(step=t,true_DD_source=source,birth_steps=list(owner.readout.cache_birth_steps),
+                    calibrator_anchor_steps=[c.anchors[-1].step for c in owner.readout.calibrators],
+                    synthetic_uncond_anchor_step=owner.readout.synthetic_uncond_anchor_step,uncond_regression_unchanged=True))
             elif t-1 in role['partial_updates'] and role['mask'][t-1]=='C':
                 assert all(a is b for a,b in zip(model.net.residual_cache,old_cache))
                 assert owner.readout.cache_birth_steps==old_birth
                 next_C.append(dict(step=t,read_birth_steps=old_birth,residual_cache_unchanged=True))
+            if t in A_steps:
+                anchors=[c.anchors[-1].step for c in owner.readout.calibrators]
+                expected=[t-1,t-1] if role['sync_residual'] else [t-1,source]
+                assert anchors==expected
+                history=owner.readout.history[-1]
+                assert [steps[-1] for steps in history['past_D_steps']]==expected
+                assert history['branch_status']==['BETA1','BETA1'] and history['extra_heads']==2
+                next_A.append(dict(step=t,actual_A_reads_anchor_steps=anchors,synthetic_uncond_anchor_step=owner.readout.synthetic_uncond_anchor_step))
             assert torch.isfinite(guided(pair)).all()
             latent=scheduler.step(guided(pair),timestep,latent,return_dict=False)[0]
     assert ''.join(r['actual'] for r in owner.history)==role['mask']
     assert not any(r['fallback_reason'] for r in owner.history)
     proof={k:v for k,v in owner.proof.items() if k.endswith(('sha256','AST_equal'))}
     owner.close()
-    return dict(flow=flow,full36=True,shapes_finite=True,writes=writes,next_C=next_C,compiled_proof=proof)
+    return dict(flow=flow,full36=True,shapes_finite=True,writes=writes,next_C=next_C,next_A=next_A,compiled_proof=proof)
 
 
 def check_layers(k):
@@ -102,19 +132,32 @@ if __name__=='__main__':
     assert len(writes(original))==1 and writes(original)==writes(transformed)
     for name,role in card['roles'].items():
         for flow in (False,True):checks.append(dict(role=name,**check_path(card,role,flow)))
+    for name in ('b','b0'):
+        for flow in (False,True):checks.append(dict(role=name+'_A_fixture',**check_path(card,card['roles'][name],flow,A_steps=(30,33))))
     pk=[check_layers(k) for k in (14,20)]
     references={r['slot']['member']:r for r in card['reused_R18C']}
     def rows_for(deltas):
         return [dict(slot=s,Alex=references[s['member']]['Alex']+deltas[s['role']],
             T_DD=references[s['member']]['T_DD']+(1 if s['role']!='c' else 0),
             mask_matches=True,fidelity=dict(frames=93)) for s in card['matrix']]
-    good=summarize(card,rows_for(dict(b=-.005,b0=.01,c=-.001)),dict(gate_passed=True))
-    bad=summarize(card,rows_for(dict(b=.01,b0=.02,c=.01)),dict(gate_passed=True))
+    measurements=dict(D_seconds=[5.9,6.,6.1],P_seconds=[2.9,3.,3.1],C_next_MSE=1.,
+        sync_C_next_MSE=(.2+.3*.8)**2,drift_D_to_next=5.,drift_P_to_next=1.)
+    gate=s1_gate(**measurements)
+    assert gate['cost_ratio']==.5 and abs(gate['kappa']-.3)<1e-12 and gate['gate_passed']
+    slow=dict(measurements,P_seconds=[3.01]*3)
+    assert not s1_gate(**slow)['gate_passed']
+    boundary=dict(measurements,sync_C_next_MSE=(.2+.45*.8)**2)
+    assert not s1_gate(**boundary)['gate_passed']
+    good=summarize(card,rows_for(dict(b=-.005,b0=.01,c=-.001)),measurements)
+    bad=summarize(card,rows_for(dict(b=.01,b0=.02,c=.01)),measurements)
     assert good['go'] and good['b_go'] and good['c_go'] and not good['close_CFG_branch_P']
     assert not bad['go'] and bad['close_CFG_branch_P']
-    assert not summarize(card,rows_for(dict(b=-.005,b0=.01,c=-.001)),dict(gate_passed=False))['go']
+    assert not summarize(card,rows_for(dict(b=-.005,b0=.01,c=-.001)),slow)['go']
+    assert not summarize(card,rows_for(dict(b=-.005,b0=.01,c=-.001)),boundary)['go']
     value=dict(passed=True,pinned_WC_sha256=hashlib.sha256((RUNTIME/WC_PATH).read_bytes()).hexdigest(),
         full_path_residual_write_preserved=True,light_AST_proof=proof,complete36_paths=checks,Pk=pk,
+        S1_gate_fixture=dict(amplitude_kappa=gate['kappa'],cost_ratio=gate['cost_ratio'],cost_equality_passes=True,
+            cost_above_half_rejected=True,kappa_equality_rejected=True,analysis_rechecks_gate=True),
         analysis_fixture=True,CUDA_initialized=torch.cuda.is_initialized(),model_weights_loaded=False,
         GPU_submissions=0,ledger_transactions=0,scope='Tiny local CPU controls, not real-GPU timing or Linux production acceptance')
     (HERE/'cpu_check.json').write_text(json.dumps(value,indent=2)+'\n')

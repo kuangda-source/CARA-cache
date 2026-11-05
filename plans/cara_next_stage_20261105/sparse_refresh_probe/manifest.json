@@ -1,13 +1,16 @@
 {
   "schema": "CARA_SPARSE_REFRESH_PROBE_R1",
   "run_id": "cara-sparse-refresh-probe-r1-20261105",
-  "phase": "BLOCKED_QUOTE_EXCEEDS_HARD_LIMIT",
+  "phase": "ZERO_GPU_AMENDMENT_PENDING_SCOPE_DECISION",
   "GPU_dispatch_ready": false,
   "authority": {
     "user_quote": "可以，gpu 探针如果服务器卡空闲也能做，有两张卡",
     "hard_GPUh": 1.0,
     "idle_card_only": true,
-    "mainline_confirm10_has_priority": true
+    "mainline_confirm10_has_priority": true,
+    "current_instruction": "Zero-GPU amendment only; no GPU jobs, ledger reservation, or routines.",
+    "execution_authorized": false,
+    "ledger_reservation_authorized": false
   },
   "inputs": [
     {
@@ -1321,43 +1324,51 @@
     }
   },
   "quote": {
-    "basis": "Requested rounded CAL35 T_request coefficients; light-C term zero; P=0.55*D.",
+    "basis": "Requested rounded CAL35 T_request coefficients; light-C term zero; provisional P=0.5*D.",
+    "provisional": true,
+    "arms": [
+      "b",
+      "b0",
+      "c"
+    ],
+    "input_count": 4,
+    "P_cost_ratio": 0.5,
     "coefficients_seconds": {
       "shared": 70.734852,
       "D": 6.77226,
       "A": 0.993956,
       "C": 0.637948,
       "light_C": 0,
-      "P": 3.7247430000000006
+      "P": 3.38613
     },
     "S1": {
       "allowance_seconds": 540,
       "GPUh": 0.15,
       "measured": false,
-      "includes": "Design 0.15 GPUh allowance for one parent-prefix/local probe, including its estimated load."
+      "includes": "Unchanged design 0.15 GPUh allowance for one parent-prefix/local probe, including its estimated load."
     },
     "S2": {
-      "request_sum_seconds": 2373.931176,
-      "GPUh": 0.6594253266666666,
+      "request_sum_seconds": 2365.804464,
+      "GPUh": 0.6571679066666666,
       "requests": 12,
       "request_prices_seconds": {
-        "b": 200.08501800000002,
-        "b0": 200.08501800000002,
-        "c": 193.312758
+        "b": 199.407792,
+        "b0": 199.407792,
+        "c": 192.63553199999998
       }
     },
     "model_load_seconds": 600,
     "release_margin_seconds": 600,
-    "S1_load_overlap": "Conservatively add the full design S1 allowance to the explicitly required common 600s load and 600s release; no load subtraction is needed to establish refusal.",
+    "S1_load_overlap": "Unchanged conservative accounting: full design S1 allowance plus common 600s load and 600s release; no load subtraction.",
     "zero_S1_lower_bound": {
-      "center_GPUh": 1.0587011926666667,
-      "upper_GPUh": 1.1246437253333332
+      "center_GPUh": 1.0562180306666666,
+      "upper_GPUh": 1.1219348213333333
     },
-    "request_sum_seconds": 2373.931176,
-    "forecast_GPUh": 1.2087011926666669,
+    "request_sum_seconds": 2365.804464,
+    "forecast_GPUh": 1.2062180306666668,
     "range_GPUh": [
-      1.0768161273333334,
-      1.2746437253333331
+      1.0747844493333334,
+      1.2719348213333332
     ],
     "hard_GPUh": 1.0,
     "formal_requests": 12,
@@ -1369,13 +1380,14 @@
       "raw",
       "sync"
     ],
-    "request_count_note": "13 parent/video requests = one S1 prefix (no video) + 12 S2 videos. S1: five modes x (one warmup + three timed), plus paired step30 diagnostic.",
+    "request_count_note": "13 parent/video requests = one S1 prefix (no video) + 12 S2 videos; S1 also has 20 local evaluations plus paired step30 comparison.",
     "center_within_limit": false,
     "upper_within_limit": false,
     "feasible_under_approved_hard_limit": false,
     "GPU_submissions": 0,
     "ledger_reservations": 0,
-    "blocked": true
+    "blocked": true,
+    "block_reason": "Zero-GPU amendment only; scope/limit decision and GPU staging remain pending regardless of quote feasibility."
   },
   "counts": {
     "S1_parent": 1,
@@ -1402,7 +1414,15 @@
     "delta_age": 3,
     "next_step": 30,
     "metric": "guided FP64-reduction MSE vs same-state D",
-    "gate": "median(P_sync timed seconds) / median(D timed seconds) <= 0.55; otherwise release without S2",
+    "provisional": true,
+    "gate": "median(P_sync timed seconds) / median(D timed seconds) <= 0.5 AND amplitude kappa < 0.45; otherwise release without S2",
+    "gate_entry": "wcomr.cara_sparse_refresh_probe_r1.s1_gate",
+    "gate_thresholds": {
+      "max_cost_ratio": 0.5,
+      "kappa_strict_upper": 0.45
+    },
+    "kappa_definition": "lambda=drift(P29,next30)/drift(DD26,next30); kappa=(sqrt(sync_C_next_MSE/C_next_MSE)-lambda)/(1-lambda); no clipping or gamma power",
+    "kappa_control": "Both C errors and their D teacher use the same next30 state after sync P29; no-P C control restores latest-DD caches/anchors. Raw continuation is reported separately.",
     "next_step_teacher": "For each raw/sync P29 continuation, compare C30 with D30 at that continuation own identical solver state.",
     "Pk_layers": "Execute first k of 28 blocks on both branches; reuse remaining layer residuals from latest D. No video."
   },
@@ -2384,7 +2404,13 @@
   "postrelease_CPU_entry": "plans/cara_next_stage_20261105/sparse_refresh_probe/postprocess.py",
   "output_root": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-sparse-refresh-probe-r1-20261105",
   "report_root": "reports/cara_sparse_refresh_probe_r1_20261105",
-  "launch_block": "Quote center and upper exceed 1.0 GPUh even with zero S1 allowance. No remote stage, reservation, or dispatch.",
-  "runtime_status": "Sampling hooks and CPU fixture only; S1 GPU collector/ops staging deliberately not prepared after failed quote gate.",
-  "scope_sha256": "3bc309bd3b3e2a212698401e7b97030221f8fa5c534208d66f2c6c627c7702fa"
+  "provisional_amendment": {
+    "same_age_uncond_A_anchor": true,
+    "anchor_probe": "probe_c_at_P - (probe_c_DD - probe_u_DD)",
+    "synthetic_anchor_is_true_DD": false,
+    "update_uncond_regression": false
+  },
+  "launch_block": "Zero-GPU only; scope/hard-limit decision pending. Keep full three-arm/four-input design and hard1.0; no remote stage, reservation, or dispatch.",
+  "runtime_status": "Sampling hooks and callable S1 gate CPU-tested only; S1 GPU collector/ops staging remains unprepared.",
+  "scope_sha256": "bb237975f8614d82a9b1a9442c4c2d8900079534679703b41bff353ef0c744d8"
 }

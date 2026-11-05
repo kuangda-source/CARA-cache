@@ -1,41 +1,49 @@
 {
-  "basis": "Requested rounded CAL35 T_request coefficients; light-C term zero; P=0.55*D.",
+  "basis": "Requested rounded CAL35 T_request coefficients; light-C term zero; provisional P=0.5*D.",
+  "provisional": true,
+  "arms": [
+    "b",
+    "b0",
+    "c"
+  ],
+  "input_count": 4,
+  "P_cost_ratio": 0.5,
   "coefficients_seconds": {
     "shared": 70.734852,
     "D": 6.77226,
     "A": 0.993956,
     "C": 0.637948,
     "light_C": 0,
-    "P": 3.7247430000000006
+    "P": 3.38613
   },
   "S1": {
     "allowance_seconds": 540,
     "GPUh": 0.15,
     "measured": false,
-    "includes": "Design 0.15 GPUh allowance for one parent-prefix/local probe, including its estimated load."
+    "includes": "Unchanged design 0.15 GPUh allowance for one parent-prefix/local probe, including its estimated load."
   },
   "S2": {
-    "request_sum_seconds": 2373.931176,
-    "GPUh": 0.6594253266666666,
+    "request_sum_seconds": 2365.804464,
+    "GPUh": 0.6571679066666666,
     "requests": 12,
     "request_prices_seconds": {
-      "b": 200.08501800000002,
-      "b0": 200.08501800000002,
-      "c": 193.312758
+      "b": 199.407792,
+      "b0": 199.407792,
+      "c": 192.63553199999998
     }
   },
   "model_load_seconds": 600,
   "release_margin_seconds": 600,
-  "S1_load_overlap": "Conservatively add the full design S1 allowance to the explicitly required common 600s load and 600s release; no load subtraction is needed to establish refusal.",
+  "S1_load_overlap": "Unchanged conservative accounting: full design S1 allowance plus common 600s load and 600s release; no load subtraction.",
   "zero_S1_lower_bound": {
-    "center_GPUh": 1.0587011926666667,
-    "upper_GPUh": 1.1246437253333332
+    "center_GPUh": 1.0562180306666666,
+    "upper_GPUh": 1.1219348213333333
   },
-  "request_sum_seconds": 2373.931176,
-  "forecast_GPUh": 1.2087011926666669,
+  "request_sum_seconds": 2365.804464,
+  "forecast_GPUh": 1.2062180306666668,
   "range_GPUh": [
-    1.0768161273333334,
-    1.2746437253333331
+    1.0747844493333334,
+    1.2719348213333332
   ],
   "hard_GPUh": 1.0,
   "formal_requests": 12,
@@ -47,11 +55,12 @@
     "raw",
     "sync"
   ],
-  "request_count_note": "13 parent/video requests = one S1 prefix (no video) + 12 S2 videos. S1: five modes x (one warmup + three timed), plus paired step30 diagnostic.",
+  "request_count_note": "13 parent/video requests = one S1 prefix (no video) + 12 S2 videos; S1 also has 20 local evaluations plus paired step30 comparison.",
   "center_within_limit": false,
   "upper_within_limit": false,
   "feasible_under_approved_hard_limit": false,
   "GPU_submissions": 0,
   "ledger_reservations": 0,
-  "blocked": true
+  "blocked": true,
+  "block_reason": "Zero-GPU amendment only; scope/limit decision and GPU staging remain pending regardless of quote feasibility."
 }
