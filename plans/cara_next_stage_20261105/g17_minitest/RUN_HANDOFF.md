@@ -1,13 +1,13 @@
-# G17 mini-test 报价与交接：DO NOT LAUNCH
+# G17 mini-test with-nonfast 执行交接
 
-本轮仅本地准备与报价；不sync-launch、不stage、不启容器、不预约/启动GPU。没有launch_id或服务器stage。两个planned run_id分别为`cara-g17-minitest-base-r1-20261105`与`cara-g17-minitest-with-nonfast-r1-20261105`，两个manifest均为FORMAL_QUOTE_AWAITING_APPROVAL、执行权限false；可选非快臂默认不含。
+2026-11-05用户经研究助手明确批准with-nonfast：`cara-g17-minitest-with-nonfast-r1-20261105`，28正式＋2warm，报价中心2.225452351GPUh，硬限2.5GPUh。只授权manifest_with_nonfast.json；base仍为quote only，不预留、不执行。初始只读确认中央job不存在，服务器stage/输出/容器不存在。
 
 |方案|正式＋warm|中心GPUh/墙钟小时|工程范围GPUh/小时|建议硬限GPUh|
 |---|---:|---:|---|---:|
-|base（默认）|20＋2|1.675519573|1.431485711–1.797536504|2.00|
+|base（未授权）|20＋2|1.675519573|1.431485711–1.797536504|2.00|
 |base＋19D/22D|28＋2|2.225452351|1.881430711–2.397463171|2.50|
 
-base墙钟中心约1小时40分32秒；加非快臂约2小时13分32秒。增量8请求中心 **0.549932778GPUh**，范围0.449945000–0.599926667（同一进程加入，不再重复warm/模型加载/释放；另开卡需重报价）。范围是工程预测，不是统计CI或跑完保证；这些建议硬限尚未获执行批准。
+base墙钟中心约1小时40分32秒；加非快臂约2小时13分32秒。增量8请求中心 **0.549932778GPUh**，范围0.449945000–0.599926667（同一进程加入，不再重复warm/模型加载/释放；另开卡需重报价）。范围是工程预测，不是统计CI或跑完保证；本次只批准扩展档2.5GPUh硬限。
 
 |arm|正式请求数|完整request报价秒/次|
 |---|---:|---:|
@@ -36,6 +36,45 @@ P=plans/cara_next_stage_20261105/g17_minitest
 .venv/bin/python "$P/cpu_check.py"
 ```
 
-manifest提供可直接供既有`plans/cara_next_stage_20261104/sensitivity/runner.py`加载的role/matrix；复用`wcomr.cara_f19_speed190_requests_r1.Requests`，不是新的采样框架。`postprocess.py`只在正常release/capture/唯一settlement后、原CPU评分环境（2核/8GiB、既有Alex权重与PIQ依赖、GPU隐藏）执行完整93帧LPIPS及固定paired CI；本轮不调用。原Native视频路径与SHA在native_references，未来GPU/CPU环境须按原只读方式挂载这些输出路径。
+manifest提供可直接供既有`plans/cara_next_stage_20261104/sensitivity/runner.py`加载的role/matrix；复用`wcomr.cara_f19_speed190_requests_r1.Requests`，不是新的采样框架。`postprocess.py`只在正常release/capture/唯一settlement后、原CPU评分环境（2核/8GiB、既有Alex权重与PIQ依赖、GPU隐藏）执行完整93帧LPIPS，analyze单独计算固定paired CI；启动本轮不调用评分。原Native视频路径与SHA在native_references，未来GPU/CPU环境须按原只读方式挂载这些输出路径。
 
-后续如用户另行要求执行，才按既有流程冻结源码、接本卡stage/launch binding与评分入口、完成Linux真实生产入口/资源准入，然后唯一预留/启动。当前没有这些远端对象，不给启动命令。输出计划为manifest.output_root中的collection.json、requests/<id>/*.mp4和<id>.pt；无Native states。16GiB私有卷为未来容量建议，不在本轮创建；40g容器、50GiB宿主内存、90°C、4GiB低水位及既有温度/硬限保护不变；无监控/heartbeat/cron/automation。
+按既有sensitivity ops/runner流程接本卡stage/launch binding、Linux生产CPU入口、私有卷及fresh准入；源码在GPU前commit+push，然后唯一预留2.5GPUh及启动。输出计划为manifest.output_root中的collection.json、requests/<id>/*.mp4和<id>.pt；无Native states。本轮新建16GiB私有卷；40g容器、50GiB宿主内存、90°C、4GiB低水位及既有温度/硬限保护不变；无监控/heartbeat/cron/automation。
+
+
+只读status（从Mac仓库根目录，每次使用新的receipt文件名）：
+
+```sh
+P=plans/cara_next_stage_20261104/sensitivity
+M=plans/cara_next_stage_20261105/g17_minitest/manifest_with_nonfast.json
+.venv/bin/python "$P/ops.py" status --manifest "$M" --route relay --receipt /tmp/cara_g17_nonfast_status_manual.json
+```
+
+终态后capture→唯一实际settle；响应丢失只恢复同一交易，失败费用照常结算：
+
+```sh
+.venv/bin/python "$P/ops.py" capture --manifest "$M" --route relay --receipt /tmp/cara_g17_nonfast_terminal.json
+.venv/bin/python - <<'PY_SETTLE'
+import json
+from pathlib import Path
+c=json.loads(Path('/tmp/cara_g17_nonfast_terminal.json').read_text())
+Path('/tmp/cara_g17_nonfast_settle_input.json').write_text(json.dumps(dict(capture=c,launch_sha256=c['files']['launch']['sha256'])))
+PY_SETTLE
+.venv/bin/python "$P/ops.py" settle --manifest "$M" --route relay --input /tmp/cara_g17_nonfast_settle_input.json --receipt /tmp/cara_g17_nonfast_settlement.json
+```
+
+30/30完成、原GPU/进程结束、Default恢复、唯一结算后才CPU score；已有scorer只恢复：
+
+```sh
+.venv/bin/python - <<'PY_SCORE'
+import json
+from pathlib import Path
+c=json.loads(Path('/tmp/cara_g17_nonfast_terminal.json').read_text())
+s=json.loads(Path('/tmp/cara_g17_nonfast_settlement.json').read_text())
+Path('/tmp/cara_g17_nonfast_score_input.json').write_text(json.dumps(dict(capture=c,settlement=s)))
+PY_SCORE
+.venv/bin/python "$P/postrun.py" score --manifest "$M" --route relay --input /tmp/cara_g17_nonfast_score_input.json --receipt /tmp/cara_g17_nonfast_score_launch.json
+# 原CPU scorer退出0且scores.json=COMPLETE_PENDING_ANALYSIS后：
+.venv/bin/python "$P/postrun.py" analyze --manifest "$M" --route relay --receipt /tmp/cara_g17_nonfast_analysis.json
+```
+
+服务器R=/data20t/gaokuangda/worldcache_workspace；S=$R/.sync/cara-budget-calibration-GPU-g17-minitest-with-nonfast-r1-20261105；O=$R/outputs/cara-g17-minitest-with-nonfast-r1-20261105。进度O/collection.json；日志S/runner.log、host-guardian.log、guardian.json、supervisor.json、billing.json；收尾S/released-score-control/{scores,complete_analysis}.json。路由`~/.local/bin/intranet-ssh two-card`（ops --route relay；FRP优先），不切换正在运行卡的路由。

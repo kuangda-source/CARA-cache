@@ -140,6 +140,7 @@ def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,
         assert len(collection['reused_rows'])==5
     if production_card['counts']['b']==0:
         assert not (root/'collection/native_states').exists()
+    if production_card['counts']['b']==0 and 'quality' in production_card:
         from analyze import analyze
         synthetic=copy.deepcopy(collection)
         for row in synthetic['rows']:

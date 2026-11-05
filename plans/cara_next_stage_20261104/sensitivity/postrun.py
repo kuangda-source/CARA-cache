@@ -37,12 +37,26 @@ cmd=['docker','run','-d','--name',name,'--network','none','--read-only','--cpus'
  '-v',str(output)+':'+str(output)+':ro','-v',actual_output+':'+actual_output+':ro','-w',str(root/'runtime')]
 cmd += [x for k,v in env.items() for x in ('-e',k+'='+str(v))]
 card=read(card_path)
+if 'postrelease_CPU_entry' in card:
+ binding=read(stage/'reports/cara_CAL66_quality_binding_20261025.json')
+ cmd += ['-e','PYTHONPATH='+binding['dependency_overlay']+':'+config['piq_site'],
+         '-e','TORCH_HOME='+config['torch_home']]
+ for source in sorted({str(pathlib.Path(v['video_artifact']['path']).parent) for v in card['native_references'].values()}):
+  cmd += ['-v',str(pathlib.Path(source).resolve())+':'+source+':ro']
 if 'reuse' in card:
  source=pathlib.Path(card['reuse']['output_root']).resolve();cmd += ['-v',str(source)+':'+str(source)+':ro']
 if 'carryover' in card:
  source=pathlib.Path(card['carryover']['output_root']).resolve();cmd += ['-v',str(source)+':'+str(source)+':ro']
-cmd += [read(stage/'registration.json')['container_image'],'timeout','--signal=TERM','--kill-after=15s','86400',
- str(root/'envs/wc-cosmos-py310-cu128-r3/bin/python'),str(stage/rel/'score.py'),'--manifest',str(card_path),'--stage',str(stage),'--control',str(control)]
+if 'postrelease_CPU_entry' in card:
+ worker=[str(stage/card['postrelease_CPU_entry']),'score','--manifest',str(card_path),
+  '--collection',str(output/'collection.json'),'--capture',str(control/'capture.json'),
+  '--settlement',str(control/'settlement.json'),'--output',str(control/'scores.json')]
+ timeout=card['postrelease_CPU_resources']['wall_seconds']
+else:
+ worker=[str(stage/rel/'score.py'),'--manifest',str(card_path),'--stage',str(stage),'--control',str(control)]
+ timeout=86400
+cmd += [read(stage/'registration.json')['container_image'],'timeout','--signal=TERM','--kill-after=15s',str(timeout),
+ str(root/'envs/wc-cosmos-py310-cu128-r3/bin/python'),*worker]
 create(control/'intent.json',dict(command=cmd,GPU_submissions=0))
 q=subprocess.run(cmd,capture_output=True,text=True);result=dict(exit_code=q.returncode,stdout=q.stdout,stderr=q.stderr)
 create(control/'launch.json',result);print(json.dumps(result))
@@ -51,10 +65,15 @@ create(control/'launch.json',result);print(json.dumps(result))
 ANALYZE=PREFIX+'''
 control=stage/'released-score-control';assert read(control/'scores.json')['status']=='COMPLETE_PENDING_ANALYSIS'
 output=root/'outputs'/run
-cmd=['python3',str(stage/rel/'analyze.py'),'--manifest',str(card_path),
- '--collection',str(output/'collection.json'),'--scores',str(control/'scores.json'),
- '--old-scores',str(base/'released-score-control/scores.json'),'--root',str(output),
- '--output',str(control/'complete_analysis.json')]
+card=read(card_path)
+if 'postrelease_CPU_entry' in card:
+ cmd=['python3',str(stage/card['postrelease_CPU_entry']),'analyze','--manifest',str(card_path),
+  '--scores',str(control/'scores.json'),'--output',str(control/'complete_analysis.json')]
+else:
+ cmd=['python3',str(stage/rel/'analyze.py'),'--manifest',str(card_path),
+  '--collection',str(output/'collection.json'),'--scores',str(control/'scores.json'),
+  '--old-scores',str(base/'released-score-control/scores.json'),'--root',str(output),
+  '--output',str(control/'complete_analysis.json')]
 q=subprocess.run(cmd,capture_output=True,text=True,timeout=900)
 print(json.dumps(dict(exit_code=q.returncode,stdout=q.stdout,stderr=q.stderr,output=str(control/'complete_analysis.json'))))
 '''

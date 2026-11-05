@@ -56,6 +56,8 @@ if card.get('host_memory_logging'):
 SetupArguments(**{**json.loads((STAGE/'configs/f1_setup.json').read_text()),
     'keep_going':True,'worldcache_enabled':True,'output_dir':str(STAGE/'CPU-output')})
 runpy.run_path(str(HERE/'runner.py'),run_name='sensitivity_runner_import')
+if 'postrelease_CPU_entry' in card:
+    runpy.run_path(str(STAGE/card['postrelease_CPU_entry']),run_name='postrelease_CPU_import')
 runpy.run_path(str(HERE/'cpu_dry_run.py'),run_name='__main__')
 from wcomr.gpu_budget_pool_v2 import atomic_json
 registration=json.loads((STAGE/'registration.json').read_text())

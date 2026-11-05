@@ -44,13 +44,23 @@ def summarize(card,rows):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser()
-    for name in ('manifest','collection','capture','settlement','output'):p.add_argument('--'+name,type=Path,required=True)
+    p.add_argument('action',choices=('score','analyze'))
+    for name in ('manifest','output'):p.add_argument('--'+name,type=Path,required=True)
+    for name in ('collection','capture','settlement','scores'):p.add_argument('--'+name,type=Path)
     args=p.parse_args();read=lambda path:json.loads(Path(path).read_text())
-    from wcomr.cara_budget_lifecycle_r1 import released_lifecycle
     from wcomr.gpu_budget_pool_v2 import atomic_json
+    card=read(args.manifest)
+    if args.action=='analyze':
+        scores=read(args.scores)
+        assert scores['status']=='COMPLETE_PENDING_ANALYSIS' and scores['scope_sha256']==card['scope_sha256']
+        assert not args.output.exists(),'Recover existing analysis, do not replay'
+        atomic_json(args.output,dict(status='COMPLETE',run_id=card['run_id'],scope_sha256=card['scope_sha256'],
+            **summarize(card,scores['rows'])))
+        sys.exit(0)
+    from wcomr.cara_budget_lifecycle_r1 import released_lifecycle
     capture=read(args.capture);release=released_lifecycle(capture,capture['files']['launch']['sha256'],read(args.settlement))
     assert all(release[k] for k in ('GPU_released','mode_restored','cost_settled','original_processes_ended','container_exit_success'))
-    card=read(args.manifest);collection=read(args.collection)
+    collection=read(args.collection)
     launch=json.loads(capture['files']['launch']['raw_utf8'])
     assert launch['run_id']==card['run_id'] and launch['scope_sha256']==card['scope_sha256']
     assert collection['status']=='COMPLETE_PENDING_RELEASE_SCORING' and collection['scope_sha256']==card['scope_sha256']
@@ -72,5 +82,5 @@ if __name__=='__main__':
         matched=actual==''.join(card['roles'][slot['role']]['policy']['actions'])
         state['rows'].append(dict(slot=slot,Alex=result['Alex'],T_DD=row['result']['T_DD'],fidelity=result,mask_matches=matched))
         atomic_json(args.output,state)
-    state.update(status='COMPLETE',summary=summarize(card,state['rows']),CUDA_initialized=torch.cuda.is_initialized())
+    state.update(status='COMPLETE_PENDING_ANALYSIS',CUDA_initialized=torch.cuda.is_initialized())
     atomic_json(args.output,state)

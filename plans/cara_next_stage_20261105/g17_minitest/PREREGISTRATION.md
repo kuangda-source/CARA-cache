@@ -1,6 +1,6 @@
-# G17 mini-test 预注册（quote only）
+# G17 mini-test 预注册
 
-DO NOT LAUNCH。仅准备与报价，无GPU执行、sync-launch、容器、stage或ledger权限。默认base20正式＋2warm；可选19D/22D增8正式，同一批合计30。四输入依manifest固定为O1/O3/N1/N3，seed0，已用于模型拟合，检验的是新layout，不能称新输入独立泛化。
+2026-11-05用户批准with-nonfast方案：28正式＋2warm＝30请求，中心2.225452351GPUh、硬限2.5GPUh。仅manifest_with_nonfast.json获执行/唯一预留权限；base manifest仍为quote only。四输入依manifest固定为O1/O3/N1/N3，seed0，已用于模型拟合，检验的是新layout，不能称新输入独立泛化。
 
 主终点为每输入ΔAlex=LPIPS(G17,既有Native)−LPIPS(同批F17-A2+lightC,同一Native)。按四输入等权报告均值、全部逐输入差及改善/持平/退化方向数。质量比较的共同预算为各臂四输入mean T_DD≤132.98s；同时完整报告配对T_DD差，不做事后时间插值或换mask。G17-tail同样报告相对F17及相对G17的效应。位置重叠不作为判据，F17只是手搜参考。
 

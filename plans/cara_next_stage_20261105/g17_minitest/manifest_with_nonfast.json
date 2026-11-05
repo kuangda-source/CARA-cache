@@ -1,13 +1,14 @@
 {
   "schema": "CARA_G17_MINITEST_QUOTE_R1",
   "run_id": "cara-g17-minitest-with-nonfast-r1-20261105",
-  "phase": "FORMAL_QUOTE_AWAITING_APPROVAL",
+  "phase": "USER_APPROVED_PENDING_FRESH_ADMISSION",
   "authority": {
-    "execution_authorized": false,
-    "ledger_reservation_authorized": false,
-    "sync_launch_authorized": false
+    "execution_authorized": true,
+    "ledger_reservation_authorized": true,
+    "sync_launch_authorized": true,
+    "user_quote": "User approval relayed by research assistant, Beijing 2026-11-05: launch the prepared G17 mini-test WITH the 19D/22D add-on; center 2.225 GPUh, hard limit 2.5 GPUh."
   },
-  "GPU_dispatch_ready": false,
+  "GPU_dispatch_ready": true,
   "inputs": [
     {
       "inference_type": "text2world",
@@ -4046,5 +4047,6 @@
   },
   "preregistration_ref": "plans/cara_next_stage_20261105/g17_minitest/PREREGISTRATION.md",
   "output_root": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-g17-minitest-with-nonfast-r1-20261105",
-  "scope_sha256": "db0ebb4dc624d9b7acaeab5302f2c098f01a37bd51407273b3ca7ecf8ee4bd4c"
+  "reservation_event": "G17_MINITEST_NONFAST_WHOLE2_5_RESERVE",
+  "scope_sha256": "702fb9d1b5a94aae19dc7ef7637471d425c8550d4259482a6bffc6770be5013d"
 }

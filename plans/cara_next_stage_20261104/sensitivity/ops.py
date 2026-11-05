@@ -269,6 +269,8 @@ def launch_host(project,stage):
 
 def payload():
     seeds=[str(p.relative_to(ROOT)) for p in HERE.glob('*.py')]
+    if 'postrelease_CPU_entry' in CONFIG:
+        seeds.append(CONFIG['postrelease_CPU_entry'])
     seeds+=['scripts/cara_fast_host_guardian_r2.py','scripts/run_cara_budget_calibration_r1.py',
         'scripts/four_card_bank24_execution_tools_r1.py','scripts/four_card_policy_assets_port_r1.py',
         'scripts/cara_budget_process_bootstrap_r1.py']
@@ -276,7 +278,7 @@ def payload():
     for name in (REL+'/manifest.json',REL+'/PREREGISTRATION.md',CARD_REL):
         files[name]=hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
     if CARD!=HERE/'manifest.json':
-        name=str((CARD.parent/('RUN_HANDOFF.md' if 'carryover' in CONFIG else 'PREREGISTRATION_ADDENDUM.md')).relative_to(ROOT))
+        name=CONFIG['preregistration_ref'] if 'postrelease_CPU_entry' in CONFIG else str((CARD.parent/('RUN_HANDOFF.md' if 'carryover' in CONFIG else 'PREREGISTRATION_ADDENDUM.md')).relative_to(ROOT))
         files[name]=hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
     revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
     for name,digest in files.items():

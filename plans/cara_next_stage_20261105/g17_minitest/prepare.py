@@ -138,6 +138,11 @@ def build():
             storage=dict(private_output_GiB=16,RAM_GiB=40,minimum_host_available_GiB=50,temperature_stop_C=90,minimum_output_free_bytes=4*2**30,state_saves=0,outputs='MP4, terminal latent, ordinary request history; no Native state recording'),
             quote=quote,preregistration_ref='plans/cara_next_stage_20261105/g17_minitest/PREREGISTRATION.md',
             output_root='/data20t/gaokuangda/worldcache_workspace/outputs/'+run)
+        if with_nonfast:
+            card.update(phase='USER_APPROVED_PENDING_FRESH_ADMISSION',GPU_dispatch_ready=True,
+                reservation_event='G17_MINITEST_NONFAST_WHOLE2_5_RESERVE')
+            card['authority'].update(execution_authorized=True,ledger_reservation_authorized=True,sync_launch_authorized=True,
+                user_quote='User approval relayed by research assistant, Beijing 2026-11-05: launch the prepared G17 mini-test WITH the 19D/22D add-on; center 2.225 GPUh, hard limit 2.5 GPUh.')
         card['scope_sha256']=digest(card)
         return card
     return make(False),make(True)
