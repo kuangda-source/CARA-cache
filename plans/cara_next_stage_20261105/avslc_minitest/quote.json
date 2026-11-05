@@ -1,0 +1,89 @@
+{
+  "anchors": {
+    "basis": "CAL35 full clean T_request means; four-parameter exact cost interpolation. Center+10%, engineering range -10%/+20%,600s load+600s release. CPU scoring excluded from GPU bill.",
+    "CAL35_ref": "reports/cara_f19_speed190_complete_r1_20261103/complete_analysis.json",
+    "measured_clean": {
+      "NATIVE35": {
+        "T_DD": 252.65663431,
+        "T_request": 314.5362213039771
+      },
+      "F19_A1": {
+        "T_DD": 149.36111579574998,
+        "T_request": 212.3889537935611
+      },
+      "F19_A1_LIGHT_C": {
+        "T_DD": 142.07916879625,
+        "T_request": 205.37153091654181
+      },
+      "F17_A2_LIGHT_C": {
+        "T_DD": 131.65259999174998,
+        "T_request": 195.80283302557655
+      }
+    },
+    "marginal_seconds": {
+      "shared": 70.73485217286674,
+      "D": 6.772260253641954,
+      "A": 0.9939556540796599,
+      "original_C": 0.6379475342744793
+    }
+  },
+  "request_prices_seconds": {
+    "G17_ATAIL": 204.7484339122935,
+    "G17_CALL": 185.86327648477996,
+    "G17_A21_24": 193.81492171741723,
+    "R18C": 192.6355367384219,
+    "R17A": 196.79678867965623
+  },
+  "request_sum_seconds": 4286.047540527348,
+  "formal_request_seconds": 3895.4358301302755,
+  "warm_request_seconds": 390.6117103970728,
+  "forecast_GPUh": 1.6429589707166898,
+  "range_GPUh": [
+    1.4048452184651705,
+    1.7620158468424494
+  ],
+  "hard_GPUh": 1.5,
+  "expected_wall_hours": 1.6429589707166898,
+  "model_load_seconds": 600,
+  "release_margin_seconds": 600,
+  "without_warm_center_GPUh": 1.5236053925398065,
+  "formal_requests": 20,
+  "warm_requests": 2,
+  "total_requests": 22,
+  "feasible_under_approved_hard_limit": false,
+  "mask_summary": {
+    "G17_ATAIL": {
+      "mask": "DDDDDDDDDDDDDADADAADAAAAAAAAAAAAAAAD",
+      "D": 17,
+      "A": 19,
+      "C": 0
+    },
+    "G17_CALL": {
+      "mask": "DDDDDDDDDDDDDCDCDCCDCCCCCCCCCCCCCCCD",
+      "D": 17,
+      "A": 0,
+      "C": 19
+    },
+    "G17_A21_24": {
+      "mask": "DDDDDDDDDDDDDADADAADAAAACCCCCCCCCCCD",
+      "D": 17,
+      "A": 8,
+      "C": 11
+    },
+    "R18C": {
+      "mask": "DDDDDDDDDDDDCDCDCCDCCDCCCDCCCCCCCCCD",
+      "D": 18,
+      "A": 0,
+      "C": 18
+    },
+    "R17A": {
+      "mask": "DDDDDDDDADADADADADADAADAAADCCCCCCCCD",
+      "D": 17,
+      "A": 11,
+      "C": 8
+    }
+  },
+  "GPU_submissions": 0,
+  "ledger_reservations": 0,
+  "blocked": true
+}

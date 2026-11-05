@@ -277,6 +277,8 @@ def payload():
     files=local_python_closure(ROOT,seeds)
     for name in (REL+'/manifest.json',REL+'/PREREGISTRATION.md',CARD_REL):
         files[name]=hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+    for name in CONFIG.get('postrelease_inputs',[]):
+        files[name]=hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
     if CARD!=HERE/'manifest.json':
         name=CONFIG['preregistration_ref'] if 'postrelease_CPU_entry' in CONFIG else str((CARD.parent/('RUN_HANDOFF.md' if 'carryover' in CONFIG else 'PREREGISTRATION_ADDENDUM.md')).relative_to(ROOT))
         files[name]=hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
