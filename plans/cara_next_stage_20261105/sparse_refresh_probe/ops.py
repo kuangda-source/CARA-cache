@@ -16,7 +16,12 @@ BASE_REL='plans/cara_next_stage_20261104/sensitivity'
 REPORT=ROOT/'reports/cara_sparse_refresh_probe_r1_20261105'
 sys.path[:0]=[str(ROOT),str(ROOT/'src'),str(ROOT/'scripts')]
 from wcomr.immutable_stage_payload_r1 import local_python_closure
-from cara_f19_speed190_transport_r1 import rpc
+
+
+def rpc(*args,**kwargs):
+    # Host/CPU entry imports must not require the Mac-only SSH credentials path.
+    from cara_f19_speed190_transport_r1 import rpc as transport
+    return transport(*args,**kwargs)
 
 
 def load_base(manifest):
