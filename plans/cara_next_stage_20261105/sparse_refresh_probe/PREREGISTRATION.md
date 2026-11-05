@@ -62,3 +62,7 @@ Conditional lifecycle: only if both quote bounds pass may sensitivity/ops.py --r
 ## CPU verification and scope
 
 `cpu_check.py`/`cpu_check.json`: ten full36 pinned WC/RF/UniPC paths: four b/c video-mask paths, two S1-only raw fixtures and four CPU-only A30/A33 sync/raw paths (flow off/on). Check actual residual and synthetic probe/residual anchor values, next-C births and next-A anchor reads, no synthetic uncond regression update, restoration of the real-DD predecessor, and unchanged DD-only differences. Retain two28-block P14/P20 fixtures and synthetic analysis for exactly8 S2 pairs with the shared strict two-condition S1 gate. CUDA not initialized, no weights loaded, no GPU or ledger operation. Existing four SpeedSampling tests pass. These are local checks, not Linux production or GPU acceptance; no collector/ops launch stage is deployed during preparation. No confirm10, shared requests/runner, or sensitivity ops file is edited.
+
+## Admission result
+
+The 2026-11-05T22:36:00.092395+08:00 read-only precheck found the non-confirm10 GPU idle, but host MemAvailable=30367076KiB (28.960300GiB), below the unchanged50GiB admission gate. Receipt: `reports/cara_sparse_refresh_probe_r1_20261105/precheck.json`. No reservation, stage or launch followed; real timing/quality remain unmeasured.
