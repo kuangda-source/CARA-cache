@@ -1,0 +1,312 @@
+{
+  "slot": {
+    "id": "CONFIRM10_022",
+    "member": "av_snowy_1_0",
+    "role": "R21C",
+    "section": "c",
+    "seed": 0,
+    "target_update": null,
+    "audit": false,
+    "eligible_clean_time": true
+  },
+  "input": {
+    "inference_type": "text2world",
+    "seed": 0,
+    "guidance": 7,
+    "num_output_frames": 93,
+    "resolution": "432,768",
+    "negative_prompt": "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+    "name": "av_snowy_1_0",
+    "prompt": "A point-of-view video shot from inside a vehicle driving down a snow-covered urban street during a heavy snowfall. The windshield is speckled with snowflakes, and the road ahead is lined with various commercial establishments, including a prominent McDonald's sign on the left side. To the right, a large billboard displays the word \"SOLNIX\" in bold letters. Further down the road, a multi-story building is visible, partially obscured by the falling snow. The sky is overcast, casting a gray hue over the entire scene. As the vehicle moves forward, the snow continues to fall steadily, accumulating on the windshield and the road. The road ahead has been driven over by vehicles, leaving clear tire tracks, and appears very muddy and slushy. The video concludes with the vehicle still traveling down the snow-laden street, the snowflakes still actively falling, and the urban landscape enveloped in a blanket of white.",
+    "num_steps": 35,
+    "partition": "CONFIRM"
+  },
+  "request_files": [
+    {
+      "path": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-generator-v1-confirm10-r1-20261105/requests/CONFIRM10_022/av_snowy_1_0.json",
+      "bytes": 1729,
+      "raw_utf8": "{\"name\":\"av_snowy_1_0\",\"prompt_path\":null,\"prompt\":\"A point-of-view video shot from inside a vehicle driving down a snow-covered urban street during a heavy snowfall. The windshield is speckled with snowflakes, and the road ahead is lined with various commercial establishments, including a prominent McDonald's sign on the left side. To the right, a large billboard displays the word \\\"SOLNIX\\\" in bold letters. Further down the road, a multi-story building is visible, partially obscured by the falling snow. The sky is overcast, casting a gray hue over the entire scene. As the vehicle moves forward, the snow continues to fall steadily, accumulating on the windshield and the road. The road ahead has been driven over by vehicles, leaving clear tire tracks, and appears very muddy and slushy. The video concludes with the vehicle still traveling down the snow-laden street, the snowflakes still actively falling, and the urban landscape enveloped in a blanket of white.\",\"negative_prompt\":\"The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.\",\"seed\":0,\"guidance\":7,\"inference_type\":\"text2world\",\"input_path\":null,\"resolution\":\"432,768\",\"num_output_frames\":93,\"num_steps\":35,\"enable_autoregressive\":false,\"chunk_size\":77,\"chunk_overlap\":1}"
+    }
+  ],
+  "log_start_line": 767,
+  "log_excerpt": [
+    "[11-05 15:30:35|SUCCESS|cosmos_predict2/inference.py:172:_generate_sample] Passed guardrail on generated video",
+    "[11-05 15:30:35|SUCCESS|cosmos_predict2/inference.py:180:_generate_sample] Saved video to /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cara_cal66_sm86_workspace/outputs/cara-generator-v1-confirm10-r1-20261105/requests/CONFIRM10_021/av_dc14df7f-b671-4d66-a98b-b751d8112e6c.mp4",
+    "[11-05 15:30:42|INFO|cosmos_predict2/inference.py:91:generate] Generating 1 samples: ['av_snowy_1_0']",
+    "[11-05 15:30:42|INFO|cosmos_predict2/inference.py:95:generate] [1/1] Processing sample av_snowy_1_0",
+    "[11-05 15:30:42|INFO|cosmos_predict2/inference.py:108:_generate_sample] Saved arguments to /media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cara_cal66_sm86_workspace/outputs/cara-generator-v1-confirm10-r1-20261105/requests/CONFIRM10_022/av_snowy_1_0.json",
+    "[11-05 15:30:42|CRITICAL|cosmos_predict2/inference.py:114:_generate_sample] Guardrail blocked text2world generation. Prompt: A point-of-view video shot from inside a vehicle driving down a snow-covered urban street during a heavy snowfall. The windshield is speckled with snowflakes, and the road ahead is lined with various commercial establishments, including a prominent McDonald's sign on the left side. To the right, a large billboard displays the word \"SOLNIX\" in bold letters. Further down the road, a multi-story building is visible, partially obscured by the falling snow. The sky is overcast, casting a gray hue over the entire scene. As the vehicle moves forward, the snow continues to fall steadily, accumulating on the windshield and the road. The road ahead has been driven over by vehicles, leaving clear tire tracks, and appears very muddy and slushy. The video concludes with the vehicle still traveling down the snow-laden street, the snowflakes still actively falling, and the urban landscape enveloped in a blanket of white.",
+    "Traceback (most recent call last):",
+    "  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-generator-v1-confirm10-r1-20261105/plans/cara_next_stage_20261104/sensitivity/runner.py\", line 191, in <module>",
+    "    if __name__=='__main__':main()",
+    "  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-generator-v1-confirm10-r1-20261105/plans/cara_next_stage_20261104/sensitivity/runner.py\", line 185, in main",
+    "    collect_loaded(inference,samples,card,common,storage.output,storage,",
+    "  File \"/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-generator-v1-confirm10-r1-20261105/plans/cara_next_stage_20261104/sensitivity/runner.py\", line 80, in collect_loaded",
+    "    raise ValueError('Rejected/incomplete request; retain denominator, no replacement')",
+    "ValueError: Rejected/incomplete request; retain denominator, no replacement"
+  ],
+  "log_path": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-generator-v1-confirm10-r1-20261105/runner.log",
+  "guardrail_runtime_source": {
+    "path": "/data20t/gaokuangda/worldcache_workspace/runtime/cosmos_predict2/inference.py",
+    "lines": [
+      {
+        "line": 100,
+        "text": ""
+      },
+      {
+        "line": 101,
+        "text": "    def _generate_sample(self, sample: InferenceArguments, output_dir: Path) -> str | None:"
+      },
+      {
+        "line": 102,
+        "text": "        log.debug(f\"{sample.__class__.__name__}({sample})\")"
+      },
+      {
+        "line": 103,
+        "text": "        output_path = output_dir / sample.name"
+      },
+      {
+        "line": 104,
+        "text": ""
+      },
+      {
+        "line": 105,
+        "text": "        if self.rank0:"
+      },
+      {
+        "line": 106,
+        "text": "            output_dir.mkdir(parents=True, exist_ok=True)"
+      },
+      {
+        "line": 107,
+        "text": "            open(f\"{output_path}.json\", \"w\").write(sample.model_dump_json())"
+      },
+      {
+        "line": 108,
+        "text": "            log.info(f\"Saved arguments to {output_path}.json\")"
+      },
+      {
+        "line": 109,
+        "text": ""
+      },
+      {
+        "line": 110,
+        "text": "            # run text guardrail on the prompt"
+      },
+      {
+        "line": 111,
+        "text": "            if self.text_guardrail_runner is not None:"
+      },
+      {
+        "line": 112,
+        "text": "                if not guardrail_presets.run_text_guardrail(sample.prompt, self.text_guardrail_runner):"
+      },
+      {
+        "line": 113,
+        "text": "                    message = f\"Guardrail blocked text2world generation. Prompt: {sample.prompt}\""
+      },
+      {
+        "line": 114,
+        "text": "                    log.critical(message)"
+      },
+      {
+        "line": 115,
+        "text": "                    if self.setup_args.keep_going:"
+      },
+      {
+        "line": 116,
+        "text": "                        return None"
+      },
+      {
+        "line": 117,
+        "text": "                    else:"
+      },
+      {
+        "line": 118,
+        "text": "                        raise Exception(message)"
+      },
+      {
+        "line": 119,
+        "text": "                else:"
+      },
+      {
+        "line": 120,
+        "text": "                    log.success(\"Passed guardrail on prompt\")"
+      },
+      {
+        "line": 121,
+        "text": "            elif self.text_guardrail_runner is None:"
+      },
+      {
+        "line": 122,
+        "text": "                log.warning(\"Guardrail checks on prompt are disabled\")"
+      },
+      {
+        "line": 123,
+        "text": ""
+      },
+      {
+        "line": 124,
+        "text": "        # Choose generation mode based on autoregressive flag"
+      },
+      {
+        "line": 125,
+        "text": "        video: torch.Tensor"
+      },
+      {
+        "line": 126,
+        "text": "        if sample.enable_autoregressive:"
+      },
+      {
+        "line": 127,
+        "text": "            log.info(f\"Generating video with autoregressive mode...\")"
+      },
+      {
+        "line": 128,
+        "text": "            video = self.pipe.generate_autoregressive_from_batch("
+      },
+      {
+        "line": 129,
+        "text": "                prompt=sample.prompt,"
+      },
+      {
+        "line": 130,
+        "text": "                input_path=path_to_str(sample.input_path),"
+      },
+      {
+        "line": 131,
+        "text": "                num_output_frames=sample.num_output_frames,"
+      },
+      {
+        "line": 132,
+        "text": "                chunk_size=sample.chunk_size,"
+      },
+      {
+        "line": 133,
+        "text": "                chunk_overlap=sample.chunk_overlap,"
+      },
+      {
+        "line": 134,
+        "text": "                guidance=sample.guidance,"
+      },
+      {
+        "line": 135,
+        "text": "                num_latent_conditional_frames=sample.num_input_frames,"
+      },
+      {
+        "line": 136,
+        "text": "                resolution=sample.resolution,"
+      }
+    ]
+  },
+  "source_excerpts": {
+    "src/wcomr/clean_speed20_r1.py": {
+      "source_revision": "63bcc7598e1b7821d3803f22560a1bab89927bc5",
+      "registered_sha256": "49ebb32a6f9afce64f223c435b2fd87090229de9c40708f8852999c35628637c",
+      "lines": [
+        {
+          "line": 160,
+          "text": "            begin=time.perf_counter();paths=inference.generate([sample],output_dir=output)"
+        },
+        {
+          "line": 161,
+          "text": "            synchronize();result['guarded_pipeline_without_write_seconds']=time.perf_counter()-begin"
+        },
+        {
+          "line": 162,
+          "text": "        if not paths:"
+        },
+        {
+          "line": 163,
+          "text": "            result['status']='TEXT_REJECTED' if result['solver_steps']==0 else 'VIDEO_REJECTED'"
+        },
+        {
+          "line": 164,
+          "text": "        else:"
+        },
+        {
+          "line": 165,
+          "text": "            if len(paths)!=1 or len(deferred)!=1 or (result['solver_steps'],result['guided_pairs'])!=(36,36):"
+        },
+        {
+          "line": 166,
+          "text": "                raise ValueError('Complete guarded full36 output missing')"
+        },
+        {
+          "line": 167,
+          "text": "            result['status']='COMPLETE'"
+        },
+        {
+          "line": 168,
+          "text": "        if result['solver_steps']:"
+        },
+        {
+          "line": 169,
+          "text": "            latent=captured['latent']"
+        },
+        {
+          "line": 170,
+          "text": "            if not torch.is_inference(latent) and latent._version!=captured['version']:"
+        },
+        {
+          "line": 171,
+          "text": "                raise ValueError('Decoder mutated deferred final latent')"
+        },
+        {
+          "line": 172,
+          "text": "            final=latent.cpu().clone()"
+        },
+        {
+          "line": 173,
+          "text": "            if list(final.shape)!=expected_shape or not bool(torch.isfinite(final).all()):"
+        },
+        {
+          "line": 174,
+          "text": "                raise ValueError('Final latent geometry/nonfinite')"
+        }
+      ]
+    },
+    "src/wcomr/policy_generator_r1/production_sampling.py": {
+      "source_revision": "63bcc7598e1b7821d3803f22560a1bab89927bc5",
+      "registered_sha256": "793a1d35381d10af45ea9b74845448a67a0cc4fdd07799fb6a044758b5f9cb48",
+      "lines": [
+        {
+          "line": 182,
+          "text": "            timing_boundary=TIME_BOUNDARY,full_request_seconds=complete_request_seconds(result) if result.get('core_seconds') else None,"
+        },
+        {
+          "line": 183,
+          "text": "            teacher_calls=0,online_fitting=False)"
+        },
+        {
+          "line": 184,
+          "text": "        if result['status']=='COMPLETE':"
+        },
+        {
+          "line": 185,
+          "text": "            if len(result['semantic_history'])!=36 or result['solver_steps']!=36: raise ValueError('Incomplete policy path')"
+        },
+        {
+          "line": 186,
+          "text": "            if result['semantic_history'][-1]['actual']!='D': raise ValueError('Cycle-reset D36 missing')"
+        },
+        {
+          "line": 187,
+          "text": "        return result"
+        },
+        {
+          "line": 188,
+          "text": "    finally:"
+        },
+        {
+          "line": 189,
+          "text": "        if holder: holder['owner'].close()"
+        },
+        {
+          "line": 190,
+          "text": "        holder.clear()"
+        }
+      ]
+    }
+  }
+}

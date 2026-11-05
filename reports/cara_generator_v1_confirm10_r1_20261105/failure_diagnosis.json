@@ -1,0 +1,29 @@
+{
+  "run_id": "cara-generator-v1-confirm10-r1-20261105",
+  "launch_id": "fe91fe0468944be18b8c0950c33e092b",
+  "request_id": "CONFIRM10_022",
+  "classification": "prompt safety reject",
+  "input": "av_snowy_1_0",
+  "role": "R21C",
+  "collection_status": "FAILED_NO_RETRY",
+  "completed_requests": 21,
+  "original_denominator": 51,
+  "evidence": {
+    "log": "Guardrail blocked text2world generation",
+    "runtime_source": "cosmos_predict2/inference.py:114",
+    "request_files": [
+      {
+        "path": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-generator-v1-confirm10-r1-20261105/requests/CONFIRM10_022/av_snowy_1_0.json",
+        "bytes": 1729,
+        "raw_utf8": "{\"name\":\"av_snowy_1_0\",\"prompt_path\":null,\"prompt\":\"A point-of-view video shot from inside a vehicle driving down a snow-covered urban street during a heavy snowfall. The windshield is speckled with snowflakes, and the road ahead is lined with various commercial establishments, including a prominent McDonald's sign on the left side. To the right, a large billboard displays the word \\\"SOLNIX\\\" in bold letters. Further down the road, a multi-story building is visible, partially obscured by the falling snow. The sky is overcast, casting a gray hue over the entire scene. As the vehicle moves forward, the snow continues to fall steadily, accumulating on the windshield and the road. The road ahead has been driven over by vehicles, leaving clear tire tracks, and appears very muddy and slushy. The video concludes with the vehicle still traveling down the snow-laden street, the snowflakes still actively falling, and the urban landscape enveloped in a blanket of white.\",\"negative_prompt\":\"The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.\",\"seed\":0,\"guidance\":7,\"inference_type\":\"text2world\",\"input_path\":null,\"resolution\":\"432,768\",\"num_output_frames\":93,\"num_steps\":35,\"enable_autoregressive\":false,\"chunk_size\":77,\"chunk_overlap\":1}"
+      }
+    ],
+    "container_OOMKilled": false,
+    "container_exit_code": 1,
+    "runner_exit_code": 1,
+    "stop_reason": "runner collect_loaded rejects non-COMPLETE status and stops intentionally",
+    "trigger_token_or_safety_category": "Not recorded; cannot attribute to SOLNIX or another token"
+  },
+  "recommendation": "Preserve prompt/masks/seed and rejection in denominator. Do not lower guardrails or blindly retry022. Before any approved new run, decide prospective refusal/cohort handling; record request.status/reason in collection before the existing stop so row022 is not left RUNNING.",
+  "implementation_change_this_task": "No sampling, prompts, guardrails or GPU launcher changes. Separate CPU-only partial scorer is authorized for complete groups only."
+}
