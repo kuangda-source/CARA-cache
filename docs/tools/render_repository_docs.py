@@ -941,6 +941,8 @@ def build():
     values = dict(actions=actions, snapshot=snapshot, run_details=run_details, headlines=headlines,
                   results_detail=details, research_summary=status['research_summary'], queue=queue,
                   row_count=str(len(rows)), master_tables='\n\n'.join(tables), mapping_table=mapping_table)
+    values['budget_rule'] = status['current_budget_policy']['text']
+    values['current_rules'] = status['current_rules_20261105']['text']
     values['next_stage_notice'] = (
         '**2026-10-28最新安排：主线P0/F19，探索S-FAST19与固定Shared25-C的Q并行准备。** '
         + link(next_stage['reconciliation_ref'], '最新计划与两个对话分工')

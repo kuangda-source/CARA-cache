@@ -1,5 +1,7 @@
 # CARA-Cache 后续实验顺序
 
+{{current_rules}}
+
 {{next_stage_notice}}
 
 ## 已完成的F19快速工作点

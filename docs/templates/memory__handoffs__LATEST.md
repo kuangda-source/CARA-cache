@@ -1,5 +1,7 @@
 # CARA-Cache 当前交接
 
+{{current_rules}}
+
 {{next_stage_notice}}
 
 {{queue}}

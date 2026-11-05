@@ -1,5 +1,7 @@
 # CARA-Cache 当前状态
 
+{{current_rules}}
+
 {{next_stage_notice}}
 
 {{queue}}

@@ -1,5 +1,7 @@
 # 单来源阶段覆盖：19D＋16/17D合并草案 R3
 
+**SUPERSEDED（2026-11-05）：不得按本R3范围启动。** 写于F17被接受之前，仍以F19-A1为参照，门限已过时。R4范围为17D fast tier搭配同batch F17-A2+lightC，原则生成19D/22D arms，不做16D；所有候选用A2+lightC读出，在pipeline_r2/resume_r3结果之后设计并重新冻结scope与报价。本页下文保留原提案历史，不是当前待执行卡。
+
 **采用单来源估值和新7候选，合并准备；当前不启动GPU。** [873零GPU复核](../../../../research/873_CARA_SINGLE_SOURCE_PHASE_ROBUSTNESS_AND_MERGED_PLAN_20261103.md)确认强参照排在前列、远离Uniform后仍有排序信号。双来源增量不再是新方法或新卡的前提。原166方案和70请求R2均保留历史，本版为新的开发设计。
 
 ## 候选与读出

@@ -4208,14 +4208,14 @@
     }
   },
   "source_coverage_20261103": {
-    "status": "SINGLE_SOURCE_PHASE_ROBUSTNESS_COMPLETE_MERGED106_PREPARING",
+    "status": "R3_SUPERSEDED_R4_DESIGN_PENDING",
     "research_ref": "research/873_CARA_SINGLE_SOURCE_PHASE_ROBUSTNESS_AND_MERGED_PLAN_20261103.md",
     "receipt_ref": "reports/cara_source_coverage_CPU_acceptance_r4_20261103.json",
     "receipt_sha256": "b1acec756764b5ed0079fa7f72a7d503ba32052abdb7992f28b320943f30f226",
     "plan_ref": "plans/cara_next_stage_20261103/source_coverage/README.md",
     "pools_ref": "plans/cara_next_stage_20261103/source_coverage/CPU_CANDIDATE_POOLS_R4.json",
-    "notice_title": "873 单来源阶段覆盖复核与合并准备",
-    "summary": "单来源阶段覆盖零GPU复核通过：lambda2/4下F19-C与旧RGB-MSE赢家为44布局第1/2，剔除近Uniform后排序保持。新7候选用全局峰值/平方和前三名，原第一名不变；120组穷举及4项CPU控制通过。R3合并19D七条＋16/17D各两条，全部C/A1，完整106请求预计9.2406GPUh／建议硬9.25；与Shared25规划10合计19.25，余额仅是19.2743历史快照。旧结果保持，完整生产组合尚待，当前0新GPU、0账本操作。",
+    "notice_title": "单来源阶段覆盖：R3已被取代，R4待设计",
+    "summary": "原零GPU排序和历史CPU证据保持；R3写于F17接受前、参照F19-A1且门限过时，已superseded。R4范围为17D fast tier＋原则19D/22D，不做16D；同batch F17-A2+lightC作对照，所有候选A2+lightC，待本次完整敏感度结果后设计与冻结，不启动新GPU。",
     "tests": 16,
     "exhaustive_cases": 180,
     "full36_tiny_paths": 8,
@@ -4297,13 +4297,26 @@
       "currently_jointly_funded": false,
       "old_19p2743_snapshot_preserved": true,
       "no_new_authority": true
+    },
+    "R4_scope": {
+      "status": "DESIGN_PENDING_AFTER_SENSITIVITY_RESULTS_NO_GPU_AUTHORITY",
+      "fast_tier_D": 17,
+      "same_batch_fast_reference": "F17_A2_LIGHT_C",
+      "principle_generated_D": [
+        19,
+        22
+      ],
+      "include16D": false,
+      "all_candidates_readout": "A2+lightC",
+      "design_after": "sensitivity8 pipeline_r2 and resume_r3 complete results",
+      "frozen_new_scope": false
     }
   },
   "fast_F19_speed190_complete_20261104": {
     "status": "FULL35_24_LPIPS_84_QUALITY_ACCEPTED_F17_CAL_TARGET_PASSED",
     "research_ref": "research/874_CARA_F19_SPEED190_CAL35_COMPLETE_RESULTS_20261104.md",
     "notice_title": "874 F19快速工作点完整接受",
-    "summary": "F19小卡完整35/24LPIPS/84质量已接受；F17-A2＋轻量C在四旧CAL达到T_DD131.6526秒、1.9191倍、LPIPS0.238368，预登记均值质量门相对Native/F19均过。与同批WC耗时慢1.31%、LPIPS低48.67%；单支刷新LPIPS0.415未过。原GPU/CPU均已结束，释放/Default恢复和唯一2.240264355GPUh结算完成。四旧CAL不是独立确认，不自动派后续卡。",
+    "summary": "CAL35四旧CAL历史工作点：F17-A2+lightC为1.919116×、131.652600s、Alex0.238368，均值质量门通过，实际2.240264355GPUh已唯一结算。后续confirm4与sensitivity全结果见上方当前状态；不把四旧CAL或原非配对n=4非劣未证实解释为完整泛化确认，也不自动启动后继卡。",
     "acceptance_ref": "reports/cara_f19_speed190_complete_r1_20261103/complete_acceptance.json",
     "acceptance_sha256": "81dc7a0f1d46cd3aa113bcc0309ffe699298fc06886fa2c38720e2c4a4f81e1b",
     "analysis_ref": "reports/cara_f19_speed190_complete_r1_20261103/complete_analysis.json",
@@ -4328,5 +4341,28 @@
       "unallocated_after_Shared25_planning_GPUh": 7.034014934491978,
       "C1_merged9p25_plus_Shared25_10_funding_gap_GPUh": 2.215985065508022
     }
+  },
+  "current_budget_policy": {
+    "effective_date": "2026-11-05",
+    "cumulative_cap_GPUh": null,
+    "running_cumulative_actual_GPUh": 228.350508821035,
+    "single_run_quote_above_GPUh_requires_direct_user_approval": 8,
+    "unique_reservation_and_actual_settlement": true,
+    "legacy_uncertainty_hold_GPUh": 16.5,
+    "legacy_cap_field_is_policy_limit": false,
+    "source_ref": "reports/cara_sensitivity8_resume_r3_20261105/central_settlement.json",
+    "text": "不设GPUh累计总上限，只维护running cumulative actual GPUh；任一单run正式报价>8GPUh须用户本人明确批准。≤8GPUh仅在已授权科学范围及既有规则内推进，不扩大scope、不拆卡规避门槛。每run仍有独立硬限、唯一预留和包含失败费用的唯一实际结算；保留原16.5GPUh未知责任，不将历史cap/available字段当作当前累计政策上限。50GiB宿主内存、90°C自动停及4GiB磁盘低水位不降低；不建heartbeat、cron、automation或持续监控。"
+  },
+  "current_rules_20261105": {
+    "text": "## 当前规则与状态（2026-11-05）\n\n不设GPUh累计总上限，只维护running cumulative actual GPUh；任一单run正式报价>8GPUh须用户本人明确批准。≤8GPUh仅在已授权科学范围及既有规则内推进，不扩大scope、不拆卡规避门槛。每run仍有独立硬限、唯一预留和包含失败费用的唯一实际结算；保留原16.5GPUh未知责任，不将历史cap/available字段当作当前累计政策上限。50GiB宿主内存、90°C自动停及4GiB磁盘低水位不降低；不建heartbeat、cron、automation或持续监控。\n\n- 累计实际 **228.350508821GPUh**；本次resume r3完整116/116，唯一结算seq98、**7.566297455GPUh**；六条r2正式结果按hash继承，五条原Native及F17 clean16复用。完整112个s(t)和288行Native Δv见[本次结果](repo:reports/cara_sensitivity8_resume_r3_20261105/COMPLETE_RESULTS.md)，无新GPU任务。\n- 第一张sensitivity卡因私有输出盘低水位停止，7完整/008截断，失败费用2.466563128GPUh已部分结算；[原结算](repo:reports/cara_sensitivity8_terminal_partial_r1_20261104/central_settlement.json)保留。pipeline_r2在PIPE_009因40g host cgroup OOM停止，8/122；checkpoint state tensors的闭包/类循环跨请求滞留，gc修复15bb3d39，失败费用0.650497297GPUh已结算。r3完整跑通，后缀GC后RSS中位约14.06GiB、cgroup峰值38.4357/40GiB；文件缓存参与有数值证据，峰值未采集anon/file分项，不称全部是page cache。\n- F17 confirm4的原非配对n=4/组非劣设计未能证明非劣（δ0.027、70排列、p=0.300；原NI/确认布尔值仍false），定性为确认设计的功效问题与不确定结果，不写成“F17方法失败”。同batch速度1.919511×、T_DD131.701259s、mean Alex0.236186及六均值质量门通过。逐输入F17−F19配对Alex差为0.006719/0.003856/0.070686/0.005028，均值0.021572；这是诊断，不替代原非配对检验。misc的F17 Alex0.346879、F19 0.276193，差0.070686；新AV的F17 0.315271也超过0.27。0.27原为均值门，不能隐藏这些案例或改成事后逐输入门。[原F17结果](repo:reports/cara_f17_confirm4_r1_20261104/complete_analysis.json)不改。\n- 本卡固定s·Δv原理重建：D自由位置重合中位5/9、A重合中位6/10，登记门未通过，全输入/预算结果均保留，不用终点结果调参。\n- fast tier现采用**F17-A2+lightC**。R3 proposal已superseded：写于F17被接受前，以F19-A1参照且门限过时。R4只保留17D fast tier及原则生成的19D/22D arms，不做16D；同batch F17-A2+lightC为强对照，所有候选用A2+lightC读出，在pipeline结果后重新设计、冻结范围和报价。本段不授予新GPU权限。S-END强对照同步改为F17。\n\n以下为历史接受与准备快照；旧累计cap、2/4GPUh分档、R3范围及旧“下一步”不再作为当前规则。\n",
+    "result_ref": "reports/cara_sensitivity8_resume_r3_20261105/complete_results.json"
+  },
+  "sensitivity8_complete_20261105": {
+    "run_id": "cara-native-sensitivity8-resume-r3-20261105",
+    "launch_id": "e829f230b9c44b2cbd63128d1e511a0e",
+    "result_ref": "reports/cara_sensitivity8_resume_r3_20261105/complete_results.json",
+    "actual_GPUh": 7.566297455049482,
+    "cumulative_GPUh": 228.350508821035,
+    "scientific_principle_supported": false
   }
 }

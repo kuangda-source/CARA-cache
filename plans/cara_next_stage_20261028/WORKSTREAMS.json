@@ -1,7 +1,7 @@
 {
   "schema": "CARA_NEXT_STAGE_WORKSTREAMS_R1",
-  "date": "2026-11-03",
-  "state": "SINGLE_SOURCE_PHASE_ZERO_GPU_CHECKS_COMPLETE_MERGED106_PREPARATION",
+  "date": "2026-11-05",
+  "state": "SENSITIVITY8_COMPLETE_R4_DESIGN_PENDING",
   "source_design_registry_ref": "plans/cara_next_stage_20261028/experiment_registry.json",
   "source_design_registry_sha256": "d2825f85c83be4461f189b39110f2dc5669cce14d37c4739cd21850ec0f656fb",
   "reconciliation_ref": "plans/cara_next_stage_20261028/08_REPOSITORY_RECONCILIATION.md",
@@ -30,7 +30,7 @@
         "reports/cara_fast_*",
         "global canonical navigation and budget coordination"
       ],
-      "first_delivery": "C1来源覆盖完整校准：166位置／8对8来源与3对3阶段消融／独立缓存同费用搜索，完成Linux及新生产绑定后再提交启动审批。"
+      "first_delivery": "基于完整sensitivity8结果准备R4：17D fast tier对照同batch F17-A2+lightC，原则19D/22D，不做16D；全候选A2+lightC，独立冻结scope/quote后再按当前GPUh规则推进。"
     },
     "sq": {
       "title": "CARA S/Q 探索：S-FAST19 与缓存压缩",
@@ -51,10 +51,10 @@
   },
   "schedule": [
     {
-      "id": "单来源阶段覆盖19D＋16/17D合并准备",
+      "id": "R4：17D快档＋原则19D/22D",
       "owner": "主线",
-      "state": "四项零GPU检查完成；单来源7候选已登记，106请求预计9.2406GPUh／建议硬9.25，未批准/未启动",
-      "next_action": "承接既有F19轻量C组件，完成106/23队列/68报告及独立质量CPU组合；不再默认拆两卡或复用旧166/70接受",
+      "state": "R3已superseded；sensitivity8完整接受，R4范围待设计/冻结，无新GPU授权",
+      "next_action": "17D与同batch F17-A2+lightC比较；原则19D/22D；不做16D；全候选A2+lightC；不复用旧R3的106请求或门限直接启动",
       "previous_id": "F19-A1 → 1.9×"
     },
     {
@@ -91,8 +91,8 @@
     {
       "id": "F19",
       "owner": "主线",
-      "state": "B36完整验收；32条单人诊断完整接收，四条Native自比较无明显差别",
-      "next_action": "使用R2原数值索引及760诊断记录；保留四旧CAL范围、播放元数据缺口、原冻结与FIT标签，不作独立人类质量结论"
+      "state": "fast tier为F17-A2+lightC；CAL35及confirm4均值速度/质量已报告，原非配对n4非劣未证实",
+      "next_action": "用同batch F17作强对照，保留逐输入差异与misc高LPIPS案例；不宣称原NI门通过"
     },
     {
       "id": "S-FAST19",
@@ -116,7 +116,7 @@
       "id": "S-END / Q-END",
       "owner": "S/Q探索",
       "state": "各自条件晋级，不互设成功前提",
-      "next_action": "S合并BR/DIAG/CFG同mask、保留F19-A1强对照；Q按实际同bytes读出证据独立晋级，再各自冻结完整视频范围与报价"
+      "next_action": "S合并BR/DIAG/CFG同mask、保留F17-A2+lightC强对照；Q按实际同bytes读出证据独立晋级，再各自冻结完整视频范围与报价"
     },
     {
       "id": "预算分配强基线",
@@ -152,7 +152,8 @@
     "same_host_overlap_forbidden": true,
     "git_is_not_execution_lock": true,
     "common_teacher_and_assets_count_once": true,
-    "current_two_card_GPU_execution_ref": "reports/cara_v1_P0_two_position_complete_acceptance_r1_20261102.json"
+    "current_two_card_GPU_execution_ref": "reports/cara_sensitivity8_resume_r3_20261105/complete_results.json",
+    "old_uncertainty_hold_GPUh": 16.5
   },
   "mainline_preparation_ref": "reports/cara_fast_preparation_summary_r2_20261028.json",
   "mainline_readme_ref": "plans/cara_next_stage_20261028/mainline/r2/README.md",
@@ -432,5 +433,28 @@
   "mainline_phase_robustness_audit_ref": "reports/cara_phase_coverage_robustness_zero_GPU_r1_20261103.json",
   "mainline_phase_merged106_local_CPU_ref": "reports/cara_phase_single7_merged_local_CPU_r1_20261103.json",
   "mainline_phase_merged106_whole_production_CPU_accepted": false,
-  "current_mainline_method": "PHASE_WEIGHTED_SINGLE_SOURCE_COVERAGE_PLUS_ENDPOINT_SELECTION"
+  "current_mainline_method": "R4:17D fast tier; principle19D/22D; A2+lightC; same-batch F17 reference; design pending after sensitivity",
+  "budget": {
+    "effective_date": "2026-11-05",
+    "cumulative_cap_GPUh": null,
+    "running_cumulative_actual_GPUh": 228.350508821035,
+    "single_run_quote_above_GPUh_requires_direct_user_approval": 8,
+    "unique_reservation_and_actual_settlement": true,
+    "legacy_uncertainty_hold_GPUh": 16.5,
+    "legacy_cap_field_is_policy_limit": false,
+    "source_ref": "reports/cara_sensitivity8_resume_r3_20261105/central_settlement.json"
+  },
+  "R4_scope": {
+    "status": "DESIGN_PENDING_AFTER_SENSITIVITY_RESULTS_NO_GPU_AUTHORITY",
+    "fast_tier_D": 17,
+    "same_batch_fast_reference": "F17_A2_LIGHT_C",
+    "principle_generated_D": [
+      19,
+      22
+    ],
+    "include16D": false,
+    "all_candidates_readout": "A2+lightC",
+    "design_after": "sensitivity8 pipeline_r2 and resume_r3 complete results",
+    "frozen_new_scope": false
+  }
 }
