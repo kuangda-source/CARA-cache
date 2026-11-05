@@ -1,5 +1,12 @@
 # G17 mini-test with-nonfast 执行交接
 
+终验完成（2026-11-05）：原GPU30/30完成，于北京时间16:30:36.722关闭，容器退出0、OOMKilled=false；原guardian/supervisor/runner均结束，GPU释放、Default恢复、双锁释放。seq100唯一结算actual **1.787543629149182GPUh**，累计 **230.13805245018418GPUh**，本卡2.5预留解除，旧16.5未知责任保持。原billing哈希字节不改，stage/central-settlement.json与release.json记录已结算。
+
+CPU scorer于北京时间17:30:15.858退出0，28/28完整93帧、CUDA=false；原analyze完成。科学结论 **INCONCLUSIVE**：G17−F17 mean ΔAlex−0.021834，95%描述性CI[−0.052514,+0.008846]，2改善/2退化；三快臂mean T_DD≤132.98s。tail相对G17 mean+0.004018，2改善/2退化；N3复现+0.070686，主要为light C及丢掉D27/D30，late A不解释损失。M5f预测G22<G19<G17<F17，实测mean为G17<G22<F17<G19，未改拟合或阈值，未做n=4非劣检验。
+
+完整逐输入、分解、G19/G22、固定M5f预测对照与原件见[COMPLETE_RESULTS.md](../../../reports/cara_g17_minitest_nonfast_r1_20261105/COMPLETE_RESULTS.md)。本run已关闭；下列为原启动记录及已执行验收命令，只恢复原交易/原评分，不重启、不再预留或重复计费。本次零GPU新增，未改guardian门限，无监控/automation。
+
+
 2026-11-05用户经研究助手明确批准with-nonfast：`cara-g17-minitest-with-nonfast-r1-20261105`，28正式＋2warm，报价中心2.225452351GPUh，硬限2.5GPUh。只授权manifest_with_nonfast.json；base仍为quote only，不预留、不执行。初始只读确认中央job不存在，服务器stage/输出/容器不存在。
 
 |方案|正式＋warm|中心GPUh/墙钟小时|工程范围GPUh/小时|建议硬限GPUh|
