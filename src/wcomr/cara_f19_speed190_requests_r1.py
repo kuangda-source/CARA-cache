@@ -17,16 +17,21 @@ class Requests:
     def __init__(self,inference,samples,card,common,*,cpu_validation=False):
         self.inference,self.samples,self.card,self.common=inference,samples,card,common
         self.cpu_validation=cpu_validation;self.seen=set();self.profile=profile_from(card['profile'])
+        self.roles=copy.deepcopy(card['roles'])
+        # Older CAL/P manifests put the common36 grid only at card level.
+        for role in self.roles.values():
+            if role['kind']=='native':role.setdefault('schedule',card['schedule'])
+            role.setdefault('expected_updates',role['schedule']['actual_updates'] if role['kind']=='native' else self.profile.horizon)
         self.wc_port=compile_wc_adapter(common['runtime'],common['wc'],paper_port=True)[0]
         self.allD=compile_wc_adapter(common['runtime'],common['wc'],force_full=True)[0]
 
     def __call__(self,slot,output):
         if slot not in self.card['matrix'] or slot['id'] in self.seen:raise ValueError('Unregistered or repeated physical CAL request')
-        self.seen.add(slot['id']);role=self.card['roles'][slot['role']]
-        sample=request_variant(self.samples[slot['member']],seed=0,num_steps=35)
+        self.seen.add(slot['id']);role=self.roles[slot['role']]
+        sample=request_variant(self.samples[slot['member']],seed=slot['seed'],num_steps=role['requested_steps'])
         runner,args,extra,module=production_sampling.execute,(),{},self.common['wc']
         settings=copy.deepcopy(self.card['settings']);diagnostic={}
-        if role['kind']=='native':runner=p2_native_sampling.execute;extra['schedule']=self.card['schedule']
+        if role['kind']=='native':runner=p2_native_sampling.execute;extra['schedule']=role['schedule']
         elif role['kind']=='wc':
             runner=clean.execute;args=('WC',);settings=copy.deepcopy(role['settings']);module=self.wc_port
         elif role['kind']=='allD':runner=clean.execute;args=('WC',);module=self.allD
@@ -55,7 +60,7 @@ class Requests:
                         super().close()
                 runner=bind_globals(production_sampling.execute,dict(PolicyOwner=DiagnosticOwner))
             elif role['kind']!='policy':raise ValueError('Unknown CAL role')
-        result=execute_with_timing(runner,self.inference,sample,*args,host='two_card',expected_updates=36,
+        result=execute_with_timing(runner,self.inference,sample,*args,host='two_card',expected_updates=role['expected_updates'],
             cpu_validation=self.cpu_validation,diagnostic=not slot['eligible_clean_time'],
             **{**self.common,'wc':module,'settings':settings,'calibration':None,'specs':{},
                'output':Path(output),'audit':slot['audit'],**extra})

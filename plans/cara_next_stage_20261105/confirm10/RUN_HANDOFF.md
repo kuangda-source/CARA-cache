@@ -49,6 +49,17 @@ PY_SCORE
 "$PY" "$P/postrun.py" analyze --manifest "$M" --route relay --receipt /tmp/cara_confirm10_analysis.json
 ```
 
-计划服务器R=/data20t/gaokuangda/worldcache_workspace；S=$R/.sync/cara-budget-calibration-GPU-generator-v1-confirm10-r1-20261105；O=$R/outputs/cara-generator-v1-confirm10-r1-20261105。进度O/collection.json；日志S/{runner.log,host-guardian.log,guardian.json,supervisor.json,billing.json}；CPU输出S/released-score-control/{scores.json,complete_analysis.json,outcome_summary.json,COMPLETE_RESULTS.md}。最终拷回repo的reports/cara_generator_v1_confirm10_r1_20261105/（当前未创建结果目录）。新参考来自O的十个正式NATIVE35，不读取旧Native；CPU scorer不对Native自比做LPIPS。
+服务器R=/data20t/gaokuangda/worldcache_workspace；S=$R/.sync/cara-budget-calibration-GPU-generator-v1-confirm10-r1-20261105；O=$R/outputs/cara-generator-v1-confirm10-r1-20261105。进度O/collection.json；日志S/{runner.log,host-guardian.log,guardian.json,supervisor.json,billing.json}；CPU输出S/released-score-control/{scores.json,complete_analysis.json,outcome_summary.json,COMPLETE_RESULTS.md}。最终拷回repo的reports/cara_generator_v1_confirm10_r1_20261105/，该目录目前只有启动/CPU回执。新参考来自O的十个正式NATIVE35，不读取旧Native；CPU scorer不对Native自比做LPIPS。
 
-验收先完整报告三冻结ratio的预测/测量误差，再给主ΔLPIPS均值/95%prompt bootstrap/逐输入方向及两级预写结论；另列三预算单调性、Native-k18比较和所有实测T_DD。不按新结果改模型、mask、prompt、seed或阈值。所有预算本轮保持不动。
+验收先完整报告三冻结ratio的预测/测量误差，再给主ΔLPIPS均值/95%prompt bootstrap/逐输入方向及两级预写结论；另列三预算单调性和所有实测T_DD，Native-k18比较deferred。不按新结果改模型、mask、prompt、seed或阈值。本次只预留上述4.1；k18补卡不预留。
+
+
+## Unique launch record, Asia/Shanghai
+
+run_id `cara-generator-v1-confirm10-r1-20261105`, launch_id `fe91fe0468944be18b8c0950c33e092b`, GPU `GPU-cebf7119-cf03-23b9-e192-cd196332b704`. Source `63bcc7598e1b7821d3803f22560a1bab89927bc5` was pushed before launch;254 files staged from its isolated checkout. Linux CPU exited0,102 tiny requests, CUDA=false. New16GiB ext4 volume `/dev/loop56`, image `.sync/storage-reservations/generator-v1-confirm10-r1/output.ext4`; admission host available53.587097GiB. Memory/MemorySwap40g,50GiB/90C/4GiB gates unchanged.
+
+Guardian bill/start **2026-11-05T22:11:01+08:00**; Docker StartedAt `2026-11-05T14:11:03.612354841Z` UTC. Forecast **3.739050004222224GPUh** /3h44m21s; ETA **2026-11-06T01:55:22+08:00**. Stop-new-work **2026-11-06T02:07:01+08:00**, hard-stop **2026-11-06T02:17:01+08:00** (4.1GPUh,600s release margin). Suggested manual halfway at26/51 completed: **2026-11-06T00:04:59+08:00**, estimate only. No schedule/monitor created.
+
+Unique central reservation **seq103 CONFIRM10_WHOLE4_1_RESERVE,4.1GPUh**. After: used **231.1691439833172**, reserved **20.6** (old16.5 unchanged). Legacy cap250/available **-1.769143983317214** remain compatibility fields; budget_policy cumulative_cap=null per standing user rule. Central job stores the user's original approval and2026-11-05 date.
+
+Single start confirmation: Running=true/OOMKilled=false; firstCONFIRM10_001=RUNNING,0/51 complete; sole target-GPU runnerPID1353553 uses24418MiB. Original guardian/supervisor/runner handles1353417/1353507/1353553. Route two_card_relay. Confirmation ended; no further progress query. Normal receipts in reports/cara_generator_v1_confirm10_r1_20261105/ include source_prepare,linux_cpu_launch/linux_cpu,storage_launch/storage,admission,central_reservation,dispatch,start_confirmation.json. Above status/capture/settle/score/analyze commands remain exact. No repeat reservation or dispatch.
