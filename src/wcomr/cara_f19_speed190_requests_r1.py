@@ -35,6 +35,10 @@ class Requests:
             if role['kind']=='speed_policy':
                 factory=lambda model,**kw:SpeedOwner(model,light_C=role['light_C'],partial_updates=tuple(role['partial_updates']),**kw)
                 runner=bind_globals(production_sampling.execute,dict(PolicyOwner=factory))
+            elif role['kind']=='sparse_policy':
+                from .cara_sparse_refresh_probe_r1 import SparseOwner
+                factory=lambda model,**kw:SparseOwner(model,light_C=True,partial_updates=tuple(role['partial_updates']),sync_residual=role['sync_residual'],**kw)
+                runner=bind_globals(production_sampling.execute,dict(PolicyOwner=factory))
             elif role['kind']=='profile_policy':
                 from .policy_generator_r1.production_sampling import PolicyOwner
                 class DiagnosticOwner(PolicyOwner):

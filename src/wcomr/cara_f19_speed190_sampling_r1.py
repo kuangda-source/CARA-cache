@@ -84,6 +84,15 @@ class SpeedReadout(PolicyReadout):
         self.partial_updates=tuple(partial_updates)
         self.delta=self.delta_step=None
 
+    def delta_age_allowed(self,step):
+        return self.delta_step is not None and 1<=step-self.delta_step<=2
+
+    def remember_dd(self,actual,step):
+        self.delta=(actual[0]-actual[1]).detach().clone();self.delta_step=step
+
+    def partial_result(self,actual,step):
+        return actual[0],actual[0]-self.delta
+
     def prewarp(self,net,branch,hidden):
         if self.current['step'] not in self.partial_updates and self.policy['actions'][self.current['step']-1]=='A':
             return super().prewarp(net,branch,hidden)
@@ -104,17 +113,17 @@ class SpeedReadout(PolicyReadout):
         if step not in self.partial_updates:
             result=super().end(actual,action)
             if action=='DD':
-                self.delta=(actual[0]-actual[1]).detach().clone();self.delta_step=step
+                self.remember_dd(actual,step)
             return result
         if (action!='DC' or set(cur['branches'])!={0,1}
                 or [cur['branches'][b]['action'] for b in (0,1)]!=['D','C']
                 or any(not cur['branches'][b].get('output_seen') for b in (0,1))
                 or int(self.net.cnt)!=2*step%70 or self.delta_step is None
-                or not 1<=step-self.delta_step<=2
+                or not self.delta_age_allowed(step)
                 or signature((cur['noise'],cur['latent'],cur['timestep']))!=cur['input_signature']
                 or signature([vars(c) for c in cur['conditions']])!=cur['condition_signature']):
             raise ValueError('Complete causal conditional-D/delta-hold pair required')
-        result=(actual[0],actual[0]-self.delta)
+        result=self.partial_result(actual,step)
         if any(not bool(torch.isfinite(v).all()) for v in result):raise ValueError('Nonfinite held-difference output')
         self.history.append(dict(step=step,action='DC',shared_alpha=None,
             branch_status=[cur['branches'][b]['status'] for b in (0,1)],
@@ -126,19 +135,24 @@ class SpeedReadout(PolicyReadout):
 
 
 class SpeedOwner(PolicyOwner):
+    readout_class=SpeedReadout
+
+    def validate_partial(self):
+        last=None
+        for step,action in enumerate(self.policy['actions'],1):
+            if step in self.partial_updates:
+                if action!='D' or step in self.profile.protected_dense or last is None or step-last>2:
+                    raise ValueError('Partial D must be unprotected and within two actual updates of true DD')
+            elif action=='D':last=step
+        if self.partial_updates and self.partial_updates!=PARTIAL_UPDATES:raise ValueError('Frozen four partial-D positions required')
+
     def __init__(self,model,*,policy,profile,context,runtime,wc,rf,light_C=False,partial_updates=()):
         validate_policy(profile,policy)
         self.model,self.net,self.policy,self.profile=model,model.net,policy,profile
         self.light_C=light_C
         self.partial_updates=tuple(partial_updates)
-        last=None
-        for step,action in enumerate(policy['actions'],1):
-            if step in self.partial_updates:
-                if action!='D' or step in profile.protected_dense or last is None or step-last>2:
-                    raise ValueError('Partial D must be unprotected and within two actual updates of true DD')
-            elif action=='D':last=step
-        if self.partial_updates and self.partial_updates!=PARTIAL_UPDATES:raise ValueError('Frozen four partial-D positions required')
-        self.readout=SpeedReadout(model,context=context,policy=policy,partial_updates=self.partial_updates)
+        self.validate_partial()
+        self.readout=self.readout_class(model,context=context,policy=policy,partial_updates=self.partial_updates)
         def is_light(net):
             cur=self.readout.current
             return bool(cur and ((light_C and policy['actions'][cur['step']-1]=='C')
@@ -165,7 +179,7 @@ class SpeedOwner(PolicyOwner):
 
     def _choose(self,packets):
         if not self.force_dense and self.readout.completed+1 in self.partial_updates:
-            if self.readout.delta_step is None or not 1<=self.readout.completed+1-self.readout.delta_step<=2:
+            if not self.readout.delta_age_allowed(self.readout.completed+1):
                 raise ValueError('Unavailable or stale true-DD difference')
             return 'DC'
         return super()._choose(packets)
