@@ -1,0 +1,68 @@
+{
+  "frozen": true,
+  "version": "generator_v1",
+  "model": "M0A_all",
+  "feature_rule": "MEAN: geometric mean sensitivity across original 8 inputs; arithmetic mean delta-v",
+  "params": {
+    "ka": 0.2915722788395509,
+    "bl": 0.514056728071378,
+    "rho": 0.10472664684826208
+  },
+  "gamma": 0.3759502318511064,
+  "actions": "D/light-C only; DP picks no A even when permitted",
+  "indexing": "1-based step t, mask[t-1]",
+  "source_sha256": {
+    "common.py": "41c353fd32f1740ee4cd2fdaf4ecd5032312a057eeedc32e4f857fbc722ce607",
+    "gen2.py": "04e162e89f902d881319873519980ec1d29f98978c5c6c76b3926541e655ea0f",
+    "gen_freeze.py": "ea18f997b701ed819f0d8103a4b96124f8d5b8cc0a8c1bd505a9d718eacef7b5",
+    "frozen_gen_v1.json": "593fb378f3053a58b2bb4bb3d4b0b002bc567b9519dfeb63088cf49a202d2a79",
+    "refit_models.json": "568ae1f05f0d6ec9e329dafd2690cbdf0c37f674e421f30d6d64bfd1240b6e24"
+  },
+  "selected": {
+    "R16C": {
+      "source_key": "DC16",
+      "mask": "DDDDDDDDDCDCDCDCDCCDCCCDCCCCCCCCCCCD",
+      "nD": 16,
+      "nA": 0,
+      "T_pred": 116.47,
+      "speedup": 2.169,
+      "pred_mean4": 0.932,
+      "D": 16,
+      "A": 0,
+      "C": 20,
+      "actual_updates": 36
+    },
+    "R18C": {
+      "source_key": "DC18",
+      "mask": "DDDDDDDDDDDDCDCDCCDCCDCCCDCCCCCCCCCD",
+      "nD": 18,
+      "nA": 0,
+      "T_pred": 130.09,
+      "speedup": 1.942,
+      "pred_mean4": 0.825,
+      "D": 18,
+      "A": 0,
+      "C": 18,
+      "actual_updates": 36
+    },
+    "R21C": {
+      "source_key": "DC21",
+      "mask": "DDDDDDDDDDDDDDDCDCDCDCCDCCCDCCCCCCCD",
+      "nD": 21,
+      "nA": 0,
+      "T_pred": 150.52,
+      "speedup": 1.679,
+      "pred_mean4": 0.652,
+      "D": 21,
+      "A": 0,
+      "C": 15,
+      "actual_updates": 36
+    }
+  },
+  "verification": {
+    "lengths_counts_endpoints_source_match": true,
+    "parameters_match_refit_models": true,
+    "DAC_allowed_A_not_selected": true
+  },
+  "immutable_rule": "Do not modify v1 after freeze. Any later model/features/layout change must use a separately named version."
+}
