@@ -298,6 +298,13 @@ def launch_host(project,stage):
     return allocate(project,stage,storage,json.load(sys.stdin)['sudo_password'])
 
 
+def gpu_execution_authorized(authority):
+    quote=authority['user_quote']
+    if quote==authority.get('preparation_authority'):
+        return False
+    return authority.get('execution_authorized') is True
+
+
 def payload():
     seeds=[str(p.relative_to(ROOT)) for p in HERE.glob('*.py')]
     if 'postrelease_CPU_entry' in CONFIG:
@@ -319,7 +326,8 @@ def payload():
     card=CONFIG
     auth=dict(run_id=RUN,launch_id=uuid.uuid4().hex,host='two_card',gpu_uuid=GPU,
         stage='/data20t/gaokuangda/worldcache_workspace/.sync/'+STAGE,source_revision=revision,
-        scope_sha256=card['scope_sha256'],billed_limit_GPUh=LIMIT,execution_authorized=True,
+        scope_sha256=card['scope_sha256'],billed_limit_GPUh=LIMIT,
+        execution_authorized=gpu_execution_authorized(card['authority']),
         direct_user_authorization=True,user_quote=card['authority']['user_quote'],
         reservation_event=card.get('reservation_event','SENSITIVITY8_PIPELINE_R2_WHOLE11_5_RESERVE' if REQUESTS==122 else 'SENSITIVITY8_WHOLE9_5_RESERVE' if REQUESTS==143 else 'F17_CONFIRM4_WHOLE1_95_RESERVE'),
         authorizes_replay=False,CPU_fixture_only=False,central_transaction_authorized=True)

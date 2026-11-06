@@ -241,6 +241,18 @@ def main():
             assert 'Inherited receipt hash differs' in str(error)
         else:
             raise AssertionError('changed inherited score receipt')
+    assert gpu_ops.gpu_execution_authorized(card['authority']) is True
+    assert gpu_ops.gpu_execution_authorized(dict(card['authority'], user_quote=card['authority']['preparation_authority'])) is False
+    assert gpu_ops.gpu_execution_authorized(dict(card['authority'], execution_authorized=False)) is False
+    missing = dict(card['authority'])
+    missing.pop('execution_authorized')
+    assert gpu_ops.gpu_execution_authorized(missing) is False
+    payload_source = inspect.getsource(gpu_ops.payload)
+    assert "gpu_execution_authorized(card['authority'])" in payload_source
+    assert 'execution_authorized=True' not in payload_source
+    assert "forecast_GPUh']<=" in gpu_ops.ADMIT and "billed_limit_GPUh']==limit" in gpu_ops.CENTRAL
+    assert 'forecast_GPUh==2.0062773472222224' not in handoff
+    assert 'forecast_GPUh<=limit' in handoff and 'billed_limit_GPUh==limit' in handoff
     value = dict(passed=True, requests=25, formal=25, warm=0, scientific_inputs=9, planned_LPIPS_pairs=36,
         inherited_outputs=21, inherited_pairs=16, new_pairs=20,
         request_sum_seconds=raw, forecast_GPUh=center, range_GPUh=bounds, hard_GPUh=hard,
@@ -253,7 +265,8 @@ def main():
         remote_calls=0, scientific_endpoint='NOT_RUN', original_files_unchanged=True,
         inherited_files=42, postrun_receipts_bound=True,
         score_entry='AFTER_GPU_TERMINAL_SETTLEMENT_RELEASE',
-        alex_acceptance=False)
+        alex_acceptance=False, payload_execution_from_frozen_scope=True,
+        reserve_check='billed_limit==limit and forecast<=limit')
     text = json.dumps(value, indent=2) + '\n'
     (HERE / 'cpu_check.json').write_text(text)
     report = ROOT / 'reports/cara_generator_v1_confirm10_continuation_r1_20261106'
