@@ -4,6 +4,7 @@ import hashlib
 import inspect
 import json
 import pathlib
+from pathlib import Path
 import sys
 
 HERE=pathlib.Path(__file__).resolve().parent
@@ -60,7 +61,7 @@ cmd=['docker','run','-d','--name',name,'--network','none','--read-only','--cpus'
  '-v',str(root)+':'+str(root)+':ro','-v',str(stage)+':'+str(stage)+':rw',
  '-v',str(output)+':'+str(output)+':ro','-v',actual_output+':'+actual_output+':ro','-w',str(root/'runtime')]
 cmd += [x for k,v in env.items() for x in ('-e',k+'='+str(v))]
- card=read(card_path)
+card=read(card_path)
 if 'postrelease_CPU_entry' in card:
  binding=read(stage/'reports/cara_CAL66_quality_binding_20261025.json')
  cmd += ['-e','PYTHONPATH='+binding['dependency_overlay']+':'+config['piq_site'],
