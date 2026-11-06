@@ -9,6 +9,38 @@ sys.path[:0] = [str(ROOT / 'plans/cara_next_stage_20261104/sensitivity'), str(RO
 from ops import PREFIX
 from cara_f19_speed190_transport_r1 import rpc
 
+COLLECT = PREFIX + '''
+sys.path[:0]=[str(stage/'src'),str(stage/'scripts')]
+from wcomr.cara_budget_lifecycle_r1 import released_lifecycle
+release=released_lifecycle(p['capture'],sha(stage/'GPU-launch.json'),p['settlement'])
+assert all(release[k] for k in ('cost_settled','GPU_released','mode_restored','original_processes_ended'))
+card=read(card_path);output=root/'outputs'/run;target=output/'collection.json'
+raw=target.read_bytes();collection=json.loads(raw)
+assert collection['run_id']==run and collection['scope_sha256']==card['scope_sha256']
+assert [r['slot'] for r in collection['rows']]==card['matrix']
+verified=[]
+def check(row,origin):
+ result=row.get('result',row)
+ for key in ('latent_artifact','video_artifact'):
+  artifact=result[key];path=pathlib.Path(artifact['path'])
+  assert path.stat().st_size==artifact['bytes'] and sha(path)==artifact['sha256']
+  verified.append(dict(id=row['slot']['id'],origin=origin,kind=key,**artifact))
+for row in card['inherited_outputs']['rows']:check(row,'original_confirm10')
+for row in card['retained_C06']['rows']:check(row,'retained_C06')
+masks=[]
+for row in collection['rows']:
+ if row['status']=='COMPLETE':
+  check(row,'new_primary11');result=row['result'];role=row['slot']['role']
+  assert result['guided_pairs']==result['solver_steps']==36
+  if role!='NATIVE35':
+   assert ''.join(s['actual'] for s in result['semantic_history'])==''.join(card['roles'][role]['policy']['actions'])
+  else:assert result['method']=='NATIVE'
+  masks.append(dict(id=row['slot']['id'],role=role,mask_matches=True))
+for receipt in card['prior_score_receipts']:assert sha(stage/receipt['path'])==receipt['sha256']
+gpu=subprocess.check_output(['nvidia-smi','-i',gpu_uuid,'--query-gpu=uuid,compute_mode,memory.used,utilization.gpu,temperature.gpu','--format=csv,noheader,nounits'],text=True).strip()
+print(json.dumps(dict(status='RELEASED_ARTIFACT_EVIDENCE_CAPTURED',release=release,observed_unix=time.time(),collection_sha256=hashlib.sha256(raw).hexdigest(),collection_raw_b64=base64.b64encode(raw).decode(),verified=verified,masks=masks,original_artifact_count=sum(v['origin']!='new_primary11' for v in verified),new_artifact_count=sum(v['origin']=='new_primary11' for v in verified),prior_score_receipts_unchanged=True,gpu=gpu,GPU_submissions=0,ledger_written=False)))
+'''
+
 SCORE = PREFIX + '''
 sys.path[:0]=[str(stage/'src'),str(stage/'scripts')]
 from wcomr.cara_budget_lifecycle_r1 import released_lifecycle
@@ -62,7 +94,7 @@ print(json.dumps(dict(exit_code=q.returncode,stdout=q.stdout,stderr=q.stderr,ana
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('action', choices=('score', 'status', 'analyze'))
+    parser.add_argument('action', choices=('collect', 'score', 'status', 'analyze'))
     parser.add_argument('--manifest', type=Path, required=True)
     parser.add_argument('--input', type=Path)
     parser.add_argument('--receipt', type=Path, required=True)
@@ -71,6 +103,6 @@ if __name__ == '__main__':
     if args.receipt.exists():
         raise ValueError('Preserve the original operator response')
     data = json.loads(args.input.read_text()) if args.input else {}
-    result = rpc({'score': SCORE, 'status': STATUS, 'analyze': ANALYZE}[args.action], data, route='relay', timeout=180)
+    result = rpc({'collect': COLLECT, 'score': SCORE, 'status': STATUS, 'analyze': ANALYZE}[args.action], data, route='relay', timeout=180)
     args.receipt.write_text(json.dumps(result, indent=2) + '\n')
     print(json.dumps({k: result[k] for k in ('status', 'exit_code', 'state', 'stderr') if k in result}))

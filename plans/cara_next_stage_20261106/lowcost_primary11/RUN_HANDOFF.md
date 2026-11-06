@@ -20,3 +20,7 @@ Started 2026-11-06T13:39:37.250617+08:00; launch `768173c33206424a8b13a8bca3bae3
 Startup witness: container Running=true/OOMKilled=false; originalguardian1572013 andrunner1572144. Atthatoneobservationthemodelwasloadingandcollectionwasnotyetpublished. Preserveall originalhandles from reports/cara_primary11_r1_20261106/runtime_handoff.json. GPUsourceimmutable29d2efe1; postrun_local.py is a separate released-CPU operator.
 
 Afterterminal: ops.py capture→unique settle withlaunchSHA→mirror samecentral settlement back tostage→postrun_local.py score→status→analyze. Alluse--manifest plans/cara_next_stage_20261106/lowcost_primary11/manifest.json --route relay. Do not useoldcomplete-nine-input scorer. Fixedqueue27 primary statuses; originalC07/F17refusalremains; atmost7newAlexpairs, old10primaryscoresunchanged. Onlyconditionalcommonacceptedqualitymaybereported; originals9/10fullLPIPSremainNOT_EVALUABLE. Resourcefailuresstopwithoutreplay. No k18/P/ORR/publicpush/PRapproval.
+
+## Single halfway observation
+
+At2026-11-06T14:13:55+08:00:6COMPLETE,2VIDEO_REJECTED(C07R18C/Native),048NativeC10RUNNING,049F17/050R18NOT_REACHED. GPUcontainerRunning/OOMfalse; onlyoriginalrunnerPID1572144 onselectedGPU. Nextone-shotterminalobservation2026-11-06T14:29:00+08:00 basedonlastthreefrozenrequests; hardstopunchanged14:57:37. NoGPUreplay/retry orsourcechange. Sourceoftruthreports/cara_primary11_r1_20261106/halfway_status.json.
