@@ -48,6 +48,10 @@ def note_noncomplete(card,row,result,save):
         row['refusal']=dict(status=result['status'],solver_steps=result.get('solver_steps'),
             guided_pairs=result.get('guided_pairs'))
         save()
+    if card.get('refusal_policy') == 'RECORD_AND_CONTINUE_DIFFERENT_REQUEST':
+        if result['status'] not in ('TEXT_REJECTED', 'VIDEO_REJECTED'):
+            raise ValueError('Only guardrail refusals permit continuing the fixed queue')
+        return
     raise ValueError('Rejected/incomplete request; retain denominator, no replacement')
 
 
@@ -117,6 +121,8 @@ def collect_loaded(inference,samples,card,common,output,storage,mode_types,*,cpu
                     target=slot['target_update'] if role in ('SINGLE_C','FULL_SINGLE_C') else None)
             if result['status']!='COMPLETE':
                 note_noncomplete(card,row,result,save)
+                gc.collect()
+                continue
             latent=result.pop('final_latent');result.pop('guided',None)
             tensor=output/(slot['id']+'.pt');torch.save(latent,tensor)
             result['latent_artifact']=dict(path=str(tensor),sha256=sha(tensor))
@@ -147,7 +153,8 @@ def collect_loaded(inference,samples,card,common,output,storage,mode_types,*,cpu
             gc.collect()
             if card.get('host_memory_logging') and not cpu_validation:
                 log_host_memory(output/'host_memory.jsonl',slot['id'])
-        state['status']='COMPLETE_PENDING_RELEASE_SCORING';save()
+        state['status']=('COMPLETE_PENDING_RELEASE_SCORING' if all(r['status']=='COMPLETE' for r in state['rows'])
+                         else 'FIXED_QUEUE_COMPLETE_WITH_REFUSALS_PENDING_RELEASE_SCORING');save()
         return state
     except BaseException as error:
         state.update(status='FAILED_NO_RETRY',error_type=type(error).__name__,error=str(error));save();raise

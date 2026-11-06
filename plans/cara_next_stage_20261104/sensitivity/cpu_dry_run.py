@@ -140,6 +140,46 @@ def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,
         assert len(collection['reused_rows'])==5
     if production_card['counts']['b']==0:
         assert not (root/'collection/native_states').exists()
+    refusal_controls = 0
+    if production_card.get('refusal_policy') == 'RECORD_AND_CONTINUE_DIFFERENT_REQUEST':
+        from unittest.mock import patch
+        from wcomr.cara_f19_speed190_requests_r1 import Requests as OriginalRequests
+        first = production_card['matrix'][0]['id']
+        for refusal, steps in (('TEXT_REJECTED', 0), ('VIDEO_REJECTED', 36)):
+            attempted = []
+            class RefusingRequests(OriginalRequests):
+                def __call__(self, slot, path):
+                    attempted.append(slot['id'])
+                    if slot['id'] == first:
+                        return dict(status=refusal, solver_steps=steps, guided_pairs=steps)
+                    return super().__call__(slot, path)
+            target = root / refusal
+            with patch('wcomr.cara_f19_speed190_requests_r1.Requests', RefusingRequests):
+                refused = collect_loaded(inference,samples,production_card,dict(common,CPU_native=native),
+                    target,Storage(),mode_snapshot(net)['module_types'],cpu_validation=True)
+            assert attempted == [s['id'] for s in production_card['matrix']]
+            assert refused['rows'][0]['status'] == refusal
+            assert all(r['status']=='COMPLETE' for r in refused['rows'][1:])
+            assert refused['status']=='FIXED_QUEUE_COMPLETE_WITH_REFUSALS_PENDING_RELEASE_SCORING'
+            refusal_controls += 1
+        class FailedStorage:
+            calls = 0
+            def check(self):
+                self.calls += 1
+                if self.calls == 2:
+                    raise RuntimeError('CPU_TEST_RESOURCE_STOP')
+        with patch('wcomr.cara_f19_speed190_requests_r1.Requests', RefusingRequests):
+            try:
+                collect_loaded(inference,samples,production_card,dict(common,CPU_native=native),
+                    root/'resource-stop',FailedStorage(),mode_snapshot(net)['module_types'],cpu_validation=True)
+            except RuntimeError as error:
+                assert str(error)=='CPU_TEST_RESOURCE_STOP'
+            else:
+                raise AssertionError('A resource exception must stop the queue')
+        stopped=json.loads((root/'resource-stop/collection.json').read_text())
+        assert stopped['status']=='FAILED_NO_RETRY'
+        assert all(r['status']=='NOT_REACHED' for r in stopped['rows'][1:])
+        refusal_controls += 1
     if production_card['counts']['b']==0 and 'quality' in production_card:
         from analyze import analyze
         synthetic=copy.deepcopy(collection)
@@ -158,7 +198,8 @@ def body(inference,selected,wc,rf,settings,inference_module,runtime,config,flow,
         assert not rejected['confirmation_passed'] and not rejected['NI_passed']
     return [dict(flow=flow,controls=controls,unchanged_suffix_controls=2 if controls else 0,
                  Native_metrics_steps=36 if controls else 0,latent_states=36 if controls else 0,sensitivity_states=14 if controls else 0,
-                 complete_physical_requests=len(production_card['matrix']),CPU_request_class='DECLARED_FROZEN_FIXTURE')]
+                 complete_physical_requests=len(production_card['matrix']),refusal_and_resource_controls=refusal_controls,
+                 CPU_request_class='DECLARED_FROZEN_FIXTURE')]
 
 
 if __name__ == '__main__':

@@ -319,7 +319,7 @@ def payload():
     card=CONFIG
     auth=dict(run_id=RUN,launch_id=uuid.uuid4().hex,host='two_card',gpu_uuid=GPU,
         stage='/data20t/gaokuangda/worldcache_workspace/.sync/'+STAGE,source_revision=revision,
-        scope_sha256=card['scope_sha256'],billed_limit_GPUh=LIMIT,execution_authorized=True,
+        scope_sha256=card['scope_sha256'],billed_limit_GPUh=LIMIT,execution_authorized=card['authority']['execution_authorized'] is True,
         direct_user_authorization=True,user_quote=card['authority']['user_quote'],
         reservation_event=card.get('reservation_event','SENSITIVITY8_PIPELINE_R2_WHOLE11_5_RESERVE' if REQUESTS==122 else 'SENSITIVITY8_WHOLE9_5_RESERVE' if REQUESTS==143 else 'F17_CONFIRM4_WHOLE1_95_RESERVE'),
         authorizes_replay=False,CPU_fixture_only=False,central_transaction_authorized=True)
