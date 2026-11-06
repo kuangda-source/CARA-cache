@@ -218,6 +218,45 @@ def main():
         assert 'do not launch or reserve' in str(error)
     else:
         raise AssertionError('foreign card')
+    from plans.cara_next_stage_20261104.sensitivity.postrun import inherited_score_mounts, SCORE
+    artifacts = [row[key] for row in card['inherited_outputs']['rows'] for key in ('latent_artifact', 'video_artifact')]
+    assert len(artifacts) == 42
+    assert 'inherited_score_mounts(card, root, stage)' in SCORE
+    assert "release[k] for k in ('GPU_released','mode_restored','cost_settled','original_processes_ended','container_exit_success')" in SCORE
+    with tempfile.TemporaryDirectory(prefix='cara-confirm10-score-mount-') as directory:
+        mounts = inherited_score_mounts(card, ROOT, Path(directory))
+        text_mounts = ' '.join(mounts)
+        settlement_rel = card['inherited_outputs']['settlement']['source_receipt']
+        scores_rel = card['inherited_scores_receipt']['path']
+        assert settlement_rel in text_mounts and scores_rel in text_mounts and ':ro' in text_mounts
+        assert card['inherited_outputs']['output_root'] in text_mounts
+        native_dirs = {str(Path(row['video_artifact']['path']).parent) for row in card['inherited_outputs']['rows']
+            if row['slot']['role'] == 'NATIVE35' and row['slot']['section'] != 'warm'}
+        assert native_dirs and all(any(parent in item for item in mounts) for parent in native_dirs)
+        broken = copy.deepcopy(card)
+        broken['inherited_scores_receipt']['sha256'] = '0' * 64
+        try:
+            inherited_score_mounts(broken, ROOT, Path(directory))
+        except ValueError as error:
+            assert 'Inherited receipt hash differs' in str(error)
+        else:
+            raise AssertionError('changed inherited score receipt')
+    import ast
+    import subprocess
+    from plans.cara_next_stage_20261104.sensitivity import postrun as score_entry
+    ast.parse(score_entry.SCORE)
+    ast.parse(score_entry.ANALYZE)
+    assert ' card=read(card_path)' not in score_entry.SCORE
+    assert 'inherited_score_mounts(card, root, stage)' in score_entry.SCORE
+    script = ROOT / 'plans/cara_next_stage_20261104/sensitivity/postrun.py'
+    help_runs = []
+    for args in (['--help'], ['score', '--help'], ['analyze', '--help']):
+        completed = subprocess.run([sys.executable, str(script), *args], capture_output=True, text=True)
+        assert completed.returncode == 0, completed.stderr
+        help_runs.append(completed.stdout)
+    assert '--receipt' in help_runs[0] and '--input' in help_runs[0]
+    missing = subprocess.run([sys.executable, str(script), 'score'], capture_output=True, text=True)
+    assert missing.returncode != 0 and 'receipt' in missing.stderr
     value = dict(passed=True, requests=25, formal=25, warm=0, scientific_inputs=9, planned_LPIPS_pairs=36,
         inherited_outputs=21, inherited_pairs=16, new_pairs=20,
         request_sum_seconds=raw, forecast_GPUh=center, range_GPUh=bounds, hard_GPUh=hard,
@@ -227,7 +266,11 @@ def main():
         authority_sync_launch_authorized=True, this_commit_dispatches=False,
         gpu_uuid=preferred,
         ledger_reservations=0, GPU_submissions=0,
-        remote_calls=0, scientific_endpoint='NOT_RUN', original_files_unchanged=True)
+        remote_calls=0, scientific_endpoint='NOT_RUN', original_files_unchanged=True,
+        inherited_files=42, postrun_receipts_bound=True,
+        score_entry='AFTER_GPU_TERMINAL_SETTLEMENT_RELEASE',
+        ast_parse_score=True, ast_parse_analyze=True, cli_help_passed=True,
+        score_invocation=0, gpu=0, alex_acceptance=False)
     text = json.dumps(value, indent=2) + '\n'
     (HERE / 'cpu_check.json').write_text(text)
     report = ROOT / 'reports/cara_generator_v1_confirm10_continuation_r1_20261106'
