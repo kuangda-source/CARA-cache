@@ -1,0 +1,362 @@
+{
+  "observed_unix": 1793935252.4219375,
+  "GPU-launch.json": {
+    "run_id": "cara-sparse-refresh-probe-r1-20261105",
+    "launch_id": "4fbe2d7463614c2e9fc40cca8ab34bf1",
+    "host": "two_card",
+    "gpu_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-sparse-refresh-probe-r1-20261105",
+    "source_revision": "0eff7bbd981895b073e6fb0f95ca0a617bbf1572",
+    "scope_sha256": "c3b5f2dd12163d90379c1f7d0831f289cad06f943468d1e90471fa5f45feff1f",
+    "billed_limit_GPUh": 1.05,
+    "CPU_fixture_only": false,
+    "container": "cara-budget-calibration-GPU-sparse-refresh-probe-r1-20261105-gpu",
+    "guardian_identity": {
+      "pid": 1441006,
+      "start_ticks": 719476134,
+      "host_view": {
+        "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+        "pid_namespace_inode": 4026531836
+      },
+      "original_command_sha256": "a905f748bbb11082885f44bdefad460f048e4972d2c13a6bf5ef7d090682ea15"
+    },
+    "registration_sha256": "0a2fb7d143f8b6d6502e726fa323cee065b1a9cdac2da377384befa2257abd87",
+    "authorization_sha256": "4d26c7a8b397bc2db4252fbac46f3d8024ba0531e032878d227f9fb33c7440a9",
+    "central_reservation_sha256": "d1fcca2a7f6d9e751bb7c7d16030eb74325f4598c3ab6960afac3101ea7d1d93",
+    "admission_sha256": "a06007f551a1e23c8ba2252dc832c20b40b61131673c066b1269a1750fb0530c",
+    "commands": {
+      "container_cli": [
+        "docker",
+        "run",
+        "--read-only",
+        "--network",
+        "none",
+        "--pid",
+        "host",
+        "--name",
+        "cara-budget-calibration-GPU-sparse-refresh-probe-r1-20261105-gpu",
+        "--label",
+        "wcomr.manifest=0a2fb7d143f8b6d6502e726fa323cee065b1a9cdac2da377384befa2257abd87",
+        "--user",
+        "1004:998",
+        "--cpus",
+        "2",
+        "--memory",
+        "40g",
+        "--pids-limit",
+        "512",
+        "--tmpfs",
+        "/tmp:rw,size=2g",
+        "-v",
+        "/data20t/gaokuangda/worldcache_workspace:/data20t/gaokuangda/worldcache_workspace:ro",
+        "-v",
+        "/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-sparse-refresh-probe-r1-20261105:/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-sparse-refresh-probe-r1-20261105:rw",
+        "-w",
+        "/data20t/gaokuangda/worldcache_workspace/runtime",
+        "--gpus",
+        "device=GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+        "-e",
+        "CUDA_CACHE_PATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-sparse-refresh-probe-r1-20261105/GPU-caches/cuda",
+        "-e",
+        "CUDA_HOME=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc",
+        "-e",
+        "CUDA_PATH=/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc",
+        "-e",
+        "CUDA_VISIBLE_DEVICES=",
+        "-e",
+        "HF_HOME=/data20t/gaokuangda/worldcache_workspace/cache/huggingface",
+        "-e",
+        "HF_HUB_CACHE=/data20t/gaokuangda/worldcache_workspace/cache/huggingface/hub",
+        "-e",
+        "HF_HUB_OFFLINE=1",
+        "-e",
+        "LD_LIBRARY_PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/blas:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/lapack:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu/pulseaudio:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/system-libs-r1/lib/x86_64-linux-gnu:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_nvrtc/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cuda_runtime/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cudnn/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/nvjitlink/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/nvidia/cublas/lib:/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/lib/python3.10/site-packages/torch/lib",
+        "-e",
+        "LOGNAME=gaokuangda",
+        "-e",
+        "NLTK_DATA=/data20t/gaokuangda/worldcache_workspace/runtime-resources/nltk-guardrail-d6d4bfa8-r1",
+        "-e",
+        "NVIDIA_VISIBLE_DEVICES=GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+        "-e",
+        "OMP_NUM_THREADS=2",
+        "-e",
+        "OPENBLAS_NUM_THREADS=2",
+        "-e",
+        "PATH=/data20t/gaokuangda/worldcache_workspace/system-libs-r1/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
+        "-e",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "-e",
+        "PYTHONPATH=/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-sparse-refresh-probe-r1-20261105/scripts:/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-sparse-refresh-probe-r1-20261105/src",
+        "-e",
+        "TOKENIZERS_PARALLELISM=false",
+        "-e",
+        "TORCHINDUCTOR_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-sparse-refresh-probe-r1-20261105/GPU-caches/torchinductor",
+        "-e",
+        "TORCHINDUCTOR_COMPILE_THREADS=1",
+        "-e",
+        "TORCH_EXTENSIONS_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-sparse-refresh-probe-r1-20261105/GPU-caches/extensions",
+        "-e",
+        "TORCH_HOME=/data20t/gaokuangda/worldcache_workspace/cache/torch",
+        "-e",
+        "TRANSFORMERS_OFFLINE=1",
+        "-e",
+        "TRITON_CACHE_DIR=/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-sparse-refresh-probe-r1-20261105/GPU-caches/triton",
+        "-e",
+        "USER=gaokuangda",
+        "-e",
+        "WC_SCOUT_KIND=CAL12",
+        "-e",
+        "XDG_CACHE_HOME=/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-sparse-refresh-probe-r1-20261105/GPU-caches/xdg",
+        "--memory-swap",
+        "40g",
+        "--cpuset-cpus",
+        "24,25",
+        "-v",
+        "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cara_cal66_sm86_workspace/outputs/cara-sparse-refresh-probe-r1-20261105:/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cara_cal66_sm86_workspace/outputs/cara-sparse-refresh-probe-r1-20261105:rw",
+        "-v",
+        "/home/gaokuangda/cara_control/sparse-refresh-probe-r1/control.journal:/home/gaokuangda/cara_control/sparse-refresh-probe-r1/control.journal:rw",
+        "-v",
+        "/data20t/gaokuangda/worldcache_workspace/.sync/gpu-locks:/data20t/gaokuangda/worldcache_workspace/.sync/gpu-locks:rw",
+        "-v",
+        "/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cara_cal66_sm86_workspace/.sync/storage-reservations/sparse-refresh-probe-r1/output.ext4:/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cara_cal66_sm86_workspace/.sync/storage-reservations/sparse-refresh-probe-r1/output.ext4:ro",
+        "--cidfile",
+        "/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-sparse-refresh-probe-r1-20261105/container.cid",
+        "-v",
+        "/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-sparse-refresh-probe-r1-20261105/plans/cara_next_stage_20261105/sparse_refresh_probe:/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-sparse-refresh-probe-r1-20261105/plans/cara_next_stage_20261105/sparse_refresh_probe:ro",
+        "--entrypoint",
+        "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python",
+        "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+        "/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-sparse-refresh-probe-r1-20261105/plans/cara_next_stage_20261105/sparse_refresh_probe/host.py",
+        "supervise",
+        "--project",
+        "/data20t/gaokuangda/worldcache_workspace",
+        "--stage",
+        "/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-sparse-refresh-probe-r1-20261105"
+      ],
+      "runner": [
+        "/data20t/gaokuangda/worldcache_workspace/envs/wc-cosmos-py310-cu128-r3/bin/python",
+        "/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-sparse-refresh-probe-r1-20261105/plans/cara_next_stage_20261105/sparse_refresh_probe/runner.py",
+        "--project",
+        "/data20t/gaokuangda/worldcache_workspace",
+        "--stage",
+        "/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-sparse-refresh-probe-r1-20261105",
+        "--manifest",
+        "/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-sparse-refresh-probe-r1-20261105/plans/cara_next_stage_20261105/sparse_refresh_probe/manifest.json",
+        "--source-revision",
+        "0eff7bbd981895b073e6fb0f95ca0a617bbf1572",
+        "--gpu-uuid",
+        "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3"
+      ]
+    }
+  },
+  "guardian.json": {
+    "run_id": "cara-sparse-refresh-probe-r1-20261105",
+    "launch_id": "4fbe2d7463614c2e9fc40cca8ab34bf1",
+    "host": "two_card",
+    "gpu_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-sparse-refresh-probe-r1-20261105",
+    "source_revision": "0eff7bbd981895b073e6fb0f95ca0a617bbf1572",
+    "scope_sha256": "c3b5f2dd12163d90379c1f7d0831f289cad06f943468d1e90471fa5f45feff1f",
+    "billed_limit_GPUh": 1.05,
+    "status": "BUDGET_CALIBRATION_GUARDIAN_TERMINAL",
+    "started_monotonic": 7194761.797781366,
+    "started_unix": 1793899858.2760434,
+    "original_handles": {
+      "guardian": {
+        "pid": 1441006,
+        "start_ticks": 719476134,
+        "host_view": {
+          "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+          "pid_namespace_inode": 4026531836
+        },
+        "original_command_sha256": "a905f748bbb11082885f44bdefad460f048e4972d2c13a6bf5ef7d090682ea15"
+      },
+      "container_cli": {
+        "pid": 1441035,
+        "start_ticks": 719476301,
+        "host_view": {
+          "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+          "pid_namespace_inode": 4026531836
+        },
+        "original_command_sha256": "d272f1853317a0666221df05488d99c35c528e2e352ba3c7fbee3fc8d1f81ff9"
+      },
+      "supervisor": {
+        "host_view": {
+          "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+          "pid_namespace_inode": 4026531836
+        },
+        "original_command_sha256": "46d5c4642b26561958ce86f99359313d428737b9c767ad06a29c10f40f8f1abf",
+        "pid": 1441097,
+        "start_ticks": 719476344
+      },
+      "runner": {
+        "host_view": {
+          "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+          "pid_namespace_inode": 4026531836
+        },
+        "original_command_sha256": "55b075ccf0ea48c5e768949b51bf08bb9c46ed3ef7dc963b929bc7187192ab1d",
+        "pid": 1441139,
+        "start_ticks": 719476477
+      }
+    },
+    "allocation_attempts": {
+      "mode_lock_attempted": true,
+      "device_lease_attempted": true,
+      "mode_change_attempted": true,
+      "container_dispatch_attempted": true
+    },
+    "container_dispatch_state": "STARTED",
+    "mode_owner_fenced": true,
+    "GPU_mode_change_attempted": true,
+    "CPU_fixture_only": false,
+    "mode_admission": {
+      "prior_mode": "Default",
+      "changed": true,
+      "verified_snapshot": {
+        "gpu_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+        "compute_mode": "Exclusive_Process",
+        "compute_apps": [],
+        "mps_processes": [],
+        "observed_unix": 1793899859.3416083
+      }
+    },
+    "container_exit_code": 0,
+    "container_terminal_witness": {
+      "kind": "BOUND_CONTAINER_TERMINAL",
+      "complete": true,
+      "container_id": "95fd49bb36a0a00f291dac304dd81d310619e1f29d4c0be59e97aaec033021e1",
+      "container": {
+        "id": "95fd49bb36a0a00f291dac304dd81d310619e1f29d4c0be59e97aaec033021e1",
+        "name": "cara-budget-calibration-GPU-sparse-refresh-probe-r1-20261105-gpu",
+        "image": "sha256:1e81ac62ee68ca1a6ef655515096a1d84579b01aa4986810c9b18d4f6c4c552d",
+        "manifest_sha256": "0a2fb7d143f8b6d6502e726fa323cee065b1a9cdac2da377384befa2257abd87",
+        "device_ids": [
+          "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3"
+        ],
+        "state": {
+          "Status": "exited",
+          "Running": false,
+          "Paused": false,
+          "Restarting": false,
+          "OOMKilled": false,
+          "Dead": false,
+          "Pid": 0,
+          "ExitCode": 0,
+          "Error": "",
+          "StartedAt": "2026-11-05T17:30:59.871134209Z",
+          "FinishedAt": "2026-11-05T17:37:13.214956586Z"
+        }
+      }
+    },
+    "mode_restoration": {
+      "status": "PRIOR_MODE_RESTORED_IDLE",
+      "restored": true,
+      "changed": true,
+      "snapshot": {
+        "gpu_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+        "compute_mode": "Default",
+        "compute_apps": [],
+        "mps_processes": [],
+        "observed_unix": 1793900234.356634
+      }
+    },
+    "ended_monotonic": 7195137.878601453,
+    "ended_unix": 1793900234.356878,
+    "billing_sha256": "de04a9ce6dcfd1a92f1178b7b0d11ea32e65defdff35af49ed98743ee7b3f33b"
+  },
+  "supervisor.json": {
+    "run_id": "cara-sparse-refresh-probe-r1-20261105",
+    "launch_id": "4fbe2d7463614c2e9fc40cca8ab34bf1",
+    "host": "two_card",
+    "gpu_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-sparse-refresh-probe-r1-20261105",
+    "source_revision": "0eff7bbd981895b073e6fb0f95ca0a617bbf1572",
+    "scope_sha256": "c3b5f2dd12163d90379c1f7d0831f289cad06f943468d1e90471fa5f45feff1f",
+    "billed_limit_GPUh": 1.05,
+    "status": "BUDGET_CALIBRATION_SUPERVISOR_TERMINAL",
+    "identity": {
+      "pid": 1441097,
+      "start_ticks": 719476344,
+      "host_view": {
+        "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+        "pid_namespace_inode": 4026531836
+      },
+      "original_command_sha256": "46d5c4642b26561958ce86f99359313d428737b9c767ad06a29c10f40f8f1abf"
+    },
+    "started_unix": 1793899860.7510324,
+    "runner_dispatch_state": "STARTED",
+    "observations": 171,
+    "context_granted": true,
+    "complete_search_accepted": false,
+    "CPU_fixture_only": false,
+    "runner_identity": {
+      "pid": 1441139,
+      "start_ticks": 719476477,
+      "host_view": {
+        "boot_id": "13495735-f30b-47a2-af0a-2496f5206a0b",
+        "pid_namespace_inode": 4026531836
+      },
+      "original_command_sha256": "55b075ccf0ea48c5e768949b51bf08bb9c46ed3ef7dc963b929bc7187192ab1d"
+    },
+    "runner_exit_code": 0,
+    "ended_unix": 1793900232.9991899,
+    "original_runner_ended": true
+  },
+  "billing.json": {
+    "CPU_fixture_only": false,
+    "actual_GPUh": 0.10446689446870651,
+    "billed_limit_GPUh": 1.05,
+    "billing_clock_owner": "HOST_GUARDIAN",
+    "central_settlement_pending": false,
+    "ended_monotonic": 7195137.878601453,
+    "ended_unix": 1793900234.356878,
+    "gpu_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+    "host": "two_card",
+    "launch_id": "4fbe2d7463614c2e9fc40cca8ab34bf1",
+    "run_id": "cara-sparse-refresh-probe-r1-20261105",
+    "scope_sha256": "c3b5f2dd12163d90379c1f7d0831f289cad06f943468d1e90471fa5f45feff1f",
+    "source_revision": "0eff7bbd981895b073e6fb0f95ca0a617bbf1572",
+    "stage": "/data20t/gaokuangda/worldcache_workspace/.sync/cara-budget-calibration-GPU-sparse-refresh-probe-r1-20261105",
+    "started_monotonic": 7194761.797781366,
+    "status": "BUDGET_CALIBRATION_ORIGINAL_WALL_BILL",
+    "wall_interval_complete": true,
+    "wall_seconds": 376.08082008734345
+  },
+  "settlement": {
+    "sequence": 106,
+    "cumulative_GPUh": 232.6049995725559,
+    "actual_GPUh": 0.10446689446870651
+  },
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-05T17:30:59.871134209Z",
+    "FinishedAt": "2026-11-05T17:37:13.214956586Z"
+  },
+  "compute_apps": "",
+  "progress": {
+    "status": "S1_GATE_STOP",
+    "completed": 1,
+    "denominator": 9,
+    "first": "NOT_REACHED",
+    "running": [],
+    "S2_completed": 0,
+    "S2_denominator": 8
+  },
+  "log_tail": "69e632.json\n[11-05 17:33:12|SUCCESS|cosmos_predict2/inference.py:120:_generate_sample] Passed guardrail on prompt\n[11-05 17:33:12|INFO|cosmos_predict2/inference.py:142:_generate_sample] Generating video with standard mode...\n\nGenerating samples:   0%|          | 0/36 [00:00<?, ?it/s]\nGenerating samples:   3%|\u258e         | 1/36 [00:07<04:05,  7.02s/it]\nGenerating samples:   6%|\u258c         | 2/36 [00:13<03:51,  6.80s/it]\nGenerating samples:   8%|\u258a         | 3/36 [00:20<03:44,  6.82s/it]\nGenerating samples:  11%|\u2588         | 4/36 [00:27<03:36,  6.77s/it]\nGenerating samples:  14%|\u2588\u258d        | 5/36 [00:33<03:29,  6.75s/it]\nGenerating samples:  17%|\u2588\u258b        | 6/36 [00:40<03:22,  6.75s/it]\nGenerating samples:  19%|\u2588\u2589        | 7/36 [00:47<03:15,  6.75s/it]\nGenerating samples:  22%|\u2588\u2588\u258f       | 8/36 [00:54<03:10,  6.79s/it]\nGenerating samples:  25%|\u2588\u2588\u258c       | 9/36 [01:01<03:03,  6.79s/it]\nGenerating samples:  28%|\u2588\u2588\u258a       | 10/36 [01:07<02:56,  6.80s/it]\nGenerating samples:  31%|\u2588\u2588\u2588       | 11/36 [01:14<02:50,  6.80s/it]\nGenerating samples:  33%|\u2588\u2588\u2588\u258e      | 12/36 [01:21<02:43,  6.81s/it]\nGenerating samples:  39%|\u2588\u2588\u2588\u2589      | 14/36 [01:28<01:55,  5.24s/it]\nGenerating samples:  44%|\u2588\u2588\u2588\u2588\u258d     | 16/36 [01:35<01:30,  4.52s/it]\nGenerating samples:  53%|\u2588\u2588\u2588\u2588\u2588\u258e    | 19/36 [01:42<00:59,  3.49s/it]\nGenerating samples:  61%|\u2588\u2588\u2588\u2588\u2588\u2588    | 22/36 [01:49<00:42,  3.02s/it]\nGenerating samples:  72%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258f  | 26/36 [01:55<00:24,  2.46s/it]\nGenerating samples:  78%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a  | 28/36 [03:24<00:58,  7.31s/it]\n",
+  "stage_prepared": true,
+  "production_CPU_passed": true,
+  "storage_prepared": true,
+  "GPU_launch_exists": true,
+  "S1": {
+    "status": "S1_COMPLETE",
+    "gate_passed": false
+  }
+}

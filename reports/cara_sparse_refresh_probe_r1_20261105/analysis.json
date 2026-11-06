@@ -1,0 +1,169 @@
+{
+  "status": "COMPLETE_S1_ONLY_GATE_STOP_SETTLED",
+  "run_id": "cara-sparse-refresh-probe-r1-20261105",
+  "launch_id": "4fbe2d7463614c2e9fc40cca8ab34bf1",
+  "gpu_uuid": "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3",
+  "source_revision": "0eff7bbd981895b073e6fb0f95ca0a617bbf1572",
+  "scope_sha256": "c3b5f2dd12163d90379c1f7d0831f289cad06f943468d1e90471fa5f45feff1f",
+  "launch_sha256": "ddcbcf72262217d2cb30af33e902156e79368378c76472bc226d3f2599598956",
+  "S1": {
+    "status": "S1_COMPLETE",
+    "actual_GPU_measurement": true,
+    "parent": "O1 seed0 R18C through28; DD26 delta, P29; same-state D reference",
+    "local29": [
+      {
+        "mode": "D",
+        "timed_repeats": 3,
+        "median_seconds": 6.831324786879122,
+        "cost_ratio_to_D": 1.0,
+        "mean_guided_MSE": 0.0
+      },
+      {
+        "mode": "C",
+        "timed_repeats": 3,
+        "median_seconds": 0.014951535500586033,
+        "cost_ratio_to_D": 0.0021886729100193485,
+        "mean_guided_MSE": 0.09747228258917942
+      },
+      {
+        "mode": "P_sync",
+        "timed_repeats": 3,
+        "median_seconds": 3.4247551495209336,
+        "cost_ratio_to_D": 0.5013310384683857,
+        "mean_guided_MSE": 0.03831603653470234
+      },
+      {
+        "mode": "P14",
+        "timed_repeats": 3,
+        "median_seconds": 3.449450292624533,
+        "cost_ratio_to_D": 0.5049460244153328,
+        "mean_guided_MSE": 0.1471313018109756
+      },
+      {
+        "mode": "P20",
+        "timed_repeats": 3,
+        "median_seconds": 4.895669258199632,
+        "cost_ratio_to_D": 0.7166500511881253,
+        "mean_guided_MSE": 0.14590858335881499
+      }
+    ],
+    "next30": {
+      "C_noP_MSE": 0.13381600194406298,
+      "C_sync_MSE": 0.07357047335236025,
+      "C_raw_MSE": 1.6516085978181945,
+      "raw_sync_same_state": true
+    },
+    "measurements": {
+      "D_seconds": [
+        6.826967274770141,
+        6.831324786879122,
+        6.832218652591109
+      ],
+      "P_seconds": [
+        3.4236429817974567,
+        3.4273133920505643,
+        3.4247551495209336
+      ],
+      "C_next_MSE": 0.13381600194406298,
+      "sync_C_next_MSE": 0.07357047335236025,
+      "drift_D_to_next": 0.922860786318779,
+      "drift_P_to_next": 0.26701250672340393
+    },
+    "gate": {
+      "cost_ratio": 0.5013310384683857,
+      "kappa": 0.6362258732588199,
+      "lambda_drift": 0.2893312953392422,
+      "timing_passed": false,
+      "kappa_passed": false,
+      "gate_passed": false
+    },
+    "Pk": {
+      "14": {
+        "cost_ratio": 0.5049460244153328,
+        "relative_deviation_from_linear": 0.009892048830665523,
+        "MSE_over_C": 1.5094681062420192
+      },
+      "20": {
+        "cost_ratio": 0.7166500511881253,
+        "relative_deviation_from_linear": 0.00331007166337538,
+        "MSE_over_C": 1.496923838069763
+      }
+    },
+    "Pk_closed": true,
+    "frames_generated": 0
+  },
+  "decision": {
+    "verdict": "NO_GO_S1_GATE",
+    "go": false,
+    "failed_gates": [
+      "P/D <= 0.5",
+      "amplitude kappa < 0.45"
+    ],
+    "S2_completed": 0,
+    "S2_planned": 8,
+    "S2_rows": "all NOT_REACHED",
+    "b_endpoint_go": null,
+    "c_endpoint_go": null,
+    "endpoint_quality": "NOT_EVALUATED",
+    "CFG_branch_endpoint_closure": "NOT_EVALUABLE_WITHOUT_S2_AND_WITHOUT_RAW_ENDPOINT_ARM",
+    "Pk_verdict": "LOCALLY_CLOSED_K20_MSE_OVER_C_EXCEEDS_0_5",
+    "posthoc_tuning": false,
+    "reruns": 0,
+    "limitation": "One exposed O1 R18C local state; no b/c endpoint video or LPIPS conclusion."
+  },
+  "LPIPS": {
+    "status": "SKIPPED",
+    "reason": "S1_GATE_STOP; no complete 8-video S2 collection",
+    "new_pairs": 0,
+    "reused_scores_recomputed": 0
+  },
+  "lifecycle": {
+    "status": "ORIGINAL_LIFECYCLE_AUDITED_NOT_SCIENTIFIC_ACCEPTANCE",
+    "launch_id": "4fbe2d7463614c2e9fc40cca8ab34bf1",
+    "actual_GPUh": 0.10446689446870651,
+    "cost_settled": true,
+    "original_processes_ended": true,
+    "GPU_released": true,
+    "mode_restored": true,
+    "container_exit_success": true,
+    "hard_limit_exceeded": false,
+    "complete_search_accepted": false,
+    "scientific_read_allowed": false,
+    "dispatch_allowed": false,
+    "authorizes_replay": false,
+    "CPU_fixture_only": false,
+    "GPU_submissions": 0,
+    "ledger_written": false,
+    "guardian_terminal_status": "BUDGET_CALIBRATION_GUARDIAN_TERMINAL",
+    "container_exit_code": 0,
+    "OOMKilled": false,
+    "started_Asia_Shanghai": "2026-11-06T01:30:58.276043+08:00",
+    "ended_Asia_Shanghai": "2026-11-06T01:37:14.356878+08:00",
+    "wall_seconds": 376.08082008734345
+  },
+  "ledger": {
+    "reservation_sequence": 105,
+    "reservation_GPUh": 1.05,
+    "reservation_outcome": "SETTLED",
+    "settlement_sequence": 106,
+    "actual_GPUh": 0.10446689446870651,
+    "unused_headroom_GPUh": 0.9455331055312935,
+    "cumulative_used_GPUh": 232.6049995725559,
+    "total_reserved_GPUh": 16.5,
+    "old_responsibility_GPUh": 16.5,
+    "other_jobs_unchanged": true,
+    "single_settlement_event": 1,
+    "stage_settlement_sha256": "99383e15a536197292a03b94ad1d4413d0f8b3aa1015c479a236d5218e723277"
+  },
+  "provenance": {
+    "s1.json": {
+      "remote_path": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-sparse-refresh-probe-r1-20261105/s1.json",
+      "sha256": "9b3ed70ad3b626485c87947150fb360e4370a93c62889d914d9daf74c3a5f939"
+    },
+    "collection.json": {
+      "remote_path": "/data20t/gaokuangda/worldcache_workspace/outputs/cara-sparse-refresh-probe-r1-20261105/collection.json",
+      "sha256": "73a961cee22f20c100ca789a9b855924c74967ba7e4c57c6f9778df3aca2ae5e"
+    }
+  },
+  "blockers": []
+}

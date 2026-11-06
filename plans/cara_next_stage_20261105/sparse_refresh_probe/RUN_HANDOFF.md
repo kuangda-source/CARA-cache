@@ -1,6 +1,6 @@
-# Sparse refresh probe R1 — original launch active; recover only
+# Sparse refresh probe R1 — S1 gate-stop completed and settled
 
-The authorized original GPU session has launched; do not repeat launch, deploy, CPU, provision or reservation. Use status/capture for this exact launch. No routine was created. Design is fixed at b/c x O1/O3/N1/N3, S1 local raw/sync, same-age synthetic A anchor, and dual gate P/D<=0.5 AND amplitude kappa<0.45. Hard1.05GPUh; quote center0.962497396, range[0.875376657333,1.006057765333].
+The original session completed S1, failed both frozen gate conditions and exited0 without S2. Its unique terminal capture and actual settlement are complete (seq106,0.10446689446870651GPUh). Do not repeat launch, deploy, CPU, provision, reservation, capture or settlement. See reports/cara_sparse_refresh_probe_r1_20261105/report.md and analysis.json for accepted facts. No routine was created. Design is fixed at b/c x O1/O3/N1/N3, S1 local raw/sync, same-age synthetic A anchor, and dual gate P/D<=0.5 AND amplitude kappa<0.45. Hard1.05GPUh; quote center0.962497396, range[0.875376657333,1.006057765333].
 
 From the CARA-cache repository root, the **original launch command (already executed; do not replay)** was:
 
@@ -20,13 +20,13 @@ Remote project R=/data20t/gaokuangda/worldcache_workspace; stage S=$R/.sync/cara
 
 The single session runs S1 once:28 parent steps,20 local29 evaluations, next30 raw/sync/no-P comparisons, no video. It writes O/s1.json. Gate failure writes S1_GATE_STOP with8 NOT_REACHED S2 rows, exits0 and releases normally; no S2. Gate pass runs8 b/c videos in the existing full-request routes and writes O/collection.json. Halfway means S1 complete plus4/8 S2. No extra checkpoints, automatic retries, heartbeat, scheduler or cron. Original actual-start timings and reservation sequence are recorded below. Guardian hard limit3780s and stop-new-work/release margin600s remain unchanged.
 
-One future terminal `capture`, then exactly one `settle` use the same lifecycle. Example capture (read-only):
+The original terminal `capture` and exactly one `settle` completed using the same lifecycle. The following capture command is historical and must not be repeated:
 
 ```sh
-.venv/bin/python plans/cara_next_stage_20261105/sparse_refresh_probe/ops.py capture --route relay --receipt /tmp/cara_sparse_terminal.json
+.venv/bin/python plans/cara_next_stage_20261105/sparse_refresh_probe/ops.py capture --route relay --receipt reports/cara_sparse_refresh_probe_r1_20261105/terminal_capture.json
 ```
 
-The settlement input is the existing lifecycle envelope `{capture: <terminal capture>, launch_sha256: <original launch SHA>}`; pass it to `ops.py settle --input <file> --route relay --receipt <new receipt>`. Settle actual wall cost even on S1 gate stop; preserve old16.5. Only a complete8-video S2 collection is eligible for the postrelease CPU LPIPS scorer. It reuses Native/R18C unchanged. This launch task performs no settlement; capture the original terminal and settle its actual cost once later.
+The completed settlement used the lifecycle envelope `{capture: <terminal capture>, launch_sha256: <original launch SHA>}` with `ops.py settle --input <file> --route relay --receipt <new receipt>`. It settled actual wall cost on S1 gate stop and preserved old16.5. Only a complete8-video S2 collection is eligible for the postrelease CPU LPIPS scorer. It reuses Native/R18C unchanged. The original settlement is now saved as reports/cara_sparse_refresh_probe_r1_20261105/settlement.json and mirrored to S/central-settlement.json; never settle again. The canonical settlement input was {capture: terminal_capture.json content, launch_sha256: ddcbcf72262217d2cb30af33e902156e79368378c76472bc226d3f2599598956}. LPIPS was skipped because S2 completed0/8.
 
 Local checks:
 
@@ -69,4 +69,11 @@ Fresh read-only precheck found confirm10 running=false/claiming=false and no com
 | Stop new work / release begins (start+3180s) | 02:23:58.276 |
 | Hard wall deadline (start+3780s) | 02:33:58.276 |
 
-Original guardian1441006, container CLI1441035, supervisor1441097, runner1441139 (PID/start-ticks in startup.json). Sole-runner CUDA context was granted at01:31:08.322. The first S1 O1 prefix request began at01:32:51; prompt guardrail passed at01:33:12 and the first denoising step was observed by01:33:51. S1 completion and the scientific gate remain pending. Halfway is **S1 done +4/8 S2** (5/9 parent/video requests), conditional on the frozen S1 gate passing. S1 gate stop is a terminal outcome and skips S2. The above ETA includes quoted load/release allowances and is not a measured completion guarantee. No monitoring routine, retry or extra GPU submission is installed.
+Original guardian1441006, container CLI1441035, supervisor1441097, runner1441139 (PID/start-ticks in startup.json). Sole-runner CUDA context was granted at01:31:08.322. The first S1 O1 prefix request began at01:32:51; prompt guardrail passed at01:33:12 and the first denoising step was observed by01:33:51. At that startup observation, S1 completion and the scientific gate were pending; the terminal acceptance below supersedes that observation. Halfway is **S1 done +4/8 S2** (5/9 parent/video requests), conditional on the frozen S1 gate passing. S1 gate stop is a terminal outcome and skips S2. The above ETA includes quoted load/release allowances and is not a measured completion guarantee. No monitoring routine, retry or extra GPU submission is installed.
+
+
+## Terminal acceptance — 2026-11-06
+
+Original run/launch/GPU identities are unchanged. S1_COMPLETE; S1_GATE_STOP; S2 all8 NOT_REACHED. P/D=0.5013310384683857 fails<=0.5; amplitude kappa=0.6362258732588199 fails<0.45. Overall NO_GO_S1_GATE; b/c endpoint Go criteria are unevaluated. P_k locally closed by k20 MSE/C=1.496923838069763>0.5. No LPIPS or endpoint claim.
+
+Original guardian wall376.08082008734345s (01:30:58.276–01:37:14.357 Asia/Shanghai); container exited0, no OOM, all original processes ended, GPU released/Default restored/locks free. One capture and one settle accepted. Ledger seq105 reservation1.05GPUh -> seq106 SETTLED actual0.10446689446870651GPUh. Cumulative used232.6049995725559GPUh; remaining reserved16.5GPUh, old responsibility untouched. Other ledger jobs were unchanged. Remote S/central-settlement.json holds the exact unique receipt so status reports settlement rather than pending. No source redeployment or new GPU process occurred. Do not resume, re-reserve, score S2, or settle this original again. Evidence and the S1-only decision are in reports/cara_sparse_refresh_probe_r1_20261105/report.md, analysis.json, terminal_capture.json and settlement.json.
