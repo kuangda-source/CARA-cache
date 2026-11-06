@@ -2,7 +2,7 @@
 
 run_id `cara-generator-v1-confirm10-continuation-r1-20261106`。25 formal、0 warm，硬限 **2.2 GPUh**，中心 **2.0062773472222224 GPUh**，请求和 **5475.0895** 秒。`authority.user_quote` 是启动原话；`execution_authorized=true`、`ledger_reservation_authorized=true`、`sync_launch_authorized=true`；`this_commit_dispatches=false`。`quote.json` 同样是 `execution_authorized=true`、`GPU_dispatch_ready=true`。准备阶段「只做 CPU、不上卡」留在 `preparation_authority`。本 handoff 仍不自己启动、不联网、不碰账本。scope_sha256 `fbe474f85fbd775d3d0514468cde33a76d4749b8672abbb8b45ac6445c77153d`，随这次 authority/preference 重算；25 请求、报价和原 21 份 hash 不变。
 
-`payload()` 把 `authority.user_quote` 和 `gpu_uuid` 写入授权。reserve 仍核对 `execution_authorized`、`billed_limit_GPUh==2.2` 和 `forecast_GPUh==2.0062773472222224`。
+`payload()` 写入 `authority.user_quote` 和 `gpu_uuid`。`execution_authorized` 只在冻结 scope 里该字段为 true，且 `user_quote` 不是 CPU-only `preparation_authority` 时才为 true。admit 核对 `forecast_GPUh<=limit`；reserve 核对 `execution_authorized` 与 `billed_limit_GPUh==limit`（硬限 2.2）。预报中心 2.0062773472222224 被记录，不是等号门。
 
 ## 空闲 A6000
 
@@ -10,7 +10,7 @@ run_id `cara-generator-v1-confirm10-continuation-r1-20261106`。25 formal、0 wa
 
 ops 只在启动时解析一次 UUID，再把同一个值放进 Linux admit 的 `gpu_uuid`、`launch_host` 的 `selected_gpu(GPU)` 和 `payload` 的 `gpu_uuid`。门限不降低：Default、无 compute pid、显存 ≤1024MiB、utilization 0、`temperature_C<90`、MemAvailable ≥50GiB，以及该 UUID 的 `gpu-locks/<uuid>.lock` 与 `.mode-owner.lock` 空闲。省略 `--gpu-uuid` 时用 `gpu_uuid` 这张优先卡。
 
-reserve/dispatch 前还要过 Linux CPU proof、source hash、asset、storage，以及 `verify-inherited` 核对原 21 份输出。都通过后才按中心 2.0062773472222224、硬限 2.2 唯一预留并 dispatch 一次。不探四卡，不改别人的进程。90°C 自动停、50GiB 和 4GiB 低水位都不降低。容器内存仍是 40g。新的 16GiB 私有输出卷只给本 run；原 confirm10 的 loop 和 collection 只读，不重写。
+reserve/dispatch 前还要过 Linux CPU proof、source hash、asset、storage，以及 `verify-inherited` 核对原 21 份输出。都通过后才按硬限 2.2 唯一预留并 dispatch 一次。不探四卡，不改别人的进程。90°C 自动停、50GiB 和 4GiB 低水位都不降低。容器内存仍是 40g。新的 16GiB 私有输出卷只给本 run；原 confirm10 的 loop 和 collection 只读，不重写。
 
 先在能读到原 21 份文件的现场做只读 hash 核对，通过后才允许预留：
 
