@@ -33,3 +33,7 @@ No GPU was dispatched, restarted or reserved by takeover; no k18, P probe, score
 Further scientific execution is paused pending prospective handling of the new C07 video rejection and any new-run scope and quote. Do not silently drop or replace C07, shrink the nine-input denominator, retry rejected samples, lower guardrails or continue the settled run. Existing outputs remain retained.
 
 Evidence: [terminal capture](terminal_capture.json), [unique settlement](central_settlement.json), [release audit](release.json), [final status](final_status.json), [original-byte collection](collection.json), [failure evidence](failure_evidence.json), [outcome and hash inventory](outcome_summary.json).
+
+## Publication status
+
+All new evidence is retained locally on branch `codex/confirm10-failed-closeout-20261106`. Pushing that branch was denied by automatic approval review before execution. The connected GitHub metadata confirms `kuangda-source/CARA-cache` is **public**, contrary to the repository guidance calling it private. No remote branch or PR was created, no alternate publishing route was attempted, and PR3/PR4 were not approved or merged. Explicit user authorization is required before publicly publishing these detailed experiment/settlement records or a reviewed redacted subset. See [publication status](publication_status.json).
