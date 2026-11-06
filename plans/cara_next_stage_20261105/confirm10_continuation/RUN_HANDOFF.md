@@ -58,3 +58,26 @@ PY_SCORE
 ```
 
 分析分母是九输入、36 对。C05 不进入分母。在 36 对齐全之前，结果状态保持 NOT_RUN，不把部分结果写成主终点成功。k18 等这次续跑完成、结算并释放后再单独开卡。
+
+
+## Unique GPU launch — actual execution
+
+User's existing approval above was executed once. Run `cara-generator-v1-confirm10-continuation-r1-20261106`, launch `e6d9ad460313484caa8f10a9b842e387`; selected A6000 `GPU-cebf7119-cf03-23b9-e192-cd196332b704`. Frozen source `4a8eb2aa5cc9a9cfc26147928cb36b1755bd8a38`, scope `fbe474f85fbd775d3d0514468cde33a76d4749b8672abbb8b45ac6445c77153d`. `verify-inherited` used the exact read-only artifact verifier on the server: 21 outputs/42 latent+video files match, with the original settlement and 16 inherited scores checked locally; no inherited LPIPS was recalculated. Linux production CPU exited0 with50 tiny requests andCUDA=false. Route `two_card_relay` throughout; no P/k18 execution or source deployment.
+
+Actual guardian/bill start **2026-11-06T11:57:26+08:00**; Docker StartedAt `2026-11-06T03:57:28.024404569Z`. Center2.0062773472222224GPUh, range1.7021057083333335–2.1583631666666667GPUh; hard2.2GPUh. Estimated wall2h00m22.598s, ETA **2026-11-06T13:57:49+08:00**. Stop-new-work **2026-11-06T13:59:26+08:00**, hard-stop **2026-11-06T14:09:26+08:00**. Optional manual halfway estimate **2026-11-06T12:58:18+08:00** at13/25; no scheduled check or monitor was created. These ETAs are estimates; hard deadlines come from the actual guardian start.
+
+Central reservation **seq107**, event`CONFIRM10_CONTINUATION_WHOLE2_2_RESERVE`,2.2GPUh exactly once. After reserve: cumulative used **232.6049995725559**, reserved **18.7** =old16.5+this2.2. Legacy cap250/available`-1.3049995725558965` are compatibility fields under the no-cumulative-cap policy. Original confirm10 is alreadySETTLED and unchanged; this run remains RESERVED_OR_RUNNING and is not yet settled.
+
+Fresh admission: MemAvailable53.182117GiB; selectedGPU Default/no compute/24MiB/45C. New private16GiB ext4 `/dev/loop58`, image`generator-v1-confirm10-continuation-r1/output.ext4`; output mount`/media/minchen/4def5c03-8324-4cba-ac0b-9fda7c79dc7b/gkd/cara_cal66_sm86_workspace/outputs/cara-generator-v1-confirm10-continuation-r1-20261106`. Container Memory/MemorySwap `42949672960`/`42949672960` bytes. Gates50GiB/90C/4GiB are unchanged. Original output volume is mounted read-only for inheritance, not rewritten.
+
+One start confirmation: Running=True, OOMKilled=False; collection 尚未生成，首条 CONFIRM10_027 的 RUNNING 未在本次检查中取得；日志已到 Inference 保存 config，GPU runner 占用显存；original handles: guardian PID 1530999/start_ticks 723234950, container_cli PID 1531029/start_ticks 723235117, supervisor PID 1531086/start_ticks 723235159, runner PID 1531132/start_ticks 723235284. Liveness evidence and GPU compute process/VRAM are in`start_confirmation.json`. Confirmation ends here; no continuous monitoring.
+
+Read-only status from the project root:
+
+```sh
+worldcache_omr/.venv/bin/python worldcache_omr/plans/cara_next_stage_20261104/sensitivity/ops.py status --manifest worldcache_omr/plans/cara_next_stage_20261105/confirm10_continuation/manifest.json --gpu-uuid GPU-cebf7119-cf03-23b9-e192-cd196332b704 --route relay --receipt /tmp/cara_confirm10_continuation_status_$(date +%s).json
+```
+
+The terminal capture→settle input→unique settle→CPU score→analyze templates above still bind this manifest. Financial response loss must recover the same transaction. Score only after25/25 and full release/settlement; reuse16 scores and compute only20 new pairs, then report the nine-input/36-pair endpoint. All receipts from this launch are under`reports/cara_generator_v1_confirm10_continuation_r1_20261106/`.
+
+Terminal CPU wiring note: the frozen GPU payload contains the inherited identities in the manifest, but not the original `central_settlement.json` and `partial_scores.json` files read by `require_original_settlement`/`require_inherited_scores`. Also the shared `postrun.py` score operator currently expects `native_references` for every custom scorer, while this manifest gets fresh Native references from its collection. Before terminal CPU scoring, minimally bind the two unchanged receipts into a separate CPU scoring context and adapt that operator's Native mounting for this manifest. Do not redeploy or change the running GPU stage. No scorer was launched in this session.
