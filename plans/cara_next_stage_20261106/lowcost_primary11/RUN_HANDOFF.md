@@ -11,7 +11,7 @@ Report delivery counts on all nine inputs separately from LPIPS/T_DD/T_request o
 Use a new immutable stage and local committed source, never resume either settled original. Existing21 outputs/42 hashes andC06 five outputs/10 hashes are read-only; score receipt bytes are pinned. Terminal capture, financial/resource release and unique settlement precede accepted-output CPU scoring in an independent context. Linux tiny-model CPU validation must cover both refusal types continuing, no duplicate attempts, and resource-error stop, as well as the exact11-entry sampling pipeline. This is a locally committed scope; user forbids public synchronization.
 
 ## Current execution state
-Prepared locally, no GPU reservation/dispatch yet. Fixedscope fe45b4538fe2b82f883ae1037e2a4716e27c5ffc19999142ab18d6c93b3fe0e9. Use original sensitivity ops with this manifest; only one admit/reserve/dispatch. Do not create routines or continuous polling.
+Historical preparation snapshot (superseded by the launch and final closeout below). Fixedscope fe45b4538fe2b82f883ae1037e2a4716e27c5ffc19999142ab18d6c93b3fe0e9. Use original sensitivity ops with this manifest; only one admit/reserve/dispatch. Do not create routines or continuous polling.
 
 ## Unique actual GPU launch
 
@@ -24,3 +24,11 @@ Afterterminal: ops.py capture→unique settle withlaunchSHA→mirror samecentral
 ## Single halfway observation
 
 At2026-11-06T14:13:55+08:00:6COMPLETE,2VIDEO_REJECTED(C07R18C/Native),048NativeC10RUNNING,049F17/050R18NOT_REACHED. GPUcontainerRunning/OOMfalse; onlyoriginalrunnerPID1572144 onselectedGPU. Nextone-shotterminalobservation2026-11-06T14:29:00+08:00 basedonlastthreefrozenrequests; hardstopunchanged14:57:37. NoGPUreplay/retry orsourcechange. Sourceoftruthreports/cara_primary11_r1_20261106/halfway_status.json.
+
+## FINAL: authorized validation closed
+
+All11 terminal:9COMPLETE,2VIDEO_REJECTED(C07R18C033/Native036); noNOT_REACHED. C07 priorF17 refusal032 retained; allthree primary methods8/9delivery. GPUexited0/OOMfalse06:25:32Z, originalhandlesended,locksfree,Defaultrestored. Solecentralsettlementseq110actual0.7657362636372758GPUh,unused0.5342637363627242released; cumulative233.77934207393437/oldunknown16.5unchanged. DoNOTsettle/reserve/dispatchagain.
+
+CPU6newfull93pairsended0/CUDAfalse06:35:53Z;10primarypairsreused unchanged. Conditional8inputs R18LPIPS0.1653576950512586/F170.24952335524502942,8/8improved; pairedmean−0.08416566019377081,descriptiveCI[−0.11042611857735983,−0.056692747409225155]. R18T_DD1.9412770823670105x/fullrequest1.645919259373486xvsNative,matchedmeans. Original9/10fullLPIPSendpointsstillNOT_EVALUABLE; nogatebypass. Allvalid26pairs=old16+C06four+sixnew;auxR16/R21remainfive-driving-only.
+
+Reportandreproducibleevidence:reports/cara_primary11_r1_20261106/REPORT.md,FINAL_OUTCOME.json,terminal_capture.json,central_settlement.json,artifact_evidence_r2.json,primary_CPU_terminal.json,complete_analysis.original.json. Preservefirstoperatorerrors(optionaloldlatentbytes,hostPythonpath); noGPU/LPIPS/settlementreplay. UserpausesORR/newmodules/otherGPU; nopublicpush/PRapproval/merge.

@@ -23,8 +23,10 @@ def check(row,origin):
  result=row.get('result',row)
  for key in ('latent_artifact','video_artifact'):
   artifact=result[key];path=pathlib.Path(artifact['path'])
-  assert path.stat().st_size==artifact['bytes'] and sha(path)==artifact['sha256']
-  verified.append(dict(id=row['slot']['id'],origin=origin,kind=key,**artifact))
+  size=path.stat().st_size
+  assert sha(path)==artifact['sha256']
+  if 'bytes' in artifact:assert size==artifact['bytes']
+  verified.append(dict(id=row['slot']['id'],origin=origin,kind=key,actual_bytes=size,**artifact))
 for row in card['inherited_outputs']['rows']:check(row,'original_confirm10')
 for row in card['retained_C06']['rows']:check(row,'retained_C06')
 masks=[]
@@ -75,20 +77,22 @@ v=dict(state=json.loads(q.stdout) if q.returncode==0 else None)
 if (control/'scores.json').exists():v['scores']=read(control/'scores.json')
 if v['state'] and not v['state']['Running']:
  q=subprocess.run(['docker','logs','--tail','20',name],capture_output=True,text=True);v['logs']=(q.stdout+q.stderr)[-4000:]
+ if (control/'scores.json').exists():
+  raw=(control/'scores.json').read_bytes();v['scores_sha256']=hashlib.sha256(raw).hexdigest();v['scores_raw_b64']=base64.b64encode(raw).decode()
 print(json.dumps(v))
 '''
 
 ANALYZE = PREFIX + '''
 control=stage/'released-primary-score-control';target=control/'complete_analysis.json';card=read(card_path)
 if target.exists():
- print(json.dumps(dict(status='RECOVER_EXISTING_ANALYSIS',analysis=read(target))));raise SystemExit
+ print(json.dumps(dict(status='RECOVER_EXISTING_ANALYSIS',analysis=read(target),analysis_sha256=sha(target),analysis_raw_b64=base64.b64encode(target.read_bytes()).decode())));raise SystemExit
 assert read(control/'scores.json')['status']=='ACCEPTED_OUTPUT_SCORES_COMPLETE'
 name=stage.name+'-primary-score';state=json.loads(subprocess.check_output(['docker','inspect','--format','{{json .State}}',name],text=True))
 assert not state['Running'] and state['ExitCode']==0 and not state['OOMKilled']
 env=dict(os.environ,CUDA_VISIBLE_DEVICES='',NVIDIA_VISIBLE_DEVICES='void',PYTHONDONTWRITEBYTECODE='1')
-cmd=[str(root/'envs/wc-cosmos-py310-cu128-r3/bin/python'),str(stage/card['postrelease_CPU_entry']),'analyze','--manifest',str(card_path),'--collection',str(root/'outputs'/run/'collection.json'),'--scores',str(control/'scores.json'),'--output',str(target)]
+cmd=[sys.executable,str(stage/card['postrelease_CPU_entry']),'analyze','--manifest',str(card_path),'--collection',str(root/'outputs'/run/'collection.json'),'--scores',str(control/'scores.json'),'--output',str(target)]
 q=subprocess.run(cmd,capture_output=True,text=True,timeout=900,env=env)
-print(json.dumps(dict(exit_code=q.returncode,stdout=q.stdout,stderr=q.stderr,analysis=read(target) if target.exists() else None)))
+print(json.dumps(dict(exit_code=q.returncode,stdout=q.stdout,stderr=q.stderr,analysis_python=sys.version,analysis=read(target) if target.exists() else None,analysis_sha256=sha(target) if target.exists() else None,analysis_raw_b64=base64.b64encode(target.read_bytes()).decode() if target.exists() else None)))
 '''
 
 
