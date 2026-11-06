@@ -1,0 +1,109 @@
+{
+  "anchors": {
+    "basis": "CAL35 complete T_request interpolation, user-specified six-decimal coefficients; light C cost0. GPU bill excludes released CPU scoring.",
+    "CAL35_ref": "reports/cara_f19_speed190_complete_r1_20261103/complete_analysis.json",
+    "marginal_seconds": {
+      "shared": 70.734852,
+      "D": 6.77226,
+      "A": 0.993956,
+      "original_C": 0.637948
+    },
+    "native36_assumption": "36 actual D updates in the same formula",
+    "predicted_T_DD_seconds": {
+      "NATIVE35": 252.65663431,
+      "F17_A2_LIGHT_C": 131.65259999174998,
+      "R16C": 116.47,
+      "R18C": 130.09,
+      "R21C": 150.52
+    },
+    "predicted_T_DD_sources": "Native/F17 CAL35 means; generated arms use frozen7.51+6.81*nD+0.85*nA. k18 deferred."
+  },
+  "request_prices_seconds": {
+    "NATIVE35": 314.53621200000003,
+    "F17_A2_LIGHT_C": 195.802832,
+    "R18C": 192.635532,
+    "R16C": 179.091012,
+    "R21C": 212.952312
+  },
+  "request_sum_seconds": 5475.0895,
+  "formal_request_seconds": 5475.0895,
+  "warm_request_seconds": 0,
+  "forecast_GPUh": 2.0062773472222224,
+  "range_GPUh": [
+    1.7021057083333335,
+    2.1583631666666667
+  ],
+  "hard_GPUh": 2.2,
+  "hard_limit_is_suggestion_only": false,
+  "expected_wall_hours": 2.0062773472222224,
+  "expected_wall_seconds": 7222.59845,
+  "model_load_seconds": 600,
+  "release_margin_seconds": 600,
+  "formal_requests": 25,
+  "warm_requests": 0,
+  "total_requests": 25,
+  "warm_roles": [],
+  "approval_required_for_any_run": true,
+  "user_approved": true,
+  "GPU_submissions": 0,
+  "ledger_reservations": 0,
+  "arithmetic_verification": {
+    "formula": "T_request=70.734852+6.772260*nD+0.993956*nA+0.637948*nC; light C cost 0; center=(1.1*sum+1200)/3600; range=(0.9*sum+1200)/3600 to (1.2*sum+1200)/3600; hard=ceil(upper*10)/10",
+    "one_of_each_seconds": 1095.0179,
+    "request_sum_seconds": 5475.0895,
+    "supplied_request_sum_seconds_not_used": 5465.0538,
+    "supplied_center_GPUh_not_used": 1.919259795,
+    "supplied_range_GPUh_not_used": [
+      1.586821375,
+      2.1223512
+    ],
+    "supplied_hard_GPUh_not_used": 2.1,
+    "thirty_request_quote_not_used": {
+      "request_sum_seconds": 6570.1074,
+      "forecast_GPUh": 2.34086615,
+      "hard_GPUh": 2.6
+    },
+    "measured_partial_means_not_used": true,
+    "reason": "The supplied 5465.0538/1.919259795/2.1 triple is not the preregistered formula on the unchanged per-request prices. The 30-request quote still includes C05. Partial measured means stay context, not a new anchor."
+  },
+  "mask_summary": {
+    "NATIVE35": {
+      "mask": "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD",
+      "D": 36,
+      "A": 0,
+      "C": 0,
+      "actual_updates": 36
+    },
+    "F17_A2_LIGHT_C": {
+      "mask": "DDDDDDDDADADADADADADDAADAACCCCCCCCCD",
+      "D": 17,
+      "A": 10,
+      "C": 9,
+      "actual_updates": 36
+    },
+    "R18C": {
+      "mask": "DDDDDDDDDDDDCDCDCCDCCDCCCDCCCCCCCCCD",
+      "D": 18,
+      "A": 0,
+      "C": 18,
+      "actual_updates": 36
+    },
+    "R16C": {
+      "mask": "DDDDDDDDDCDCDCDCDCCDCCCDCCCCCCCCCCCD",
+      "D": 16,
+      "A": 0,
+      "C": 20,
+      "actual_updates": 36
+    },
+    "R21C": {
+      "mask": "DDDDDDDDDDDDDDDCDCDCDCCDCCCDCCCCCCCD",
+      "D": 21,
+      "A": 0,
+      "C": 15,
+      "actual_updates": 36
+    }
+  },
+  "blocked": false,
+  "execution_authorized": false,
+  "GPU_dispatch_ready": false
+}

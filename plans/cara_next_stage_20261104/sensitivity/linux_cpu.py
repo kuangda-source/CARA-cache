@@ -50,6 +50,9 @@ if 'carryover' in card:
     for row in card['carryover']['rows']:
         for key in ('latent_artifact','video_artifact'):
             assert Path(row['result'][key]['path']).is_file(), 'Carried artifact is outside the container mounts'
+if 'inherited_outputs' in card:
+    from runner import assert_inherited_hashes
+    assert_inherited_hashes(card)
 if card.get('host_memory_logging'):
     from runner import log_host_memory
     log_host_memory(STAGE/'CPU-host-memory.jsonl','CPU_ENTRY')

@@ -81,6 +81,8 @@ if 'reuse' in card:
  source=pathlib.Path(card['reuse']['output_root']).resolve();cmd += ['-v',str(source)+':'+str(source)+':ro']
 if 'carryover' in card:
  source=pathlib.Path(card['carryover']['output_root']).resolve();cmd += ['-v',str(source)+':'+str(source)+':ro']
+if 'inherited_outputs' in card:
+ source=pathlib.Path(card['inherited_outputs']['output_root']).resolve();cmd += ['-v',str(source)+':'+str(source)+':ro']
 cmd += [read(stage/'registration.json')['container_image'],'timeout','--signal=TERM','--kill-after=15s','1800',
  str(root/'envs/wc-cosmos-py310-cu128-r3/bin/python'),str(stage/rel/'linux_cpu.py'),'--manifest',str(card_path)]
 create(stage/'CPU-intent.json',dict(command=cmd,GPU_submissions=0))
@@ -261,6 +263,9 @@ def launch_host(project,stage):
         command[j:j]=['-v',str(source)+':'+str(source)+':ro']
     if 'carryover' in card:
         source=Path(card['carryover']['output_root']).resolve()
+        command[j:j]=['-v',str(source)+':'+str(source)+':ro']
+    if 'inherited_outputs' in card:
+        source=Path(card['inherited_outputs']['output_root']).resolve()
         command[j:j]=['-v',str(source)+':'+str(source)+':ro']
     from wcomr.cara_budget_lifecycle_r1 import IDENTITY
     launch={k:auth[k] for k in IDENTITY}

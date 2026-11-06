@@ -47,6 +47,8 @@ if 'reuse' in card:
  source=pathlib.Path(card['reuse']['output_root']).resolve();cmd += ['-v',str(source)+':'+str(source)+':ro']
 if 'carryover' in card:
  source=pathlib.Path(card['carryover']['output_root']).resolve();cmd += ['-v',str(source)+':'+str(source)+':ro']
+if 'inherited_outputs' in card:
+ source=pathlib.Path(card['inherited_outputs']['output_root']).resolve();cmd += ['-v',str(source)+':'+str(source)+':ro']
 if 'postrelease_CPU_entry' in card:
  worker=[str(stage/card['postrelease_CPU_entry']),'score','--manifest',str(card_path),
   '--collection',str(output/'collection.json'),'--capture',str(control/'capture.json'),

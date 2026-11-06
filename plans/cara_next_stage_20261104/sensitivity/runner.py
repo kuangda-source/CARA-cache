@@ -13,7 +13,46 @@ ROOT = HERE.parents[2]
 sys.path[:0] = [str(HERE),str(ROOT/'src'),str(ROOT/'scripts')]
 
 
+def assert_inherited_hashes(card):
+    """Read-only check that the original 21 complete outputs still match their hashes."""
+    from wcomr.gpu_budget_pool_v2 import sha
+    spec=card['inherited_outputs']
+    rows=spec['rows']
+    ids=[f'CONFIRM10_{i:03d}' for i in range(1,22)]
+    excluded=[f'CONFIRM10_{i:03d}' for i in range(22,27)]
+    if (spec['count']!=21 or spec['formal']!=20 or spec['warm']!=1 or len(rows)!=21
+            or spec['ids']!=ids or spec['excluded_ids']!=excluded):
+        raise ValueError('Inherited outputs must be the original 21 complete rows, with C05 excluded')
+    seen=[];formal=warm=0
+    for row in rows:
+        slot=row['slot']
+        if row['status']!='COMPLETE' or slot['member']==spec['excluded_member'] or slot['id'] in excluded:
+            raise ValueError('Inherited row is not a kept complete output')
+        seen.append(slot['id'])
+        warm+=slot['section']=='warm'
+        formal+=slot['section']!='warm'
+        for key in ('latent_artifact','video_artifact'):
+            art=row[key];path=Path(art['path'])
+            if not path.is_file() or path.stat().st_size!=art['bytes'] or sha(path)!=art['sha256']:
+                raise ValueError('Inherited artifact is not hash-reusable: '+slot['id'])
+    if seen!=ids or formal!=20 or warm!=1:
+        raise ValueError('Inherited id or section counts differ')
+
+
+def note_noncomplete(card,row,result,save):
+    """Record the returned refusal on the row, then stop. No retry and no input swap."""
+    if result['status']=='COMPLETE':
+        raise ValueError('Complete requests are stored by the collector')
+    if card.get('record_noncomplete_on_row'):
+        row['status']=result['status']
+        row['refusal']=dict(status=result['status'],solver_steps=result.get('solver_steps'),
+            guided_pairs=result.get('guided_pairs'))
+        save()
+    raise ValueError('Rejected/incomplete request; retain denominator, no replacement')
+
+
 def collect_loaded(inference,samples,card,common,output,storage,mode_types,*,cpu_validation=False):
+    if 'inherited_outputs' in card:assert_inherited_hashes(card)
     import torch
     from sampling import execute
     from wcomr.cara_f19_speed190_requests_r1 import Requests
@@ -77,7 +116,7 @@ def collect_loaded(inference,samples,card,common,output,storage,mode_types,*,cpu
                     checkpoint=states/f"state_before_{slot['target_update']:02d}.pt" if role in ('SINGLE_C','RESUME_D') else None,
                     target=slot['target_update'] if role in ('SINGLE_C','FULL_SINGLE_C') else None)
             if result['status']!='COMPLETE':
-                raise ValueError('Rejected/incomplete request; retain denominator, no replacement')
+                note_noncomplete(card,row,result,save)
             latent=result.pop('final_latent');result.pop('guided',None)
             tensor=output/(slot['id']+'.pt');torch.save(latent,tensor)
             result['latent_artifact']=dict(path=str(tensor),sha256=sha(tensor))
@@ -156,6 +195,7 @@ def main():
     envelope=read(args.stage/'central-reservation.json')
     if envelope['job']['job_id']!=card['run_id'] or envelope['job']['launch_id']!=launch['launch_id']:
         raise ValueError('Exact single central reservation required')
+    if 'inherited_outputs' in card:assert_inherited_hashes(card)
     command=[sys.executable,str(HERE/'runner.py'),'--project',str(args.project),'--stage',str(args.stage),
         '--manifest',str(args.manifest),'--source-revision',args.source_revision,'--gpu-uuid',args.gpu_uuid]
     validate_runner_handoff(args.stage,launch,sha(args.stage/'GPU-launch.json'),command)
