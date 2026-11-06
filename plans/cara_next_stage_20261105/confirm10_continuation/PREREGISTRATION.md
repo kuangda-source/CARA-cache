@@ -1,6 +1,6 @@
 # confirm10 continuation — skip C05, reuse C01–C04 by hash
 
-计划 run `cara-generator-v1-confirm10-continuation-r1-20261106`。本文件只预注册续跑；2026-11-06 用户确认的准备范围是：「确认重试 confirm10 续跑准备：跳过 C05，只做预注册和纯 CPU 验收，不上卡、不碰账本。」对真正续跑的原话是：「confirm10 跳过 C05 整组，不绕过护栏；精确重报后在空闲卡上续跑，硬限按重报，k18 等它完成后再跑。」这次提交不是 GPU 启动许可，不预留、不结算、不连接运行现场，也不动 P 探针或 k18。
+计划 run `cara-generator-v1-confirm10-continuation-r1-20261106`。准备阶段的原话「确认重试 confirm10 续跑准备：跳过 C05，只做预注册和纯 CPU 验收，不上卡、不碰账本。」只约束当时的准备提交。精确重报已经交付。用户对续跑的授权是：「confirm10 跳过 C05 整组，不绕过护栏；精确重报后在空闲卡上续跑，硬限按重报，k18 等它完成后再跑。」GPU 启动在这句授权内，每卡仍须 fresh。Linux CPU、source、asset、storage、owner lock，以及原 21 份输出 hash 核对通过后，才按中心 2.0062773472222224 GPUh、硬限 2.2 GPUh 做唯一 reserve/dispatch。`quote.json` 的 `execution_authorized` 与 `GPU_dispatch_ready` 为 true。manifest 里同名布尔仍为 false，它们在已冻结 scope 内，本修订不改 scope。本文件不启动、不联网、不碰账本，也不动 P 探针或 k18。
 
 原 run `cara-generator-v1-confirm10-r1-20261105` 保持原样：collection 仍是 `FAILED_NO_RETRY`，scope `9fb88510b5c5b30bde05f619ad60fa609359a76c6e627d79f27c6c52da0f1904`，launch `fe91fe0468944be18b8c0950c33e092b`，唯一结算 actual `1.3313886947699616` GPUh，billing `471f3b73d840cb841f7148fa77617d10f1491e62a276961a2825984f73ae4e42`。不改它的 collection、settlement 或 manifest。
 
@@ -8,7 +8,7 @@
 
 C01–C04 的 21 份已完成输出按原 inventory/collection 的 path、bytes 和 sha256 只读复用：CONFIRM10_001–021，其中 20 formal + 1 warm。四条 formal Native36 和 16 个已评分 Alex pair 也只复用，不重跑、不重评分。C05 `av_snowy_1_0` 的 CONFIRM10_022–026 整组不进入续跑，包括 TEXT_REJECTED 的 022。prompt、seed、mask 和 guardrail 都不改，不盲重试 022，也不换输入。
 
-续跑矩阵只保留原顺序的 CONFIRM10_027 至 CONFIRM10_051：25 formal、0 warm，C06–C10 各五臂。角色仍是 NATIVE35、F17-A2+lightC、R18C、R16C、R21C，代码与 light C 语义沿用原卡。
+续跑矩阵只保留原顺序的 CONFIRM10_027 至 CONFIRM10_051：25 formal、0 warm，C06–C10 各五臂。角色仍是 NATIVE35、F17-A2+lightC、R18C、R16C、R21C，代码与 light C 语义沿用原 run。
 
 科学分母是九个输入 C01–C04、C06–C10。五臂齐全时 36 个 Alex pair（16 个已继承 + 20 个新评分）。C05 不在配对分母。原十输入主终点保持 NOT_EVALUABLE。本预注册不宣称这九输入终点已经完成。
 

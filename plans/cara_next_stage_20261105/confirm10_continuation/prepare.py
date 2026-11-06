@@ -220,10 +220,10 @@ def build():
 if __name__ == '__main__':
     card = build()
     quote = dict(card['quote'], mask_summary=card['mask_summary'], blocked=False,
-        execution_authorized=False, GPU_dispatch_ready=False)
+        execution_authorized=True, GPU_dispatch_ready=True)
     for name, value in [('manifest.json', card), ('quote.json', quote)]:
         (HERE / name).write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n')
     print(json.dumps(dict(run_id=card['run_id'], requests=len(card['matrix']),
         request_sum_seconds=card['quote']['request_sum_seconds'], center=card['quote']['forecast_GPUh'],
         range=card['quote']['range_GPUh'], hard=card['quote']['hard_GPUh'],
-        scope_sha256=card['scope_sha256'], GPU_dispatch_ready=False)))
+        scope_sha256=card['scope_sha256'], quote_GPU_dispatch_ready=True)))

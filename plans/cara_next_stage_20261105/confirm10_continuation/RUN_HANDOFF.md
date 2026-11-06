@@ -1,12 +1,16 @@
 # confirm10 continuation handoff
 
-run_id `cara-generator-v1-confirm10-continuation-r1-20261106`。scope_sha256 `4a1a7ed73478e166f72d62b27b1faf8b49c09737702f19f64cf2c67aa100b100`。25 formal、0 warm，硬限 **2.2 GPUh**，中心 **2.0062773472222224 GPUh**，请求和 **5475.0895** 秒。`GPU_dispatch_ready=false`，`execution_authorized=false`。本 handoff 所在提交只完成预注册和纯 CPU 验收，不上卡、不碰账本、不连接远端。
+run_id `cara-generator-v1-confirm10-continuation-r1-20261106`。scope_sha256 `4a1a7ed73478e166f72d62b27b1faf8b49c09737702f19f64cf2c67aa100b100`，本修订不改 scope。25 formal、0 warm，硬限 **2.2 GPUh**，中心 **2.0062773472222224 GPUh**，请求和 **5475.0895** 秒。`quote.json` 为 `execution_authorized=true`、`GPU_dispatch_ready=true`。此前这两个 false，以及「下一次执行会话才算、本准备不把原话当放行」，是准备阶段限制。精确重报已经交付，GPU 启动在用户原批准范围内。本 handoff 仍不自己启动、不联网、不碰账本。
 
-用户已说精确重报后可在空闲卡上续跑，硬限按这次重报。那是下一次执行会话的事，而且必须 fresh。本准备不把该句当成已经放行的启动。
+manifest 的同名布尔保持 false，因为它们在冻结 scope 内。`plans/cara_next_stage_20261104/sensitivity/ops.py` 的 `payload()` 自行写入 `execution_authorized=True`，reserve 再核对该授权、`billed_limit_GPUh==2.2` 和 `forecast_GPUh==2.0062773472222224`。它不读 manifest 上那两个布尔。
 
-## 启动前必须 fresh
+## 空闲 A6000
 
-只使用一张空闲 A6000。优先原卡 `GPU-cebf7119-cf03-23b9-e192-cd196332b704`；该卡不是 Default、已有 compute app，或别人在跑，就不上。不占另一张卡，不探四卡，不改别人的进程。host available 必须 ≥50GiB，选中 GPU 温度必须 ≤90°C，输出磁盘必须 ≥4GiB。90°C 自动停、50GiB 和 4GiB 低水位都不降低。容器内存仍是 40g。新的 16GiB 私有输出卷只给本 run；原 confirm10 的 loop 和 collection 只读，不重写。
+用户允许任意一张空闲 A6000。优先 `GPU-cebf7119-cf03-23b9-e192-cd196332b704`，这不是强制。原卡忙时，`GPU-de9a5370-cd87-0f1c-a48e-288888777dd3` 只要自己的 fresh 门全过就可以跑。占用中的卡不抢。
+
+现有 ops 只认优先卡：`GPU='GPU-cebf7119-cf03-23b9-e192-cd196332b704'`，admit 和 launch-host 都把这个 UUID 交给 `selected_gpu`。该函数只查询给定 UUID，不扫描另一张空闲卡。manifest 的 `gpu_uuid` 已经是这张优先卡，因此当前 ops 只会 reserve/dispatch 它。改到 `GPU-de9a5370-cd87-0f1c-a48e-288888777dd3` 需要改 ops；本修订不改公共 ops，也不改 runner。
+
+reserve/dispatch 前必须过现有 admit：Linux CPU proof、source hash、asset、storage、该 UUID 的 `gpu-locks/<uuid>.lock` 与 `.mode-owner.lock` 空闲、Default、无 compute pid、显存 ≤1024MiB、utilization 0、`temperature_C<90`、MemAvailable ≥50GiB。然后 `verify-inherited` 核对原 21 份输出。都通过后才按中心 2.0062773472222224、硬限 2.2 唯一预留并 dispatch 一次。不探四卡，不改别人的进程。90°C 自动停、50GiB 和 4GiB 低水位都不降低。容器内存仍是 40g。新的 16GiB 私有输出卷只给本 run；原 confirm10 的 loop 和 collection 只读，不重写。
 
 先在能读到原 21 份文件的现场做只读 hash 核对，通过后才允许预留：
 

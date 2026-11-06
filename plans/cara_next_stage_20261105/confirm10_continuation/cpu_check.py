@@ -37,7 +37,7 @@ def main():
     disk = json.loads((HERE / 'manifest.json').read_text())
     quote = json.loads((HERE / 'quote.json').read_text())
     assert disk == card
-    assert quote['hard_GPUh'] == 2.2 and quote['execution_authorized'] is False
+    assert quote['hard_GPUh'] == 2.2 and quote['execution_authorized'] is True and quote['GPU_dispatch_ready'] is True
     assert card['untouched_sources'] == before
     original_prices = json.loads((ROOT / 'plans/cara_next_stage_20261105/confirm10/quote.json').read_text())['request_prices_seconds']
     prices = {name: original_prices[name] for name in ARMS}
@@ -171,13 +171,16 @@ def main():
     for needle in ('5475.0895', '2.0062773472222224', '1.7021057083333335', '2.1583631666666667', '2.2',
             'CONFIRM10_027', 'CONFIRM10_051', 'av_snowy_1_0', 'NOT_EVALUABLE'):
         assert needle in prereg
-    assert '4a1a7ed73478e166f72d62b27b1faf8b49c09737702f19f64cf2c67aa100b100' in handoff
-    assert '不上卡' in prereg and 'GPU_dispatch_ready=false' in handoff
+    assert card['scope_sha256'] == '4a1a7ed73478e166f72d62b27b1faf8b49c09737702f19f64cf2c67aa100b100'
+    assert 'execution_authorized=true' in handoff and 'GPU-de9a5370-cd87-0f1c-a48e-288888777dd3' in handoff
+    assert 'selected_gpu' in handoff and '准备阶段' in prereg
     assert 'k18' in prereg and 'P 探针' in prereg
     value = dict(passed=True, requests=25, formal=25, warm=0, scientific_inputs=9, planned_LPIPS_pairs=36,
         inherited_outputs=21, inherited_pairs=16, new_pairs=20,
         request_sum_seconds=raw, forecast_GPUh=center, range_GPUh=bounds, hard_GPUh=hard,
-        scope_sha256=card['scope_sha256'], GPU_dispatch_ready=False, ledger_reservations=0, GPU_submissions=0,
+        scope_sha256=card['scope_sha256'], scope_changed=False,
+        quote_execution_authorized=True, quote_GPU_dispatch_ready=True,
+        ledger_reservations=0, GPU_submissions=0,
         remote_calls=0, scientific_endpoint='NOT_RUN', original_files_unchanged=True)
     text = json.dumps(value, indent=2) + '\n'
     (HERE / 'cpu_check.json').write_text(text)
