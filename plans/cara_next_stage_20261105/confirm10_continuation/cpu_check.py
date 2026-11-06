@@ -56,8 +56,17 @@ def main():
     assert card['quote']['arithmetic_verification']['measured_partial_means_not_used'] is True
     assert card['quote']['anchors']['predicted_T_DD_seconds']['F17_A2_LIGHT_C'] == 131.65259999174998
 
-    assert card['GPU_dispatch_ready'] is False and card['authority']['execution_authorized'] is False
-    assert card['authority']['ledger_reservation_authorized'] is False
+    launch = 'confirm10 跳过 C05 整组，不绕过护栏；精确重报后在空闲卡上续跑，硬限按重报，k18 等它完成后再跑。'
+    prepared = '确认重试 confirm10 续跑准备：跳过 C05，只做预注册和纯 CPU 验收，不上卡、不碰账本。'
+    authority = card['authority']
+    assert card['GPU_dispatch_ready'] is True and authority['execution_authorized'] is True
+    assert authority['ledger_reservation_authorized'] is True and authority['sync_launch_authorized'] is True
+    assert authority['this_commit_dispatches'] is False and authority['preparation_was_not_gpu_authority'] is True
+    assert 'preparation_is_not_gpu_authority' not in authority
+    assert authority['user_quote'] == launch and authority['future_dispatch_quote'] == launch
+    assert authority['preparation_authority'] == prepared
+    preferred, alternate = ('GPU-cebf7119-cf03-23b9-e192-cd196332b704', 'GPU-de9a5370-cd87-0f1c-a48e-288888777dd3')
+    assert card['gpu_uuid'] == preferred and card['gpu_preference'] == [preferred, alternate]
     assert card['claims_completion'] is False and card['original_ten_input_endpoint'] == 'NOT_EVALUABLE'
     assert [slot['id'] for slot in card['matrix']] == [f'CONFIRM10_{i:03d}' for i in range(27, 52)]
     assert card['counts']['total_requests'] == 25 and card['counts']['warm'] == 0 and card['counts']['LPIPS_pairs'] == 36
@@ -171,15 +180,52 @@ def main():
     for needle in ('5475.0895', '2.0062773472222224', '1.7021057083333335', '2.1583631666666667', '2.2',
             'CONFIRM10_027', 'CONFIRM10_051', 'av_snowy_1_0', 'NOT_EVALUABLE'):
         assert needle in prereg
-    assert card['scope_sha256'] == '4a1a7ed73478e166f72d62b27b1faf8b49c09737702f19f64cf2c67aa100b100'
-    assert 'execution_authorized=true' in handoff and 'GPU-de9a5370-cd87-0f1c-a48e-288888777dd3' in handoff
-    assert 'selected_gpu' in handoff and '准备阶段' in prereg
+    assert card['scope_sha256'] in handoff and 'execution_authorized=true' in handoff
+    assert 'GPU-de9a5370-cd87-0f1c-a48e-288888777dd3' in handoff and '准备阶段' in prereg
     assert 'k18' in prereg and 'P 探针' in prereg
+    from plans.cara_next_stage_20261104.sensitivity import ops as gpu_ops
+    import inspect
+    assert gpu_ops.resolve_gpu(card, None) == preferred
+    assert gpu_ops.resolve_gpu(card, alternate) == alternate
+    assert gpu_ops.launch_gpu(card, None, preferred) == preferred
+    assert gpu_ops.launch_gpu(card, alternate, alternate) == alternate
+    assert f"gpu_uuid='{gpu_ops.GPU}'" in gpu_ops.PREFIX
+    assert 'selected_gpu(gpu_uuid)' in gpu_ops.ADMIT
+    assert 'selected_gpu(GPU)' in inspect.getsource(gpu_ops.launch_host)
+    assert 'gpu_uuid=GPU' in inspect.getsource(gpu_ops.payload)
+    for bad in ('GPU-other', '', 'GPU-11111111-1111-1111-1111-111111111111'):
+        try:
+            gpu_ops.resolve_gpu(card, bad)
+        except ValueError as error:
+            assert 'do not launch or reserve' in str(error)
+        else:
+            raise AssertionError(bad)
+    try:
+        gpu_ops.resolve_gpu({}, alternate)
+    except ValueError as error:
+        assert 'do not launch or reserve' in str(error)
+    else:
+        raise AssertionError('alternate without preference')
+    try:
+        gpu_ops.launch_gpu(card, None, alternate)
+    except ValueError as error:
+        assert 'disagree' in str(error)
+    else:
+        raise AssertionError('admit and launch drifted')
+    try:
+        gpu_ops.resolve_gpu(dict(gpu_preference=['GPU-other']), None)
+    except ValueError as error:
+        assert 'do not launch or reserve' in str(error)
+    else:
+        raise AssertionError('foreign card')
     value = dict(passed=True, requests=25, formal=25, warm=0, scientific_inputs=9, planned_LPIPS_pairs=36,
         inherited_outputs=21, inherited_pairs=16, new_pairs=20,
         request_sum_seconds=raw, forecast_GPUh=center, range_GPUh=bounds, hard_GPUh=hard,
-        scope_sha256=card['scope_sha256'], scope_changed=False,
+        scope_sha256=card['scope_sha256'], scientific_scope_unchanged=True,
         quote_execution_authorized=True, quote_GPU_dispatch_ready=True,
+        authority_execution_authorized=True, authority_ledger_reservation_authorized=True,
+        authority_sync_launch_authorized=True, this_commit_dispatches=False,
+        gpu_uuid=preferred,
         ledger_reservations=0, GPU_submissions=0,
         remote_calls=0, scientific_endpoint='NOT_RUN', original_files_unchanged=True)
     text = json.dumps(value, indent=2) + '\n'

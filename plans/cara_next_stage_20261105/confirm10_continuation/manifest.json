@@ -2,15 +2,16 @@
   "schema": "CARA_CONFIRM10_CONTINUATION_PREPARE_R1",
   "run_id": "cara-generator-v1-confirm10-continuation-r1-20261106",
   "phase": "PREREGISTERED_CPU_ACCEPTED_AWAITING_FRESH_ADMISSION",
-  "GPU_dispatch_ready": false,
+  "GPU_dispatch_ready": true,
   "authority": {
-    "execution_authorized": false,
-    "ledger_reservation_authorized": false,
-    "sync_launch_authorized": false,
+    "execution_authorized": true,
+    "ledger_reservation_authorized": true,
+    "sync_launch_authorized": true,
     "this_commit_dispatches": false,
-    "preparation_is_not_gpu_authority": true,
+    "preparation_was_not_gpu_authority": true,
     "fresh_admission_required": true,
-    "user_quote": "确认重试 confirm10 续跑准备：跳过 C05，只做预注册和纯 CPU 验收，不上卡、不碰账本。",
+    "preparation_authority": "确认重试 confirm10 续跑准备：跳过 C05，只做预注册和纯 CPU 验收，不上卡、不碰账本。",
+    "user_quote": "confirm10 跳过 C05 整组，不绕过护栏；精确重报后在空闲卡上续跑，硬限按重报，k18 等它完成后再跑。",
     "future_dispatch_quote": "confirm10 跳过 C05 整组，不绕过护栏；精确重报后在空闲卡上续跑，硬限按重报，k18 等它完成后再跑。",
     "authorization_date": "2026-11-06",
     "cumulative_budget_policy": "RUNNING_TOTAL_NO_CUMULATIVE_CAP",
@@ -18,6 +19,10 @@
   },
   "reservation_event": "CONFIRM10_CONTINUATION_WHOLE2_2_RESERVE",
   "gpu_uuid": "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+  "gpu_preference": [
+    "GPU-cebf7119-cf03-23b9-e192-cd196332b704",
+    "GPU-de9a5370-cd87-0f1c-a48e-288888777dd3"
+  ],
   "inputs": [
     {
       "inference_type": "text2world",
@@ -2916,5 +2921,5 @@
       "reason": "The supplied 5465.0538/1.919259795/2.1 triple is not the preregistered formula on the unchanged per-request prices. The 30-request quote still includes C05. Partial measured means stay context, not a new anchor."
     }
   },
-  "scope_sha256": "4a1a7ed73478e166f72d62b27b1faf8b49c09737702f19f64cf2c67aa100b100"
+  "scope_sha256": "fbe474f85fbd775d3d0514468cde33a76d4749b8672abbb8b45ac6445c77153d"
 }

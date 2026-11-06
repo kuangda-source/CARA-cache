@@ -13,9 +13,28 @@ ROOT=HERE.parents[2]
 sys.path[:0]=[str(ROOT/'src'),str(ROOT/'scripts')]
 from wcomr.immutable_stage_payload_r1 import local_python_closure
 
+A6000=('GPU-cebf7119-cf03-23b9-e192-cd196332b704','GPU-de9a5370-cd87-0f1c-a48e-288888777dd3')
+
+def resolve_gpu(config, requested):
+    preference=config.get('gpu_preference') or [A6000[0]]
+    if any(item not in A6000 for item in preference):
+        raise ValueError('No admissible A6000; do not launch or reserve')
+    chosen=preference[0] if requested is None else requested
+    if chosen not in preference:
+        raise ValueError('No admissible A6000; do not launch or reserve')
+    return chosen
+
+def launch_gpu(config, requested, bound):
+    chosen=resolve_gpu(config, requested)
+    if chosen!=bound:
+        raise ValueError('Admit and launch disagree on the A6000; do not launch or reserve')
+    return chosen
+
 selector=argparse.ArgumentParser(add_help=False)
 selector.add_argument('--manifest',type=Path,default=HERE/'manifest.json')
-CARD=selector.parse_known_args()[0].manifest.resolve()
+selector.add_argument('--gpu-uuid',default=None)
+known=selector.parse_known_args()[0]
+CARD=known.manifest.resolve()
 CARD_REL=str(CARD.relative_to(ROOT))
 CONFIG=json.loads(CARD.read_text())
 RUN=CONFIG['run_id']
@@ -23,7 +42,7 @@ STAGE='cara-budget-calibration-GPU-'+RUN[5:]
 LIMIT=CONFIG['quote']['hard_GPUh']
 REQUESTS=len(CONFIG['matrix'])
 REL='plans/cara_next_stage_20261104/sensitivity'
-GPU='GPU-cebf7119-cf03-23b9-e192-cd196332b704'
+GPU=resolve_gpu(CONFIG, known.gpu_uuid)
 BINDING=ROOT/'.sync'/('cara-sensitivity-original-binding.json' if RUN=='cara-native-sensitivity8-confirm4-r1-20261104' else RUN+'-original-binding.json')
 
 PREFIX=f'''
@@ -315,7 +334,10 @@ def main():
     parser.add_argument('--receipt',type=Path);parser.add_argument('--input',type=Path)
     parser.add_argument('--project',type=Path);parser.add_argument('--stage',type=Path)
     parser.add_argument('--manifest',type=Path,default=CARD)
+    parser.add_argument('--gpu-uuid',default=None)
     parser.add_argument('--route',choices=('ipv4','v6','relay'),default='ipv4');args=parser.parse_args()
+    if args.action in ('reserve','dispatch','launch-host'):
+        launch_gpu(CONFIG, args.gpu_uuid, GPU)
     if CONFIG['phase']=='FORMAL_QUOTE_AWAITING_APPROVAL' and args.action in ('prepare','reserve','dispatch','launch-host'):
         raise ValueError('Pipeline quote has no GPU or reservation authority')
     if args.action=='launch-host':launch_host(args.project,args.stage);return
