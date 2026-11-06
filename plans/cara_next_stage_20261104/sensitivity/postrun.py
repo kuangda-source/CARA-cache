@@ -1,16 +1,40 @@
 """Explicit post-release score/analyze commands. Never dispatches GPU work."""
 import argparse
+import hashlib
+import inspect
 import json
-from pathlib import Path
+import pathlib
 import sys
 
-HERE=Path(__file__).resolve().parent
+HERE=pathlib.Path(__file__).resolve().parent
 ROOT=HERE.parents[2]
 sys.path[:0]=[str(ROOT/'scripts'),str(HERE)]
 from cara_f19_speed190_transport_r1 import rpc
 from ops import PREFIX,CARD
 
-SCORE=PREFIX+'''
+def inherited_score_mounts(card, root, stage):
+    mounts=[]
+    paths=[item['video_artifact']['path'] for item in card.get('native_references', {}).values()]
+    inherited=card.get('inherited_outputs')
+    if inherited:
+        output=pathlib.Path(inherited['output_root']).resolve()
+        mounts += ['-v', str(output)+':'+str(output)+':ro']
+        paths += [row['video_artifact']['path'] for row in inherited['rows']
+            if row['slot']['role']=='NATIVE35' and row['slot']['section']!='warm']
+        receipts=((inherited['settlement']['source_receipt'], card['untouched_sources'][inherited['settlement']['source_receipt']]),
+            (card['inherited_scores_receipt']['path'], card['inherited_scores_receipt']['sha256']))
+        for rel, digest in receipts:
+            src=pathlib.Path(root, rel)
+            if hashlib.sha256(src.read_bytes()).hexdigest()!=digest:
+                raise ValueError('Inherited receipt hash differs: '+rel)
+            dst=pathlib.Path(stage, rel)
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            mounts += ['-v', str(src.resolve())+':'+str(dst)+':ro']
+    for source in sorted({str(pathlib.Path(path).parent) for path in paths}):
+        mounts += ['-v', str(pathlib.Path(source).resolve())+':'+source+':ro']
+    return mounts
+
+SCORE=PREFIX+inspect.getsource(inherited_score_mounts)+'''
 sys.path[:0]=[str(stage/'src'),str(stage/'scripts')]
 from wcomr.cara_budget_lifecycle_r1 import released_lifecycle
 release=released_lifecycle(p['capture'],sha(stage/'GPU-launch.json'),p['settlement'])
@@ -36,19 +60,16 @@ cmd=['docker','run','-d','--name',name,'--network','none','--read-only','--cpus'
  '-v',str(root)+':'+str(root)+':ro','-v',str(stage)+':'+str(stage)+':rw',
  '-v',str(output)+':'+str(output)+':ro','-v',actual_output+':'+actual_output+':ro','-w',str(root/'runtime')]
 cmd += [x for k,v in env.items() for x in ('-e',k+'='+str(v))]
-card=read(card_path)
+ card=read(card_path)
 if 'postrelease_CPU_entry' in card:
  binding=read(stage/'reports/cara_CAL66_quality_binding_20261025.json')
  cmd += ['-e','PYTHONPATH='+binding['dependency_overlay']+':'+config['piq_site'],
          '-e','TORCH_HOME='+config['torch_home']]
- for source in sorted({str(pathlib.Path(v['video_artifact']['path']).parent) for v in card['native_references'].values()}):
-  cmd += ['-v',str(pathlib.Path(source).resolve())+':'+source+':ro']
+cmd += inherited_score_mounts(card, root, stage)
 if 'reuse' in card:
  source=pathlib.Path(card['reuse']['output_root']).resolve();cmd += ['-v',str(source)+':'+str(source)+':ro']
 if 'carryover' in card:
  source=pathlib.Path(card['carryover']['output_root']).resolve();cmd += ['-v',str(source)+':'+str(source)+':ro']
-if 'inherited_outputs' in card:
- source=pathlib.Path(card['inherited_outputs']['output_root']).resolve();cmd += ['-v',str(source)+':'+str(source)+':ro']
 if 'postrelease_CPU_entry' in card:
  worker=[str(stage/card['postrelease_CPU_entry']),'score','--manifest',str(card_path),
   '--collection',str(output/'collection.json'),'--capture',str(control/'capture.json'),
