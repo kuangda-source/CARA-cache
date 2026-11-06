@@ -1,0 +1,30 @@
+{
+  "slot": {
+    "id": "CONFIRM10_032",
+    "member": "common_sense_f66000f7-6b6d-4bab-a889-cca8beb5b827",
+    "role": "F17_A2_LIGHT_C",
+    "section": "c",
+    "seed": 0,
+    "target_update": null,
+    "audit": false,
+    "eligible_clean_time": true
+  },
+  "refusal": {
+    "status": "VIDEO_REJECTED",
+    "solver_steps": 36,
+    "guided_pairs": 36
+  },
+  "classification": "VIDEO_GUARDRAIL_REJECTION",
+  "guardrail_log": [
+    "[11-06 04:15:18|SUCCESS|cosmos_predict2/inference.py:120:_generate_sample] Passed guardrail on prompt",
+    "[11-06 04:18:17|INFO|cosmos_predict2/inference.py:160:_generate_sample] Running guardrail check on video...",
+    "[11-06 04:18:28|SUCCESS|cosmos_predict2/inference.py:172:_generate_sample] Passed guardrail on generated video",
+    "[11-06 04:18:52|SUCCESS|cosmos_predict2/inference.py:120:_generate_sample] Passed guardrail on prompt",
+    "[11-06 04:21:33|INFO|cosmos_predict2/inference.py:160:_generate_sample] Running guardrail check on video...",
+    "[11-06 04:21:42|CRITICAL|cosmos_predict2/inference.py:166:_generate_sample] Guardrail blocked video2world generation.",
+    "ValueError: Rejected/incomplete request; retain denominator, no replacement"
+  ],
+  "trigger_category": "NOT_LOGGED_NOT_INFERRED",
+  "OOMKilled": false,
+  "container_exit_code": 1
+}
