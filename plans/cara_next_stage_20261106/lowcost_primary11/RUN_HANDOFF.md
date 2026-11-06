@@ -12,3 +12,11 @@ Use a new immutable stage and local committed source, never resume either settle
 
 ## Current execution state
 Prepared locally, no GPU reservation/dispatch yet. Fixedscope fe45b4538fe2b82f883ae1037e2a4716e27c5ffc19999142ab18d6c93b3fe0e9. Use original sensitivity ops with this manifest; only one admit/reserve/dispatch. Do not create routines or continuous polling.
+
+## Unique actual GPU launch
+
+Started 2026-11-06T13:39:37.250617+08:00; launch `768173c33206424a8b13a8bca3bae324`; source `29d2efe17b5d27d082d0c84bfa85e579e69e3fc3`; scope `fe45b4538fe2b82f883ae1037e2a4716e27c5ffc19999142ab18d6c93b3fe0e9`; selected `GPU-cebf7119-cf03-23b9-e192-cd196332b704`. Central reservationseq109 is1.3GPUh exactly once. Currentused233.0136058102971/reserved17.8 includesunchangedold16.5. Initialadmission-expiry attempt failedbeforeanyreservation; verifiedjobabsent, thenfreshR3 succeeded. Never reserve/dispatchagain. Estimated finish 2026-11-06T14:47:34.955636+08:00; stopnew 2026-11-06T14:47:37.250617+08:00; hardstop 2026-11-06T14:57:37.250617+08:00.
+
+Startup witness: container Running=true/OOMKilled=false; originalguardian1572013 andrunner1572144. Atthatoneobservationthemodelwasloadingandcollectionwasnotyetpublished. Preserveall originalhandles from reports/cara_primary11_r1_20261106/runtime_handoff.json. GPUsourceimmutable29d2efe1; postrun_local.py is a separate released-CPU operator.
+
+Afterterminal: ops.py capture→unique settle withlaunchSHA→mirror samecentral settlement back tostage→postrun_local.py score→status→analyze. Alluse--manifest plans/cara_next_stage_20261106/lowcost_primary11/manifest.json --route relay. Do not useoldcomplete-nine-input scorer. Fixedqueue27 primary statuses; originalC07/F17refusalremains; atmost7newAlexpairs, old10primaryscoresunchanged. Onlyconditionalcommonacceptedqualitymaybereported; originals9/10fullLPIPSremainNOT_EVALUABLE. Resourcefailuresstopwithoutreplay. No k18/P/ORR/publicpush/PRapproval.
